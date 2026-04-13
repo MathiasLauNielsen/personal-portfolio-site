@@ -15,6 +15,10 @@ Personlig portfolio-site for en data-konsulent, der tilbyder ydelser inden for D
 | Lucide React | ^0.460.0 | Ikoner |
 | Vercel | — | Deployment |
 
+## Tilgængelige værktøjer
+
+- **GitHub CLI** (`gh`) — installeret og tilgængeligt i terminalen
+
 ## Filstruktur
 
 ```
