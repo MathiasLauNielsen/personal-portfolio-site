@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { Eye, EyeOff, Save, Trash2 } from 'lucide-react'
+import { Eye, EyeOff, Save, Trash2, Upload } from 'lucide-react'
 import type { BlogPost } from '@/types'
 
 const KATEGORIER = [
@@ -29,6 +29,7 @@ function generateSlug(titel: string) {
 export default function BlogForm({ post }: { post?: BlogPost }) {
   const isEdit = !!post?.id
   const router = useRouter()
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const [titel, setTitel] = useState(post?.titel ?? '')
   const [slug, setSlug] = useState(post?.slug ?? '')
@@ -47,6 +48,20 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
     if (!isEdit || !post?.slug) {
       setSlug(generateSlug(value))
     }
+  }
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      const content = ev.target?.result as string
+      setIndhold(content)
+      setTab('skriv')
+    }
+    reader.readAsText(file)
+    // Reset so same file can be re-selected
+    e.target.value = ''
   }
 
   const handleSave = async () => {
@@ -158,7 +173,24 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
                 Indhold <span className="text-red-500">*</span>
                 <span className="ml-1 text-slate-400 font-normal">(Markdown understøttet)</span>
               </label>
-              <div className="flex rounded-lg overflow-hidden border border-slate-200 text-xs">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+                  title="Upload en .md fil"
+                >
+                  <Upload size={12} />
+                  Upload .md
+                </button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".md,.markdown,text/markdown,text/plain"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+                <div className="flex rounded-lg overflow-hidden border border-slate-200 text-xs">
                 <button
                   onClick={() => setTab('skriv')}
                   className={`px-3 py-1.5 font-medium transition-colors ${
@@ -179,6 +211,7 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
                 >
                   Preview
                 </button>
+              </div>
               </div>
             </div>
             {tab === 'skriv' ? (
