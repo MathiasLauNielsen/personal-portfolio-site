@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
 import CaseCard from '@/components/CaseCard'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Cases',
@@ -10,7 +10,20 @@ export const metadata: Metadata = {
     'Se eksempler på projekter inden for Data Engineering, Data Science, Analytics & BI og AI/ML — leveret til kunder på tværs af brancher.',
 }
 
-const cases = [
+const featuredCase = {
+  industry: 'Media & Rettigheder',
+  title: 'Data platform til rettighedsforvaltning og royaltyberegning',
+  challenge:
+    'Copyright Agent håndterer rettigheder og royalties for tusindvis af rettighedshavere på tværs af platforme. Manuelle processer og spredte datakilder gjorde det svært at sikre korrekte og rettidige udbetalinger.',
+  solution:
+    'Designede og implementerede en samlet dataplatform der automatisk henter brugsdata fra streaming- og distributionsplatforme, transformerer det via dbt og beregner royalties til den månedlige udbetaling.',
+  result:
+    'Reducerede behandlingstid for månedlig royaltyberegning med 80 % og eliminerede manuelle fejl i udbetalingsprocessen. Rettighedshavere har nu realtids-adgang til egne data via selvbetjeningsportal.',
+  metric: '−80% behandlingstid',
+  technologies: ['Python', 'dbt', 'PostgreSQL', 'Airflow', 'Power BI', 'FastAPI'],
+}
+
+const previousCases = [
   {
     industry: 'Retail',
     title: 'Realtids lagerstyring med predictive analytics',
@@ -71,18 +84,6 @@ const cases = [
     metric: '+28% ROAS',
     technologies: ['dbt', 'Snowflake', 'Fivetran', 'Python', 'Tableau'],
   },
-  {
-    industry: 'Produktion',
-    title: 'Predictive maintenance med IoT-data',
-    challenge:
-      'En produktionsvirksomhed oplevede uplanlagte nedbrud på kritisk produktionsudstyr og ønskede at skifte fra kalenderbaseret til behovsbaseret vedligeholdelse.',
-    solution:
-      'Byggede en streaming-pipeline fra IoT-sensorer via Kafka til et anomalidetektionssystem der advarer operatørerne op til 48 timer før forventet svigt.',
-    result:
-      'Reducerede uplanlagte nedbrud med 61 % og serviceomkostninger med ca. 2 mio. kr. på årsbasis.',
-    metric: '−61% nedbrud',
-    technologies: ['Kafka', 'Spark', 'Python', 'InfluxDB', 'Grafana', 'AWS'],
-  },
 ]
 
 export default function Cases() {
@@ -90,27 +91,106 @@ export default function Cases() {
     <>
       <Hero
         title="Cases"
-        subtitle="Udvalgte projekter på tværs af brancher — fra datainfrastruktur og machine learning til AI-automatisering og BI-løsninger."
+        subtitle="Dokumenterede resultater fra dataprojekter på tværs af brancher — fra datainfrastruktur og machine learning til AI-automatisering og BI-løsninger."
         cta1={{ label: 'Kontakt mig', href: '/kontakt' }}
         cta2={{ label: 'Se ydelser', href: '/services' }}
       />
 
-      {/* Cases grid */}
+      {/* Featured current client */}
       <section className="py-20 sm:py-24 bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-block rounded-full bg-cyan-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-700 mb-4">
+              Nuværende samarbejde
+            </span>
+            <h2 className="section-heading">Copyright Agent</h2>
+            <p className="section-subheading">
+              Et løbende samarbejde om at modernisere og automatisere datainfrastrukturen bag
+              forvaltning af digitale rettigheder og royaltyberegning.
+            </p>
+          </div>
+
+          <div className="relative rounded-2xl border-2 border-cyan-200 bg-gradient-to-br from-cyan-50 to-blue-50 p-8 sm:p-10">
+            <div className="absolute -top-3.5 left-8">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500 px-4 py-1.5 text-xs font-bold text-white shadow-sm">
+                <Star size={11} fill="white" />
+                Aktiv kunde
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 mt-2">
+              <div className="lg:col-span-2 flex flex-col gap-5">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 mb-1 block">
+                    {featuredCase.industry}
+                  </span>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    {featuredCase.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {[
+                    { label: 'Udfordring', text: featuredCase.challenge },
+                    { label: 'Løsning', text: featuredCase.solution },
+                    { label: 'Resultat', text: featuredCase.result },
+                  ].map(({ label, text }) => (
+                    <div key={label}>
+                      <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 block mb-1">
+                        {label}
+                      </span>
+                      <p className="text-sm text-slate-700 leading-relaxed">{text}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {featuredCase.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full bg-white border border-slate-200 px-3 py-1 text-xs text-slate-600"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center justify-center">
+                <div className="rounded-2xl bg-white border border-cyan-200 shadow-sm p-8 text-center w-full">
+                  <div className="text-4xl font-black text-cyan-600 mb-1">
+                    {featuredCase.metric}
+                  </div>
+                  <div className="text-sm text-slate-500">Nøgleresultat</div>
+                  <div className="mt-4 pt-4 border-t border-slate-100">
+                    <div className="text-xs text-slate-400">Branche</div>
+                    <div className="text-sm font-semibold text-slate-700 mt-0.5">
+                      {featuredCase.industry}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Previous cases grid */}
+      <section className="py-20 sm:py-24 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-800 mb-4">
-              Projekter
+              Tidligere projekter
             </span>
-            <h2 className="section-heading">Dokumenterede resultater</h2>
+            <h2 className="section-heading">Erfaring på tværs af brancher</h2>
             <p className="section-subheading">
-              Alle cases er baseret på reelle projekter. Navne og detaljer er
-              anonymiseret af hensyn til klienters fortrolighed.
+              Projekter fra tidligere ansættelser og samarbejder. Navne og detaljer er
+              anonymiseret af hensyn til fortrolighed.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {cases.map((c) => (
+            {previousCases.map((c) => (
               <CaseCard key={c.title} {...c} />
             ))}
           </div>
@@ -139,7 +219,7 @@ export default function Cases() {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="section-heading">Skal dit projekt være det næste?</h2>
           <p className="section-subheading max-w-xl mx-auto">

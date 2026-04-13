@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Om mig', href: '/om-mig' },
   { label: 'Ydelser', href: '/services' },
   { label: 'Cases', href: '/cases' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '/kontakt' },
 ]
 

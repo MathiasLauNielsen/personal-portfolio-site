@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Om mig', href: '/om-mig' },
   { label: 'Ydelser', href: '/services' },
   { label: 'Cases', href: '/cases' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '/kontakt' },
 ]
 
@@ -118,9 +119,17 @@ export default function Footer() {
           <p className="text-xs text-slate-500">
             &copy; {currentYear} Mathias Nielsen. Alle rettigheder forbeholdes.
           </p>
-          <p className="text-xs text-slate-500">
-            Bygget med Next.js &amp; Tailwind CSS
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privatlivspolitik"
+              className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
+            >
+              Privatlivspolitik
+            </Link>
+            <p className="text-xs text-slate-500">
+              Bygget med Next.js &amp; Tailwind CSS
+            </p>
+          </div>
         </div>
       </div>
     </footer>
