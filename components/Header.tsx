@@ -1,110 +1,107 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
-import { Menu, X, Database } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import clsx from 'clsx'
+import { getCopy, routes, switchLocalePath, type Locale } from '@/content'
 
-const navLinks = [
-  { label: 'Forside', href: '/' },
-  { label: 'Om mig', href: '/om-mig' },
-  { label: 'Ydelser', href: '/services' },
-  { label: 'Cases', href: '/cases' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Kontakt', href: '/kontakt' },
-]
+export default function Header({ locale }: { locale: Locale }) {
+  const pathname = usePathname() ?? '/'
+  const t = getCopy(locale).nav
+  const r = routes[locale]
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const other = switchLocalePath(pathname)
 
-export default function Header() {
-  const pathname = usePathname()
-  const [mobileOpen, setMobileOpen] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => setOpen(false), [pathname])
+
+  const links = [
+    { href: r.cases, label: t.cases },
+    { href: r.services, label: t.services },
+    { href: r.about, label: t.about },
+    { href: r.contact, label: t.contact },
+  ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group"
-            onClick={() => setMobileOpen(false)}
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-800 text-white transition-colors group-hover:bg-blue-700">
-              <Database size={18} />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-sm font-bold text-slate-900 tracking-tight">
-                Mathias Nielsen
-              </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Data Konsulent
-              </span>
-            </div>
-          </Link>
+    <header
+      className={clsx(
+        'sticky top-0 z-40 bg-ink text-paper transition-shadow',
+        scrolled && 'shadow-[0_1px_0_0_#232B36]'
+      )}
+    >
+      <div className="container-page flex h-16 items-center justify-between">
+        <Link href={r.home} className="flex items-center gap-3" aria-label="MLN Data Consulting">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-lime font-mono text-[11px] font-medium tracking-tight text-ink">
+            MLN
+          </span>
+          <span className="hidden text-sm font-medium sm:block">Mathias Lau Nielsen</span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={clsx(
-                  'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150',
-                  pathname === link.href
-                    ? 'bg-blue-50 text-blue-800'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+          {links.map((l) => (
             <Link
-              href="/kontakt"
-              className="ml-3 btn-primary text-xs px-4 py-2"
+              key={l.href}
+              href={l.href}
+              className={clsx(
+                'text-sm transition-colors hover:text-paper',
+                pathname === l.href ? 'text-paper' : 'text-muted-dark'
+              )}
             >
-              Kom i kontakt
+              {l.label}
             </Link>
-          </nav>
+          ))}
+        </nav>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+        <div className="flex items-center gap-3">
+          <Link
+            href={other.href}
+            hrefLang={other.locale}
+            className="eyebrow hidden rounded-full border border-ink-line px-3 py-1.5 text-muted-dark transition-colors hover:border-paper/60 hover:text-paper sm:block"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {t.switchLabel}
+          </Link>
+          <Link href={r.contact} className="btn-lime hidden !px-5 !py-2.5 md:inline-flex">
+            {t.cta}
+          </Link>
+          <button
+            type="button"
+            className="-mr-2 p-2 md:hidden"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white">
-          <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={clsx(
-                  'px-4 py-3 rounded-lg text-sm font-medium transition-colors',
-                  pathname === link.href
-                    ? 'bg-blue-50 text-blue-800'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
-                )}
-              >
-                {link.label}
+      {open && (
+        <nav className="border-t border-ink-line md:hidden" aria-label="Mobile">
+          <div className="container-page flex flex-col py-4">
+            {links.map((l) => (
+              <Link key={l.href} href={l.href} className="py-3 text-lg">
+                {l.label}
               </Link>
             ))}
-            <Link
-              href="/kontakt"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 btn-primary justify-center"
-            >
-              Kom i kontakt
-            </Link>
-          </nav>
-        </div>
+            <div className="mt-4 flex items-center gap-3">
+              <Link href={r.contact} className="btn-lime flex-1">
+                {t.cta}
+              </Link>
+              <Link href={other.href} hrefLang={other.locale} className="btn-ghost-dark">
+                {t.switchLabel}
+              </Link>
+            </div>
+          </div>
+        </nav>
       )}
     </header>
   )

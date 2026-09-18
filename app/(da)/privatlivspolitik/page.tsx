@@ -9,25 +9,25 @@ export const metadata: Metadata = {
 
 export default function Privatlivspolitik() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-paper-card min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink transition-colors mb-8"
         >
           <ArrowLeft size={14} />
           Tilbage til forsiden
         </Link>
 
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Privatlivspolitik</h1>
-        <p className="text-sm text-slate-400 mb-10">Sidst opdateret: april 2026</p>
+        <h1 className="text-3xl font-bold text-ink mb-2">Privatlivspolitik</h1>
+        <p className="text-sm text-muted mb-10">Sidst opdateret: april 2026</p>
 
-        <div className="prose prose-slate max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-p:text-slate-700 prose-p:leading-relaxed prose-li:text-slate-700">
+        <div className="prose prose-neutral max-w-none prose-headings:font-bold prose-headings:text-ink prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-p:text-ink prose-p:leading-relaxed prose-li:text-ink">
 
           <h2>1. Dataansvarlig</h2>
           <p>
             Mathias Nielsen er dataansvarlig for de personoplysninger, der indsamles via denne hjemmeside.
-            Kontakt: <a href="mailto:mathias@example.com" className="text-blue-700">mathias@example.com</a>
+            Kontakt: <a href="mailto:mathias@example.com" className="text-ink">mathias@example.com</a>
           </p>
 
           <h2>2. Hvilke data indsamler vi?</h2>
@@ -66,7 +66,7 @@ export default function Privatlivspolitik() {
 
           <h2>7. Kontakt</h2>
           <p>
-            Spørgsmål til denne politik: <a href="mailto:mathias@example.com" className="text-blue-700">mathias@example.com</a>
+            Spørgsmål til denne politik: <a href="mailto:mathias@example.com" className="text-ink">mathias@example.com</a>
           </p>
         </div>
       </div>

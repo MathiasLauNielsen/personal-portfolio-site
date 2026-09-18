@@ -1,126 +1,34 @@
-# Mathias Nielsen — Personal Portfolio Site
+# CLAUDE.md
 
-## Projektbeskrivelse
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Personlig portfolio-site for en data-konsulent, der tilbyder ydelser inden for Data Engineering, Data Science, Analytics & BI samt AI/ML. Siden er på dansk og er bygget til at præsentere kompetencer, cases og gøre det nemt for potentielle kunder at komme i kontakt.
+## What this is
 
-## Tech Stack
+The website for Mathias Lau Nielsen / MLN Data Consulting (CVR 45700577): a freelance consultant positioned on **optimization with data and AI, proven in numbers**. Next.js 14 (App Router), TypeScript, Tailwind 3, Supabase, deployed on Vercel (every PR gets a preview; merging to `main` deploys production).
 
-| Teknologi | Version | Formål |
-|-----------|---------|--------|
-| Next.js | 14.2.29 | React framework (App Router) |
-| TypeScript | ^5 | Type-sikkerhed |
-| Tailwind CSS | ^3.4.15 | Styling |
-| Supabase | ^2.47.0 | Database (kontaktformular) |
-| Lucide React | ^0.460.0 | Ikoner |
-| Vercel | — | Deployment |
-
-## Tilgængelige værktøjer
-
-- **GitHub CLI** (`gh`) — installeret og tilgængeligt i terminalen
-
-## Filstruktur
-
-```
-├── app/
-│   ├── layout.tsx          # Root layout med Header og Footer
-│   ├── page.tsx            # Forside
-│   ├── globals.css         # Globale styles (Tailwind directives)
-│   ├── om-mig/page.tsx     # Om mig-side
-│   ├── services/page.tsx   # Ydelser-side
-│   ├── cases/page.tsx      # Cases/portfolio-side
-│   ├── kontakt/page.tsx    # Kontaktside
-│   └── api/
-│       └── kontakt/route.ts  # API-rute til kontaktformular
-├── components/
-│   ├── Header.tsx          # Navigationsheader (sticky, responsive)
-│   ├── Footer.tsx          # Footer med links og info
-│   ├── Hero.tsx            # Genbrugelig hero-komponent
-│   ├── ServiceCard.tsx     # Kort til ydelser
-│   ├── CaseCard.tsx        # Kort til cases
-│   └── ContactForm.tsx     # Kontaktformular (client component)
-├── lib/
-│   ├── supabase.ts         # Browser Supabase-klient
-│   └── supabase-server.ts  # Server-side Supabase-klient
-├── types/
-│   └── index.ts            # TypeScript-interfaces
-└── supabase/
-    └── migrations/
-        └── 001_create_kontakt.sql  # Database-migration
-```
-
-## Supabase Opsætning
-
-### 1. Opret Supabase-projekt
-
-Gå til [supabase.com](https://supabase.com) og opret et nyt projekt.
-
-### 2. Kør migration
-
-Kør SQL-migrationen i Supabase SQL Editor:
-
-```sql
--- Indhold fra supabase/migrations/001_create_kontakt.sql
-```
-
-Eller brug Supabase CLI:
+## Commands
 
 ```bash
-supabase db push
+npm run dev      # http://localhost:3000
+npm run build    # production build, also type-checks
 ```
 
-### 3. Miljøvariabler
+`.env.local` needs `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (`vercel env pull`). `gh`, `vercel` and `supabase` CLIs are linked to this project. There are no tests.
 
-Kopiér `.env.example` til `.env.local` og udfyld:
+## Architecture
 
-```bash
-cp .env.example .env.local
-```
+- **Three root layouts via route groups:** `app/(da)` (Danish, canonical URLs like `/om-mig`, `/kontakt`), `app/(en)/en/*` (English) and `app/(admin)/admin` (no site chrome, `noindex`). Each sets its own `<html lang>`. `app/api/kontakt` is shared.
+- **Copy lives in `content/`, not in pages.** `content/da.ts` defines the shape, `content/en.ts` must match it (`Copy` type), `content/site.ts` holds company facts, the route map for both languages and `switchLocalePath()` for the language switch. Route files are thin: they set metadata/`alternates` and render a component from `components/pages/*` with a `locale` prop. To change text, edit both language files.
+- **Honesty rule for numbers.** Every figure on the site comes from real client work and carries a `ProofStatus` (`measured` | `tested` | `pending`) rendered by `StatusBadge`. Never add a number without a source, never round up, and update the status when something goes live. No invented clients, stats or testimonials.
+- **Design system:** tokens in `tailwind.config.ts` (`ink`, `paper`, `lime`, `muted`), component classes in `app/globals.css` (`container-page`, `eyebrow`, `display`, `btn-*`). Fonts: Instrument Serif (display), Inter (body), JetBrains Mono (numbers and labels). Dark `ink` heroes, `paper` content sections, `lime` reserved for emphasis and primary actions. `Reveal` handles scroll-in animation and respects reduced motion.
+- **Blog and privacy pages are Danish only** and still use the legacy `Hero` wrapper. Blog posts come from the Supabase `blog_posts` table and are managed in `/admin/blog`.
+- **Supabase:** tables `kontakt_henvendelser` (contact form, inserted through `/api/kontakt`) and `blog_posts`. Column names are Danish. RLS currently grants access to any authenticated user, so public sign-ups must stay disabled in the Supabase project until a team allow-list exists. The live tables were created by hand; the files in `supabase/migrations` are not recorded in the remote migration history.
+- `middleware.ts` guards `/admin/*` (except `/admin/login`) with a Supabase session check.
 
-Hent `NEXT_PUBLIC_SUPABASE_URL` og `NEXT_PUBLIC_SUPABASE_ANON_KEY` fra Supabase Dashboard under Settings → API.
+## Open items
 
-### 4. Tabellen `kontakt_henvendelser`
-
-| Kolonne | Type | Beskrivelse |
-|---------|------|-------------|
-| `id` | UUID | Primærnøgle (auto-genereret) |
-| `navn` | TEXT | Kontaktpersonens navn |
-| `email` | TEXT | E-mailadresse |
-| `virksomhed` | TEXT | Virksomhedsnavn (valgfrit) |
-| `telefon` | TEXT | Telefonnummer (valgfrit) |
-| `besked` | TEXT | Beskeden |
-| `laest` | BOOLEAN | Om henvendelsen er læst |
-| `oprettet_at` | TIMESTAMPTZ | Tidsstempel for oprettelse |
-
-## Deployment til Vercel
-
-1. Push kode til GitHub
-2. Importér projekt i [vercel.com](https://vercel.com)
-3. Tilføj miljøvariabler i Vercel:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. Deploy
-
-## Konventioner
-
-- **Sprog**: Al tekst på siden er på dansk
-- **Routing**: Next.js App Router med danske URL-stier (`/om-mig`, `/services`, `/cases`, `/kontakt`)
-- **Styling**: Udelukkende Tailwind CSS-klasser (ingen custom CSS-filer udover globals.css)
-- **Farver**: 
-  - Brand primary: `blue-800` (#1E40AF)
-  - Brand accent: `cyan-500` (#06B6D4)
-  - Baggrund: `slate-50` (#F8FAFC)
-  - Tekst: `slate-900` (#0F172A)
-- **Komponenter**: Alle genbrugelige UI-elementer i `/components`
-- **Server vs. Client**: Brug `"use client"` kun hvor nødvendigt (f.eks. formularer med state)
-
-## Lokalt udviklingsmiljø
-
-```bash
-npm install
-cp .env.example .env.local
-# Udfyld .env.local med Supabase-nøgler
-npm run dev
-```
-
-Åbn [http://localhost:3000](http://localhost:3000).
+- Portrait photo: replace the monogram block in `components/pages/AboutPage.tsx`.
+- Real domain: set `NEXT_PUBLIC_SITE_URL`; it feeds `metadataBase` and canonicals.
+- Timeline dates for Ase and Copyright Agent in `content/*.ts` are blank on purpose until confirmed.
+- Cookie banner is Danish only.
+- The earlier management-dashboard prototype (CRM, pipeline, finance) lives on the local branch `prototype/management-app` and is meant to be ported into `/admin`.
