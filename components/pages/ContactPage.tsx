@@ -18,7 +18,7 @@ export default function ContactPage({ locale }: { locale: Locale }) {
 
       <section className="py-20 sm:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-[1.4fr_1fr]">
-          <div className="rounded-3xl border border-paper-line bg-paper-card p-7 sm:p-10">
+          <div className="rounded-2xl border border-paper-line bg-paper-card p-7 sm:p-10">
             <ContactForm locale={locale} />
           </div>
 
@@ -45,7 +45,7 @@ export default function ContactPage({ locale }: { locale: Locale }) {
                       rel={external ? 'noopener noreferrer' : undefined}
                       className="group inline-flex items-center gap-3 text-lg font-medium"
                     >
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-paper transition-colors group-hover:bg-lime group-hover:text-ink">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-ink text-white transition-colors group-hover:bg-accent">
                         <Icon size={16} aria-hidden />
                       </span>
                       <span className="link-underline">{label}</span>

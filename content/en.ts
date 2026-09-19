@@ -1,283 +1,211 @@
 // English copy (the default language). da.ts mirrors this shape exactly (typed as Copy).
-// Rule: every number comes from real client work and carries an honest status.
-// No invented clients, figures or titles. When in doubt, leave it out.
-
-export type ProofStatus = 'measured' | 'tested' | 'pending'
+//
+// The reader is a company that does not know Mathias or his clients, and wants to buy
+// one of two things: data platform expertise or AI coding expertise. Client names only
+// appear as supporting experience. Every number is from real work; none are invented.
 
 export const en = {
   nav: {
-    cases: 'Results',
-    services: 'Services',
+    data: 'Data platform',
+    ai: 'AI coding',
     about: 'About',
     contact: 'Contact',
     cta: 'Get in touch',
     switchLabel: 'Dansk',
   },
 
-  statusLabels: {
-    measured: 'Measured in production',
-    tested: 'Tested on historical data',
-    pending: 'Pending release',
-  } as Record<ProofStatus, string>,
-
   home: {
     meta: {
-      title: 'Mathias Lau Nielsen | Freelance data and AI consultant',
+      title: 'Mathias Lau Nielsen | Data platform and AI coding expertise',
       description:
-        'Senior data engineer for mid-sized companies: reporting you can rely on, data systems that cost less to run, and AI where it earns its keep.',
+        'Freelance senior data engineer. I build and fix data platforms, and I set up AI-assisted software development so teams ship more with it.',
     },
     hero: {
-      eyebrow: 'Freelance data & AI consultant · Copenhagen',
-      titleA: 'Reporting you can rely on.',
-      titleB: 'Systems that cost less to run.',
-      lead: 'I’m Mathias, a senior data engineer. I help mid-sized companies get numbers they trust, cut what their data systems cost, and put AI to work where it earns its keep.',
+      eyebrow: 'Freelance senior data engineer · Copenhagen',
+      title: 'Data platforms that hold up.',
+      title2: 'AI coding that actually ships.',
+      lead: 'I’m Mathias. Companies bring me in for one of two things: to build or fix their data platform, or to get real output from AI-assisted development. Often both.',
       ctaPrimary: 'Get in touch',
-      ctaSecondary: 'See results',
-      chart: {
-        kicker: 'Client result · Copyright Agent',
-        title: 'Share of cases found using 25% of the scans',
-        before: 'Previous selection',
-        after: 'New value-based ranking',
-        beforeValue: 25,
-        afterValue: 72,
-        percent: '%',
-        footnote: 'An automated system deciding which of 60+ million images to scan. Tested on two months of historical data.',
+      ctaSecondary: 'About me',
+      visual: {
+        platformLabel: 'Data platform',
+        flow: ['Sources', 'Pipelines', 'Warehouse', 'Reports'],
+        aiLabel: 'AI coding',
+        terminal: [
+          { kind: 'cmd', text: 'agent "add incremental load for orders"' },
+          { kind: 'ok', text: 'read team conventions' },
+          { kind: 'ok', text: 'wrote pipeline and tests' },
+          { kind: 'ok', text: 'opened pull request for review' },
+        ],
       },
     },
-    areas: {
-      eyebrow: 'What I help with',
-      title: 'Three problems I’m usually hired for.',
+    offers: {
+      eyebrow: 'Two things I’m hired for',
       items: [
         {
-          key: 'reporting',
-          title: 'Reporting, and the foundation under it',
-          body: 'Numbers that differ between reports, month-end figures nobody fully trusts, dashboards no one opens. The fix is rarely another dashboard. I sort out the data underneath and agree with management what should be measured, then build reporting on top of that.',
-        },
-        {
-          key: 'cost',
-          title: 'Cost and performance',
-          body: 'Cloud bills that grow faster than the business, nightly jobs that take hours, queries that time out. I find what is driving the cost and fix it, usually without replacing the platform.',
+          key: 'data',
+          name: 'Data platform expertise',
+          body: 'Pipelines, warehouse, data models and reporting: designed, built, or untangled. For companies whose data has outgrown its setup, or never had a proper one.',
+          points: ['New platforms built from scratch', 'Slow, costly or fragile platforms fixed', 'A senior engineer embedded in your team'],
+          cta: 'Data platform work',
         },
         {
           key: 'ai',
-          title: 'AI and automation',
-          body: 'Setting up AI so a team actually gets more done with it, and building automated systems that make routine decisions better than the manual process did. With a measurement of whether it worked.',
+          name: 'AI coding expertise',
+          body: 'AI coding agents set up properly in your codebase, with the conventions, guardrails and connections that turn a demo into daily output, and a team that knows how to use them.',
+          points: ['Agent setup in your repositories', 'Guardrails, permissions and review flow', 'Hands-on training for your developers'],
+          cta: 'AI coding work',
         },
-      ],
-      more: 'More about how I work',
-    },
-    generalist: {
-      eyebrow: 'Why one person',
-      title: 'Most data problems don’t stay in one box.',
-      body: [
-        'The report is wrong because the pipeline is fragile, because the source system changed, because nobody owns the definition. Split that across three specialists and each one fixes their part while the problem stays.',
-        'I work across the whole chain: source systems, pipelines, warehouse, models and the report on the CEO’s desk. You get one senior person who is accountable for the result, and who can explain it to both the developers and the board.',
       ],
     },
     proof: {
       eyebrow: 'Results',
-      title: 'From recent client work.',
-      lead: 'All from one engagement. Each figure says whether it is measured in production or tested on historical data.',
+      title: 'What that looks like in numbers.',
+      lead: 'From recent client work on a platform handling more than 60 million records.',
       items: [
         {
-          value: '72%',
-          label: 'of cases found using 25% of the scans',
-          detail: 'The previous selection found 25%, no better than picking at random.',
-          status: 'tested' as ProofStatus,
-        },
-        {
-          value: '2–4.5×',
-          label: 'duplicate work, traced to one fault',
-          detail: 'A system was repeating its own work several times a day. Nobody had noticed because nothing looked broken.',
-          status: 'measured' as ProofStatus,
+          value: '72% from 25%',
+          label: 'A ranking model found 72% of the valuable cases using a quarter of the processing budget. The old selection found 25%.',
+          note: 'Tested on two months of historical data',
         },
         {
           value: '−98.5%',
-          label: 'rows rewritten by a nightly job',
-          detail: 'It rewrote 46 million rows to change 683,000. Now it only touches what changes.',
-          status: 'measured' as ProofStatus,
+          label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
+          note: 'Measured in production',
+        },
+        {
+          value: '2–4.5×',
+          label: 'Duplicate workload traced to a single fault that had gone unnoticed because nothing looked broken.',
+          note: 'Measured in production',
         },
       ],
-      cta: 'Read the case',
+    },
+    why: {
+      eyebrow: 'Why me',
+      title: 'Both halves of the job.',
+      items: [
+        { title: 'I build it myself', body: 'Senior hands-on engineer, not a slide deck. From database internals to the report on the CEO’s desk.' },
+        { title: 'I measure before and after', body: 'A baseline first, so the effect of the work can be shown rather than claimed.' },
+        { title: 'I can explain it', body: 'To developers in their terms and to management in theirs. I have been a manager myself.' },
+        { title: 'I build to hand over', body: 'Conventional, documented, and owned by your team when I leave.' },
+      ],
+    },
+    experience: {
+      label: 'Experience from',
+      items: ['Ase', 'Copyright Agent', 'Viteco', 'University of Copenhagen (BSc Computer Science)'],
     },
     testimonial: {
       quote:
         'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times.',
       name: 'Hannah Louise L.',
-      role: 'Former colleague at Copyright Agent · LinkedIn recommendation',
-    },
-    about: {
-      eyebrow: 'About',
-      title: 'Senior data engineer, working freelance.',
-      body: 'Computer science degree from the University of Copenhagen. I have worked with data at Viteco, Copyright Agent and Ase, and run my own company, MLN Data Consulting. I prefer long engagements where I get to know the business, because that is where the results come from.',
-      cta: 'More about me',
+      role: 'Former colleague · LinkedIn recommendation',
     },
     cta: {
-      title: 'Got a data problem that keeps coming back?',
-      body: 'Tell me about it. If I can help, I’ll say how. If I can’t, I’ll say that too.',
+      title: 'Tell me what you need built or fixed.',
+      body: 'A few lines is enough. If I’m the right person, I’ll say how I’d approach it. If not, I’ll say that.',
       primary: 'Get in touch',
       secondary: 'Email me',
     },
   },
 
-  services: {
+  data: {
     meta: {
-      title: 'Services',
+      title: 'Data platform expertise',
       description:
-        'Reporting and data foundations, cost and performance work, and AI setups. Mostly as long-term engagements for mid-sized companies.',
+        'Data platform design, build and repair: pipelines, warehouse, data models, reporting, cost and performance. Freelance senior data engineer.',
     },
     hero: {
-      eyebrow: 'Services',
-      title: 'What I do, and how we would work together.',
-      lead: 'I’m a generalist by choice. These are the three kinds of work I’m usually brought in for, and they often overlap.',
+      eyebrow: 'Data platform expertise',
+      title: 'A data platform people trust, at a cost that makes sense.',
+      lead: 'I design and build data platforms, and I fix the ones that have become slow, expensive or unreliable.',
     },
-    items: [
-      {
-        key: 'reporting',
-        name: 'Reporting and data foundation',
-        tagline: 'Numbers management can run the company on.',
-        body: 'I start with what management needs to decide, work back to what has to be measured, and then to the data that has to be reliable for that to work. Then I build it: pipelines, a warehouse or model layer, and reports on top.',
-        deliverables: [
-          'A reporting strategy: what is measured, how it is defined, who owns it',
-          'Pipelines and data models that make the numbers consistent',
-          'Reports and dashboards that people use',
-        ],
-        fit: 'Typical starting point: “our numbers don’t match” or “we don’t know what to measure”.',
-      },
-      {
-        key: 'cost',
-        name: 'Cost and performance',
-        tagline: 'Find what drives the bill, and fix it.',
-        body: 'I measure where the money and the time go in your cloud and data systems, find the jobs and queries that do far more work than they need to, and fix them. Most savings come from a handful of places.',
-        deliverables: [
-          'A breakdown of what your data systems cost, and why',
-          'Fixes to the expensive and slow parts',
-          'Before and after figures',
-        ],
-        fit: 'Typical starting point: a cloud bill nobody can explain, or jobs that no longer finish overnight.',
-      },
-      {
-        key: 'ai',
-        name: 'AI and automation',
-        tagline: 'AI where it earns its keep.',
-        body: 'Two kinds of work. Setting up AI tooling so a development or data team gets more done, with the guardrails and conventions that make it safe. And building automated systems, often with machine learning, that take over routine decisions and make them better.',
-        deliverables: [
-          'A working AI setup for your team, including rules and conventions',
-          'Automated decision systems, integrated with what you already run',
-          'A measurement of the effect',
-        ],
-        fit: 'Typical starting point: “we should be using AI, but we’re not sure where”.',
-      },
+    signsTitle: 'When companies call me',
+    signs: [
+      'Numbers differ depending on which report you open.',
+      'The cloud bill grows faster than the business.',
+      'Nightly jobs no longer finish overnight.',
+      'Everything depends on one person and a set of scripts.',
+      'There is data everywhere, and no agreed way to measure anything.',
     ],
-    deliverablesLabel: 'What you get',
-    engagement: {
-      title: 'Ways of working',
-      body: 'I prefer long-term engagements, part-time or full-time, where I become part of the team. I also take scoped projects. I work in English and Danish, remotely or on-site in Copenhagen. Rates are agreed per engagement.',
-      ethics: 'I don’t take work in weapons, explosives or fossil fuel extraction.',
-    },
-    tech: {
-      title: 'Tools I work with',
-      items: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud', 'Azure', 'Machine learning', 'LLMs and AI agents'],
-    },
+    whatTitle: 'What I do',
+    what: [
+      { title: 'Architecture and build', body: 'Ingestion, pipelines, warehouse and data models, set up so the platform can grow without being rebuilt.' },
+      { title: 'Cost and performance', body: 'I find the queries and jobs that do far more work than needed and fix them. Most of the waste usually sits in a handful of places.' },
+      { title: 'Reporting foundation', body: 'Agreed definitions, consistent numbers and a reporting layer management can run the company on.' },
+      { title: 'Reliability', body: 'Tests, monitoring and data quality checks, so problems are found by the platform and not by the CFO.' },
+    ],
+    engagementsTitle: 'How we can work',
+    engagements: [
+      { title: 'Review', body: 'A short assessment of your platform: what it costs, where it is fragile, what to fix first.' },
+      { title: 'Project', body: 'A defined build or fix with an agreed outcome.' },
+      { title: 'Embedded', body: 'I join your team part-time or full-time for a longer period. This is what I prefer, and where the best results come from.' },
+    ],
+    stackTitle: 'Technology',
+    stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Azure', 'PostgreSQL', 'Data modelling', 'Orchestration', 'BI and reporting'],
+    note: '',
+    otherOffer: { label: 'Also', text: 'AI coding expertise' },
   },
 
-  cases: {
+  ai: {
     meta: {
-      title: 'Results',
+      title: 'AI coding expertise',
       description:
-        'How a value-based ranking at Copyright Agent found 72% of the cases with 25% of the scans.',
+        'AI coding agents set up properly in your codebase: conventions, guardrails, connections to your systems and a trained team. Freelance senior engineer.',
     },
     hero: {
-      eyebrow: 'Results',
-      title: 'One case, with the numbers.',
-      lead: 'The engagement I can describe in most detail.',
+      eyebrow: 'AI coding expertise',
+      title: 'From “we tried Copilot” to AI that ships real work.',
+      lead: 'Most teams have the tools and little to show for it. The difference is in the setup, and that is what I do.',
     },
-    featured: {
-      client: 'Copyright Agent',
-      industry: 'Copyright enforcement · SaaS',
-      period: '2026 · ongoing',
-      title: 'Deciding which of 60 million images to scan',
-      sections: [
-        {
-          heading: 'The situation',
-          body: 'Copyright Agent finds unlicensed use of its partners’ images online. It holds more than 60 million images and scans about 13 million a month. Which images are scanned decides how many cases partners receive, and so the revenue. Selection ran on schedules maintained by hand.',
-          bullets: [] as string[],
-        },
-        {
-          heading: 'What I found',
-          body: 'I mapped and measured the existing flow before changing anything.',
-          bullets: [
-            'A fault made the system repeat its selection 2–4.5 times a day, pushing scan volume 16% over budget.',
-            '72% of scans went to images with no violation in the past year. The selection order was no better than random.',
-            'Partner targets played no part in the selection, so some partners were under-supplied while others were scanned without need.',
-          ],
-        },
-        {
-          heading: 'What I built',
-          body: 'First the foundations: stop the duplicate scans and make selection fast. Then a model that ranks every image by expected value, a daily scan plan that spends the budget by that ranking while keeping priority partners supplied, and a daily report showing which partners are behind and why.',
-          bullets: [] as string[],
-        },
-      ],
-      resultsHeading: 'Results so far',
-      results: [
-        {
-          value: '72% with 25%',
-          label: 'The ranking finds 72% of the cases partners received using 25% of the scans. The previous order found 25%.',
-          status: 'tested' as ProofStatus,
-        },
-        {
-          value: '80–106%',
-          label: 'In a 21-day simulation, priority partners reach 80–106% of their monthly target, against 30–90% today, on the same scan budget.',
-          status: 'tested' as ProofStatus,
-        },
-        {
-          value: '−98.5%',
-          label: 'A nightly job no longer rewrites 46 million rows to change 683,000, and selection uses a fast lookup instead of reading a 16 GB table.',
-          status: 'measured' as ProofStatus,
-        },
-        {
-          value: '≈5M/month',
-          label: 'The duplicate-scan fix brings volume back within budget and frees about 5 million scans a month.',
-          status: 'pending' as ProofStatus,
-        },
-      ],
-      note: 'The direct saving on scans is modest. The value is in more cases for the same spend.',
-      tech: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud'],
-    },
-    testimonialHeading: 'From a colleague',
-    testimonialFull:
-      'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times. I have seen Mathias excel with all levels of seniority at Copyright Agent, showing immense capabilities with project management, leadership consultation, and data analysis.',
+    signsTitle: 'When companies call me',
+    signs: [
+      'Developers have AI tools, but output has not really changed.',
+      'The agent writes code that ignores how your codebase works.',
+      'Nobody is sure what the agent is allowed to touch.',
+      'Results vary wildly from one developer to the next.',
+      'Management wants to know whether it is paying off.',
+    ],
+    whatTitle: 'What I do',
+    what: [
+      { title: 'Setup in your repositories', body: 'Project instructions and conventions the agent reads every time, so it writes code the way your team does.' },
+      { title: 'Guardrails', body: 'Permissions, review flow and rules for what an agent may do on its own, and what needs a human.' },
+      { title: 'Connections to your systems', body: 'Secure access to the things real work depends on: databases, issue trackers, documentation, deployment.' },
+      { title: 'Training', body: 'Hands-on sessions with your developers on real tasks from your backlog, until it is part of how they work.' },
+    ],
+    engagementsTitle: 'How we can work',
+    engagements: [
+      { title: 'Setup', body: 'I configure agentic coding in one team or codebase and hand over a working way of doing things.' },
+      { title: 'Rollout', body: 'The same across several teams, with shared conventions and measurement of the effect.' },
+      { title: 'Delivery', body: 'I build your project myself using this setup, and leave both the result and the setup behind.' },
+    ],
+    stackTitle: 'Technology',
+    stack: ['Claude Code', 'AI coding agents', 'MCP integrations', 'Project conventions', 'Git and pull request workflows', 'Python', 'TypeScript', 'SQL'],
+    note: 'This website was built with the setup described here.',
+    otherOffer: { label: 'Also', text: 'Data platform expertise' },
   },
 
   about: {
     meta: {
       title: 'About',
       description:
-        'Mathias Lau Nielsen: senior data engineer with a computer science degree from the University of Copenhagen. Freelancing through MLN Data Consulting.',
+        'Mathias Lau Nielsen: freelance senior data engineer in Copenhagen, with a computer science degree from the University of Copenhagen.',
     },
     hero: {
       eyebrow: 'About',
       title: 'Mathias Lau Nielsen',
-      lead: 'Senior data engineer based in Copenhagen, working freelance through MLN Data Consulting.',
+      lead: 'Freelance senior data engineer in Copenhagen. I work through my own company, MLN Data Consulting.',
     },
     story: [
-      'I have a computer science degree from the University of Copenhagen, where my thesis was on using machine learning to generate data warehouse structures. Since then I have worked with business intelligence at Viteco, with data engineering and analysis at Copyright Agent, and as a senior data engineer for Ase.',
-      'My work tends to end up in the same place: a system or a process that costs more than it should or earns less than it could, and a way to show the difference once it is fixed. I’m comfortable anywhere between the database and the boardroom, and I spend a lot of my time translating between the two.',
-      'Before computer science I managed a team of 12–18 people in retail, with responsibility for budget and sales targets. It taught me how a business is actually run, which turns out to matter when you build its reporting.',
+      'I have a computer science degree from the University of Copenhagen and have spent my career in data: business intelligence at the consultancy Viteco, data engineering and analysis at the software company Copyright Agent, and senior data engineering for Ase, a large Danish membership organisation.',
+      'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. Setting this up for others has become the second half of what I do.',
+      'Before computer science I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
     ],
-    principlesTitle: 'How I work',
-    principles: [
-      { title: 'Measure first', body: 'I put numbers on the current state before changing anything, so the effect can be shown afterwards.' },
-      { title: 'Say it straight', body: 'If the gain is small, or the problem is somewhere other than expected, you hear it from me early.' },
-      { title: 'Build to hand over', body: 'Documented, conventional, and owned by your team when I leave.' },
-    ],
-    timelineTitle: 'Experience',
-    timeline: [
-      { title: 'MLN Data Consulting', body: 'Own company. Freelance data engineering, optimization and AI setups.' },
-      { title: 'Ase', body: 'Senior data engineer.' },
-      { title: 'Copyright Agent', body: 'Data engineering, analysis and advice to management.' },
-      { title: 'Viteco', body: 'Business intelligence consultancy.' },
-      { title: 'University of Copenhagen', body: 'BSc in Computer Science, 2021.' },
+    factsTitle: 'In short',
+    facts: [
+      { label: 'Based in', value: 'Copenhagen. Remote or on-site.' },
+      { label: 'Languages', value: 'English and Danish' },
+      { label: 'Prefers', value: 'Long engagements, part-time or full-time' },
+      { label: 'Does not work with', value: 'Weapons, explosives, fossil fuel extraction' },
     ],
   },
 
@@ -288,13 +216,13 @@ export const en = {
     },
     hero: {
       eyebrow: 'Contact',
-      title: 'Tell me what you’re dealing with.',
+      title: 'Tell me what you need.',
       lead: 'A few lines is enough. I usually reply within a day or two.',
     },
     direct: 'Or reach me directly',
     expectTitle: 'What happens next',
     expect: [
-      'We have a short call so I understand the problem.',
+      'A short call so I understand the problem.',
       'I tell you whether and how I can help.',
       'If it makes sense, we agree on scope and terms.',
     ],
@@ -305,7 +233,7 @@ export const en = {
       phone: 'Phone',
       message: 'Message',
       optional: 'optional',
-      placeholder: 'E.g. our monthly reporting takes a week to produce and the numbers still get questioned …',
+      placeholder: 'What do you need built, fixed or set up?',
       submit: 'Send',
       sending: 'Sending …',
       successTitle: 'Thanks',
@@ -318,7 +246,7 @@ export const en = {
   },
 
   footer: {
-    tagline: 'Freelance data engineering, optimization and AI.',
+    tagline: 'Data platform and AI coding expertise.',
     pages: 'Pages',
     contact: 'Contact',
     blog: 'Blog (in Danish)',

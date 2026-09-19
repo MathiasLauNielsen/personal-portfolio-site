@@ -17,8 +17,8 @@ export type Locale = 'da' | 'en'
 // English is the default language at the root; Danish lives under /da.
 // The blog and privacy policy exist in Danish only.
 export const routes = {
-  en: { home: '/', cases: '/cases', services: '/services', about: '/about', contact: '/contact', blog: '/blog', privacy: '/privatlivspolitik' },
-  da: { home: '/da', cases: '/da/cases', services: '/da/ydelser', about: '/da/om-mig', contact: '/da/kontakt', blog: '/blog', privacy: '/privatlivspolitik' },
+  en: { home: '/', data: '/data-platform', ai: '/ai-coding', about: '/about', contact: '/contact', blog: '/blog', privacy: '/privatlivspolitik' },
+  da: { home: '/da', data: '/da/dataplatform', ai: '/da/ai-kodning', about: '/da/om-mig', contact: '/da/kontakt', blog: '/blog', privacy: '/privatlivspolitik' },
 } as const
 
 export type RouteKey = keyof (typeof routes)['en']
@@ -34,6 +34,6 @@ export function localeOfPath(pathname: string): Locale {
 export function switchLocalePath(pathname: string): { locale: Locale; href: string } {
   const from = localeOfPath(pathname)
   const to: Locale = from === 'da' ? 'en' : 'da'
-  const key = (['home', 'cases', 'services', 'about', 'contact'] as RouteKey[]).find((k) => routes[from][k] === pathname)
+  const key = (['home', 'data', 'ai', 'about', 'contact'] as RouteKey[]).find((k) => routes[from][k] === pathname)
   return { locale: to, href: key ? routes[to][key] : routes[to].home }
 }

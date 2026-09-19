@@ -12,7 +12,7 @@
   }
 
   ::selection {
-    @apply bg-lime text-ink;
+    @apply bg-accent text-white;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -34,35 +34,35 @@
   }
 
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.18em];
+    @apply font-mono text-xs uppercase tracking-[0.16em];
   }
 
   .display {
-    @apply font-display font-normal leading-[1.02] tracking-[-0.01em];
+    @apply font-display font-semibold leading-[1.02] tracking-[-0.035em];
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
   }
 
-  .btn-lime {
-    @apply btn bg-lime text-ink hover:brightness-95 focus-visible:ring-lime focus-visible:ring-offset-ink;
+  .btn-accent {
+    @apply btn bg-accent text-white hover:bg-ink;
   }
 
   .btn-ink {
-    @apply btn bg-ink text-paper hover:bg-ink-soft focus-visible:ring-ink focus-visible:ring-offset-paper;
+    @apply btn bg-ink text-white hover:bg-accent;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink/15 bg-paper-card text-ink hover:border-ink;
   }
 
   .btn-ghost-dark {
-    @apply btn border border-ink-line text-paper hover:border-paper/60 focus-visible:ring-paper focus-visible:ring-offset-ink;
-  }
-
-  .btn-ghost-light {
-    @apply btn border border-ink/20 text-ink hover:border-ink focus-visible:ring-ink focus-visible:ring-offset-paper;
+    @apply btn border border-ink-line text-white hover:border-white/60;
   }
 
   .link-underline {
-    @apply underline decoration-ink/30 underline-offset-4 transition-colors hover:decoration-ink;
+    @apply underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-accent hover:text-accent;
   }
 
   /* Kept for the blog, privacy and admin pages */
@@ -71,7 +71,7 @@
   }
 
   .btn-secondary {
-    @apply btn-ghost-light;
+    @apply btn-ghost;
   }
 
   .section-heading {
@@ -87,7 +87,7 @@
   }
 
   .form-input {
-    @apply w-full rounded-xl border border-paper-line bg-paper-card px-4 py-3 text-sm text-ink placeholder-muted/60 transition-colors focus:border-ink focus:outline-none focus:ring-1 focus:ring-ink;
+    @apply w-full rounded-lg border border-paper-line bg-paper-card px-4 py-3 text-sm text-ink placeholder-muted/60 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent;
   }
 
   .form-label {

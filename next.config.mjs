@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
-    // Old URLs from before English became the default language.
+    // URLs from earlier versions of the site.
     return [
-      { source: '/om-mig', destination: '/da/om-mig', permanent: true },
-      { source: '/kontakt', destination: '/da/kontakt', permanent: true },
-      { source: '/en', destination: '/', permanent: true },
-      { source: '/en/:path*', destination: '/:path*', permanent: true },
+      { source: '/om-mig', destination: '/da/om-mig', permanent: false },
+      { source: '/kontakt', destination: '/da/kontakt', permanent: false },
+      { source: '/cases', destination: '/', permanent: false },
+      { source: '/services', destination: '/', permanent: false },
+      { source: '/en', destination: '/', permanent: false },
+      { source: '/en/:path*', destination: '/', permanent: false },
     ]
   },
 }

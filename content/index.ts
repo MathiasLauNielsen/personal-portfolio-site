@@ -7,4 +7,4 @@ export function getCopy(locale: Locale) {
 }
 
 export * from './site'
-export type { Copy, ProofStatus } from './en'
+export type { Copy } from './en'

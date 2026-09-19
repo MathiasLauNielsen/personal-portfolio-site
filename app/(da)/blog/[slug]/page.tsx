@@ -13,7 +13,7 @@ const kategoriColors: Record<string, string> = {
   'Data Science': 'bg-violet-100 text-violet-700',
   'Analytics & BI': 'bg-emerald-100 text-emerald-700',
   'AI & Machine Learning': 'bg-orange-100 text-orange-700',
-  'Karriere & Freelance': 'bg-cyan-100 text-lime-deep',
+  'Karriere & Freelance': 'bg-cyan-100 text-accent',
 }
 
 function formatDate(iso: string) {

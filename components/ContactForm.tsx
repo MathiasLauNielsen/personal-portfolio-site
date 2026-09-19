@@ -37,7 +37,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   if (state === 'success') {
     return (
       <div className="flex flex-col items-start py-8" role="status">
-        <CheckCircle size={40} className="text-lime-deep" aria-hidden />
+        <CheckCircle size={40} className="text-accent" aria-hidden />
         <h2 className="display mt-5 text-4xl">{t.successTitle}</h2>
         <p className="mt-3 text-lg text-muted">{t.successBody}</p>
         <button type="button" onClick={() => setState('idle')} className="link-underline mt-6 text-sm font-semibold">
