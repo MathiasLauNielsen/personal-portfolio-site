@@ -1,16 +1,13 @@
-// Danish copy. en.ts mirrors this shape exactly (typed as Copy).
-// Every number on the site must be traceable: keep the status label honest
-// ("measured", "tested", "pending") and update it when the status changes.
+import type { Copy } from './en'
 
-export type ProofStatus = 'measured' | 'tested' | 'pending'
-
-export const da = {
+// Danish copy. Must match the shape of en.ts.
+export const da: Copy = {
   nav: {
     cases: 'Resultater',
     services: 'Ydelser',
     about: 'Om mig',
     contact: 'Kontakt',
-    cta: 'Book en samtale',
+    cta: 'Kontakt mig',
     switchLabel: 'English',
   },
 
@@ -18,96 +15,87 @@ export const da = {
     measured: 'Målt i drift',
     tested: 'Testet på historiske data',
     pending: 'Afventer release',
-  } as Record<ProofStatus, string>,
+  },
 
   home: {
     meta: {
-      title: 'Mathias Lau Nielsen | Optimering med data og AI, dokumenteret i tal',
+      title: 'Mathias Lau Nielsen | Freelance data- og AI-konsulent',
       description:
-        'Freelance dataingeniør med speciale i optimering. Jeg finder spildet i jeres systemer og processer, retter det med data engineering og AI, og dokumenterer effekten i tal, I selv kan efterprøve.',
+        'Senior dataingeniør for mellemstore virksomheder: rapportering, I kan stole på, datasystemer, der er billigere i drift, og AI dér, hvor det betaler sig.',
     },
     hero: {
-      eyebrow: 'MLN Data Consulting · København',
-      titleA: 'Jeres data ved allerede,',
-      titleB: 'hvor pengene forsvinder.',
-      lead: 'Jeg er Mathias, dataingeniør med speciale i optimering. Jeg finder spildet i jeres systemer og processer, retter det med data engineering og AI, og dokumenterer effekten i tal, I selv kan efterprøve.',
-      ctaPrimary: 'Book en uforpligtende samtale',
-      ctaSecondary: 'Se resultaterne',
+      eyebrow: 'Freelance data- og AI-konsulent · København',
+      titleA: 'Rapportering, I kan stole på.',
+      titleB: 'Systemer, der er billigere i drift.',
+      lead: 'Jeg er Mathias, senior dataingeniør. Jeg hjælper mellemstore virksomheder med at få tal, de stoler på, nedbringe hvad deres datasystemer koster, og bruge AI dér, hvor det betaler sig.',
+      ctaPrimary: 'Kontakt mig',
+      ctaSecondary: 'Se resultater',
       chart: {
-        kicker: 'Case · Copyright Agent',
-        title: 'Andel af partnersager fundet med 25 % af scanningerne',
+        kicker: 'Kunderesultat · Copyright Agent',
+        title: 'Andel af sager fundet med 25 % af scanningerne',
         before: 'Hidtidig udvælgelse',
         after: 'Ny værdibaseret prioritering',
         beforeValue: 25,
         afterValue: 72,
         percent: ' %',
-        footnote: 'Testet på data fra juli–august 2026. Næsten 3× flere sager for den samme scanning.',
+        footnote: 'Et automatiseret system, der afgør, hvilke af over 60 mio. billeder der skal scannes. Testet på to måneders historiske data.',
       },
     },
+    areas: {
+      eyebrow: 'Hvad jeg hjælper med',
+      title: 'Tre problemer, jeg typisk bliver hyret til.',
+      items: [
+        {
+          key: 'reporting',
+          title: 'Rapportering og fundamentet under den',
+          body: 'Tal, der ikke stemmer mellem rapporter, månedstal, ingen helt stoler på, dashboards, ingen åbner. Løsningen er sjældent endnu et dashboard. Jeg får styr på data nedenunder, aftaler med ledelsen, hvad der skal måles, og bygger rapporteringen oven på det.',
+        },
+        {
+          key: 'cost',
+          title: 'Omkostninger og performance',
+          body: 'Cloud-regninger, der vokser hurtigere end forretningen, natlige jobs, der tager timer, forespørgsler, der timer ud. Jeg finder det, der driver omkostningen, og retter det, som regel uden at skifte platform.',
+        },
+        {
+          key: 'ai',
+          title: 'AI og automatisering',
+          body: 'Opsætning af AI, så et team reelt når mere, og automatiserede systemer, der træffer rutinebeslutninger bedre end den manuelle proces gjorde. Med en måling af, om det virkede.',
+        },
+      ],
+      more: 'Mere om, hvordan jeg arbejder',
+    },
+    generalist: {
+      eyebrow: 'Hvorfor én person',
+      title: 'De fleste dataproblemer bliver ikke i én kasse.',
+      body: [
+        'Rapporten er forkert, fordi pipelinen er skrøbelig, fordi kildesystemet blev ændret, fordi ingen ejer definitionen. Fordeler man det på tre specialister, retter de hver deres del, mens problemet består.',
+        'Jeg arbejder på tværs af hele kæden: kildesystemer, pipelines, data warehouse, modeller og rapporten på direktørens bord. I får én senior person, der står på mål for resultatet, og som kan forklare det for både udviklerne og bestyrelsen.',
+      ],
+    },
     proof: {
-      eyebrow: 'Dokumenterede resultater',
-      title: 'Tal frem for tillægsord.',
-      lead: 'Alle tal herunder stammer fra ét igangværende optimeringsforløb, og hvert tal har en status, så I kan se, hvad der er målt, hvad der er testet, og hvad der venter på release.',
+      eyebrow: 'Resultater',
+      title: 'Fra nyligt kundearbejde.',
+      lead: 'Alle fra ét forløb. Ved hvert tal står der, om det er målt i drift eller testet på historiske data.',
       items: [
         {
           value: '72 %',
-          label: 'af sagerne fundet med kun 25 % af scanningerne',
-          detail: 'Den hidtidige rækkefølge fandt 25 %, altså ikke bedre end tilfældig udvælgelse.',
-          status: 'tested' as ProofStatus,
+          label: 'af sagerne fundet med 25 % af scanningerne',
+          detail: 'Den hidtidige udvælgelse fandt 25 %, altså ikke bedre end tilfældig.',
+          status: 'tested',
         },
         {
           value: '2–4,5×',
-          label: 'dobbeltarbejde fundet og sporet til én teknisk fejl',
-          detail: 'Systemet valgte ≈540.000 billeder om dagen mod ≈250.000 planlagt. Ingen havde bedt om det.',
-          status: 'measured' as ProofStatus,
+          label: 'dobbeltarbejde, sporet til én fejl',
+          detail: 'Et system gentog sit eget arbejde flere gange om dagen. Ingen havde opdaget det, fordi intet så ud til at være i stykker.',
+          status: 'measured',
         },
         {
           value: '−98,5 %',
-          label: 'færre rækker omskrevet hver nat',
-          detail: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der ændrer sig.',
-          status: 'measured' as ProofStatus,
-        },
-        {
-          value: '≈5 mio.',
-          label: 'scanninger om måneden frigjort til det, der betaler sig',
-          detail: 'Rettelsen af dobbeltscanningerne bringer forbruget tilbage inden for budget.',
-          status: 'pending' as ProofStatus,
+          label: 'rækker omskrevet af et natligt job',
+          detail: 'Det omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der ændrer sig.',
+          status: 'measured',
         },
       ],
-    },
-    method: {
-      eyebrow: 'Sådan arbejder jeg',
-      title: 'Ingen påstande uden baseline.',
-      lead: 'Optimering uden måling er bare forandring. Derfor starter hvert forløb med at måle, og slutter med at bevise.',
-      steps: [
-        {
-          title: 'Mål udgangspunktet',
-          body: 'Før noget ændres, kortlægger jeg det nuværende flow og sætter tal på det: omkostninger, mængder, ventetider og fejl. Det er den baseline, alt senere måles imod.',
-        },
-        {
-          title: 'Find spildet',
-          body: 'Jeg leder efter det, ingen har bedt om: dobbeltarbejde, ressourcer brugt hvor de sjældent betaler sig, manuelle rutiner der ikke skalerer. Hvert fund får en pris.',
-        },
-        {
-          title: 'Ret og automatisér',
-          body: 'Jeg bygger løsningen selv, fra databasen til den færdige automatisering. Med AI og machine learning, hvor det betaler sig, og med almindelig solid ingeniørkunst, hvor det er nok.',
-        },
-        {
-          title: 'Bevis effekten',
-          body: 'Effekten dokumenteres mod baseline, sammenligneligt og med kilder. I får tal, der kan holde til et bestyrelsesmøde, også når gevinsten er mindre end håbet.',
-        },
-      ],
-    },
-    services: {
-      eyebrow: 'Ydelser',
-      title: 'Tre måder at komme i gang på.',
-      more: 'Læs mere om ydelserne',
-    },
-    caseTeaser: {
-      eyebrow: 'Udvalgt case',
-      title: 'Copyright Agent: næsten 3× flere sager pr. scanning',
-      body: 'Copyright Agent finder ulicenseret brug af pressebilleder på nettet. Forretningen starter med scanninger af over 60 mio. billeder, og hvilke billeder der scannes, afgør både omsætning og omkostninger. Jeg fandt ud af, at udvælgelsen ikke var bedre end tilfældig, og byggede en, der er.',
-      cta: 'Læs hele casen',
+      cta: 'Læs casen',
     },
     testimonial: {
       quote:
@@ -117,15 +105,15 @@ export const da = {
     },
     about: {
       eyebrow: 'Om mig',
-      title: 'Ingeniør i hænderne, forretning i hovedet.',
-      body: 'Jeg er uddannet datalog fra Københavns Universitet og har arbejdet med data hos bl.a. Viteco, Copyright Agent og Ase. Før det var jeg leder i detailhandlen med ansvar for budget og op til 18 medarbejdere. Derfor oversætter jeg gerne mellem udviklere, drift og direktion, og derfor ender mine projekter i tal, ledelsen kan bruge.',
-      cta: 'Mere om min baggrund',
+      title: 'Senior dataingeniør, freelance.',
+      body: 'Datalog fra Københavns Universitet. Jeg har arbejdet med data hos Viteco, Copyright Agent og Ase og driver mit eget firma, MLN Data Consulting. Jeg foretrækker lange forløb, hvor jeg lærer forretningen at kende, for det er dér, resultaterne kommer fra.',
+      cta: 'Mere om mig',
     },
     cta: {
-      title: 'Hvad koster jeres spild om måneden?',
-      body: 'Tag en uforpligtende samtale på 30 minutter. I fortæller, hvor det gør ondt. Jeg fortæller ærligt, om jeg tror, der er noget at hente, og hvordan vi i givet fald måler det.',
-      primary: 'Book en samtale',
-      secondary: 'Skriv til mig',
+      title: 'Har I et dataproblem, der bliver ved med at komme igen?',
+      body: 'Fortæl mig om det. Kan jeg hjælpe, siger jeg hvordan. Kan jeg ikke, siger jeg også det.',
+      primary: 'Kontakt mig',
+      secondary: 'Send en mail',
     },
   },
 
@@ -133,59 +121,60 @@ export const da = {
     meta: {
       title: 'Ydelser',
       description:
-        'Optimeringsanalyse, AI-implementering og data engineering. Tre afgrænsede måder at arbejde sammen på, alle med målbar effekt som mål.',
+        'Rapportering og datafundament, omkostninger og performance samt AI-opsætning. Primært som længere forløb for mellemstore virksomheder.',
     },
     hero: {
       eyebrow: 'Ydelser',
-      title: 'Afgrænsede forløb med målbar effekt.',
-      lead: 'Jeg arbejder bedst, når målet kan udtrykkes i et tal: lavere omkostning, kortere ventetid, flere sager pr. krone. Her er de tre typiske måder at starte på.',
+      title: 'Hvad jeg laver, og hvordan vi ville arbejde sammen.',
+      lead: 'Jeg er generalist med vilje. Det her er de tre slags opgaver, jeg typisk bliver hentet ind til, og de overlapper ofte.',
     },
     items: [
       {
-        key: 'analysis',
-        name: 'Optimeringsanalyse',
-        tagline: 'Find ud af, hvor pengene forsvinder, før I investerer i en løsning.',
-        body: 'Et kort, afgrænset forløb, hvor jeg kortlægger et system eller en proces, sætter tal på det nuværende flow og finder de steder, hvor ressourcerne ikke betaler sig hjem.',
+        key: 'reporting',
+        name: 'Rapportering og datafundament',
+        tagline: 'Tal, ledelsen kan drive virksomheden efter.',
+        body: 'Jeg starter med, hvad ledelsen skal kunne beslutte, arbejder baglæns til, hvad der skal måles, og derfra til de data, der skal være pålidelige, for at det virker. Så bygger jeg det: pipelines, et data warehouse eller modellag, og rapporter ovenpå.',
         deliverables: [
-          'Kortlægning af det nuværende flow med baseline-tal',
-          'Prioriteret liste over fund, hver med en anslået værdi',
-          'Plan for de første rettelser: hvad, hvor svært, hvad det giver',
+          'En rapporteringsstrategi: hvad måles, hvordan er det defineret, hvem ejer det',
+          'Pipelines og datamodeller, der gør tallene konsistente',
+          'Rapporter og dashboards, der bliver brugt',
         ],
-        fit: 'Passer til jer, der har en fornemmelse af spild, men mangler overblik og tal.',
+        fit: 'Typisk udgangspunkt: “vores tal stemmer ikke” eller “vi ved ikke, hvad vi skal måle”.',
+      },
+      {
+        key: 'cost',
+        name: 'Omkostninger og performance',
+        tagline: 'Find det, der driver regningen, og ret det.',
+        body: 'Jeg måler, hvor pengene og tiden går hen i jeres cloud- og datasystemer, finder de jobs og forespørgsler, der laver langt mere arbejde end nødvendigt, og retter dem. De fleste besparelser ligger en håndfuld steder.',
+        deliverables: [
+          'Et overblik over, hvad jeres datasystemer koster, og hvorfor',
+          'Rettelser af de dyre og langsomme dele',
+          'Før- og eftertal',
+        ],
+        fit: 'Typisk udgangspunkt: en cloud-regning, ingen kan forklare, eller jobs, der ikke længere når at blive færdige om natten.',
       },
       {
         key: 'ai',
-        name: 'AI, der betaler sig',
-        tagline: 'AI og machine learning dér, hvor det flytter et tal, ikke dér, hvor det lyder godt.',
-        body: 'Jeg implementerer AI-løsninger fra idé til drift: prioritering og forudsigelse med machine learning, automatisering med sprogmodeller og AI-agenter, og AI-assisteret udvikling, der får mere ud af jeres team. Altid med en måling af, om det virkede.',
+        name: 'AI og automatisering',
+        tagline: 'AI dér, hvor det betaler sig.',
+        body: 'To slags opgaver. Opsætning af AI-værktøjer, så et udviklings- eller datateam når mere, med de rammer og konventioner, der gør det sikkert. Og automatiserede systemer, ofte med machine learning, der overtager rutinebeslutninger og træffer dem bedre.',
         deliverables: [
-          'Vurdering af, hvor AI reelt kan betale sig hos jer',
-          'Løsning i drift, integreret i jeres eksisterende systemer',
-          'Før/efter-måling, så effekten kan dokumenteres',
+          'En fungerende AI-opsætning til jeres team, inkl. regler og konventioner',
+          'Automatiserede beslutningssystemer, integreret med det, I allerede kører',
+          'En måling af effekten',
         ],
-        fit: 'Passer til jer, der vil have AI til at skabe resultater, ikke endnu et pilotprojekt.',
-      },
-      {
-        key: 'engineering',
-        name: 'Data engineering',
-        tagline: 'Et datafundament, der er hurtigt, billigt i drift og til at stole på.',
-        body: 'Datapipelines, data warehouses og databaser, der performer. Jeg rydder op i langsomme forespørgsler, dyre natlige jobs og skrøbelige manuelle rutiner, og bygger det nye, så andre kan overtage det.',
-        deliverables: [
-          'Pipelines og datamodeller i cloud (bl.a. Google Cloud og Azure)',
-          'Performance- og omkostningsoptimering af eksisterende løsninger',
-          'Rapportering, ledelsen rent faktisk træffer beslutninger ud fra',
-        ],
-        fit: 'Passer til jer, der har brug for en senior dataingeniør i en periode, på deltid eller fuld tid.',
+        fit: 'Typisk udgangspunkt: “vi burde bruge AI, men vi ved ikke helt hvor”.',
       },
     ],
-    deliverablesLabel: 'I får',
+    deliverablesLabel: 'Det får I',
     engagement: {
       title: 'Samarbejdsformer',
-      body: 'Jeg arbejder som freelancer via MLN Data Consulting, enten på et afgrænset forløb med fast leverance eller som løbende tilknyttet konsulent. Jeg arbejder både på dansk og engelsk, on-site i København eller remote.',
+      body: 'Jeg foretrækker længere forløb, deltid eller fuld tid, hvor jeg bliver en del af teamet. Jeg tager også afgrænsede projekter. Jeg arbejder på dansk og engelsk, remote eller on-site i København. Pris aftales fra opgave til opgave.',
+      ethics: 'Jeg tager ikke opgaver inden for våben, sprængstoffer eller udvinding af fossile brændsler.',
     },
     tech: {
-      title: 'Værktøjer, jeg typisk arbejder med',
-      items: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud', 'Azure', 'Machine learning', 'LLM’er og AI-agenter', 'Power BI'],
+      title: 'Værktøjer, jeg arbejder med',
+      items: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud', 'Azure', 'Machine learning', 'LLM’er og AI-agenter'],
     },
   },
 
@@ -193,146 +182,131 @@ export const da = {
     meta: {
       title: 'Resultater',
       description:
-        'Se hvordan en værdibaseret prioritering hos Copyright Agent fandt 72 % af sagerne med 25 % af scanningerne, og hvad der ellers dukkede op undervejs.',
+        'Hvordan en værdibaseret prioritering hos Copyright Agent fandt 72 % af sagerne med 25 % af scanningerne.',
     },
     hero: {
       eyebrow: 'Resultater',
-      title: 'Én case, fortalt ærligt og med alle tal.',
-      lead: 'Jeg viser hellere ét forløb i dybden end ti i overskrifter. Her er, hvad jeg fandt, hvad jeg gjorde, og hvad der er bevist indtil nu.',
+      title: 'Én case, med tallene.',
+      lead: 'Det forløb, jeg kan beskrive mest detaljeret.',
     },
     featured: {
       client: 'Copyright Agent',
-      industry: 'Ophavsret · billedgenkendelse · SaaS',
+      industry: 'Håndhævelse af ophavsret · SaaS',
       period: '2026 · igangværende',
-      title: 'Fra tilfældig udvælgelse til næsten 3× flere sager pr. scanning',
+      title: 'Hvilke af 60 mio. billeder skal scannes?',
       sections: [
         {
-          heading: 'Udgangspunktet',
-          body: 'Copyright Agent hjælper billedbureauer og medier med at finde ulicenseret brug af deres billeder. Alt starter med en scanning: virksomheden har over 60 mio. billeder og et budget på ca. 13 mio. scanninger om måneden. Hvilke billeder der scannes, og hvornår, afgør både hvor mange sager partnerne får, og hvad det koster. Udvælgelsen blev styret af manuelt vedligeholdte planer.',
-          bullets: [] as string[],
+          heading: 'Situationen',
+          body: 'Copyright Agent finder ulicenseret brug af partnernes billeder på nettet. Virksomheden har over 60 mio. billeder og scanner ca. 13 mio. om måneden. Hvilke billeder der scannes, afgør, hvor mange sager partnerne får, og dermed omsætningen. Udvælgelsen kørte efter manuelt vedligeholdte planer.',
+          bullets: [],
         },
         {
           heading: 'Hvad jeg fandt',
-          body: 'Før jeg ændrede noget, kortlagde og målte jeg det eksisterende flow. Tre ting stod frem:',
+          body: 'Jeg kortlagde og målte det eksisterende flow, før jeg ændrede noget.',
           bullets: [
-            'En teknisk fejl gentog udvælgelsen 2–4,5 gange: ≈540.000 billeder om dagen mod ≈250.000 planlagt. August endte 16 % over scanningsbudgettet.',
-            '72 % af scanningerne gik til billeder uden en eneste krænkelse det seneste år. Rækkefølgen, billederne blev valgt i, var ikke bedre end tilfældig.',
-            'Partnernes mål indgik slet ikke i udvælgelsen. Nogle partnere var markant bagud, mens andre blev scannet uden at have behandlet sager i over 90 dage.',
+            'En fejl fik systemet til at gentage sin udvælgelse 2–4,5 gange om dagen, så scanningsmængden endte 16 % over budget.',
+            '72 % af scanningerne gik til billeder uden en eneste krænkelse det seneste år. Rækkefølgen var ikke bedre end tilfældig.',
+            'Partnernes mål indgik ikke i udvælgelsen, så nogle partnere fik for lidt, mens andre blev scannet uden behov.',
           ],
         },
         {
-          heading: 'Hvad jeg gjorde',
-          body: 'Først fundamentet: jeg stoppede dobbeltscanningerne og gjorde selve udvælgelsen hurtig. Derefter byggede jeg en model, der rangerer hvert billede efter forventet værdi: sandsynligheden for, at en scanning ender som en sag hos partneren, gange hvad den sag er værd. Oven på det ligger en daglig plan, der bruger budgettet efter værdi og samtidig holder de vigtigste partnere forsynet, og en daglig rapport, der viser, hvem der er bagud, og om flaskehalsen er scanning eller partnerens egen behandling.',
-          bullets: [] as string[],
+          heading: 'Hvad jeg byggede',
+          body: 'Først fundamentet: stop dobbeltscanningerne og gør udvælgelsen hurtig. Derefter en model, der rangerer hvert billede efter forventet værdi, en daglig scanningsplan, der bruger budgettet efter den rangering og samtidig holder de prioriterede partnere forsynet, og en daglig rapport, der viser, hvilke partnere der er bagud, og hvorfor.',
+          bullets: [],
         },
       ],
       resultsHeading: 'Resultater indtil nu',
       results: [
         {
           value: '72 % med 25 %',
-          label: 'Den nye rangering finder 72 % af de sager, partnerne modtog, med 25 % af scanningerne. Den hidtidige rækkefølge fandt 25 %.',
-          status: 'tested' as ProofStatus,
-        },
-        {
-          value: '+16 %',
-          label: 'Estimeret gevinst i sager pr. scanning i den fulde daglige plan. Gevinsten er mindre her, fordi det meste af budgettet går til at holde de vigtigste partnere forsynet. Det er et bevidst forretningsvalg, ikke en svaghed i modellen.',
-          status: 'tested' as ProofStatus,
+          label: 'Rangeringen finder 72 % af de sager, partnerne modtog, med 25 % af scanningerne. Den hidtidige rækkefølge fandt 25 %.',
+          status: 'tested',
         },
         {
           value: '80–106 %',
-          label: 'I en 21-dages simulering når de budgetterede partnere 80–106 % af deres månedlige mål, mod 30–90 % i dag, inden for det samme scanningsbudget.',
-          status: 'tested' as ProofStatus,
+          label: 'I en 21-dages simulering når de prioriterede partnere 80–106 % af deres månedlige mål, mod 30–90 % i dag, med samme scanningsbudget.',
+          status: 'tested',
         },
         {
-          value: '46 mio. → 683.000',
-          label: 'Et natligt job omskriver ikke længere 46 mio. rækker for at ændre 683.000, og udvælgelsen bruger et hurtigt opslag i stedet for at gennemlæse en tabel på 16 GB.',
-          status: 'measured' as ProofStatus,
+          value: '−98,5 %',
+          label: 'Et natligt job omskriver ikke længere 46 mio. rækker for at ændre 683.000, og udvælgelsen bruger et hurtigt opslag i stedet for at læse en tabel på 16 GB.',
+          status: 'measured',
         },
         {
           value: '≈5 mio./md.',
-          label: 'Rettelsen af dobbeltscanningerne bringer forbruget inden for budget og frigør ca. 5 mio. scanninger om måneden, der kan bruges efter værdi.',
-          status: 'pending' as ProofStatus,
+          label: 'Rettelsen af dobbeltscanningerne bringer mængden tilbage inden for budget og frigør ca. 5 mio. scanninger om måneden.',
+          status: 'pending',
         },
       ],
-      honesty: {
-        heading: 'Det ærlige regnestykke',
-        body: 'Den direkte besparelse på scanninger er lille i forhold til omsætningen. Den reelle værdi ligger i flere og mere værdifulde sager for de samme penge, og i at de vigtigste partnere bliver forsynet. Det skriver jeg, fordi det er sandt, og fordi en optimering, der måler det forkerte, ikke er en optimering.',
-      },
-      tech: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud', 'Statistisk modellering'],
+      note: 'Den direkte besparelse på scanninger er beskeden. Værdien ligger i flere sager for de samme penge.',
+      tech: ['Python', 'SQL', 'PostgreSQL', 'BigQuery', 'Google Cloud'],
     },
-    testimonialHeading: 'Hvad en kollega siger',
+    testimonialHeading: 'Fra en kollega',
     testimonialFull:
-      'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times. I have seen Mathias excel with all levels of seniority at Copyright Agent, showing immense capabilities with project management, leadership consultation, and data analysis. […] There can be no doubt that Mathias is one of the most competent colleagues I’ve had the ability to work and learn from.',
-    research: {
-      eyebrow: 'Forskning',
-      title: 'Kan machine learning bygge et data warehouse?',
-      body: 'Mit bachelorprojekt på Datalogisk Institut, Københavns Universitet (2021), undersøgte, om machine learning kan analysere kildesystemers metadata og automatisk foreslå strukturen i et data warehouse. Konklusionen var nuanceret: fuld automatik holdt ikke, men ML kombineret med få, enkle valg fra et menneske gav et brugbart fundament. Den erfaring bruger jeg stadig, når jeg vurderer, hvor AI reelt kan betale sig.',
-    },
+      'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times. I have seen Mathias excel with all levels of seniority at Copyright Agent, showing immense capabilities with project management, leadership consultation, and data analysis.',
   },
 
   about: {
     meta: {
       title: 'Om mig',
       description:
-        'Mathias Lau Nielsen: datalog fra Københavns Universitet, senior dataingeniør og tidligere leder. Freelance via MLN Data Consulting.',
+        'Mathias Lau Nielsen: senior dataingeniør og datalog fra Københavns Universitet. Freelance via MLN Data Consulting.',
     },
     hero: {
       eyebrow: 'Om mig',
-      title: 'Jeg kan ikke lade være med at regne efter.',
-      lead: 'Jeg hedder Mathias Lau Nielsen og driver MLN Data Consulting fra København. Mit speciale er optimering: at finde ud af, hvor et system bruger ressourcer uden at få noget for dem, og så rette det.',
+      title: 'Mathias Lau Nielsen',
+      lead: 'Senior dataingeniør i København. Freelance via MLN Data Consulting.',
     },
     story: [
-      'Jeg er uddannet datalog fra Københavns Universitet, hvor mit bachelorprojekt handlede om at bruge machine learning til automatisk at opbygge data warehouses. Siden har jeg arbejdet med business intelligence hos Viteco, som dataingeniør hos Copyright Agent og som senior dataingeniør for Ase.',
-      'Før datalogien var jeg souschef og ledertrainee i detailhandlen med ansvar for budget, salgsmål og 12–18 medarbejdere, og jeg har en akademiuddannelse i ledelse og projektledelse. Det lyder som en omvej, men det er grunden til, at jeg tænker i drift og bundlinje, og at jeg kan forklare en teknisk løsning for en direktion uden at miste nogen undervejs.',
-      'Når jeg ikke arbejder, spiller jeg klaver, træner triatlon og laver mad. Alle tre handler i øvrigt også om at blive lidt bedre hver gang.',
+      'Jeg er datalog fra Københavns Universitet, hvor mit bachelorprojekt handlede om at bruge machine learning til at generere data warehouse-strukturer. Siden har jeg arbejdet med business intelligence hos Viteco, med data engineering og analyse hos Copyright Agent og som senior dataingeniør for Ase.',
+      'Mit arbejde ender ofte samme sted: et system eller en proces, der koster mere, end den burde, eller tjener mindre, end den kunne, og en måde at vise forskellen på, når det er rettet. Jeg er hjemme overalt mellem databasen og bestyrelseslokalet og bruger meget af min tid på at oversætte mellem de to.',
+      'Før datalogien ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål. Det lærte mig, hvordan en forretning faktisk drives, og det viser sig at betyde noget, når man bygger dens rapportering.',
     ],
-    principlesTitle: 'Det kan I regne med',
+    principlesTitle: 'Sådan arbejder jeg',
     principles: [
-      { title: 'Tal med kilde', body: 'Hvert tal, jeg præsenterer, kan spores tilbage til en forespørgsel, en faktura eller en rapport. Skøn er mærket som skøn.' },
-      { title: 'Ærlige konklusioner', body: 'Hvis gevinsten er lille, siger jeg det. Hvis problemet ligger et andet sted end forventet, siger jeg også det.' },
-      { title: 'Forklaret for mennesker', body: 'Ledelsen får resultater i forretningssprog. Udviklerne får dokumentation, de kan arbejde videre med.' },
-      { title: 'Bygget til overdragelse', body: 'Jeg bygger, så jeres team kan overtage. I skal ikke være afhængige af mig, når forløbet slutter.' },
+      { title: 'Mål først', body: 'Jeg sætter tal på udgangspunktet, før noget ændres, så effekten kan vises bagefter.' },
+      { title: 'Sig det ligeud', body: 'Er gevinsten lille, eller ligger problemet et andet sted end forventet, hører I det fra mig tidligt.' },
+      { title: 'Byg til overdragelse', body: 'Dokumenteret, konventionelt og ejet af jeres team, når jeg går.' },
     ],
-    timelineTitle: 'Baggrund',
+    timelineTitle: 'Erfaring',
     timeline: [
-      { period: 'Nu', title: 'Freelance konsulent', place: 'MLN Data Consulting', body: 'Optimering, AI-implementering og data engineering for bl.a. Copyright Agent og Ase.' },
-      { period: '', title: 'Senior Data Engineer', place: 'Ase', body: 'Dataplatform og data engineering for en af Danmarks store a-kasser.' },
-      { period: '', title: 'Data Engineer', place: 'Copyright Agent', body: 'Data, analyse og rådgivning af ledelsen i en international scale-up inden for ophavsret.' },
-      { period: '2021', title: 'Business intelligence', place: 'Viteco', body: 'BI-konsulenthus med fokus på at aktivere kundernes data.' },
-      { period: '2018–2021', title: 'BSc i datalogi', place: 'Københavns Universitet', body: 'Bachelorprojekt: automatisk generering af data warehouse-strukturer med machine learning.' },
-      { period: '2016–2018', title: 'Souschef og ledertrainee', place: 'Q8', body: 'Ledelse af 12–18 medarbejdere, budget- og salgsansvar. Akademiuddannelse i ledelse og projektledelse.' },
+      { title: 'MLN Data Consulting', body: 'Eget firma. Freelance data engineering, optimering og AI-opsætning.' },
+      { title: 'Ase', body: 'Senior dataingeniør.' },
+      { title: 'Copyright Agent', body: 'Data engineering, analyse og rådgivning af ledelsen.' },
+      { title: 'Viteco', body: 'BI-konsulenthus.' },
+      { title: 'Københavns Universitet', body: 'BSc i datalogi, 2021.' },
     ],
   },
 
   contact: {
     meta: {
       title: 'Kontakt',
-      description: 'Book en uforpligtende samtale med Mathias Lau Nielsen, MLN Data Consulting.',
+      description: 'Kontakt Mathias Lau Nielsen, MLN Data Consulting.',
     },
     hero: {
       eyebrow: 'Kontakt',
-      title: 'Lad os finde ud af, om der er noget at hente.',
-      lead: 'Skriv et par linjer om, hvor I oplever spild, langsomme processer eller data, I ikke får nok ud af. Jeg svarer inden for én arbejdsdag.',
+      title: 'Fortæl mig, hvad I står med.',
+      lead: 'Et par linjer er nok. Jeg svarer som regel inden for en dag eller to.',
     },
     direct: 'Eller kontakt mig direkte',
-    expectTitle: 'Hvad sker der så?',
+    expectTitle: 'Hvad sker der så',
     expect: [
-      'Vi tager en samtale på ca. 30 minutter, uden binding.',
-      'Jeg siger ærligt, om jeg tror, der er en gevinst, og hvor stor.',
-      'Hvis det giver mening, får I et kort oplæg med mål, omfang og pris.',
+      'Vi tager en kort samtale, så jeg forstår problemet.',
+      'Jeg siger, om og hvordan jeg kan hjælpe.',
+      'Giver det mening, aftaler vi omfang og vilkår.',
     ],
     form: {
       name: 'Navn',
       email: 'E-mail',
       company: 'Virksomhed',
       phone: 'Telefon',
-      message: 'Hvad vil I gerne have optimeret?',
+      message: 'Besked',
       optional: 'valgfrit',
-      placeholder: 'Fx: Vores natlige datajobs er blevet dyre og langsomme, og vi ved ikke hvorfor …',
-      submit: 'Send besked',
+      placeholder: 'Fx: Vores månedsrapportering tager en uge at lave, og der bliver stadig sat spørgsmålstegn ved tallene …',
+      submit: 'Send',
       sending: 'Sender …',
-      successTitle: 'Tak for din besked',
-      successBody: 'Jeg vender tilbage inden for én arbejdsdag.',
+      successTitle: 'Tak',
+      successBody: 'Jeg vender tilbage snarest.',
       again: 'Send en ny besked',
       error: 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til mig på mail.',
       consent: 'Ved at sende accepterer du, at jeg gemmer dine oplysninger for at kunne svare dig.',
@@ -341,7 +315,7 @@ export const da = {
   },
 
   footer: {
-    tagline: 'Optimering med data og AI, dokumenteret i tal.',
+    tagline: 'Freelance data engineering, optimering og AI.',
     pages: 'Sider',
     contact: 'Kontakt',
     blog: 'Blog',
@@ -349,5 +323,3 @@ export const da = {
     rights: 'Alle rettigheder forbeholdes.',
   },
 }
-
-export type Copy = typeof da

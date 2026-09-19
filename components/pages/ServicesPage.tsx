@@ -48,6 +48,7 @@ export default function ServicesPage({ locale }: { locale: Locale }) {
           <Reveal>
             <h2 className="display text-4xl">{t.engagement.title}</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted">{t.engagement.body}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted">{t.engagement.ethics}</p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="display text-4xl">{t.tech.title}</h2>

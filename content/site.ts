@@ -14,18 +14,26 @@ export const site = {
 
 export type Locale = 'da' | 'en'
 
-// Danish paths are the canonical ones; English lives under /en.
+// English is the default language at the root; Danish lives under /da.
+// The blog and privacy policy exist in Danish only.
 export const routes = {
-  da: { home: '/', cases: '/cases', services: '/services', about: '/om-mig', contact: '/kontakt', blog: '/blog', privacy: '/privatlivspolitik' },
-  en: { home: '/en', cases: '/en/cases', services: '/en/services', about: '/en/about', contact: '/en/contact', blog: '/blog', privacy: '/privatlivspolitik' },
+  en: { home: '/', cases: '/cases', services: '/services', about: '/about', contact: '/contact', blog: '/blog', privacy: '/privatlivspolitik' },
+  da: { home: '/da', cases: '/da/cases', services: '/da/ydelser', about: '/da/om-mig', contact: '/da/kontakt', blog: '/blog', privacy: '/privatlivspolitik' },
 } as const
 
-export type RouteKey = keyof (typeof routes)['da']
+export type RouteKey = keyof (typeof routes)['en']
+
+const danishOnly = ['/blog', '/privatlivspolitik']
+
+export function localeOfPath(pathname: string): Locale {
+  if (pathname === '/da' || pathname.startsWith('/da/')) return 'da'
+  return danishOnly.some((p) => pathname === p || pathname.startsWith(p + '/')) ? 'da' : 'en'
+}
 
 // Maps the current path to the same page in the other language.
 export function switchLocalePath(pathname: string): { locale: Locale; href: string } {
-  const from: Locale = pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'da'
+  const from = localeOfPath(pathname)
   const to: Locale = from === 'da' ? 'en' : 'da'
-  const key = (Object.keys(routes[from]) as RouteKey[]).find((k) => routes[from][k] === pathname)
+  const key = (['home', 'cases', 'services', 'about', 'contact'] as RouteKey[]).find((k) => routes[from][k] === pathname)
   return { locale: to, href: key ? routes[to][key] : routes[to].home }
 }

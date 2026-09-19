@@ -44,10 +44,7 @@ export default function CasesPage({ locale }: { locale: Locale }) {
               ))}
 
               <Reveal>
-                <div className="rounded-3xl bg-ink p-8 text-paper sm:p-10">
-                  <h3 className="display text-3xl">{c.honesty.heading}</h3>
-                  <p className="mt-4 leading-relaxed text-muted-dark">{c.honesty.body}</p>
-                </div>
+                <p className="border-l-2 border-lime pl-4 leading-relaxed">{c.note}</p>
               </Reveal>
             </div>
 
@@ -81,19 +78,14 @@ export default function CasesPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="border-y border-paper-line bg-paper-card py-20 sm:py-28">
-        <div className="container-page grid gap-14 lg:grid-cols-2">
-          <Reveal>
+        <div className="container-page">
+          <Reveal className="max-w-3xl">
             <p className="eyebrow text-muted">{t.testimonialHeading}</p>
             <blockquote lang="en" className="display mt-5 text-2xl leading-snug sm:text-3xl">
               “{t.testimonialFull}”
             </blockquote>
             <p className="mt-6 font-medium">{copy.home.testimonial.name}</p>
             <p className="mt-1 text-sm text-muted">{copy.home.testimonial.role}</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="eyebrow text-muted">{t.research.eyebrow}</p>
-            <h2 className="display mt-5 text-3xl sm:text-4xl">{t.research.title}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted">{t.research.body}</p>
           </Reveal>
         </div>
       </section>

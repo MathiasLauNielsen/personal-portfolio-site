@@ -48,7 +48,7 @@ export default function AboutPage({ locale }: { locale: Locale }) {
           <Reveal>
             <h2 className="display text-5xl sm:text-6xl">{t.principlesTitle}</h2>
           </Reveal>
-          <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+          <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-3">
             {t.principles.map((p, i) => (
               <Reveal key={p.title} delay={i * 60}>
                 <div className="border-t border-ink pt-5">
@@ -68,15 +68,10 @@ export default function AboutPage({ locale }: { locale: Locale }) {
           </Reveal>
           <ol className="flex flex-col">
             {t.timeline.map((item, i) => (
-              <Reveal key={item.title + item.place} delay={i * 40}>
-                <li className="grid gap-2 border-t border-paper-line py-6 sm:grid-cols-[8rem_1fr]">
-                  <span className="font-mono text-sm text-muted">{item.period}</span>
-                  <div>
-                    <h3 className="text-lg font-medium">
-                      {item.title} <span className="text-muted">· {item.place}</span>
-                    </h3>
-                    <p className="mt-1.5 leading-relaxed text-muted">{item.body}</p>
-                  </div>
+              <Reveal key={item.title} delay={i * 40}>
+                <li className="grid gap-1 border-t border-paper-line py-5 sm:grid-cols-[14rem_1fr]">
+                  <h3 className="font-medium">{item.title}</h3>
+                  <p className="leading-relaxed text-muted">{item.body}</p>
                 </li>
               </Reveal>
             ))}

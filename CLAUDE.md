@@ -17,8 +17,9 @@ npm run build    # production build, also type-checks
 
 ## Architecture
 
-- **Three root layouts via route groups:** `app/(da)` (Danish, canonical URLs like `/om-mig`, `/kontakt`), `app/(en)/en/*` (English) and `app/(admin)/admin` (no site chrome, `noindex`). Each sets its own `<html lang>`. `app/api/kontakt` is shared.
-- **Copy lives in `content/`, not in pages.** `content/da.ts` defines the shape, `content/en.ts` must match it (`Copy` type), `content/site.ts` holds company facts, the route map for both languages and `switchLocalePath()` for the language switch. Route files are thin: they set metadata/`alternates` and render a component from `components/pages/*` with a `locale` prop. To change text, edit both language files.
+- **Three root layouts via route groups:** `app/(en)` (English, the default, at `/`), `app/(da)` (Danish under `/da/*`, plus the Danish-only `/blog` and `/privatlivspolitik`) and `app/(admin)/admin` (no site chrome, `noindex`). Each sets its own `<html lang>`. `app/api/kontakt` is shared. Old URLs (`/om-mig`, `/kontakt`, `/en/*`) redirect in `next.config.mjs`.
+- **Audience and tone:** CTOs and CEOs of mid-sized companies, international. Entry problems are reporting and reporting strategy; proof is cost reduction and revenue from automated systems. Copy is short, dry and factual. No hype, no invented facts; leave things out rather than guess.
+- **Copy lives in `content/`, not in pages.** `content/en.ts` defines the shape, `content/da.ts` must match it (`Copy` type), `content/site.ts` holds company facts, the route map for both languages and `switchLocalePath()` for the language switch. Route files are thin: they set metadata/`alternates` and render a component from `components/pages/*` with a `locale` prop. To change text, edit both language files.
 - **Honesty rule for numbers.** Every figure on the site comes from real client work and carries a `ProofStatus` (`measured` | `tested` | `pending`) rendered by `StatusBadge`. Never add a number without a source, never round up, and update the status when something goes live. No invented clients, stats or testimonials.
 - **Design system:** tokens in `tailwind.config.ts` (`ink`, `paper`, `lime`, `muted`), component classes in `app/globals.css` (`container-page`, `eyebrow`, `display`, `btn-*`). Fonts: Instrument Serif (display), Inter (body), JetBrains Mono (numbers and labels). Dark `ink` heroes, `paper` content sections, `lime` reserved for emphasis and primary actions. `Reveal` handles scroll-in animation and respects reduced motion.
 - **Blog and privacy pages are Danish only** and still use the legacy `Hero` wrapper. Blog posts come from the Supabase `blog_posts` table and are managed in `/admin/blog`.
@@ -29,6 +30,6 @@ npm run build    # production build, also type-checks
 
 - Portrait photo: replace the monogram block in `components/pages/AboutPage.tsx`.
 - Real domain: set `NEXT_PUBLIC_SITE_URL`; it feeds `metadataBase` and canonicals.
-- Timeline dates for Ase and Copyright Agent in `content/*.ts` are blank on purpose until confirmed.
+- Job titles and dates in the About timeline are limited to what is publicly verifiable; fill in from a LinkedIn PDF export when available.
 - Cookie banner is Danish only.
 - The earlier management-dashboard prototype (CRM, pipeline, finance) lives on the local branch `prototype/management-app` and is meant to be ported into `/admin`.

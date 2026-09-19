@@ -6,7 +6,7 @@ const t = getCopy('en').cases.meta
 
 export const metadata: Metadata = {
   title: t.title, description: t.description,
-  alternates: { canonical: '/en/cases', languages: { da: '/cases', en: '/en/cases' } },
+  alternates: { canonical: '/cases', languages: { en: '/cases', da: '/da/cases' } },
 }
 
 export default function Page() {

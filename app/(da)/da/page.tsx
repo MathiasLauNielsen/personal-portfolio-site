@@ -6,7 +6,7 @@ const t = getCopy('da').home.meta
 
 export const metadata: Metadata = {
   description: t.description,
-  alternates: { canonical: '/', languages: { da: '/', en: '/en' } },
+  alternates: { canonical: '/da', languages: { en: '/', da: '/da' } },
 }
 
 export default function Page() {
