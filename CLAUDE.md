@@ -20,6 +20,9 @@ npm run build    # production build, also type-checks
 - **Three root layouts via route groups:** `app/(en)` (English, the default, at `/`), `app/(da)` (Danish under `/da/*`, plus the Danish-only `/blog` and `/privatlivspolitik`) and `app/(admin)/admin` (no site chrome, `noindex`). Each sets its own `<html lang>`. `app/api/kontakt` is shared. URLs from earlier versions redirect in `next.config.mjs`.
 - **Pages:** home, one page per offer (`/data-platform`, `/ai-coding`, both rendered by `components/pages/OfferingPage.tsx` with an `offer` prop), about and contact. Route files are thin: metadata plus a component from `components/pages/*` with a `locale` prop.
 - **Copy lives in `content/`, not in pages.** `content/en.ts` defines the shape, `content/da.ts` must match it (`Copy` type), `content/site.ts` holds company facts, the route map for both languages and `switchLocalePath()`. To change text, edit both language files.
+- **The site exists to sell.** Every page should move a visitor toward sending an enquiry: hours (embedded engineer) or a fixed-scope product (platform review, AI coding setup). Home page order follows the buyer: pitch, proof, the two offers, how to buy, why me, FAQ, enquiry form. `ContactSection` (pitch + short form, `id="contact"`) closes every page; `MobileCtaBar` keeps call/contact on screen on phones. Links like `/contact?topic=review` preselect the form topic. Keep the form short: each added field costs enquiries.
+- **Lead handling:** `/api/kontakt` stores the enquiry in Supabase and, when `RESEND_API_KEY` is set, emails it to `LEAD_EMAIL_TO`. A hidden `website` field is a spam trap. `enquiry_sent` is tracked in Vercel Analytics with the topic, so offers can be compared.
+- **Search and sharing:** `app/sitemap.ts`, `app/robots.ts`, JSON-LD in `components/StructuredData.tsx`, link preview images in `opengraph-image.tsx` (layout in `components/OgCard.tsx`).
 - **Tone and honesty:** short, plain, factual. No hype and no invented facts, clients, numbers or job titles; leave things out rather than guess. Every figure comes from real work and says whether it was measured in production or tested on historical data.
 - **Design system:** light, warm `paper` base, `ink` for text and the few dark sections, one cobalt `accent` (tokens in `tailwind.config.ts`; component classes such as `container-page`, `eyebrow`, `display`, `btn-*` in `app/globals.css`). Fonts: Bricolage Grotesque (display), Hanken Grotesk (body), JetBrains Mono (labels). `Reveal` handles scroll-in animation and respects reduced motion.
 - **Blog and privacy pages are Danish only** and still use the legacy `Hero` wrapper. Blog posts come from the Supabase `blog_posts` table and are managed in `/admin/blog`.
@@ -28,6 +31,8 @@ npm run build    # production build, also type-checks
 
 ## Open items
 
+- Enquiry emails are off until a Resend API key is added in Vercel (`RESEND_API_KEY`); until then leads are only visible in `/admin/henvendelser`.
+- Product durations and the "taking on new engagements" badge in `content/*.ts` are placeholders to confirm.
 - Portrait photo: there is a marked spot for it in `components/pages/AboutPage.tsx`.
 - Real domain: set `NEXT_PUBLIC_SITE_URL`; it feeds `metadataBase` and canonicals.
 - Career details are limited to what is publicly verifiable; refine from a LinkedIn PDF export when available.

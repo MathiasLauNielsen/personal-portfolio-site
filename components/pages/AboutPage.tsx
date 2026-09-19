@@ -2,7 +2,7 @@ import { Linkedin } from 'lucide-react'
 import { getCopy, site, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
 import Reveal from '@/components/Reveal'
-import CtaBand from '@/components/CtaBand'
+import ContactSection from '@/components/ContactSection'
 
 export default function AboutPage({ locale }: { locale: Locale }) {
   const copy = getCopy(locale)
@@ -68,7 +68,7 @@ export default function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <CtaBand locale={locale} />
+      <ContactSection locale={locale} />
     </>
   )
 }

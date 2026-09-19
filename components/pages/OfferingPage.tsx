@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { getCopy, routes, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
 import Reveal from '@/components/Reveal'
-import CtaBand from '@/components/CtaBand'
+import ContactSection from '@/components/ContactSection'
 
 // One layout for both offers: data platform and AI coding.
 export default function OfferingPage({ locale, offer }: { locale: Locale; offer: 'data' | 'ai' }) {
@@ -13,7 +13,12 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
 
   return (
     <>
-      <PageHero {...t.hero} />
+      <PageHero {...t.hero}>
+        <a href="#contact" className="btn-accent !px-6 !py-3.5">
+          {getCopy(locale).home.hero.ctaPrimary}
+          <ArrowRight size={16} />
+        </a>
+      </PageHero>
 
       {/* When companies call */}
       <section className="py-20 sm:py-24">
@@ -96,7 +101,7 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
         </div>
       </section>
 
-      <CtaBand locale={locale} />
+      <ContactSection locale={locale} topic={offer} />
     </>
   )
 }
