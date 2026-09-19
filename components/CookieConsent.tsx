@@ -51,7 +51,7 @@ export default function CookieConsent() {
             <div className="flex-1 min-w-0">
               <p className="text-sm text-slate-700 leading-relaxed">
                 Vi bruger anonymiserede analysedata til at forbedre vores hjemmeside. Ingen persondata videregives til tredjeparter.{' '}
-                <Link href="/privatlivspolitik" className="text-blue-700 underline hover:text-blue-900">
+                <Link href="/privatlivspolitik" className="underline hover:no-underline">
                   Læs mere
                 </Link>
                 .
@@ -66,7 +66,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={accept}
-                className="text-sm font-semibold bg-blue-800 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="text-sm font-semibold bg-ink text-white px-5 py-2 rounded-lg hover:bg-accent transition-colors"
               >
                 Accepter
               </button>

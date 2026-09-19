@@ -1,218 +1,151 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
-import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { useEffect, useState, type FormEvent } from 'react'
+import Link from 'next/link'
+import { track } from '@vercel/analytics'
+import { AlertCircle, CheckCircle, Send } from 'lucide-react'
 import clsx from 'clsx'
+import { getCopy, routes, type Locale } from '@/content'
 
-interface FormData {
-  navn: string
-  email: string
-  virksomhed: string
-  telefon: string
-  besked: string
-}
-
-const initialFormData: FormData = {
-  navn: '',
-  email: '',
-  virksomhed: '',
-  telefon: '',
-  besked: '',
-}
+const empty = { navn: '', email: '', virksomhed: '', besked: '', website: '' }
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error'
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>(initialFormData)
-  const [submitState, setSubmitState] = useState<SubmitState>('idle')
-  const [errorMessage, setErrorMessage] = useState<string>('')
+// Short on purpose: every extra field costs enquiries. The topic can be preset by the page
+// or by a ?topic= link, and is stored as a prefix on the message.
+export default function ContactForm({ locale, defaultTopic }: { locale: Locale; defaultTopic?: string }) {
+  const t = getCopy(locale).contact.form
+  const [values, setValues] = useState(empty)
+  const [topic, setTopic] = useState(defaultTopic ?? '')
+  const [state, setState] = useState<SubmitState>('idle')
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  useEffect(() => {
+    const fromUrl = new URLSearchParams(window.location.search).get('topic')
+    if (fromUrl && t.topics.some((x) => x.value === fromUrl)) setTopic(fromUrl)
+  }, [t.topics])
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitState('loading')
-    setErrorMessage('')
-
+    setState('loading')
+    const topicLabel = t.topics.find((x) => x.value === topic)?.label
     try {
       const response = await fetch('/api/kontakt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...values,
+          besked: topicLabel ? `[${topicLabel}] ${values.besked}` : values.besked,
+        }),
       })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error ?? 'Der opstod en fejl. Prøv igen.')
-      }
-
-      setSubmitState('success')
-      setFormData(initialFormData)
-    } catch (err) {
-      setSubmitState('error')
-      setErrorMessage(
-        err instanceof Error
-          ? err.message
-          : 'Der opstod en uventet fejl. Prøv igen.'
-      )
+      if (!response.ok) throw new Error()
+      track('enquiry_sent', { topic: topic || 'none', locale })
+      setState('success')
+      setValues(empty)
+    } catch {
+      setState('error')
     }
   }
 
-  if (submitState === 'success') {
+  if (state === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 rounded-xl border border-emerald-200 bg-emerald-50 p-12 text-center">
-        <CheckCircle size={48} className="text-emerald-500" />
-        <div>
-          <h3 className="text-lg font-semibold text-slate-900">
-            Tak for din henvendelse!
-          </h3>
-          <p className="mt-2 text-sm text-slate-600">
-            Jeg vender tilbage til dig hurtigst muligt — typisk inden for 1-2
-            hverdage.
-          </p>
-        </div>
-        <button
-          onClick={() => setSubmitState('idle')}
-          className="text-sm font-medium text-blue-800 hover:underline"
-        >
-          Send en ny besked
+      <div className="flex flex-col items-start py-6" role="status">
+        <CheckCircle size={40} className="text-accent" aria-hidden />
+        <h3 className="display mt-5 text-3xl">{t.successTitle}</h3>
+        <p className="mt-3 text-lg text-muted">{t.successBody}</p>
+        <button type="button" onClick={() => setState('idle')} className="link-underline mt-6 text-sm font-semibold">
+          {t.again}
         </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-      {/* Navn + Email */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="navn" className="form-label">
-            Navn <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="navn"
-            name="navn"
-            type="text"
-            required
-            autoComplete="name"
-            placeholder="Dit navn"
-            value={formData.navn}
-            onChange={handleChange}
-            className="form-input"
-          />
+    <form onSubmit={onSubmit} className="flex flex-col gap-5">
+      <fieldset>
+        <legend className="form-label">{t.topicLabel}</legend>
+        <div className="flex flex-wrap gap-2">
+          {t.topics.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              aria-pressed={topic === option.value}
+              onClick={() => setTopic(topic === option.value ? '' : option.value)}
+              className={clsx(
+                'rounded-lg border px-3 py-1.5 text-sm transition-colors',
+                topic === option.value
+                  ? 'border-accent bg-accent text-white'
+                  : 'border-paper-line bg-paper-card text-ink hover:border-ink'
+              )}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
-        <div>
-          <label htmlFor="email" className="form-label">
-            E-mail <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="din@email.dk"
-            value={formData.email}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
-      </div>
+      </fieldset>
 
-      {/* Virksomhed + Telefon */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="virksomhed" className="form-label">
-            Virksomhed
-          </label>
-          <input
-            id="virksomhed"
-            name="virksomhed"
-            type="text"
-            autoComplete="organization"
-            placeholder="Virksomhedens navn (valgfrit)"
-            value={formData.virksomhed}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
-        <div>
-          <label htmlFor="telefon" className="form-label">
-            Telefon
-          </label>
-          <input
-            id="telefon"
-            name="telefon"
-            type="tel"
-            autoComplete="tel"
-            placeholder="+45 00 00 00 00 (valgfrit)"
-            value={formData.telefon}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
-      </div>
-
-      {/* Besked */}
       <div>
-        <label htmlFor="besked" className="form-label">
-          Besked <span className="text-red-500">*</span>
-        </label>
+        <label htmlFor="besked" className="form-label">{t.message}</label>
         <textarea
           id="besked"
           name="besked"
           required
-          rows={5}
-          placeholder="Beskriv dit projekt eller spørgsmål..."
-          value={formData.besked}
-          onChange={handleChange}
-          className={clsx('form-input resize-y min-h-[120px]')}
+          rows={4}
+          placeholder={t.placeholder}
+          value={values.besked}
+          onChange={onChange}
+          className="form-input resize-y"
         />
       </div>
 
-      {/* Error message */}
-      {submitState === 'error' && (
-        <div className="flex items-start gap-2.5 rounded-lg border border-red-200 bg-red-50 p-4">
-          <AlertCircle
-            size={18}
-            className="text-red-500 shrink-0 mt-0.5"
-          />
-          <p className="text-sm text-red-700">{errorMessage}</p>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="navn" className="form-label">{t.name}</label>
+          <input id="navn" name="navn" required autoComplete="name" value={values.navn} onChange={onChange} className="form-input" />
         </div>
+        <div>
+          <label htmlFor="email" className="form-label">{t.email}</label>
+          <input id="email" name="email" type="email" required autoComplete="email" value={values.email} onChange={onChange} className="form-input" />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="virksomhed" className="form-label">
+          {t.company} <span className="font-normal text-muted">({t.optional})</span>
+        </label>
+        <input id="virksomhed" name="virksomhed" autoComplete="organization" value={values.virksomhed} onChange={onChange} className="form-input" />
+      </div>
+
+      <input
+        type="text"
+        name="website"
+        value={values.website}
+        onChange={onChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="hidden"
+      />
+
+      {state === 'error' && (
+        <p role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+          <AlertCircle size={18} className="mt-0.5 shrink-0" aria-hidden />
+          {t.error}
+        </p>
       )}
 
-      {/* Submit */}
-      <button
-        type="submit"
-        disabled={submitState === 'loading'}
-        className={clsx(
-          'btn-primary justify-center',
-          submitState === 'loading' && 'opacity-70 cursor-not-allowed'
-        )}
-      >
-        {submitState === 'loading' ? (
-          <>
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-            Sender...
-          </>
-        ) : (
-          <>
-            <Send size={16} />
-            Send besked
-          </>
-        )}
-      </button>
-
-      <p className="text-xs text-slate-400 text-center">
-        Felter markeret med * er obligatoriske. Dine oplysninger behandles
-        fortroligt.
-      </p>
+      <div className="flex flex-col gap-3">
+        <button type="submit" disabled={state === 'loading'} className="btn-accent w-full !py-3.5 disabled:opacity-60">
+          {state === 'loading' ? t.sending : t.submit}
+          <Send size={15} aria-hidden />
+        </button>
+        <p className="text-xs leading-relaxed text-muted">
+          {t.consent}{' '}
+          <Link href={routes[locale].privacy} className="link-underline">{t.privacy}</Link>
+        </p>
+      </div>
     </form>
   )
 }
