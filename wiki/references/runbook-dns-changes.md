@@ -3,7 +3,7 @@ title: Runbook for DNS changes
 type: reference
 summary: How to change DNS for mlnanalytics.com without breaking email, learned from the failed switch on 2026-09-30
 confidence: high
-sources: [raw/2026-09-30-dns-observations.md]
+sources: [raw/2026-09-30-dns-observations.md, raw/2026-09-30-negative-dns-cache.md]
 updated: 2026-09-30
 ---
 
@@ -18,6 +18,16 @@ Email for the domain depends on the MX record, so every DNS change is also an em
    - `Resolve-DnsName mlnanalytics.com -Type MX -Server dns1.registrar-servers.com`
    - `curl -s "https://dns.google/resolve?name=mlnanalytics.com&type=MX"`
 3. Record the change in [Domain and email](../topics/domain-and-email.md) and the [log](../log.md).
+
+Never leave the site's A records missing, even briefly: add the new record before deleting the old one. Namecheap's zone tells resolvers to remember "no such record" for up to an hour (SOA minimum 3601 s). Anyone whose resolver asks during a gap then sees the site as down for that hour, even after the record is back.
+
+## When the site is reported down
+
+Check from outside before changing anything:
+
+1. `curl -sI https://mlnanalytics.com` and `vercel ls --prod`: is the site served, and is the latest deploy Ready?
+2. Compare resolvers: `nslookup mlnanalytics.com 1.1.1.1`, `nslookup mlnanalytics.com 8.8.8.8`, `nslookup mlnanalytics.com dns1.registrar-servers.com`, and the local one (`nslookup mlnanalytics.com`).
+3. If only the local resolver has no answer and it shows the SOA with a falling TTL, it is a cached "no such record". It clears by itself when that TTL reaches zero. Restarting the router may clear it sooner, if the router is the one caching. Nothing on the site or in DNS needs to change. This happened on 2026-09-30, see [Domain and email](../topics/domain-and-email.md).
 
 ## Moving DNS to another provider
 

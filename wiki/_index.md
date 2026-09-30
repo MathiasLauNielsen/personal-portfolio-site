@@ -40,5 +40,6 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [DNS observations when moving nameservers to Vercel](raw/2026-09-30-dns-observations.md) | observation | 2026-09-30 |
 | [Domain restored to Namecheap DNS and the site live on mlnanalytics.com](raw/2026-09-30-domain-live.md) | observation | 2026-09-30 |
 | [Launch checks on the website and database](raw/2026-09-30-launch-checks.md) | observation | 2026-09-30 |
+| [Site reported down from Mathias's network after the DNS restore](raw/2026-09-30-negative-dns-cache.md) | observation | 2026-09-30 |
 | [Claude owns the pull request lifecycle](raw/2026-09-30-pr-ownership.md) | decision | 2026-09-30 |
 | [Research report on solo consultancy sites and improvements for this site](raw/2026-09-30-site-research.md) | document | 2026-09-30 |
