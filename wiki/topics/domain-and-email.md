@@ -3,7 +3,7 @@ title: Domain and email
 type: topic
 summary: mlnanalytics.com at Namecheap, email on Google Workspace, the DNS records in place, and the 2026-09-30 outage
 confidence: high
-sources: [raw/2026-09-30-dns-observations.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md]
+sources: [raw/2026-09-30-dns-observations.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-negative-dns-cache.md]
 updated: 2026-09-30
 ---
 
@@ -43,3 +43,4 @@ Before 2026-09-30 the domain had no SPF, DKIM or DMARC. Receiving mail servers t
 - Before 2026-09-30: `www` pointed to a Render service that redirected to the bare domain, which had no address, so nothing was served.
 - 2026-09-30, 13:59–14:27 UTC: nameservers switched to Vercel, which never created a DNS zone. The site and incoming email did not resolve for resolvers without a cached answer; mail was delayed, not lost, as senders retry. Switched back to Namecheap at 14:27. See [Runbook for DNS changes](../references/runbook-dns-changes.md) for the lesson.
 - 2026-09-30, about 14:30 UTC: site records, SPF and DMARC added at Namecheap; the old Render ALIAS removed. Certificate issued and the site served on the domain.
+- 2026-09-30, until about 15:34 UTC: the site looked down from Mathias's own network. A resolver there had cached "no such record" for the bare domain during the 14:27–14:33 edits, and kept it for up to an hour. Public resolvers and the site were fine throughout; it cleared by itself. See [Runbook for DNS changes](../references/runbook-dns-changes.md) for how to recognise this.
