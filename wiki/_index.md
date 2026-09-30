@@ -15,7 +15,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
 | [Database](topics/database.md) | The Supabase project behind the site, its tables and access rules, and how it was rebuilt on 2026-09-30 | high | 2026-09-30 |
-| [Domain and email](topics/domain-and-email.md) | mlnanalytics.com at Namecheap, email on Google Workspace, the records the site and mail need, and the 2026-09-30 outage | high | 2026-09-30 |
+| [Domain and email](topics/domain-and-email.md) | mlnanalytics.com at Namecheap, email on Google Workspace, the DNS records in place, and the 2026-09-30 outage | high | 2026-09-30 |
 | [Hosting](topics/hosting.md) | The Vercel project, how deploys happen, environment variables by name, and analytics | high | 2026-09-30 |
 | [Lead handling](topics/lead-handling.md) | What happens when someone sends an enquiry, where it is stored and how Mathias finds out | high | 2026-09-30 |
 | [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-09-30 |
@@ -37,4 +37,5 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Inventory of accounts and services seen from this repo](raw/2026-09-30-accounts-inventory.md) | observation | 2026-09-30 |
 | [Decisions Mathias made during launch preparation](raw/2026-09-30-decisions.md) | decision | 2026-09-30 |
 | [DNS observations when moving nameservers to Vercel](raw/2026-09-30-dns-observations.md) | observation | 2026-09-30 |
+| [Domain restored to Namecheap DNS and the site live on mlnanalytics.com](raw/2026-09-30-domain-live.md) | observation | 2026-09-30 |
 | [Launch checks on the website and database](raw/2026-09-30-launch-checks.md) | observation | 2026-09-30 |

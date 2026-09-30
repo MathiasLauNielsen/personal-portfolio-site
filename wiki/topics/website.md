@@ -3,7 +3,7 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-decisions.md, ../CLAUDE.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, ../CLAUDE.md]
 updated: 2026-09-30
 ---
 
@@ -14,7 +14,7 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 ## Status (as of 2026-09-30)
 
 - The redesign is live in production since PR #4 (13:52 UTC): two offers, ways to buy, FAQ, an enquiry form on every page.
-- Served on the vercel.app address; `mlnanalytics.com` waits on DNS, see [Domain and email](domain-and-email.md).
+- Served at https://mlnanalytics.com since 2026-09-30, about 14:40 UTC, see [Domain and email](domain-and-email.md).
 - Traffic is expected to be low for a while, which is why there is no rate limiting beyond field limits and a spam trap.
 
 ## Where things are described
