@@ -9,6 +9,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 |---|---|---|---|
 | [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-09-30 |
 | [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-09-30 |
+| [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-09-30 |
 
 ## Topics
 
@@ -40,3 +41,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Domain restored to Namecheap DNS and the site live on mlnanalytics.com](raw/2026-09-30-domain-live.md) | observation | 2026-09-30 |
 | [Launch checks on the website and database](raw/2026-09-30-launch-checks.md) | observation | 2026-09-30 |
 | [Claude owns the pull request lifecycle](raw/2026-09-30-pr-ownership.md) | decision | 2026-09-30 |
+| [Research report on solo consultancy sites and improvements for this site](raw/2026-09-30-site-research.md) | document | 2026-09-30 |

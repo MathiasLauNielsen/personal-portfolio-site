@@ -41,3 +41,7 @@ supabase/.branches
 
 # personal Claude Code settings
 .claude/settings.local.json
+
+# research working files (reports are ingested into wiki/raw)
+research_notes/
+reports/
