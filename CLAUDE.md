@@ -31,6 +31,10 @@ npm run wiki     # rebuild wiki/_index.md and lint the wiki (wiki:check = no wri
 - **Supabase:** tables `kontakt_henvendelser` (contact form, inserted through `/api/kontakt`) and `blog_posts`. Column names are Danish. Reading and changing enquiries and blog posts is limited to accounts in the `admins` table (`is_admin()`, migration 004); public sign-ups are disabled in the Supabase project and should stay so. Schema changes go through a new file in `supabase/migrations` and `supabase db push --linked`; the database was rebuilt from these files on 2026-09-30, so the remote migration history matches them. New admins: `INSERT INTO admins (user_id) SELECT id FROM auth.users WHERE email = '...'`.
 - `middleware.ts` guards `/admin/*` (except `/admin/login`) with a Supabase session check.
 
+## Pull requests
+
+Claude owns the PR lifecycle in this repo; Mathias does not review before merging. When a task is done: branch, commit, open a PR, wait for the checks (Vercel preview, wiki check), merge to `main` with a merge commit and delete the branch, then verify the production deploy. Stop before `main` only when Mathias has to do something specific first, and say what.
+
 ## Company wiki
 
 `wiki/` is the company's knowledge base, kept by Claude in the llm-wiki pattern: what exists, how it is set up, what was decided and why, and what is open. This file covers the code; the wiki covers everything around it (domain and email, database, hosting, services, offers, runbooks). Rules and formats: `wiki/schema.md`.

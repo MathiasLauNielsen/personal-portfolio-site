@@ -3,7 +3,7 @@ title: IT operating model
 type: concept
 summary: How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias
 confidence: high
-sources: [raw/2026-09-30-decisions.md]
+sources: [raw/2026-09-30-decisions.md, raw/2026-09-30-pr-ownership.md]
 updated: 2026-09-30
 ---
 
@@ -14,7 +14,8 @@ Mathias runs a one-person company and wants this repository to manage and automa
 ## What Claude does on its own
 
 - Keeps the website, database, hosting and this wiki in order, and proposes automation.
-- Runs database migrations, Vercel domain, environment and deploy commands, and merges this repo's pull requests once Mathias has approved the change.
+- Runs database migrations and Vercel domain, environment and deploy commands.
+- Owns the pull request lifecycle: branch, PR, checks, merge to `main`, then verify production. Mathias does not review before merging (decided 2026-09-30). A PR stops short of `main` only when Mathias has to do something specific first.
 - Checks the result of every change against the live system and records it here.
 
 ## What needs Mathias
