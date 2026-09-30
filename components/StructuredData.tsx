@@ -1,4 +1,4 @@
-import { getCopy, site, type Locale } from '@/content'
+import { getCopy, routes, site, type Locale } from '@/content'
 
 // schema.org markup so search engines understand who is selling what.
 export default function StructuredData({ locale }: { locale: Locale }) {
@@ -16,7 +16,16 @@ export default function StructuredData({ locale }: { locale: Locale }) {
     description: copy.home.meta.description,
     areaServed: ['DK', 'EU'],
     address: { '@type': 'PostalAddress', addressLocality: 'Copenhagen', addressCountry: 'DK' },
-    founder: { '@type': 'Person', name: site.person, jobTitle: 'Data and AI Engineer', sameAs: [site.linkedin] },
+    sameAs: [site.linkedin],
+    founder: {
+      '@type': 'Person',
+      name: site.person,
+      jobTitle: 'Data and AI Engineer',
+      url: `${site.url}${routes[locale].about}`,
+      sameAs: [site.linkedin],
+      // The technologies named on the two offer pages, so the person is tied to the same terms search engines see in the text.
+      knowsAbout: Array.from(new Set([...copy.data.stack, ...copy.ai.stack])),
+    },
     // The two areas of expertise, then the ways to buy them (hours and the fixed-scope products).
     makesOffer: [
       ...copy.home.offers.items.map((offer) => ({ name: offer.name, description: offer.body })),

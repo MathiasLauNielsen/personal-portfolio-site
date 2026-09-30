@@ -3,7 +3,7 @@ title: Services and accounts
 type: reference
 summary: Every external service the company uses, what it does, how it is reached from here, and what is unknown
 confidence: medium
-sources: [raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-launch-checks.md]
+sources: [raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-seo-audit.md]
 updated: 2026-09-30
 ---
 
@@ -22,6 +22,10 @@ As of 2026-09-30. No credentials are stored in this wiki; the "Access from here"
 | Render | Old target of `www` (`mlnanalytics.onrender.com`) | None | Unknown whether it still exists | [Domain and email](../topics/domain-and-email.md) |
 
 Also seen: a second Supabase project, `planning-site` (eu-west-1), inactive and not linked to this repo.
+
+## Not set up (as of 2026-09-30)
+
+No Google Search Console, Bing Webmaster Tools, Google Business Profile, broker or directory accounts exist yet; see [Open items](../topics/open-items.md) 20–25.
 
 ## To fill in
 

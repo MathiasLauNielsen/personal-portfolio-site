@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Privatlivspolitik',
   description: `Læs om hvordan ${site.company} behandler persondata.`,
   alternates: { canonical: '/privatlivspolitik' },
+  openGraph: { title: 'Privatlivspolitik', description: `Læs om hvordan ${site.company} behandler persondata.`, url: '/privatlivspolitik' },
 }
 
 export default function Privatlivspolitik() {

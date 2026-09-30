@@ -14,9 +14,9 @@ export const da: Copy = {
 
   home: {
     meta: {
-      title: 'Mathias Lau Nielsen | Ekspertise i dataplatforme og AI-kodning',
+      title: 'Freelance data engineer i København | Mathias Lau Nielsen',
       description:
-        'Freelance data- og AI-ingeniør, der har haft det tekniske ansvar for hele dataplatformen i to virksomheder. Jeg bygger og retter dataplatforme og sætter AI-kodning op, der leverer.',
+        'Freelance data- og AI-ingeniør i København, ansvarlig for hele dataplatformen i to virksomheder. Jeg bygger og retter dataplatforme og sætter AI-kodning op.',
     },
     hero: {
       eyebrow: 'Freelance data- og AI-ingeniør · København',
@@ -154,9 +154,9 @@ export const da: Copy = {
 
   data: {
     meta: {
-      title: 'Ekspertise i dataplatforme',
+      title: 'Dataplatform-konsulent i København',
       description:
-        'Design, opbygning og reparation af dataplatforme: pipelines, data warehouse, datamodeller, rapportering, machine learning, omkostninger og performance. Freelance data- og AI-ingeniør.',
+        'Freelance dataplatform-konsulent: pipelines, data warehouse, rapportering, machine learning, BigQuery, Fabric. Byg, ret eller gennemgang, timer eller fast pris.',
     },
     hero: {
       eyebrow: 'Ekspertise i dataplatforme',
@@ -170,6 +170,7 @@ export const da: Copy = {
       'De natlige jobs når ikke længere at blive færdige.',
       'Alt afhænger af én person og en samling scripts.',
       'Der er data overalt, men ingen fælles måde at måle noget på.',
+      'I ved, hvad I gerne vil forudsige, og ingen har bygget det.',
     ],
     whatTitle: 'Hvad jeg laver',
     what: [
@@ -177,13 +178,13 @@ export const da: Copy = {
       { title: 'Omkostninger og performance', body: 'Jeg finder de forespørgsler og jobs, der laver langt mere arbejde end nødvendigt, og retter dem. Det meste spild ligger som regel en håndfuld steder.' },
       { title: 'Fundament for rapportering', body: 'Aftalte definitioner, konsistente tal og et rapporteringslag, ledelsen kan drive virksomheden efter.' },
       { title: 'Driftssikkerhed', body: 'Tests, overvågning og datakvalitetstjek, så problemer bliver fundet af platformen og ikke af økonomidirektøren.' },
-      { title: 'Machine learning i drift', body: 'Modeller, der træffer en beslutning inde i platformen, fx hvilke poster der er værd at behandle, og som bliver målt mod det, de afløste.' },
+      { title: 'Machine learning i drift', body: 'Modeller, der kører inde i platformen og bliver målt mod det, de afløste. Jeg har sat modeller i drift, der forudsiger omsætning, indgående opkald, medlemsbevægelser, churn, ledighed, og hvilke poster der er værd at behandle.' },
       { title: 'Forecasting', body: 'Omsætningsforecasts, der kombinerer flere modeller og er detaljerede nok til at budgettere efter, både top-down og bottom-up.' },
     ],
     engagementsTitle: 'Sådan kan vi arbejde sammen',
     engagements: [
       { title: 'Gennemgang af dataplatform', body: 'En kort vurdering af jeres platform: hvad den koster, hvor den er skrøbelig, og hvad der bør rettes først.', topic: 'review' },
-      { title: 'Projekt', body: 'En afgrænset opbygning eller rettelse med et aftalt resultat.' },
+      { title: 'Projekt', body: 'En afgrænset opbygning, rettelse eller første forudsigelsesmodel med et aftalt resultat.' },
       { title: 'Timer', body: 'Jeg indgår i jeres team på deltid eller fuld tid i en længere periode. Det foretrækker jeg, og det er dér, de bedste resultater kommer fra.', topic: 'hours' },
     ],
     stackTitle: 'Teknologi',
@@ -194,9 +195,9 @@ export const da: Copy = {
 
   ai: {
     meta: {
-      title: 'Ekspertise i AI-kodning',
+      title: 'Opsætning af AI-kodning i jeres team',
       description:
-        'AI-kodeagenter sat ordentligt op i jeres kodebase: konventioner, rammer, forbindelser til jeres systemer og et trænet team. Freelance data- og AI-ingeniør.',
+        'Claude Code og andre kodeagenter sat op i jeres kodebase: konventioner, rammer, forbindelser til jeres systemer og hands-on træning af jeres udviklere.',
     },
     hero: {
       eyebrow: 'Ekspertise i AI-kodning',
@@ -232,20 +233,20 @@ export const da: Copy = {
 
   about: {
     meta: {
-      title: 'Om mig',
+      title: 'Om mig: freelance data- og AI-ingeniør',
       description:
-        'Mathias Lau Nielsen: freelance data- og AI-ingeniør i København. Har arbejdet med data siden 2020 og haft det tekniske ansvar for hele dataplatformen i to virksomheder.',
+        'Mathias Lau Nielsen, freelance data- og AI-ingeniør i København. Data siden 2020, teknisk ansvar for hele dataplatformen i to virksomheder.',
     },
     hero: {
       eyebrow: 'Om mig',
       title: 'Mathias Lau Nielsen',
-      lead: 'Freelance data- og AI-ingeniør i København. Jeg arbejder gennem mit eget firma, MLN Data Consulting.',
+      lead: 'Freelance data- og AI-ingeniør i København. Jeg bygger og retter dataplatforme (BigQuery, Google Cloud, Microsoft Fabric) og sætter AI-kodeagenter som Claude Code op for udviklingsteams. Jeg arbejder gennem mit eget firma, MLN Data Consulting.',
     },
     story: [
       'Jeg har arbejdet med data siden 2020, og i to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen: fra de rå data kommer ind, til de rapporter, forretningen styrer efter.',
       'Jeg begyndte hos konsulenthuset Viteco, mens jeg læste datalogi på Københavns Universitet. Der byggede jeg software, som automatiserede arbejdet med data warehouses: den aflæste kildesystemernes struktur, indlæste og transformerede data og håndterede stamdata. Mit bachelorprojekt, skrevet sammen med Viteco, brugte machine learning til at finde strukturen i kildedata og udlede warehouse-modellen af den.',
       'Hos softwarevirksomheden Copyright Agent designede og byggede jeg dataplatformen: data warehouset, pipelines fra de vigtigste kildesystemer og al rapportering. Oven på den satte jeg machine learning-modeller i drift og byggede de omsætningsforecasts, der blev brugt i virksomhedens budgetlægning. Jeg begyndte som ansat og arbejder stadig for dem som konsulent.',
-      'Hos Ase, en stor dansk medlemsorganisation, fik jeg det tekniske ansvar for dataplatformen og dens arkitektur. Jeg planlagde flytningen fra SQL Server til Microsoft Fabric, lagde koden om til Python-pakker, som AI-kodeagenter kan arbejde i, og har været mentor for data- og analyseteamet, også i de tekniske prioriteringer.',
+      'Hos Ase, en stor dansk medlemsorganisation, fik jeg det tekniske ansvar for dataplatformen og dens arkitektur. Jeg planlagde flytningen fra SQL Server til Microsoft Fabric, lagde koden om til Python-pakker, som AI-kodeagenter kan arbejde i, og satte modeller i drift, der forudsiger indgående opkald, medlemsbevægelser, churn og ledighed. Jeg har også været mentor for data- og analyseteamet, også i de tekniske prioriteringer.',
       'Ved siden af platformsarbejdet er jeg gået i dybden med AI-assisteret udvikling. Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter og har opbygget de konventioner og rammer, der gør det pålideligt. Hos både Ase og Copyright Agent har jeg brugt AI til at designe og forbedre rapportering. At sætte det op for andre er blevet den anden halvdel af det, jeg laver.',
       'Før datalogien ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål, så jeg ved, hvordan det er at drive noget efter tal, man skal kunne stole på.',
     ],
@@ -262,7 +263,7 @@ export const da: Copy = {
   contact: {
     meta: {
       title: 'Kontakt',
-      description: 'Kontakt Mathias Lau Nielsen, MLN Data Consulting.',
+      description: 'Tre linjer om, hvad I skal have bygget, rettet eller sat op. Jeg svarer inden for én arbejdsdag. On-site i København, ellers remote, på dansk eller engelsk.',
     },
     hero: {
       eyebrow: 'Kontakt',
