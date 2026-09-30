@@ -136,7 +136,7 @@ export const da: Copy = {
     },
     experience: {
       label: 'Erfaring fra',
-      items: ['Ase', 'Copyright Agent', 'Viteco', 'Københavns Universitet (BSc i datalogi)'],
+      items: ['Ase', 'Copyright Agent', 'Viteco'],
     },
     testimonial: {
       quote:
@@ -244,17 +244,18 @@ export const da: Copy = {
     },
     story: [
       'Jeg har arbejdet med data siden 2020, og i to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen: fra de rå data kommer ind, til de rapporter, forretningen styrer efter.',
-      'Jeg begyndte hos konsulenthuset Viteco, mens jeg læste datalogi på Københavns Universitet. Der byggede jeg software, som automatiserede arbejdet med data warehouses: den aflæste kildesystemernes struktur, indlæste og transformerede data og håndterede stamdata. Mit bachelorprojekt, skrevet sammen med Viteco, brugte machine learning til at finde strukturen i kildedata og udlede warehouse-modellen af den.',
+      'Jeg begyndte hos konsulenthuset Viteco i 2020. Der byggede jeg software, som automatiserede arbejdet med data warehouses: den aflæste kildesystemernes struktur, indlæste og transformerede data og håndterede stamdata. Et projekt, jeg skrev sammen med Viteco, brugte machine learning til at finde strukturen i kildedata og udlede warehouse-modellen af den.',
       'Hos softwarevirksomheden Copyright Agent designede og byggede jeg dataplatformen: data warehouset, pipelines fra de vigtigste kildesystemer og al rapportering. Oven på den satte jeg machine learning-modeller i drift og byggede de omsætningsforecasts, der blev brugt i virksomhedens budgetlægning. Jeg begyndte som ansat og arbejder stadig for dem som konsulent.',
       'Hos Ase, en stor dansk medlemsorganisation, fik jeg det tekniske ansvar for dataplatformen og dens arkitektur. Jeg planlagde flytningen fra SQL Server til Microsoft Fabric, lagde koden om til Python-pakker, som AI-kodeagenter kan arbejde i, og satte modeller i drift, der forudsiger indgående opkald, medlemsbevægelser, churn og ledighed. Jeg har også været mentor for data- og analyseteamet, også i de tekniske prioriteringer.',
       'Ved siden af platformsarbejdet er jeg gået i dybden med AI-assisteret udvikling. Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter og har opbygget de konventioner og rammer, der gør det pålideligt. Hos både Ase og Copyright Agent har jeg brugt AI til at designe og forbedre rapportering. At sætte det op for andre er blevet den anden halvdel af det, jeg laver.',
-      'Før datalogien ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål, så jeg ved, hvordan det er at drive noget efter tal, man skal kunne stole på.',
+      'Før data ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål, så jeg ved, hvordan det er at drive noget efter tal, man skal kunne stole på.',
     ],
     factsTitle: 'Kort fortalt',
     facts: [
       { label: 'Base', value: 'København. Remote eller on-site.' },
       { label: 'Sprog', value: 'Dansk og engelsk' },
       { label: 'Dækker', value: 'Data engineering, machine learning, rapportering og AI-kodning' },
+      { label: 'Uddannelse', value: 'BSc i datalogi, Københavns Universitet' },
       { label: 'Foretrækker', value: 'Længere forløb, deltid eller fuld tid' },
       { label: 'Arbejder ikke med', value: 'Våben, sprængstoffer, udvinding af fossile brændsler' },
     ],
