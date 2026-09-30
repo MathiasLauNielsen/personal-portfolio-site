@@ -26,4 +26,6 @@ Verified end to end on production on 2026-09-30 (enquiry stored, oversized messa
 3. Set `LEAD_EMAIL_FROM` (an address on the verified domain) and `LEAD_EMAIL_TO`, redeploy, send a test enquiry and delete the test row.
 4. Add Resend back to the privacy policy's list of data processors (removed on 2026-09-30 because it was not in use).
 
+Every sent enquiry is also logged as a `henvendelse_sendt` event with its topic in the visit statistics, so enquiries per offer and per source can be read at `/admin/statistik`, see [Hosting](hosting.md).
+
 With little traffic expected, each lead matters, so this is the top open item after the domain; see [Open items](open-items.md).

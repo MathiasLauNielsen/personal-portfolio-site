@@ -1,6 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import MobileCtaBar from './MobileCtaBar'
+import SiteTracker from './SiteTracker'
 import type { Locale } from '@/content'
 
 export default function SiteShell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
@@ -10,6 +11,7 @@ export default function SiteShell({ locale, children }: { locale: Locale; childr
       <main className="flex-1">{children}</main>
       <Footer locale={locale} />
       <MobileCtaBar locale={locale} />
+      <SiteTracker locale={locale} />
     </>
   )
 }

@@ -3,7 +3,7 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md]
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md]
 updated: 2026-09-30
 ---
 
@@ -28,7 +28,7 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 13 | Prices on the fixed-scope products | Decide on "from €X" and whether the review fee is credited toward follow-on work | Mathias |
 | 14 | First call | Name the free first call and the output it promises | Mathias |
 | 15 | Calendar booking | Decide whether to offer booking after the form; needs a booking account | Mathias |
-| 16 | Privacy policy promises deletion after 2 years | Automate: a scheduled job that deletes enquiries older than 2 years, see [Database](database.md) | Claude |
+| 16 | Privacy policy promises deletion after 2 years | Automate: a scheduled job that deletes enquiries and visit rows (`site_besoeg`) older than 2 years, see [Database](database.md) | Claude |
 | 17 | Site accent colour vs logo | Decide whether the site's bright cobalt accent should become the logo navy `#00398D`, see [Company facts](../references/company.md) | Mathias |
 | 18 | Permission to publish results and descriptions | Ask Copyright Agent and Ase whether the work described on the About page is fine to publish as written, and whether results in money may be published (named, anonymised or as percentages). Until then no money figures go on the site, see [Company facts](../references/company.md) | Mathias |
 | 19 | Machine learning and forecasting on the data platform page | Confirmed by Mathias on 2026-09-30 as a strength inside the data platform offer; the six model types are now named. Remaining: a written case for one of them, see [Offers](../concepts/offers.md) | Mathias |
@@ -38,3 +38,4 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 23 | Broker and directory profiles | Register with the Danish brokers and directories that rank today: Right People Group, 7N, emagine, Worksome, findITconsultants.com, giig.dk, freelancit.dk. Link each to the site | Mathias |
 | 24 | Keyword volumes | Only Google Keyword Planner (needs a Google Ads account) gives Danish search volumes; decide whether it is worth an account | Mathias |
 | 25 | Which tools may be named | The AI coding page names Claude Code; decide whether GitHub Copilot, Cursor and dbt may be named too, since buyers search for tool names | Mathias |
+| 26 | Visitor-key salt | Optionally `vercel env add BESOEG_SALT production` with a random value, then redeploy; until then the key is salted with the secret key, see [Hosting](hosting.md) | Mathias |

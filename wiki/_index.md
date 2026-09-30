@@ -47,3 +47,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Claude owns the pull request lifecycle](raw/2026-09-30-pr-ownership.md) | decision | 2026-09-30 |
 | [Search visibility audit of mlnanalytics.com](raw/2026-09-30-seo-audit.md) | document | 2026-09-30 |
 | [Research report on solo consultancy sites and improvements for this site](raw/2026-09-30-site-research.md) | document | 2026-09-30 |
+| [Visit statistics built into the site and its admin area](raw/2026-09-30-visit-statistics.md) | observation | 2026-09-30 |

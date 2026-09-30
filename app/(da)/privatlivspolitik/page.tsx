@@ -39,7 +39,7 @@ export default function Privatlivspolitik() {
               <strong>Kontaktformular:</strong> Navn, e-mail, virksomhed (valgfrit) og besked. Oplysningerne bruges udelukkende til at besvare din henvendelse.
             </li>
             <li>
-              <strong>Besøgsstatistik:</strong> Samlede, anonyme tal for sidevisninger, henvisende side, land og enhedstype via Vercel Web Analytics, samt sidens indlæsningstid via Vercel Speed Insights. Der gemmes ikke cookies eller andre identifikatorer på din enhed, og du kan ikke genkendes på tværs af dage eller hjemmesider.
+              <strong>Besøgsstatistik:</strong> Hjemmesiden registrerer selv hver sidevisning med tidspunkt, side, sprog, henvisende hjemmeside, eventuelle kampagneparametre i adressen, land og enhedstype, samt om der er sendt en henvendelse. Din IP-adresse gemmes ikke; i stedet gemmes en anonym nøgle, der er beregnet ud fra IP-adresse, browser og en hemmelig værdi, og som skifter hver dag, så du kan tælles én gang pr. dag, men ikke genkendes på tværs af dage. Derudover bruges Vercel Web Analytics (samlede tal for sidevisninger) og Vercel Speed Insights (sidens indlæsningstid). Der gemmes ikke cookies eller andre identifikatorer på din enhed.
             </li>
           </ul>
 
@@ -55,13 +55,13 @@ export default function Privatlivspolitik() {
 
           <h2>5. Databehandlere</h2>
           <ul>
-            <li><strong>Vercel</strong> driver hjemmesiden og leverer besøgsstatistikken.</li>
-            <li><strong>Supabase</strong> opbevarer kontakthenvendelser på servere i EU (Frankfurt).</li>
+            <li><strong>Vercel</strong> driver hjemmesiden og leverer en del af besøgsstatistikken.</li>
+            <li><strong>Supabase</strong> opbevarer kontakthenvendelser og besøgsstatistik på servere i EU (Frankfurt).</li>
           </ul>
 
           <h2>6. Opbevaring og sletning</h2>
           <p>
-            Kontakthenvendelser opbevares i op til 2 år og slettes herefter. Du kan anmode om sletning til enhver tid ved at kontakte os.
+            Kontakthenvendelser og besøgsstatistik opbevares i op til 2 år og slettes herefter. Du kan anmode om sletning til enhver tid ved at kontakte os.
           </p>
 
           <h2>7. Dine rettigheder</h2>

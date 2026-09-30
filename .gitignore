@@ -45,3 +45,4 @@ supabase/.branches
 # research working files (reports are ingested into wiki/raw)
 research_notes/
 reports/
+.env*

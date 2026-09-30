@@ -30,6 +30,10 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 - What will actually bring visitors: referrals, LinkedIn, brokers and directories. Search can deliver name rankings and correct link previews within months, not enquiry volume. The accounts this needs are open items 20–25 in [Open items](open-items.md).
 - Titles carry the words buyers search for ("freelance data engineer", "København", "konsulent", tool names); the positioning stays in the page text.
 
+## Measuring whether anyone sees it (as of 2026-09-30)
+
+Visits, sources and enquiries are logged by the site itself and shown at `/admin/statistik`; see [Hosting](hosting.md). The Vercel dashboard only keeps a month and drops the enquiry event on the Hobby plan.
+
 ## Privacy
 
-The privacy policy (Danish only, `/privatlivspolitik`) names the company, CVR and contact email, lists Vercel, Supabase (EU) and Resend as data processors, and states that no cookies are set. Update it whenever a service that handles visitor or enquiry data is added or removed; Mathias should read it through once, as it has not had a legal review.
+The privacy policy (Danish only, `/privatlivspolitik`) names the company, CVR and contact email, lists Vercel and Supabase (EU) as data processors, describes the cookie-free visit statistics (no IP stored, daily anonymous key, kept up to 2 years) and states that no cookies are set. Update it whenever a service that handles visitor or enquiry data is added or removed; Mathias should read it through once, as it has not had a legal review.
