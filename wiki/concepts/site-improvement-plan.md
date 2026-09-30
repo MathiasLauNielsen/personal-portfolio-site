@@ -3,7 +3,7 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md]
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md]
 updated: 2026-09-30
 ---
 
@@ -17,7 +17,7 @@ The site has the right structure (problem-framed offer pages, hours plus two fix
 
 ## Code and copy changes that need no new facts
 
-Status as of 2026-09-30: not started.
+Status as of 2026-09-30, evening: 1–7, 9 and 10 done (PR "Site quick wins"); 8 held back because it would put new claims about his methods in Mathias's voice.
 
 1. Show the role line ("Freelance senior data engineer · Copenhagen") and the proof context sentence, both written but not rendered.
 2. Put matching proof on each offer page.

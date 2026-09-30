@@ -1,13 +1,8 @@
 import type { Metadata } from 'next'
-import { getCopy } from '@/content'
+import { pageMetadata } from '@/lib/page-metadata'
 import HomePage from '@/components/pages/HomePage'
 
-const t = getCopy('da').home.meta
-
-export const metadata: Metadata = {
-  description: t.description,
-  alternates: { canonical: '/da', languages: { en: '/', da: '/da' } },
-}
+export const metadata: Metadata = pageMetadata('da', 'home')
 
 export default function Page() {
   return <HomePage locale="da" />

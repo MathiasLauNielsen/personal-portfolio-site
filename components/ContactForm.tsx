@@ -14,7 +14,8 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'error'
 // Short on purpose: every extra field costs enquiries. The topic can be preset by the page
 // or by a ?topic= link, and is stored as a prefix on the message.
 export default function ContactForm({ locale, defaultTopic }: { locale: Locale; defaultTopic?: string }) {
-  const t = getCopy(locale).contact.form
+  const contact = getCopy(locale).contact
+  const t = contact.form
   const [values, setValues] = useState(empty)
   const [topic, setTopic] = useState(defaultTopic ?? '')
   const [state, setState] = useState<SubmitState>('idle')
@@ -55,6 +56,15 @@ export default function ContactForm({ locale, defaultTopic }: { locale: Locale; 
         <CheckCircle size={40} className="text-accent" aria-hidden />
         <h3 className="display mt-5 text-3xl">{t.successTitle}</h3>
         <p className="mt-3 text-lg text-muted">{t.successBody}</p>
+        <p className="eyebrow mt-7 text-muted">{contact.expectTitle}</p>
+        <ol className="mt-3 flex flex-col gap-2">
+          {contact.expect.map((step, i) => (
+            <li key={step} className="flex gap-3">
+              <span className="font-mono text-sm text-accent">0{i + 1}</span>
+              {step}
+            </li>
+          ))}
+        </ol>
         <button type="button" onClick={() => setState('idle')} className="link-underline mt-6 text-sm font-semibold">
           {t.again}
         </button>

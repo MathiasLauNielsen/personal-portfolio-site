@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getCopy, routes, site, type Locale } from '@/content'
 
@@ -10,7 +11,8 @@ export default function Footer({ locale }: { locale: Locale }) {
     <footer className="bg-ink text-white">
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="display text-2xl">{site.person}</p>
+          <Image src="/brand/logo-white.png" alt={site.company} width={690} height={412} className="h-14 w-auto" />
+          <p className="display mt-6 text-2xl">{site.person}</p>
           <p className="mt-3 max-w-xs text-sm text-muted-dark">{t.tagline}</p>
         </div>
 
@@ -20,7 +22,6 @@ export default function Footer({ locale }: { locale: Locale }) {
             <li><Link href={r.data} className="hover:text-accent-light">{copy.nav.data}</Link></li>
             <li><Link href={r.ai} className="hover:text-accent-light">{copy.nav.ai}</Link></li>
             <li><Link href={r.about} className="hover:text-accent-light">{copy.nav.about}</Link></li>
-            <li><Link href={r.blog} className="hover:text-accent-light">{t.blog}</Link></li>
           </ul>
         </div>
 

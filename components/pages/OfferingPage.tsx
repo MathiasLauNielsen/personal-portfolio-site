@@ -2,14 +2,20 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getCopy, routes, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
+import ProofFigures from '@/components/ProofFigures'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 
 // One layout for both offers: data platform and AI coding.
 export default function OfferingPage({ locale, offer }: { locale: Locale; offer: 'data' | 'ai' }) {
-  const t = getCopy(locale)[offer]
+  const copy = getCopy(locale)
+  const t = copy[offer]
   const r = routes[locale]
   const otherHref = offer === 'data' ? r.ai : r.data
+  const buy = copy.home.buy
+  // Engagements tagged with a topic are the products and hours sold on the home page: same name, duration and enquiry link.
+  const sold = (topic?: string) =>
+    topic === 'hours' ? { meta: undefined, cta: buy.hours.cta } : buy.products.find((p) => p.topic === topic)
 
   return (
     <>
@@ -57,11 +63,14 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
           </div>
           {t.note && (
             <Reveal className="mt-12">
-              <p className="eyebrow text-muted-dark">{t.note}</p>
+              <p className="rounded-2xl border border-ink-line bg-ink-soft p-6 text-lg leading-relaxed sm:p-8">{t.note}</p>
             </Reveal>
           )}
         </div>
       </section>
+
+      {/* Proof: the data platform results, labelled as on the home page */}
+      {offer === 'data' && <ProofFigures locale={locale} withHeading />}
 
       {/* How we can work */}
       <section className="py-20 sm:py-24">
@@ -70,15 +79,25 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
             <h2 className="display text-3xl sm:text-4xl">{t.engagementsTitle}</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {t.engagements.map((item, i) => (
-              <Reveal key={item.title} delay={i * 80}>
-                <div className="h-full rounded-2xl border border-paper-line bg-paper-card p-7">
-                  <span className="font-mono text-sm text-accent">0{i + 1}</span>
-                  <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted">{item.body}</p>
-                </div>
-              </Reveal>
-            ))}
+            {t.engagements.map((item, i) => {
+              const product = sold(item.topic)
+              return (
+                <Reveal key={item.title} delay={i * 80}>
+                  <div className="flex h-full flex-col rounded-2xl border border-paper-line bg-paper-card p-7">
+                    <span className="font-mono text-sm text-accent">0{i + 1}</span>
+                    <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 flex-1 leading-relaxed text-muted">{item.body}</p>
+                    {product?.meta && <p className="mt-5 font-mono text-xs text-muted">{product.meta}</p>}
+                    {product && (
+                      <Link href={`${r.contact}?topic=${item.topic}`} className="link-underline mt-5 inline-flex items-center gap-2 text-sm font-semibold">
+                        {product.cta}
+                        <ArrowRight size={14} />
+                      </Link>
+                    )}
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
 
           <Reveal className="mt-16 grid gap-8 border-t border-paper-line pt-10 lg:grid-cols-[1fr_1.6fr]">

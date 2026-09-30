@@ -4,6 +4,7 @@ import { getCopy, routes, type Locale } from '@/content'
 import HeroVisual from '@/components/HeroVisual'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
+import ProofFigures from '@/components/ProofFigures'
 
 // Order follows the buyer's questions: what is it, can I trust it, how do I buy it, what stops me, how do I start.
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -28,7 +29,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </span>
               {t.hero.availability}
             </p>
-            <h1 className="display mt-6 animate-rise text-[2.6rem] sm:text-6xl lg:text-[3.6rem] xl:text-[4rem]" style={{ animationDelay: '80ms' }}>
+            <p className="eyebrow mt-7 animate-rise text-accent" style={{ animationDelay: '40ms' }}>
+              {t.hero.eyebrow}
+            </p>
+            <h1 className="display mt-4 animate-rise text-[2.6rem] sm:text-6xl lg:text-[3.6rem] xl:text-[4rem]" style={{ animationDelay: '80ms' }}>
               {t.hero.title} <span className="text-accent lg:block">{t.hero.title2}</span>
             </h1>
             <p className="mt-7 max-w-xl animate-rise text-lg leading-relaxed text-muted sm:text-xl" style={{ animationDelay: '160ms' }}>
@@ -49,15 +53,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
         {/* Proof, straight under the fold */}
         <div className="border-y border-paper-line bg-paper-card">
-          <div className="container-page grid gap-8 py-10 lg:grid-cols-3">
-            {t.proof.items.map((item) => (
-              <div key={item.value}>
-                <p className="display text-4xl text-accent">{item.value}</p>
-                <p className="mt-3 text-sm leading-relaxed">{item.label}</p>
-                <p className="eyebrow mt-3 !text-[10px] text-muted">{item.note}</p>
-              </div>
-            ))}
-          </div>
+          <ProofFigures locale={locale} />
           <div className="border-t border-paper-line">
             <div className="container-page flex flex-wrap items-center gap-x-8 gap-y-2 py-4 text-sm">
               <span className="eyebrow text-muted">{t.experience.label}</span>
@@ -209,6 +205,21 @@ export default function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       <ContactSection locale={locale} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: t.faq.items.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: { '@type': 'Answer', text: item.a },
+            })),
+          }),
+        }}
+      />
     </>
   )
 }

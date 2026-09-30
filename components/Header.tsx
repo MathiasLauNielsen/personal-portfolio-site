@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import clsx from 'clsx'
-import { getCopy, routes, switchLocalePath, type Locale } from '@/content'
+import { getCopy, routes, site, switchLocalePath, type Locale } from '@/content'
 
 export default function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname() ?? '/'
@@ -38,8 +39,9 @@ export default function Header({ locale }: { locale: Locale }) {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between">
-        <Link href={r.home} className="font-display text-lg font-semibold tracking-tight">
-          Mathias Lau Nielsen
+        <Link href={r.home} className="flex items-center gap-3 font-display text-lg font-semibold tracking-tight">
+          <Image src="/brand/logo-mark.png" alt={site.company} width={686} height={318} priority className="h-5 w-auto" />
+          <span className="border-l border-paper-line pl-3">{site.person}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">

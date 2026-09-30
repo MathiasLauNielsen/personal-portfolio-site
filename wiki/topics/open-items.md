@@ -3,7 +3,7 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md]
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md]
 updated: 2026-09-30
 ---
 
@@ -28,3 +28,5 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 13 | Prices on the fixed-scope products | Decide on "from €X" and whether the review fee is credited toward follow-on work | Mathias |
 | 14 | First call | Name the free first call and the output it promises | Mathias |
 | 15 | Calendar booking | Decide whether to offer booking after the form; needs a booking account | Mathias |
+| 16 | Privacy policy promises deletion after 2 years | Automate: a scheduled job that deletes enquiries older than 2 years, see [Database](database.md) | Claude |
+| 17 | Site accent colour vs logo | Decide whether the site's bright cobalt accent should become the logo navy `#00398D`, see [Company facts](../references/company.md) | Mathias |

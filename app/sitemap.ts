@@ -8,7 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site.url}${routes[locale][key] === '/' ? '' : routes[locale][key]}`,
       changeFrequency: 'monthly' as const,
       priority: key === 'home' ? 1 : 0.8,
-      alternates: { languages: { en: `${site.url}${routes.en[key]}`, da: `${site.url}${routes.da[key]}` } },
+      lastModified: new Date(),
+      alternates: {
+        languages: { en: `${site.url}${routes.en[key]}`, da: `${site.url}${routes.da[key]}`, 'x-default': `${site.url}${routes.en[key]}` },
+      },
     }))
   )
 }

@@ -36,6 +36,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | Source | Kind | Date |
 |---|---|---|
 | [Inventory of accounts and services seen from this repo](raw/2026-09-30-accounts-inventory.md) | observation | 2026-09-30 |
+| [Logo received and first site improvements shipped](raw/2026-09-30-brand-and-quick-wins.md) | observation | 2026-09-30 |
 | [Decisions Mathias made during launch preparation](raw/2026-09-30-decisions.md) | decision | 2026-09-30 |
 | [DNS observations when moving nameservers to Vercel](raw/2026-09-30-dns-observations.md) | observation | 2026-09-30 |
 | [Domain restored to Namecheap DNS and the site live on mlnanalytics.com](raw/2026-09-30-domain-live.md) | observation | 2026-09-30 |

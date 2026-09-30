@@ -6,6 +6,7 @@ import { site } from '@/content'
 export const metadata: Metadata = {
   title: 'Privatlivspolitik',
   description: `Læs om hvordan ${site.company} behandler persondata.`,
+  alternates: { canonical: '/privatlivspolitik' },
 }
 
 export default function Privatlivspolitik() {
@@ -13,7 +14,7 @@ export default function Privatlivspolitik() {
     <div className="bg-paper-card min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14">
         <Link
-          href="/"
+          href="/da"
           className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink transition-colors mb-8"
         >
           <ArrowLeft size={14} />
@@ -21,7 +22,7 @@ export default function Privatlivspolitik() {
         </Link>
 
         <h1 className="text-3xl font-bold text-ink mb-2">Privatlivspolitik</h1>
-        <p className="text-sm text-muted mb-10">Sidst opdateret: september 2026</p>
+        <p className="text-sm text-muted mb-10">Sidst opdateret: 30. september 2026</p>
 
         <div className="prose prose-neutral max-w-none prose-headings:font-bold prose-headings:text-ink prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-p:text-ink prose-p:leading-relaxed prose-li:text-ink">
 
@@ -34,7 +35,7 @@ export default function Privatlivspolitik() {
           <h2>2. Hvilke data indsamler vi?</h2>
           <ul>
             <li>
-              <strong>Kontaktformular:</strong> Navn, e-mail, virksomhed (valgfrit), telefon (valgfrit) og besked. Oplysningerne bruges udelukkende til at besvare din henvendelse.
+              <strong>Kontaktformular:</strong> Navn, e-mail, virksomhed (valgfrit) og besked. Oplysningerne bruges udelukkende til at besvare din henvendelse.
             </li>
             <li>
               <strong>Besøgsstatistik:</strong> Samlede, anonyme tal for sidevisninger, henvisende side, land og enhedstype via Vercel Web Analytics, samt sidens indlæsningstid via Vercel Speed Insights. Der gemmes ikke cookies eller andre identifikatorer på din enhed, og du kan ikke genkendes på tværs af dage eller hjemmesider.
@@ -55,7 +56,6 @@ export default function Privatlivspolitik() {
           <ul>
             <li><strong>Vercel</strong> driver hjemmesiden og leverer besøgsstatistikken.</li>
             <li><strong>Supabase</strong> opbevarer kontakthenvendelser på servere i EU (Frankfurt).</li>
-            <li><strong>Resend</strong> sender mig en e-mail, når der kommer en ny henvendelse.</li>
           </ul>
 
           <h2>6. Opbevaring og sletning</h2>
