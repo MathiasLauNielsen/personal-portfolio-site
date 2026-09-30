@@ -1,0 +1,19 @@
+name: Wiki
+
+on:
+  pull_request:
+    paths: ['wiki/**', 'scripts/wiki.mjs']
+  push:
+    branches: [main]
+    paths: ['wiki/**', 'scripts/wiki.mjs']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Fails when the index is stale or an article has broken links, missing frontmatter or no inbound links.
+      - run: node scripts/wiki.mjs --check
