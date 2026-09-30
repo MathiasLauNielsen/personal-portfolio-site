@@ -16,3 +16,4 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: research on solo consultancy sites → site-improvement-plan, open-items, website (raw/2026-09-30-site-research.md)
 - ingest: site looked down from the local network (cached "no such record") → runbook-dns-changes, domain-and-email (raw/2026-09-30-negative-dns-cache.md)
 - ingest: logo and quick wins → company, site-improvement-plan, open-items, lead-handling (raw/2026-09-30-brand-and-quick-wins.md)
+- ingest: positioning decision and career facts → company, offers, site-improvement-plan, open-items (raw/2026-09-30-positioning.md)

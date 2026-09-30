@@ -3,7 +3,7 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md]
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md]
 updated: 2026-09-30
 ---
 
@@ -19,7 +19,7 @@ The site has the right structure (problem-framed offer pages, hours plus two fix
 
 Status as of 2026-09-30, evening: 1–7, 9 and 10 done (PR "Site quick wins"); 8 held back because it would put new claims about his methods in Mathias's voice.
 
-1. Show the role line ("Freelance senior data engineer · Copenhagen") and the proof context sentence, both written but not rendered.
+1. Show the role line and the proof context sentence, both written but not rendered. The role line became "Freelance data and AI engineer · Copenhagen" later the same evening, see [Company facts](../references/company.md).
 2. Put matching proof on each offer page.
 3. Product cards on the offer pages, and one name per offer everywhere: Hours, Data platform review, AI coding setup.
 4. Per-page link previews (Open Graph title and description).
@@ -34,9 +34,11 @@ Status as of 2026-09-30, evening: 1–7, 9 and 10 done (PR "Site quick wins"); 8
 
 Tracked in [Open items](../topics/open-items.md): lead emails and DKIM (the only item with strong evidence), a portrait photo, approval of anonymised case cards for the three figures, two or three buyer testimonials, proof for the AI coding offer (possibly this public repository as a worked example), confirmed durations and deliverables, an honest availability line, a named first call with a promised output, and dated career history.
 
+Done on 2026-09-30 (PR "Positioning: scope instead of a seniority title"): the career history. The About page now tells the story from 2020 to today and says who was an employer and who is a client; the home page and the data platform page state the scope of what he has been responsible for. Exact years per role are still missing. What this opened is in [Open items](../topics/open-items.md): client permission for money figures, references who can confirm the scope, and a written case for the AI coding offer.
+
 ## Larger decisions
 
-- **Prices:** recommended middle ground is "from €X" on the two fixed-scope products with the review fee credited toward follow-on work. Public anchors are in the report; his own rates are not written here ([schema](../schema.md)).
+- **Prices:** recommended middle ground is "from €X" on the two fixed-scope products with the review fee credited toward follow-on work. Public anchors are in the report; his own rates are not written here ([schema](../schema.md)). Separate pricing research was done on 2026-09-30 and is kept outside the repository; it advises against crediting the fee for a review sold on independence.
 - **Calendar booking** as an option after the form, not instead of it.
 - **Blog** refocused on the two offers, English first, starting with first-hand write-ups.
 - **Self-check checklist** as a secondary call to action, later.

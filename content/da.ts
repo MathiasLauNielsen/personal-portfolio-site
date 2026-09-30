@@ -16,13 +16,13 @@ export const da: Copy = {
     meta: {
       title: 'Mathias Lau Nielsen | Ekspertise i dataplatforme og AI-kodning',
       description:
-        'Freelance senior dataingeniør. Jeg bygger og retter dataplatforme, og jeg sætter AI-assisteret softwareudvikling op, så teams får mere fra hånden.',
+        'Freelance data- og AI-ingeniør, der har haft det tekniske ansvar for hele dataplatformen i to virksomheder. Jeg bygger og retter dataplatforme og sætter AI-kodning op, der leverer.',
     },
     hero: {
-      eyebrow: 'Freelance senior dataingeniør · København',
+      eyebrow: 'Freelance data- og AI-ingeniør · København',
       title: 'Dataplatforme, der holder.',
       title2: 'AI-kodning, der leverer.',
-      lead: 'Jeg hedder Mathias. Virksomheder hyrer mig til én af to ting: at bygge eller rette deres dataplatform, eller at få reelt output ud af AI-assisteret udvikling. Ofte begge dele.',
+      lead: 'Jeg hedder Mathias. I to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen, fra rådata til de rapporter, forretningen styrer efter. Virksomheder hyrer mig til at bygge eller rette deres, eller til at få reelt output ud af AI-assisteret udvikling. Ofte begge dele.',
       ctaPrimary: 'Få svar inden for en dag',
       ctaSecondary: 'Se hvordan I hyrer mig',
       availability: 'Tager nye opgaver ind',
@@ -44,7 +44,7 @@ export const da: Copy = {
         {
           key: 'data',
           name: 'Ekspertise i dataplatforme',
-          body: 'Pipelines, data warehouse, datamodeller og rapportering: designet, bygget eller redet ud. Til virksomheder, hvis data er vokset fra deres setup, eller som aldrig har haft et ordentligt.',
+          body: 'Pipelines, data warehouse, datamodeller, rapportering og machine learning ovenpå: designet, bygget eller redet ud. Til virksomheder, hvis data er vokset fra deres setup, eller som aldrig har haft et ordentligt.',
           points: ['Nye platforme bygget fra bunden', 'Langsomme, dyre eller skrøbelige platforme rettet', 'En senior ingeniør som del af jeres team'],
           cta: 'Arbejde med dataplatforme',
         },
@@ -126,9 +126,11 @@ export const da: Copy = {
       eyebrow: 'Hvorfor mig',
       title: 'Begge halvdele af opgaven.',
       items: [
-        { title: 'Jeg bygger det selv', body: 'Senior ingeniør med hænderne i koden, ikke et slide-deck. Fra databasens indre til rapporten på direktørens bord.' },
+        { title: 'Jeg har haft ansvaret for hele platformen', body: 'Teknisk ansvar for dataplatformen i to virksomheder: arkitektur, pipelines, data warehouse og rapportering. Ikke kun et hjørne af den.' },
+        { title: 'Jeg bygger det selv', body: 'Med hænderne i koden, ikke et slide-deck. Jeg har bygget alle lag: pipelines, data warehouse, machine learning-modeller, rapporter og forecasts.' },
         { title: 'Jeg måler før og efter', body: 'Først en baseline, så effekten af arbejdet kan vises og ikke bare påstås.' },
-        { title: 'Jeg kan forklare det', body: 'For udviklere på deres sprog og for ledelsen på deres. Jeg har selv været leder.' },
+        { title: 'Jeg kan forklare det', body: 'For udviklere på deres sprog og for ledelsen på deres. Forecasts, jeg har bygget, er indgået i virksomhedsbudgetter, og jeg har selv været leder.' },
+        { title: 'AI-kodning er min egen arbejdsform', body: 'Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter, og jeg har omlagt en dataplatform i drift, så agenter kan arbejde i den.' },
         { title: 'Jeg bygger til overdragelse', body: 'Konventionelt, dokumenteret og ejet af jeres team, når jeg går.' },
       ],
     },
@@ -154,12 +156,12 @@ export const da: Copy = {
     meta: {
       title: 'Ekspertise i dataplatforme',
       description:
-        'Design, opbygning og reparation af dataplatforme: pipelines, data warehouse, datamodeller, rapportering, omkostninger og performance. Freelance senior dataingeniør.',
+        'Design, opbygning og reparation af dataplatforme: pipelines, data warehouse, datamodeller, rapportering, machine learning, omkostninger og performance. Freelance data- og AI-ingeniør.',
     },
     hero: {
       eyebrow: 'Ekspertise i dataplatforme',
       title: 'En dataplatform, folk stoler på, til en pris, der giver mening.',
-      lead: 'Jeg designer og bygger dataplatforme, og jeg retter dem, der er blevet langsomme, dyre eller upålidelige.',
+      lead: 'Jeg designer og bygger dataplatforme, og jeg retter dem, der er blevet langsomme, dyre eller upålidelige. Jeg har haft det tekniske ansvar for hele platformen i to virksomheder.',
     },
     signsTitle: 'Hvornår virksomheder ringer',
     signs: [
@@ -175,6 +177,8 @@ export const da: Copy = {
       { title: 'Omkostninger og performance', body: 'Jeg finder de forespørgsler og jobs, der laver langt mere arbejde end nødvendigt, og retter dem. Det meste spild ligger som regel en håndfuld steder.' },
       { title: 'Fundament for rapportering', body: 'Aftalte definitioner, konsistente tal og et rapporteringslag, ledelsen kan drive virksomheden efter.' },
       { title: 'Driftssikkerhed', body: 'Tests, overvågning og datakvalitetstjek, så problemer bliver fundet af platformen og ikke af økonomidirektøren.' },
+      { title: 'Machine learning i drift', body: 'Modeller, der træffer en beslutning inde i platformen, fx hvilke poster der er værd at behandle, og som bliver målt mod det, de afløste.' },
+      { title: 'Forecasting', body: 'Omsætningsforecasts, der kombinerer flere modeller og er detaljerede nok til at budgettere efter, både top-down og bottom-up.' },
     ],
     engagementsTitle: 'Sådan kan vi arbejde sammen',
     engagements: [
@@ -183,7 +187,7 @@ export const da: Copy = {
       { title: 'Timer', body: 'Jeg indgår i jeres team på deltid eller fuld tid i en længere periode. Det foretrækker jeg, og det er dér, de bedste resultater kommer fra.', topic: 'hours' },
     ],
     stackTitle: 'Teknologi',
-    stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Azure', 'PostgreSQL', 'Datamodellering', 'Orkestrering', 'BI og rapportering'],
+    stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Datamodellering', 'Orkestrering', 'Machine learning', 'Forecasting', 'BI og rapportering'],
     note: '',
     otherOffer: { label: 'Også', text: 'Ekspertise i AI-kodning' },
   },
@@ -192,7 +196,7 @@ export const da: Copy = {
     meta: {
       title: 'Ekspertise i AI-kodning',
       description:
-        'AI-kodeagenter sat ordentligt op i jeres kodebase: konventioner, rammer, forbindelser til jeres systemer og et trænet team. Freelance senior ingeniør.',
+        'AI-kodeagenter sat ordentligt op i jeres kodebase: konventioner, rammer, forbindelser til jeres systemer og et trænet team. Freelance data- og AI-ingeniør.',
     },
     hero: {
       eyebrow: 'Ekspertise i AI-kodning',
@@ -222,7 +226,7 @@ export const da: Copy = {
     ],
     stackTitle: 'Teknologi',
     stack: ['Claude Code', 'AI-kodeagenter', 'MCP-integrationer', 'Projektkonventioner', 'Git- og pull request-flows', 'Python', 'TypeScript', 'SQL'],
-    note: 'Dette website er bygget med den opsætning, der er beskrevet her.',
+    note: 'Jeg har omlagt en dataplatform i drift, så kodeagenter kan arbejde i den, og jeg laver det meste af mit eget ingeniørarbejde på den måde. Dette website er bygget med den opsætning, der er beskrevet her.',
     otherOffer: { label: 'Også', text: 'Ekspertise i dataplatforme' },
   },
 
@@ -230,22 +234,26 @@ export const da: Copy = {
     meta: {
       title: 'Om mig',
       description:
-        'Mathias Lau Nielsen: freelance senior dataingeniør i København og datalog fra Københavns Universitet.',
+        'Mathias Lau Nielsen: freelance data- og AI-ingeniør i København. Har arbejdet med data siden 2020 og haft det tekniske ansvar for hele dataplatformen i to virksomheder.',
     },
     hero: {
       eyebrow: 'Om mig',
       title: 'Mathias Lau Nielsen',
-      lead: 'Freelance senior dataingeniør i København. Jeg arbejder gennem mit eget firma, MLN Data Consulting.',
+      lead: 'Freelance data- og AI-ingeniør i København. Jeg arbejder gennem mit eget firma, MLN Data Consulting.',
     },
     story: [
-      'Jeg er datalog fra Københavns Universitet og har brugt min karriere på data: business intelligence hos konsulenthuset Viteco, data engineering og analyse hos softwarevirksomheden Copyright Agent og senior data engineering for Ase, en stor dansk medlemsorganisation.',
-      'Ved siden af platformsarbejdet er jeg gået i dybden med AI-assisteret udvikling. Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter og har opbygget de konventioner og rammer, der gør det pålideligt. At sætte det op for andre er blevet den anden halvdel af det, jeg laver.',
+      'Jeg har arbejdet med data siden 2020, og i to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen: fra de rå data kommer ind, til de rapporter, forretningen styrer efter.',
+      'Jeg begyndte hos konsulenthuset Viteco, mens jeg læste datalogi på Københavns Universitet. Der byggede jeg software, som automatiserede arbejdet med data warehouses: den aflæste kildesystemernes struktur, indlæste og transformerede data og håndterede stamdata. Mit bachelorprojekt, skrevet sammen med Viteco, brugte machine learning til at finde strukturen i kildedata og udlede warehouse-modellen af den.',
+      'Hos softwarevirksomheden Copyright Agent designede og byggede jeg dataplatformen: data warehouset, pipelines fra de vigtigste kildesystemer og al rapportering. Oven på den satte jeg machine learning-modeller i drift og byggede de omsætningsforecasts, der blev brugt i virksomhedens budgetlægning. Jeg begyndte som ansat og arbejder stadig for dem som konsulent.',
+      'Hos Ase, en stor dansk medlemsorganisation, fik jeg det tekniske ansvar for dataplatformen og dens arkitektur. Jeg planlagde flytningen fra SQL Server til Microsoft Fabric, lagde koden om til Python-pakker, som AI-kodeagenter kan arbejde i, og har været mentor for data- og analyseteamet, også i de tekniske prioriteringer.',
+      'Ved siden af platformsarbejdet er jeg gået i dybden med AI-assisteret udvikling. Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter og har opbygget de konventioner og rammer, der gør det pålideligt. Hos både Ase og Copyright Agent har jeg brugt AI til at designe og forbedre rapportering. At sætte det op for andre er blevet den anden halvdel af det, jeg laver.',
       'Før datalogien ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål, så jeg ved, hvordan det er at drive noget efter tal, man skal kunne stole på.',
     ],
     factsTitle: 'Kort fortalt',
     facts: [
       { label: 'Base', value: 'København. Remote eller on-site.' },
       { label: 'Sprog', value: 'Dansk og engelsk' },
+      { label: 'Dækker', value: 'Data engineering, machine learning, rapportering og AI-kodning' },
       { label: 'Foretrækker', value: 'Længere forløb, deltid eller fuld tid' },
       { label: 'Arbejder ikke med', value: 'Våben, sprængstoffer, udvinding af fossile brændsler' },
     ],
