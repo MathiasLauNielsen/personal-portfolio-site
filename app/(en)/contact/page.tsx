@@ -1,13 +1,8 @@
 import type { Metadata } from 'next'
-import { getCopy } from '@/content'
+import { pageMetadata } from '@/lib/page-metadata'
 import ContactPage from '@/components/pages/ContactPage'
 
-const t = getCopy('en').contact.meta
-
-export const metadata: Metadata = {
-  title: t.title, description: t.description,
-  alternates: { canonical: '/contact', languages: { en: '/contact', da: '/da/kontakt' } },
-}
+export const metadata: Metadata = pageMetadata('en', 'contact')
 
 export default function Page() {
   return <ContactPage locale="en" />

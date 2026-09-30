@@ -1,7 +1,7 @@
 // Layout for the link preview image (LinkedIn, Slack, etc.). Rendered by next/og, so inline styles only.
 export const ogSize = { width: 1200, height: 630 }
 
-export function OgCard({ eyebrow, line1, line2 }: { eyebrow: string; line1: string; line2: string }) {
+export function OgCard({ eyebrow, line1, line2, logo }: { eyebrow: string; line1: string; line2?: string; logo?: ArrayBuffer }) {
   return (
     <div
       style={{
@@ -19,11 +19,17 @@ export function OgCard({ eyebrow, line1, line2 }: { eyebrow: string; line1: stri
       <div style={{ display: 'flex', fontSize: 26, letterSpacing: 4, color: '#2B50FF' }}>{eyebrow}</div>
       <div style={{ display: 'flex', flexDirection: 'column', fontSize: 84, fontWeight: 700, lineHeight: 1.05, letterSpacing: -3 }}>
         <div style={{ display: 'flex' }}>{line1}</div>
-        <div style={{ display: 'flex', color: '#2B50FF' }}>{line2}</div>
+        {line2 && <div style={{ display: 'flex', color: '#2B50FF' }}>{line2}</div>}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 30 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 30 }}>
         <div style={{ display: 'flex', fontWeight: 700 }}>Mathias Lau Nielsen</div>
-        <div style={{ display: 'flex', color: '#5B6472' }}>MLN Data Consulting</div>
+        {logo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          // next/og accepts image bytes as src.
+          <img src={logo as unknown as string} alt="MLN Data Consulting" height={52} width={112} />
+        ) : (
+          <div style={{ display: 'flex', color: '#5B6472' }}>MLN Data Consulting</div>
+        )}
       </div>
     </div>
   )

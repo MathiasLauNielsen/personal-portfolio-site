@@ -11,6 +11,9 @@ export default function MobileCtaBar({ locale }: { locale: Locale }) {
   const pathname = usePathname()
   const t = getCopy(locale).nav
   const [visible, setVisible] = useState(false)
+  const [hasForm, setHasForm] = useState(false)
+
+  useEffect(() => setHasForm(!!document.getElementById('contact')), [pathname])
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 500)
@@ -27,9 +30,15 @@ export default function MobileCtaBar({ locale }: { locale: Locale }) {
         <Phone size={16} aria-hidden />
         {t.call}
       </a>
-      <Link href={routes[locale].contact} className="btn-accent flex-1">
-        {t.cta}
-      </Link>
+      {hasForm ? (
+        <a href="#contact" className="btn-accent flex-1">
+          {t.cta}
+        </a>
+      ) : (
+        <Link href={routes[locale].contact} className="btn-accent flex-1">
+          {t.cta}
+        </Link>
+      )}
     </div>
   )
 }

@@ -1,13 +1,8 @@
 import type { Metadata } from 'next'
-import { getCopy } from '@/content'
+import { pageMetadata } from '@/lib/page-metadata'
 import OfferingPage from '@/components/pages/OfferingPage'
 
-const t = getCopy('en').data.meta
-
-export const metadata: Metadata = {
-  title: t.title, description: t.description,
-  alternates: { canonical: '/data-platform', languages: { en: '/data-platform', da: '/da/dataplatform' } },
-}
+export const metadata: Metadata = pageMetadata('en', 'data')
 
 export default function Page() {
   return <OfferingPage locale="en" offer="data" />

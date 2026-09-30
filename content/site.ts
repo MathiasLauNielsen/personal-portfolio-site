@@ -8,8 +8,8 @@ export const site = {
   phoneHref: 'tel:+4524837990',
   linkedin: 'https://www.linkedin.com/in/mathlau',
   location: { da: 'København', en: 'Copenhagen' },
-  // Replace with the real domain once it exists (also used for canonical URLs).
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://personal-portfolio-site-tau.vercel.app',
+  // Canonical URLs, sitemap and link previews. NEXT_PUBLIC_SITE_URL overrides it (set in Vercel production).
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mlnanalytics.com',
 }
 
 export type Locale = 'da' | 'en'
