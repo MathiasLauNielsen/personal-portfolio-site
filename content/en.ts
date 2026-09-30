@@ -19,13 +19,13 @@ export const en = {
     meta: {
       title: 'Mathias Lau Nielsen | Data platform and AI coding expertise',
       description:
-        'Freelance senior data engineer. I build and fix data platforms, and I set up AI-assisted software development so teams ship more with it.',
+        'Freelance data and AI engineer who has had technical responsibility for the whole data platform at two companies. I build and fix data platforms and set up AI coding that ships.',
     },
     hero: {
-      eyebrow: 'Freelance senior data engineer · Copenhagen',
+      eyebrow: 'Freelance data and AI engineer · Copenhagen',
       title: 'Data platforms that hold up.',
       title2: 'AI coding that actually ships.',
-      lead: 'I’m Mathias. Companies bring me in for one of two things: to build or fix their data platform, or to get real output from AI-assisted development. Often both.',
+      lead: 'I’m Mathias. At two companies I’ve had technical responsibility for the whole data platform, from raw data to the reports the business runs on. Companies bring me in to build or fix theirs, or to get real output from AI-assisted development. Often both.',
       ctaPrimary: 'Get a reply within a day',
       ctaSecondary: 'See how to hire me',
       availability: 'Taking on new engagements',
@@ -47,7 +47,7 @@ export const en = {
         {
           key: 'data',
           name: 'Data platform expertise',
-          body: 'Pipelines, warehouse, data models and reporting: designed, built, or untangled. For companies whose data has outgrown its setup, or never had a proper one.',
+          body: 'Pipelines, warehouse, data models, reporting and the machine learning on top: designed, built, or untangled. For companies whose data has outgrown its setup, or never had a proper one.',
           points: ['New platforms built from scratch', 'Slow, costly or fragile platforms fixed', 'A senior engineer embedded in your team'],
           cta: 'Data platform work',
         },
@@ -129,9 +129,11 @@ export const en = {
       eyebrow: 'Why me',
       title: 'Both halves of the job.',
       items: [
-        { title: 'I build it myself', body: 'Senior hands-on engineer, not a slide deck. From database internals to the report on the CEO’s desk.' },
+        { title: 'I’ve owned the whole platform', body: 'Technical responsibility for the data platform at two companies: architecture, pipelines, warehouse and reporting. Not one corner of it.' },
+        { title: 'I build it myself', body: 'Hands-on, not a slide deck. I have built every layer: pipelines, warehouse, machine learning models, reports and forecasts.' },
         { title: 'I measure before and after', body: 'A baseline first, so the effect of the work can be shown rather than claimed.' },
-        { title: 'I can explain it', body: 'To developers in their terms and to management in theirs. I have been a manager myself.' },
+        { title: 'I can explain it', body: 'To developers in their terms and to management in theirs. Forecasts I built have gone into company budgets, and I have been a manager myself.' },
+        { title: 'AI coding is how I work', body: 'I do most of my own engineering with coding agents, and I have restructured a production data platform so agents can work in it.' },
         { title: 'I build to hand over', body: 'Conventional, documented, and owned by your team when I leave.' },
       ],
     },
@@ -157,12 +159,12 @@ export const en = {
     meta: {
       title: 'Data platform expertise',
       description:
-        'Data platform design, build and repair: pipelines, warehouse, data models, reporting, cost and performance. Freelance senior data engineer.',
+        'Data platform design, build and repair: pipelines, warehouse, data models, reporting, machine learning, cost and performance. Freelance data and AI engineer.',
     },
     hero: {
       eyebrow: 'Data platform expertise',
       title: 'A data platform people trust, at a cost that makes sense.',
-      lead: 'I design and build data platforms, and I fix the ones that have become slow, expensive or unreliable.',
+      lead: 'I design and build data platforms, and I fix the ones that have become slow, expensive or unreliable. I have had technical responsibility for the whole platform at two companies.',
     },
     signsTitle: 'When companies call me',
     signs: [
@@ -178,6 +180,8 @@ export const en = {
       { title: 'Cost and performance', body: 'I find the queries and jobs that do far more work than needed and fix them. Most of the waste usually sits in a handful of places.' },
       { title: 'Reporting foundation', body: 'Agreed definitions, consistent numbers and a reporting layer management can run the company on.' },
       { title: 'Reliability', body: 'Tests, monitoring and data quality checks, so problems are found by the platform and not by the CFO.' },
+      { title: 'Machine learning in production', body: 'Models that make a decision inside the platform, such as which records are worth processing, and that are measured against what they replaced.' },
+      { title: 'Forecasting', body: 'Revenue forecasts that combine several models and are detailed enough to budget from, both top-down and bottom-up.' },
     ],
     engagementsTitle: 'How we can work',
     engagements: [
@@ -186,7 +190,7 @@ export const en = {
       { title: 'Hours', body: 'I join your team part-time or full-time for a longer period. This is what I prefer, and where the best results come from.', topic: 'hours' },
     ],
     stackTitle: 'Technology',
-    stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Azure', 'PostgreSQL', 'Data modelling', 'Orchestration', 'BI and reporting'],
+    stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Data modelling', 'Orchestration', 'Machine learning', 'Forecasting', 'BI and reporting'],
     note: '',
     otherOffer: { label: 'Also', text: 'AI coding expertise' },
   },
@@ -195,7 +199,7 @@ export const en = {
     meta: {
       title: 'AI coding expertise',
       description:
-        'AI coding agents set up properly in your codebase: conventions, guardrails, connections to your systems and a trained team. Freelance senior engineer.',
+        'AI coding agents set up properly in your codebase: conventions, guardrails, connections to your systems and a trained team. Freelance data and AI engineer.',
     },
     hero: {
       eyebrow: 'AI coding expertise',
@@ -225,7 +229,7 @@ export const en = {
     ],
     stackTitle: 'Technology',
     stack: ['Claude Code', 'AI coding agents', 'MCP integrations', 'Project conventions', 'Git and pull request workflows', 'Python', 'TypeScript', 'SQL'],
-    note: 'This website was built with the setup described here.',
+    note: 'I have restructured a production data platform so coding agents can work in it, and I do most of my own engineering this way. This website was built with the setup described here.',
     otherOffer: { label: 'Also', text: 'Data platform expertise' },
   },
 
@@ -233,22 +237,26 @@ export const en = {
     meta: {
       title: 'About',
       description:
-        'Mathias Lau Nielsen: freelance senior data engineer in Copenhagen, with a computer science degree from the University of Copenhagen.',
+        'Mathias Lau Nielsen: freelance data and AI engineer in Copenhagen. In data since 2020, with technical responsibility for the whole data platform at two companies.',
     },
     hero: {
       eyebrow: 'About',
       title: 'Mathias Lau Nielsen',
-      lead: 'Freelance senior data engineer in Copenhagen. I work through my own company, MLN Data Consulting.',
+      lead: 'Freelance data and AI engineer in Copenhagen. I work through my own company, MLN Data Consulting.',
     },
     story: [
-      'I have a computer science degree from the University of Copenhagen and have spent my career in data: business intelligence at the consultancy Viteco, data engineering and analysis at the software company Copyright Agent, and senior data engineering for Ase, a large Danish membership organisation.',
-      'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. Setting this up for others has become the second half of what I do.',
+      'I have worked in data since 2020, and at two companies I have had technical responsibility for the whole data platform: from the raw data coming in to the reports the business runs on.',
+      'I started at the consultancy Viteco while studying computer science at the University of Copenhagen. There I built software that automated data warehouse work: it read the structure of the source systems, loaded and transformed the data, and handled master data. My bachelor’s project, written with Viteco, used machine learning to work out how source data is structured and derive the warehouse model from it.',
+      'At the software company Copyright Agent I designed and built the data platform: the warehouse, the pipelines from the main source systems and all the reporting. On top of it I put machine learning models into production and built the revenue forecasts used in the company’s budgeting. I started there as an employee and still work with them as a consultant.',
+      'At Ase, a large Danish membership organisation, I took on technical responsibility for the data platform and its architecture. I planned its move from SQL Server to Microsoft Fabric, restructured the code into Python packages that AI coding agents can work in, and mentored the data and analytics team, including its technical priorities.',
+      'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. At both Ase and Copyright Agent I have used AI to design and improve reporting. Setting this up for others has become the second half of what I do.',
       'Before computer science I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
     ],
     factsTitle: 'In short',
     facts: [
       { label: 'Based in', value: 'Copenhagen. Remote or on-site.' },
       { label: 'Languages', value: 'English and Danish' },
+      { label: 'Covers', value: 'Data engineering, machine learning, reporting and AI coding' },
       { label: 'Prefers', value: 'Long engagements, part-time or full-time' },
       { label: 'Does not work with', value: 'Weapons, explosives, fossil fuel extraction' },
     ],

@@ -3,7 +3,7 @@ title: Company facts
 type: reference
 summary: Legal name, CVR, published contact details and positioning of MLN Data Consulting
 confidence: high
-sources: [../content/site.ts, ../CLAUDE.md, raw/2026-09-30-brand-and-quick-wins.md]
+sources: [../content/site.ts, ../CLAUDE.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md]
 updated: 2026-09-30
 ---
 
@@ -12,7 +12,7 @@ updated: 2026-09-30
 | Fact | Value |
 |---|---|
 | Company | MLN Data Consulting |
-| Owner | Mathias Lau Nielsen, freelance senior data engineer |
+| Owner | Mathias Lau Nielsen, freelance data and AI engineer |
 | CVR | 45700577 |
 | Published email | mathias@mlnanalytics.com |
 | Published phone | +45 24 83 79 90 |
@@ -30,6 +30,14 @@ The single source for these values in code is `content/site.ts`; change them the
 ## What the company sells
 
 Two kinds of expertise to companies that don't know Mathias yet: data platform work and AI coding setup. See [Offers](../concepts/offers.md). Client names appear on the site only as supporting experience.
+
+## Positioning (decided 2026-09-30)
+
+- **Scope, not title.** The site leads with what Mathias has been responsible for: the whole data platform at two companies (Copyright Agent and Ase), in data since 2020. It does not use "Principal" or another seniority title as the headline, because a title the dates do not support would cost trust. "Senior" remains only in the description of the embedded-engineer offer.
+- **Role line:** "Freelance data and AI engineer", which covers data engineering, machine learning, reporting and AI coding.
+- **Employer or client:** Viteco was a student job, Copyright Agent was an employer and is now a client, and the site says so. Ase is described by what he was responsible for there.
+- **Not published:** money figures from client work until the client agrees, and nothing about salary or role offers.
+- The career facts the copy may draw on are in [the positioning source](../raw/2026-09-30-positioning.md).
 
 ## Related
 

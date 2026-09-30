@@ -3,7 +3,7 @@ title: Offers
 type: concept
 summary: The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated
 confidence: medium
-sources: [../content/en.ts, raw/2026-09-30-decisions.md]
+sources: [../content/en.ts, raw/2026-09-30-decisions.md, raw/2026-09-30-positioning.md]
 updated: 2026-09-30
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-09-30
 
 ## What is sold
 
-- **Data platform expertise:** pipelines, warehouse, data models and reporting; built from scratch, fixed when slow, costly or fragile, or a senior engineer embedded in the team.
+- **Data platform expertise:** pipelines, warehouse, data models and reporting; built from scratch, fixed when slow, costly or fragile, or a senior engineer embedded in the team. Since 2026-09-30 the page also names machine learning in production and forecasting, which Mathias has done on top of the platforms he built; Claude added them and Mathias can remove them.
 - **AI coding expertise:** coding agents set up properly in a codebase, with conventions, guardrails, connections and hands-on training.
 
 ## Ways to buy

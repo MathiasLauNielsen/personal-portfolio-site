@@ -16,7 +16,7 @@ export default function StructuredData({ locale }: { locale: Locale }) {
     description: copy.home.meta.description,
     areaServed: ['DK', 'EU'],
     address: { '@type': 'PostalAddress', addressLocality: 'Copenhagen', addressCountry: 'DK' },
-    founder: { '@type': 'Person', name: site.person, jobTitle: 'Senior Data Engineer', sameAs: [site.linkedin] },
+    founder: { '@type': 'Person', name: site.person, jobTitle: 'Data and AI Engineer', sameAs: [site.linkedin] },
     // The two areas of expertise, then the ways to buy them (hours and the fixed-scope products).
     makesOffer: [
       ...copy.home.offers.items.map((offer) => ({ name: offer.name, description: offer.body })),
