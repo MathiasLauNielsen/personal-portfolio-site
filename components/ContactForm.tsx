@@ -6,6 +6,7 @@ import { track } from '@vercel/analytics'
 import { AlertCircle, CheckCircle, Send } from 'lucide-react'
 import clsx from 'clsx'
 import { getCopy, routes, type Locale } from '@/content'
+import { registrerBesoeg } from '@/lib/besoeg'
 
 const empty = { navn: '', email: '', virksomhed: '', besked: '', website: '' }
 
@@ -43,6 +44,7 @@ export default function ContactForm({ locale, defaultTopic }: { locale: Locale; 
       })
       if (!response.ok) throw new Error()
       track('enquiry_sent', { topic: topic || 'none', locale })
+      registrerBesoeg({ haendelse: 'henvendelse_sendt', sti: window.location.pathname, sprog: locale, emne: topic || 'none' })
       setState('success')
       setValues(empty)
     } catch {

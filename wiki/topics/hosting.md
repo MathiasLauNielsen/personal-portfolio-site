@@ -3,7 +3,7 @@ title: Hosting
 type: topic
 summary: The Vercel project, how deploys happen, environment variables by name, and analytics
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-visit-statistics.md]
 updated: 2026-09-30
 ---
 
@@ -25,13 +25,16 @@ Vercel project `personal-portfolio-site` in team scope `mathiaslaunielsen-2902s-
 |---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Database connection, see [Database](database.md) |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Yes | Database connection (public key) |
-| `SUPABASE_SECRET_KEY` | Yes | Not used by the code |
+| `SUPABASE_SECRET_KEY` | Yes | Inserting visit rows from `/api/besoeg` (bypasses row-level security; never sent to the browser) |
+| `BESOEG_SALT` | No | Secret salt for the daily visitor key; falls back to the secret key |
 | `NEXT_PUBLIC_SITE_URL` | Production: `https://mlnanalytics.com` | Canonical URLs, sitemap, link previews; falls back to the vercel.app URL elsewhere |
 | `RESEND_API_KEY` | No | Lead emails, see [Lead handling](lead-handling.md) |
 | `LEAD_EMAIL_FROM`, `LEAD_EMAIL_TO` | No | Sender and recipient of lead emails |
 
 Secrets are added by Mathias with `vercel env add NAME production`, never pasted into chat or files.
 
-## Analytics
+## Visit statistics
 
-Vercel Web Analytics and Speed Insights on every page. Neither sets cookies, so there is no consent banner; the privacy policy says so. The form sends an `enquiry_sent` event with the topic, so the offers can be compared.
+- **Own statistics (primary, since 2026-09-30):** every page view and every sent enquiry is logged by the site itself into the `site_besoeg` table, without cookies and without storing IP addresses (a daily hash instead). Mathias reads them at https://mlnanalytics.com/admin/statistik after logging in: views, visitors, enquiries, sources (referrer or UTM), pages, countries, devices, languages, for 7 to 365 days. Bots and non-production hostnames are not counted. Links shared on LinkedIn or elsewhere can carry `?utm_source=linkedin&utm_medium=post&utm_campaign=...` to be told apart.
+- **Vercel Web Analytics and Speed Insights** stay on every page as a cross-check, at vercel.com → project → Analytics. The team is on the Hobby plan: 50,000 events a month, one month of history, and custom events such as the form's `enquiry_sent` are dropped. That is why the statistics were built in.
+- Neither sets cookies, so there is no consent banner; the privacy policy describes both.
