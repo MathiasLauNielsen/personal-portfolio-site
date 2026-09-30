@@ -22,19 +22,20 @@ npm run build    # production build, also type-checks
 - **Copy lives in `content/`, not in pages.** `content/en.ts` defines the shape, `content/da.ts` must match it (`Copy` type), `content/site.ts` holds company facts, the route map for both languages and `switchLocalePath()`. To change text, edit both language files.
 - **The site exists to sell.** Every page should move a visitor toward sending an enquiry: hours (embedded engineer) or a fixed-scope product (platform review, AI coding setup). Home page order follows the buyer: pitch, proof, the two offers, how to buy, why me, FAQ, enquiry form. `ContactSection` (pitch + short form, `id="contact"`) closes every page; `MobileCtaBar` keeps call/contact on screen on phones. Links like `/contact?topic=review` preselect the form topic. Keep the form short: each added field costs enquiries.
 - **Lead handling:** `/api/kontakt` stores the enquiry in Supabase and, when `RESEND_API_KEY` is set, emails it to `LEAD_EMAIL_TO`. A hidden `website` field is a spam trap. `enquiry_sent` is tracked in Vercel Analytics with the topic, so offers can be compared.
+- **Analytics without a cookie banner:** Vercel Web Analytics and Speed Insights set no cookies, so the layouts load them for everyone and the privacy policy says so. Adding anything that sets cookies means adding consent first.
 - **Search and sharing:** `app/sitemap.ts`, `app/robots.ts`, JSON-LD in `components/StructuredData.tsx`, link preview images in `opengraph-image.tsx` (layout in `components/OgCard.tsx`).
 - **Tone and honesty:** short, plain, factual. No hype and no invented facts, clients, numbers or job titles; leave things out rather than guess. Every figure comes from real work and says whether it was measured in production or tested on historical data.
 - **Design system:** light, warm `paper` base, `ink` for text and the few dark sections, one cobalt `accent` (tokens in `tailwind.config.ts`; component classes such as `container-page`, `eyebrow`, `display`, `btn-*` in `app/globals.css`). Fonts: Bricolage Grotesque (display), Hanken Grotesk (body), JetBrains Mono (labels). `Reveal` handles scroll-in animation and respects reduced motion.
 - **Blog and privacy pages are Danish only** and still use the legacy `Hero` wrapper. Blog posts come from the Supabase `blog_posts` table and are managed in `/admin/blog`.
-- **Supabase:** tables `kontakt_henvendelser` (contact form, inserted through `/api/kontakt`) and `blog_posts`. Column names are Danish. RLS currently grants access to any authenticated user, so public sign-ups must stay disabled in the Supabase project until a team allow-list exists. The live tables were created by hand; the files in `supabase/migrations` are not recorded in the remote migration history.
+- **Supabase:** tables `kontakt_henvendelser` (contact form, inserted through `/api/kontakt`) and `blog_posts`. Column names are Danish. Reading and changing enquiries and blog posts is limited to accounts in the `admins` table (`is_admin()`, migration 004); public sign-ups should stay disabled in the Supabase project anyway. The live tables were created by hand; the files in `supabase/migrations` are not recorded in the remote migration history.
 - `middleware.ts` guards `/admin/*` (except `/admin/login`) with a Supabase session check.
 
 ## Open items
 
-- Enquiry emails are off until a Resend API key is added in Vercel (`RESEND_API_KEY`); until then leads are only visible in `/admin/henvendelser`.
-- Product durations and the "taking on new engagements" badge in `content/*.ts` are placeholders to confirm.
+- Migration `004_admin_allow_list.sql` must be applied to the live database by hand (`supabase db query --linked -f supabase/migrations/004_admin_allow_list.sql`), and public sign-ups turned off in the Supabase dashboard.
+- Enquiry emails are off until a Resend API key is added in Vercel (`RESEND_API_KEY`, plus `LEAD_EMAIL_FROM` on a domain verified in Resend); until then leads are only visible in `/admin/henvendelser`.
+- Product durations in `content/*.ts` are estimates (review 5–8 days over 2–3 weeks; AI setup 6–10 days over 3–4 weeks, including a follow-up after two weeks of use); replace with real numbers after the first engagements. The "taking on new engagements" badge is a placeholder to confirm.
 - Portrait photo: there is a marked spot for it in `components/pages/AboutPage.tsx`.
-- Real domain: set `NEXT_PUBLIC_SITE_URL`; it feeds `metadataBase` and canonicals.
+- Domain: `mlnanalytics.com` (Namecheap, email on Google Workspace) is added to the Vercel team but not attached to the project. Plan: attach apex + www, recreate the email DNS records in Vercel, switch Namecheap nameservers to Vercel, set `NEXT_PUBLIC_SITE_URL=https://mlnanalytics.com` (it feeds `metadataBase` and canonicals).
 - Career details are limited to what is publicly verifiable; refine from a LinkedIn PDF export when available.
-- Cookie banner is Danish only.
 - The earlier management-dashboard prototype (CRM, pipeline, finance) lives on the local branch `prototype/management-app` and is meant to be ported into `/admin`.

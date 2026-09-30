@@ -20,6 +20,14 @@ export async function POST(request: Request) {
       )
     }
 
+    // Generous caps no real enquiry reaches; they only stop scripts from storing huge payloads.
+    const tooLong =
+      navn.length > 200 || email.length > 320 || besked.length > 10000 ||
+      (virksomhed?.length ?? 0) > 200 || (telefon?.length ?? 0) > 50
+    if (tooLong) {
+      return NextResponse.json({ error: 'Et af felterne er for langt.' }, { status: 400 })
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json(

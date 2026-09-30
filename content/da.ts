@@ -72,14 +72,14 @@ export const da: Copy = {
         {
           name: 'Gennemgang af dataplatform',
           body: 'Jeg gennemgår jeres platform og fortæller, hvad den koster, hvor den er skrøbelig, og hvad der bør rettes først. I får en skriftlig, prioriteret rapport og en gennemgang.',
-          meta: 'Typisk 1–2 uger',
+          meta: '5–8 arbejdsdage over 2–3 uger',
           cta: 'Bed om et tilbud',
           topic: 'review',
         },
         {
           name: 'Opsætning af AI-kodning',
           body: 'Kodeagenter sat op i ét team eller én kodebase: konventioner, rammer, forbindelser til jeres systemer og hands-on træning, så jeres udviklere bliver ved med at bruge det.',
-          meta: 'Typisk 2–3 uger',
+          meta: '6–10 arbejdsdage over 3–4 uger',
           cta: 'Bed om et tilbud',
           topic: 'setup',
         },

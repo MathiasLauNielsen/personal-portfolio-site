@@ -38,3 +38,6 @@ next-env.d.ts
 # supabase cli
 supabase/.temp
 supabase/.branches
+
+# personal Claude Code settings
+.claude/settings.local.json

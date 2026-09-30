@@ -75,14 +75,14 @@ export const en = {
         {
           name: 'Data platform review',
           body: 'I go through your platform and tell you what it costs, where it is fragile, and what to fix first. You get a written, prioritised report and a walkthrough.',
-          meta: 'Typically 1–2 weeks',
+          meta: '5–8 days of work, over 2–3 weeks',
           cta: 'Ask for a quote',
           topic: 'review',
         },
         {
           name: 'AI coding setup',
           body: 'Coding agents set up in one team or codebase: conventions, guardrails, connections to your systems, and hands-on training so your developers keep using it.',
-          meta: 'Typically 2–3 weeks',
+          meta: '6–10 days of work, over 3–4 weeks',
           cta: 'Ask for a quote',
           topic: 'setup',
         },
