@@ -3,7 +3,7 @@ title: Company facts
 type: reference
 summary: Legal name, CVR, published contact details and positioning of MLN Data Consulting
 confidence: high
-sources: [../content/site.ts, ../CLAUDE.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md]
+sources: [../content/site.ts, ../CLAUDE.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-09-30-university-framing.md]
 updated: 2026-09-30
 ---
 
@@ -35,6 +35,7 @@ Two kinds of expertise to companies that don't know Mathias yet: data platform w
 
 - **Scope, not title.** The site leads with what Mathias has been responsible for: the whole data platform at two companies (Copyright Agent and Ase), in data since 2020. It does not use "Principal" or another seniority title as the headline, because a title the dates do not support would cost trust. "Senior" remains only in the description of the embedded-engineer offer.
 - **Role line:** "Freelance data and AI engineer", which covers data engineering, machine learning, reporting and AI coding.
+- **Education is a fact, not a selling point:** the degree appears once, in the About facts; the story does not frame the career through studying ([source](../raw/2026-09-30-university-framing.md)).
 - **Employer or client:** Viteco was a student job, Copyright Agent was an employer and is now a client, and the site says so. Ase is described by what he was responsible for there.
 - **Not published:** money figures from client work until the client agrees, and nothing about salary or role offers.
 - The career facts the copy may draw on are in [the positioning source](../raw/2026-09-30-positioning.md).

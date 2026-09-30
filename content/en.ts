@@ -139,7 +139,7 @@ export const en = {
     },
     experience: {
       label: 'Experience from',
-      items: ['Ase', 'Copyright Agent', 'Viteco', 'University of Copenhagen (BSc Computer Science)'],
+      items: ['Ase', 'Copyright Agent', 'Viteco'],
     },
     testimonial: {
       quote:
@@ -247,17 +247,18 @@ export const en = {
     },
     story: [
       'I have worked in data since 2020, and at two companies I have had technical responsibility for the whole data platform: from the raw data coming in to the reports the business runs on.',
-      'I started at the consultancy Viteco while studying computer science at the University of Copenhagen. There I built software that automated data warehouse work: it read the structure of the source systems, loaded and transformed the data, and handled master data. My bachelor’s project, written with Viteco, used machine learning to work out how source data is structured and derive the warehouse model from it.',
+      'I started at the consultancy Viteco in 2020. There I built software that automated data warehouse work: it read the structure of the source systems, loaded and transformed the data, and handled master data. A project I wrote with Viteco used machine learning to work out how source data is structured and derive the warehouse model from it.',
       'At the software company Copyright Agent I designed and built the data platform: the warehouse, the pipelines from the main source systems and all the reporting. On top of it I put machine learning models into production and built the revenue forecasts used in the company’s budgeting. I started there as an employee and still work with them as a consultant.',
       'At Ase, a large Danish membership organisation, I took on technical responsibility for the data platform and its architecture. I planned its move from SQL Server to Microsoft Fabric, restructured the code into Python packages that AI coding agents can work in, and put models into production that predict incoming calls, membership movements, churn and unemployment. I also mentored the data and analytics team, including its technical priorities.',
       'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. At both Ase and Copyright Agent I have used AI to design and improve reporting. Setting this up for others has become the second half of what I do.',
-      'Before computer science I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
+      'Before data, I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
     ],
     factsTitle: 'In short',
     facts: [
       { label: 'Based in', value: 'Copenhagen. Remote or on-site.' },
       { label: 'Languages', value: 'English and Danish' },
       { label: 'Covers', value: 'Data engineering, machine learning, reporting and AI coding' },
+      { label: 'Education', value: 'BSc Computer Science, University of Copenhagen' },
       { label: 'Prefers', value: 'Long engagements, part-time or full-time' },
       { label: 'Does not work with', value: 'Weapons, explosives, fossil fuel extraction' },
     ],

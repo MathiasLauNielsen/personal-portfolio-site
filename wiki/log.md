@@ -20,3 +20,4 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: ML models in production and the decision to feature ML inside the data offer → offers, open-items (raw/2026-09-30-ml-models.md)
 - ingest: search visibility audit → website, services, open-items (raw/2026-09-30-seo-audit.md)
 - ingest: visit statistics built in (migration 005, /api/besoeg, /admin/statistik) → database, hosting, lead-handling, website, open-items (raw/2026-09-30-visit-statistics.md)
+- ingest: university removed as a selling point → company (raw/2026-09-30-university-framing.md)
