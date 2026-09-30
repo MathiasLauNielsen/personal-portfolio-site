@@ -3,7 +3,7 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, ../CLAUDE.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, ../CLAUDE.md]
 updated: 2026-09-30
 ---
 
@@ -23,6 +23,12 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 - What is sold: [Offers](../concepts/offers.md). What to improve: [Site improvement plan](../concepts/site-improvement-plan.md).
 - Enquiries: [Lead handling](lead-handling.md).
 - Data: [Database](database.md). Hosting and deploys: [Hosting](hosting.md).
+
+## Search visibility (as of 2026-09-30)
+
+- Not yet indexed by Google, and the name has no search footprint; expected for a domain that went live the same day. Technical basics are in place, see the [audit](../raw/2026-09-30-seo-audit.md).
+- What will actually bring visitors: referrals, LinkedIn, brokers and directories. Search can deliver name rankings and correct link previews within months, not enquiry volume. The accounts this needs are open items 20–25 in [Open items](open-items.md).
+- Titles carry the words buyers search for ("freelance data engineer", "København", "konsulent", tool names); the positioning stays in the page text.
 
 ## Privacy
 

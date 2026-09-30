@@ -4,10 +4,19 @@ import Hero from '@/components/Hero'
 import { createSupabaseServerClient } from '@/lib/supabase-server'
 import { ArrowRight, Calendar, Tag } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description:
-    'Indsigter og viden om Data Engineering, Data Science, Analytics og AI/ML — skrevet af Mathias Nielsen.',
+const description = 'Indsigter og viden om Data Engineering, Data Science, Analytics og AI/ML — skrevet af Mathias Nielsen.'
+
+// The empty blog stays out of search results until the first post is published.
+export async function generateMetadata(): Promise<Metadata> {
+  const supabase = createSupabaseServerClient()
+  const { count } = await supabase.from('blog_posts').select('id', { count: 'exact', head: true }).eq('publiceret', true)
+  return {
+    title: 'Blog',
+    description,
+    alternates: { canonical: '/blog' },
+    openGraph: { title: 'Blog', description, url: '/blog' },
+    robots: count ? { index: true, follow: true } : { index: false, follow: true },
+  }
 }
 
 export const revalidate = 60

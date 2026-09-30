@@ -42,6 +42,8 @@ export async function generateMetadata({
   return {
     title: post.titel,
     description: post.ingress ?? undefined,
+    alternates: { canonical: `/blog/${params.slug}` },
+    openGraph: { type: 'article', title: post.titel, description: post.ingress ?? undefined, url: `/blog/${params.slug}` },
   }
 }
 

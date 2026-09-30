@@ -17,9 +17,9 @@ export const en = {
 
   home: {
     meta: {
-      title: 'Mathias Lau Nielsen | Data platform and AI coding expertise',
+      title: 'Freelance data engineer in Copenhagen | Mathias Lau Nielsen',
       description:
-        'Freelance data and AI engineer who has had technical responsibility for the whole data platform at two companies. I build and fix data platforms and set up AI coding that ships.',
+        'Freelance data and AI engineer in Copenhagen, responsible for the whole data platform at two companies. I build and fix data platforms and set up AI coding.',
     },
     hero: {
       eyebrow: 'Freelance data and AI engineer · Copenhagen',
@@ -157,9 +157,9 @@ export const en = {
 
   data: {
     meta: {
-      title: 'Data platform expertise',
+      title: 'Data platform consultant in Copenhagen',
       description:
-        'Data platform design, build and repair: pipelines, warehouse, data models, reporting, machine learning, cost and performance. Freelance data and AI engineer.',
+        'Freelance data platform engineer: pipelines, warehouse, reporting, machine learning, BigQuery, Microsoft Fabric. Build, fix or review, hourly or fixed price.',
     },
     hero: {
       eyebrow: 'Data platform expertise',
@@ -173,6 +173,7 @@ export const en = {
       'Nightly jobs no longer finish overnight.',
       'Everything depends on one person and a set of scripts.',
       'There is data everywhere, and no agreed way to measure anything.',
+      'You know what you want to predict, and nobody has built it.',
     ],
     whatTitle: 'What I do',
     what: [
@@ -180,13 +181,13 @@ export const en = {
       { title: 'Cost and performance', body: 'I find the queries and jobs that do far more work than needed and fix them. Most of the waste usually sits in a handful of places.' },
       { title: 'Reporting foundation', body: 'Agreed definitions, consistent numbers and a reporting layer management can run the company on.' },
       { title: 'Reliability', body: 'Tests, monitoring and data quality checks, so problems are found by the platform and not by the CFO.' },
-      { title: 'Machine learning in production', body: 'Models that make a decision inside the platform, such as which records are worth processing, and that are measured against what they replaced.' },
+      { title: 'Machine learning in production', body: 'Models that run inside the platform and are measured against what they replaced. I have put models into production that predict revenue, incoming calls, membership movements, churn, unemployment, and which records are worth processing.' },
       { title: 'Forecasting', body: 'Revenue forecasts that combine several models and are detailed enough to budget from, both top-down and bottom-up.' },
     ],
     engagementsTitle: 'How we can work',
     engagements: [
       { title: 'Data platform review', body: 'A short assessment of your platform: what it costs, where it is fragile, what to fix first.', topic: 'review' },
-      { title: 'Project', body: 'A defined build or fix with an agreed outcome.' },
+      { title: 'Project', body: 'A defined build, fix or first prediction model, with an agreed outcome.' },
       { title: 'Hours', body: 'I join your team part-time or full-time for a longer period. This is what I prefer, and where the best results come from.', topic: 'hours' },
     ],
     stackTitle: 'Technology',
@@ -197,9 +198,9 @@ export const en = {
 
   ai: {
     meta: {
-      title: 'AI coding expertise',
+      title: 'AI coding setup for development teams',
       description:
-        'AI coding agents set up properly in your codebase: conventions, guardrails, connections to your systems and a trained team. Freelance data and AI engineer.',
+        'Claude Code and other coding agents set up in your codebase: conventions, guardrails, connections to your systems and hands-on training for your developers.',
     },
     hero: {
       eyebrow: 'AI coding expertise',
@@ -235,20 +236,20 @@ export const en = {
 
   about: {
     meta: {
-      title: 'About',
+      title: 'About: freelance data and AI engineer',
       description:
-        'Mathias Lau Nielsen: freelance data and AI engineer in Copenhagen. In data since 2020, with technical responsibility for the whole data platform at two companies.',
+        'Mathias Lau Nielsen, freelance data and AI engineer in Copenhagen. In data since 2020, responsible for the whole data platform at two companies.',
     },
     hero: {
       eyebrow: 'About',
       title: 'Mathias Lau Nielsen',
-      lead: 'Freelance data and AI engineer in Copenhagen. I work through my own company, MLN Data Consulting.',
+      lead: 'Freelance data and AI engineer in Copenhagen. I build and fix data platforms (BigQuery, Google Cloud, Microsoft Fabric) and set up AI coding agents such as Claude Code for development teams. I work through my own company, MLN Data Consulting.',
     },
     story: [
       'I have worked in data since 2020, and at two companies I have had technical responsibility for the whole data platform: from the raw data coming in to the reports the business runs on.',
       'I started at the consultancy Viteco while studying computer science at the University of Copenhagen. There I built software that automated data warehouse work: it read the structure of the source systems, loaded and transformed the data, and handled master data. My bachelor’s project, written with Viteco, used machine learning to work out how source data is structured and derive the warehouse model from it.',
       'At the software company Copyright Agent I designed and built the data platform: the warehouse, the pipelines from the main source systems and all the reporting. On top of it I put machine learning models into production and built the revenue forecasts used in the company’s budgeting. I started there as an employee and still work with them as a consultant.',
-      'At Ase, a large Danish membership organisation, I took on technical responsibility for the data platform and its architecture. I planned its move from SQL Server to Microsoft Fabric, restructured the code into Python packages that AI coding agents can work in, and mentored the data and analytics team, including its technical priorities.',
+      'At Ase, a large Danish membership organisation, I took on technical responsibility for the data platform and its architecture. I planned its move from SQL Server to Microsoft Fabric, restructured the code into Python packages that AI coding agents can work in, and put models into production that predict incoming calls, membership movements, churn and unemployment. I also mentored the data and analytics team, including its technical priorities.',
       'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. At both Ase and Copyright Agent I have used AI to design and improve reporting. Setting this up for others has become the second half of what I do.',
       'Before computer science I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
     ],
@@ -265,7 +266,7 @@ export const en = {
   contact: {
     meta: {
       title: 'Contact',
-      description: 'Get in touch with Mathias Lau Nielsen, MLN Data Consulting.',
+      description: 'Three lines about what you need built, fixed or set up. I reply within one working day. On-site in Copenhagen, remote elsewhere, in English or Danish.',
     },
     hero: {
       eyebrow: 'Contact',

@@ -41,7 +41,9 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [DNS observations when moving nameservers to Vercel](raw/2026-09-30-dns-observations.md) | observation | 2026-09-30 |
 | [Domain restored to Namecheap DNS and the site live on mlnanalytics.com](raw/2026-09-30-domain-live.md) | observation | 2026-09-30 |
 | [Launch checks on the website and database](raw/2026-09-30-launch-checks.md) | observation | 2026-09-30 |
+| [Machine learning models Mathias has put into production, and how much ML should feature](raw/2026-09-30-ml-models.md) | decision | 2026-09-30 |
 | [Site reported down from Mathias's network after the DNS restore](raw/2026-09-30-negative-dns-cache.md) | observation | 2026-09-30 |
 | [Positioning decision and the career facts behind the site copy](raw/2026-09-30-positioning.md) | decision | 2026-09-30 |
 | [Claude owns the pull request lifecycle](raw/2026-09-30-pr-ownership.md) | decision | 2026-09-30 |
+| [Search visibility audit of mlnanalytics.com](raw/2026-09-30-seo-audit.md) | document | 2026-09-30 |
 | [Research report on solo consultancy sites and improvements for this site](raw/2026-09-30-site-research.md) | document | 2026-09-30 |
