@@ -12,7 +12,7 @@ updated: 2026-09-30
 ## Current state (as of 2026-09-30, 14:40 UTC)
 
 - DNS is hosted by Namecheap (BasicDNS); Mathias edits records in Advanced DNS, see [Runbook for DNS changes](../references/runbook-dns-changes.md).
-- The site is live at https://mlnanalytics.com. `www` shows the same site and forwards to the bare domain once the redirect in `next.config.mjs` is deployed.
+- The site is live at https://mlnanalytics.com. `www.mlnanalytics.com` forwards to the bare domain (308, from `next.config.mjs`, live since PR #6).
 - https: Let's Encrypt certificate issued by Vercel, valid until 2026-12-29; Vercel renews it automatically.
 - Email: Google Workspace, MX `1 smtp.google.com`. SPF and DMARC are in place; DKIM is not yet.
 - Registrar: Namecheap. Registered 2025-06-28, expires 2027-06-28, auto-renew and WHOIS privacy on.
