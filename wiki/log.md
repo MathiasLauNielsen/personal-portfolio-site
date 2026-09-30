@@ -13,3 +13,4 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - update: open-items → domain outage and site address resolved
 - ingest: PR ownership decision → it-operating-model (raw/2026-09-30-pr-ownership.md)
 - update: domain-and-email → www redirect live (PR #6)
+- ingest: research on solo consultancy sites → site-improvement-plan, open-items, website (raw/2026-09-30-site-research.md)

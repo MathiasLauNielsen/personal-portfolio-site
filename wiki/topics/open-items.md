@@ -22,3 +22,9 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 7 | Portrait photo | Marked spot in `components/pages/AboutPage.tsx` | Mathias |
 | 8 | Career details | Refine from a LinkedIn PDF export | Mathias |
 | 9 | Management dashboard prototype | Port the local branch `prototype/management-app` into `/admin` | Claude, when asked |
+| 10 | Case cards for the three figures | Approve a public, anonymised description per figure, see [Site improvement plan](../concepts/site-improvement-plan.md) | Mathias |
+| 11 | Buyer testimonials | Ask 2–3 former managers or client contacts for a short quote about a result, with permission to publish | Mathias |
+| 12 | Proof for the AI coding offer | Decide whether to present this repository as a worked example | Mathias |
+| 13 | Prices on the fixed-scope products | Decide on "from €X" and whether the review fee is credited toward follow-on work | Mathias |
+| 14 | First call | Name the free first call and the output it promises | Mathias |
+| 15 | Calendar booking | Decide whether to offer booking after the form; needs a booking account | Mathias |
