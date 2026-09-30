@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "wiki": "node scripts/wiki.mjs",
+    "wiki:check": "node scripts/wiki.mjs --check"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.1",

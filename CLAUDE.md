@@ -11,6 +11,7 @@ The website for Mathias Lau Nielsen / MLN Data Consulting (CVR 45700577), a free
 ```bash
 npm run dev      # http://localhost:3000
 npm run build    # production build, also type-checks
+npm run wiki     # rebuild wiki/_index.md and lint the wiki (wiki:check = no writes)
 ```
 
 `.env.local` needs `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (`vercel env pull`). `gh`, `vercel` and `supabase` CLIs are linked to this project. There are no tests.
@@ -30,11 +31,17 @@ npm run build    # production build, also type-checks
 - **Supabase:** tables `kontakt_henvendelser` (contact form, inserted through `/api/kontakt`) and `blog_posts`. Column names are Danish. Reading and changing enquiries and blog posts is limited to accounts in the `admins` table (`is_admin()`, migration 004); public sign-ups are disabled in the Supabase project and should stay so. Schema changes go through a new file in `supabase/migrations` and `supabase db push --linked`; the database was rebuilt from these files on 2026-09-30, so the remote migration history matches them. New admins: `INSERT INTO admins (user_id) SELECT id FROM auth.users WHERE email = '...'`.
 - `middleware.ts` guards `/admin/*` (except `/admin/login`) with a Supabase session check.
 
-## Open items
+## Company wiki
 
-- Enquiry emails are off until a Resend API key is added in Vercel (`RESEND_API_KEY`, plus `LEAD_EMAIL_FROM` on a domain verified in Resend); until then leads are only visible in `/admin/henvendelser`.
-- Product durations in `content/*.ts` are estimates (review 5–8 days over 2–3 weeks; AI setup 6–10 days over 3–4 weeks, including a follow-up after two weeks of use); replace with real numbers after the first engagements. The "taking on new engagements" badge is a placeholder to confirm.
-- Portrait photo: there is a marked spot for it in `components/pages/AboutPage.tsx`.
-- Domain: `mlnanalytics.com` is registered at Namecheap with nameservers on Vercel (switched 2026-09-30), so DNS is managed with `vercel dns`. Email is Google Workspace: keep the MX (`1 smtp.google.com`), SPF and DMARC records. DKIM still needs a record generated in the Google Admin console. Once the domain serves the site, set `NEXT_PUBLIC_SITE_URL=https://mlnanalytics.com` (it feeds `metadataBase` and canonicals) and redeploy.
-- Career details are limited to what is publicly verifiable; refine from a LinkedIn PDF export when available.
-- The earlier management-dashboard prototype (CRM, pipeline, finance) lives on the local branch `prototype/management-app` and is meant to be ported into `/admin`.
+`wiki/` is the company's knowledge base, kept by Claude in the llm-wiki pattern: what exists, how it is set up, what was decided and why, and what is open. This file covers the code; the wiki covers everything around it (domain and email, database, hosting, services, offers, runbooks). Rules and formats: `wiki/schema.md`.
+
+- **Read before acting:** for any question or task about the company's IT, accounts or operations, read `wiki/_index.md` first, then the articles it points to. Open items: `wiki/topics/open-items.md`.
+- **Update in the same piece of work, not later**, whenever something changes that the wiki describes or should describe:
+  - infrastructure or configuration: DNS, email, database schema or access rules, Vercel settings and environment variable names, deploys;
+  - a service or account is added, removed or found;
+  - Mathias states a decision, a fact or a preference about the company;
+  - an incident or a lesson, including what went wrong;
+  - an open item is done or a new one appears.
+- **How:** save the evidence as a new file in `wiki/raw/` (never edit existing raw files), update or create the affected articles, append a line to `wiki/log.md`, then run `npm run wiki`. It must report 0 problems before committing.
+- **Not for:** code structure (it lives here and in the code), and one-off chat answers.
+- **The repository is public:** never write secrets, personal data, client-confidential material, prices, rates or finances into the wiki.
