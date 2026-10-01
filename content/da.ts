@@ -1,10 +1,217 @@
 import type { Copy } from './en'
+import type { CaseStudy, ProofItem } from './types'
 
 // Danish copy. Must match the shape of en.ts.
+
+const proofItems: ProofItem[] = [
+  {
+    value: '72 % fra 25 %',
+    label: 'En rangeringsmodel fandt 72 % af de værdifulde sager med en fjerdedel af behandlingsbudgettet. Den gamle udvælgelse fandt 25 %.',
+    note: 'Testet på to måneders historiske data',
+    chart: {
+      caption: 'Værdifulde sager fundet med en fjerdedel af budgettet',
+      max: 100,
+      rows: [
+        { label: 'Gammel udvælgelse', display: '25 %', value: 25 },
+        { label: 'Rangeringsmodel', display: '72 %', value: 72, highlight: true },
+      ],
+    },
+  },
+  {
+    value: '−98,5 %',
+    label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der er ændret.',
+    note: 'Målt i drift',
+    chart: {
+      caption: 'Rækker skrevet pr. nat',
+      max: 46_000_000,
+      rows: [
+        { label: 'Før', display: '46 mio.', value: 46_000_000 },
+        { label: 'Nu, kun det ændrede', display: '683.000', value: 683_000, highlight: true },
+      ],
+    },
+  },
+  {
+    value: '2–4,5×',
+    label: 'Dobbeltarbejde sporet til én fejl, som ingen havde opdaget, fordi intet så ud til at være i stykker.',
+    note: 'Målt i drift',
+    chart: {
+      caption: 'Udført arbejde i forhold til nødvendigt arbejde',
+      max: 4.5,
+      rows: [
+        { label: 'Nødvendigt', display: '1×', value: 1, highlight: true },
+        { label: 'Faktisk udført', display: '2–4,5×', value: 2, upTo: 4.5 },
+      ],
+    },
+  },
+]
+
+// The excerpts are quoted from the repository, which is written in English, so they stay in English.
+const studies: CaseStudy[] = [
+  {
+    key: 'agent',
+    offer: 'ai',
+    topic: 'setup',
+    meta: {
+      title: 'Case: et firmas IT drevet af en kodeagent',
+      description:
+        'Sådan driver en kodeagent et firmas website, database og hosting: reglerne, hvem der bestemmer hvad, hvad der gik galt, og et offentligt repository.',
+    },
+    hero: {
+      eyebrow: 'Case · AI-kodning',
+      title: 'Mit firmas IT drives af en kodeagent.',
+      lead: 'Dette website, dets database, dets hosting og firmaets dokumentation drives af en kodeagent, der arbejder inden for regler, jeg har skrevet. Repositoriet er offentligt, så det, der står på denne side, kan efterprøves dér.',
+      repoCta: 'Åbn repositoriet',
+      contactCta: 'Spørg til opsætning af AI-kodning',
+    },
+    card: {
+      body: 'Det site, I læser nu, dets database, hosting og dokumentation drives af en kodeagent inden for regler, jeg har skrevet. Repositoriet er offentligt, så det kan efterprøves.',
+      points: [
+        '11 pull requests i drift på lanceringsdagen',
+        'Hvad agenten må selv, og hvad der kræver mig',
+        'Hvad der gik galt, og den regel, det førte til',
+      ],
+    },
+    figures: [
+      { value: '11', label: 'pull requests lagt i drift på lanceringsdagen, 30. september 2026. Hver af dem havde først et godkendt preview-build.' },
+      { value: '13', label: 'wiki-artikler skrevet samme dag, sideløbende med koden: hvad der findes, hvad der blev besluttet og hvorfor.' },
+      { value: '28 min', label: 'hvor domænet ikke kunne slås op den dag, efter en DNS-flytning slog fejl. Beskrevet nedenfor, med den regel, det førte til.' },
+    ],
+    blocks: [
+      {
+        kind: 'items',
+        title: 'Hvad agenten får udleveret',
+        lead: 'Intet her afhænger af en særlig model. Det afhænger af fire ting i repositoriet.',
+        items: [
+          {
+            title: 'Projektinstruktioner',
+            body: 'Én fil, agenten læser i starten af hver session: hvordan koden er organiseret, hvor teksterne ligger, de faste navne på ydelserne, og hvordan jeg skriver. Den indeholder reglen om, at ingen fakta, tal eller titler må opfindes.',
+          },
+          {
+            title: 'En firmawiki',
+            body: 'Hvad der findes, hvordan det er sat op, hvad der blev besluttet og hvorfor, og hvad der stadig er åbent. Kilder gemmes først og redigeres aldrig; artiklerne skrives ud fra dem. Agenten læser wikien, før den handler, og opdaterer den i samme arbejdsgang.',
+          },
+          {
+            title: 'Forbindelser',
+            body: 'Kommandolinjeadgang til kodehosting, hostingudbyderen og databasen, knyttet til dette projekt alene. De rettigheder, der gælder for mit kundearbejde, holdes adskilt og bliver ikke rørt.',
+          },
+          {
+            title: 'Tjek, der kan fejle',
+            body: 'Hver pull request får et produktionsbuild og en preview-udgave. Et script tjekker wikien og afviser pull requesten ved et brudt link, en manglende kilde eller et forældet indeks.',
+          },
+        ],
+      },
+      {
+        kind: 'split',
+        title: 'Hvem bestemmer hvad',
+        lead: 'Grænsen står skrevet i repositoriet, og jeg er den eneste, der flytter den.',
+        columns: [
+          {
+            title: 'Agenten, på egen hånd',
+            items: [
+              'Ændringer i sitets kode, tekster og design',
+              'Databasemigreringer',
+              'Domæne-, miljø- og deploy-kommandoer hos hostingudbyderen',
+              'Hele pull requesten: branch, tjek, merge og kontrol af driften bagefter',
+              'At holde wikien opdateret',
+            ],
+          },
+          {
+            title: 'Kræver mig',
+            items: [
+              'Konti, agenten ikke kan nå: domæneregistrator, e-mail, betaling',
+              'Hemmeligheder. Jeg lægger dem selv ind; agenten kender deres navne, aldrig deres værdier',
+              'Alt destruktivt, fx at slette data eller nedlægge en tjeneste, hver gang',
+              'Beslutninger om penge, kunder og hvad firmaet sælger',
+              'Enhver ny oplysning om mig eller mine kunder på sitet',
+            ],
+          },
+        ],
+        notes: [
+          'Et automatisk sikkerhedstjek forhindrer agenten i at læse adgangsoplysninger og i at ændre sine egne rettigheder, også når den bliver bedt om det i chatten.',
+          'Jeg gennemgår ikke ændringerne før merge her. Det er mit eget firma, og risikoen er min. I et team hører den grænse til et andet sted, og at beslutte hvor er en del af opsætningen.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'Sådan når en ændring i drift',
+        lead: 'De samme seks trin hver gang, uanset om ændringen er én sætning eller en ny del af sitet.',
+        steps: [
+          { title: 'Jeg beder om det', body: 'I almindeligt sprog, som jeg ville bede en kollega.' },
+          { title: 'Den læser', body: 'Projektinstruktionerne og wiki-siderne for det område, den skal til at røre ved.' },
+          { title: 'Den bygger', body: 'På en branch, og åbner derefter en pull request, der siger, hvad der er ændret og hvorfor.' },
+          { title: 'Tjek kører', body: 'Produktionsbuild, preview-udgave og wiki-tjekket. Agenten merger kun, når de er bestået.' },
+          { title: 'Den merger', body: 'Ændringen er i drift efter cirka et minut.' },
+          { title: 'Den kontrollerer', body: 'Den tjekker det levende site og noterer derefter ændringen i wikien.' },
+        ],
+      },
+      {
+        kind: 'timeline',
+        title: 'Lanceringsdagen, 30. september 2026',
+        lead: 'Alle pull requests, der blev merget den dag, i dansk tid. Hver linje linker til selve ændringen.',
+        entries: [
+          { time: '15.52', pr: 4, text: 'Det nye site går i drift på engelsk og dansk, med adminområdet begrænset til en liste over godkendte brugere' },
+          { time: '16.18', pr: 5, text: 'Databasen genopbygget fra sine migreringsfiler, og arbejdsgangen dokumenteret' },
+          { time: '16.43', pr: 6, text: 'Firmawikien sat op; www viderestiller til domænet uden www' },
+          { time: '16.50', pr: 7, text: 'Wikien opdateret, da www-viderestillingen var bekræftet i drift' },
+          { time: '17.11', pr: 8, text: 'Research om solokonsulenters websites omsat til en forbedringsplan' },
+          { time: '17.18', pr: 9, text: 'Hændelsesnotat: hvorfor sitet så ud til at være nede fra ét netværk' },
+          { time: '17.47', pr: 10, text: 'Logo, resultater på ydelsessiderne, ét link-preview pr. side' },
+          { time: '19.00', pr: 11, text: 'Positionering skrevet om: ansvarsområde i stedet for en senioritetstitel' },
+          { time: '19.32', pr: 12, text: 'Machine learning fremhævet som styrke; gennemgang af synlighed i søgning' },
+          { time: '20.10', pr: 13, text: 'Besøgsstatistik uden cookies i adminområdet' },
+          { time: '20.32', pr: 14, text: 'Om mig-siden: uddannelsen som en oplysning, ikke som ramme for historien' },
+        ],
+      },
+      {
+        kind: 'text',
+        title: 'Hvad der gik galt',
+        paragraphs: [
+          'På lanceringsdagen flyttede vi domænets navneservere til hostingudbyderen. Udbyderen oprettede aldrig en zone for domænet, så fra 15.59 til 16.27 kunne intet slås op for nogen uden et gemt svar. Det gjaldt også indgående e-mail, som blev forsinket, ikke tabt. Vi skiftede tilbage.',
+          'Agenten havde noteret, hvad hver navneserver svarede, mens det stod på. Samme dag blev de noter til en runbook med ét trin, der ville have fanget problemet: spørg den nye udbyders navneservere direkte, før der skiftes, og stop, hvis svaret er tomt eller afvist.',
+          'Senere samme eftermiddag så sitet ud til at være nede fra mit eget netværk, mens det virkede alle andre steder. En resolver havde gemt et tomt svar under reparationen. Det blev til endnu et punkt: tjek udefra, før noget ændres.',
+          'Ting går galt med eller uden en agent. Det, opsætningen tilføjer, er, at læren bliver skrevet ned samme dag og læst før næste ændring.',
+        ],
+      },
+      {
+        kind: 'excerpts',
+        title: 'Fire linjer fra repositoriet',
+        lead: 'Gengivet ordret. Repositoriet er skrevet på engelsk.',
+        items: [
+          {
+            source: 'CLAUDE.md',
+            text: 'No hype and no invented facts, clients, numbers or job titles; leave things out rather than guess. Every figure comes from real work and says whether it was measured in production or tested on historical data.',
+            note: 'Reglen for alt, der står på dette site.',
+          },
+          {
+            source: 'wiki/raw/2026-09-30-brand-and-quick-wins.md',
+            text: 'Held back: an AI coding FAQ about safety and payoff, because it would state new claims about Mathias\'s methods in his voice.',
+            note: 'Det, reglen gjorde på lanceringsdagen: agenten udelod et planlagt punkt i stedet for at skrive påstande på mine vegne.',
+          },
+          {
+            source: 'CLAUDE.md',
+            text: 'Stop before `main` only when Mathias has to do something specific first, and say what.',
+            note: 'Hvor langt agenten går alene, og hvornår den skal stoppe.',
+          },
+          {
+            source: 'wiki/references/runbook-dns-changes.md',
+            text: 'Query the new provider\'s nameserver directly and compare with the old one, record by record. A "refused" answer or an empty answer means stop.',
+            note: 'Trinnet, der kom til efter DNS-fejlen.',
+          },
+        ],
+      },
+    ],
+    closing: {
+      title: 'De samme dele, i jeres kodebase',
+      body: 'Det er det, jeg sætter op for et udviklingsteam: instruktioner, agenten læser hver gang, en nedskrevet grænse mellem det, den må gøre selv, og det, der kræver et menneske, tjek, der kan afvise en pull request, og et sted, hvor beslutninger og hændelser bliver noteret. Hvor grænsen ligger, afhænger af jeres systemer og jeres risiko.',
+    },
+  },
+]
+
 export const da: Copy = {
   nav: {
     data: 'Dataplatform',
     ai: 'AI-kodning',
+    cases: 'Cases',
     about: 'Om mig',
     contact: 'Kontakt',
     cta: 'Kontakt mig',
@@ -104,23 +311,8 @@ export const da: Copy = {
       eyebrow: 'Resultater',
       title: 'Sådan ser det ud i tal.',
       lead: 'Fra nyligt kundearbejde på en platform med over 60 mio. poster.',
-      items: [
-        {
-          value: '72 % fra 25 %',
-          label: 'En rangeringsmodel fandt 72 % af de værdifulde sager med en fjerdedel af behandlingsbudgettet. Den gamle udvælgelse fandt 25 %.',
-          note: 'Testet på to måneders historiske data',
-        },
-        {
-          value: '−98,5 %',
-          label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der er ændret.',
-          note: 'Målt i drift',
-        },
-        {
-          value: '2–4,5×',
-          label: 'Dobbeltarbejde sporet til én fejl, som ingen havde opdaget, fordi intet så ud til at være i stykker.',
-          note: 'Målt i drift',
-        },
-      ],
+      more: 'Se cases',
+      items: proofItems,
     },
     why: {
       eyebrow: 'Hvorfor mig',
@@ -250,6 +442,17 @@ export const da: Copy = {
       'Ved siden af platformsarbejdet er jeg gået i dybden med AI-assisteret udvikling. Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter og har opbygget de konventioner og rammer, der gør det pålideligt. Hos både Ase og Copyright Agent har jeg brugt AI til at designe og forbedre rapportering. At sætte det op for andre er blevet den anden halvdel af det, jeg laver.',
       'Før data ledede jeg et team på 12–18 medarbejdere i detailhandlen med ansvar for budget og salgsmål, så jeg ved, hvordan det er at drive noget efter tal, man skal kunne stole på.',
     ],
+    work: {
+      eyebrow: 'Arbejde',
+      title: 'Det, jeg kan vise.',
+      results: {
+        eyebrow: 'Dataplatform',
+        title: 'Tre resultater fra én dataplatform',
+        body: 'En rangeringsmodel, et natligt job og en skjult fejl, hver vist som før og efter.',
+        cta: 'Se resultaterne',
+      },
+    },
+    storyTitle: 'Baggrund',
     factsTitle: 'Kort fortalt',
     facts: [
       { label: 'Base', value: 'København. Remote eller on-site.' },
@@ -259,6 +462,26 @@ export const da: Copy = {
       { label: 'Foretrækker', value: 'Længere forløb, deltid eller fuld tid' },
       { label: 'Arbejder ikke med', value: 'Våben, sprængstoffer, udvinding af fossile brændsler' },
     ],
+  },
+
+  cases: {
+    meta: {
+      title: 'Cases: dataplatform og AI-kodning',
+      description:
+        'Resultater fra en dataplatform vist som før og efter, og en fuld case om et firma, hvis IT drives af en kodeagent i et offentligt repository.',
+    },
+    hero: {
+      eyebrow: 'Cases',
+      title: 'Sådan ser arbejdet ud.',
+      lead: 'Resultater fra en kundes dataplatform, vist som før og efter, og én case, I kan efterprøve helt ned til den enkelte commit: mit eget firma.',
+    },
+    ai: {
+      eyebrow: 'AI-kodning',
+      title: 'En case, I selv kan tjekke.',
+    },
+    read: 'Læs casen',
+    all: 'Alle cases',
+    studies,
   },
 
   contact: {

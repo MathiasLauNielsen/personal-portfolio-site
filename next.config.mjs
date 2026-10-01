@@ -12,7 +12,6 @@ const nextConfig = {
       },
       { source: '/om-mig', destination: '/da/om-mig', permanent: true },
       { source: '/kontakt', destination: '/da/kontakt', permanent: true },
-      { source: '/cases', destination: '/', permanent: true },
       { source: '/services', destination: '/', permanent: true },
       { source: '/en', destination: '/', permanent: true },
       { source: '/en/:path*', destination: '/', permanent: true },

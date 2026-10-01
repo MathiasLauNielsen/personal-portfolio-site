@@ -21,3 +21,8 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: search visibility audit → website, services, open-items (raw/2026-09-30-seo-audit.md)
 - ingest: visit statistics built in (migration 005, /api/besoeg, /admin/statistik) → database, hosting, lead-handling, website, open-items (raw/2026-09-30-visit-statistics.md)
 - ingest: university removed as a selling point → company (raw/2026-09-30-university-framing.md)
+
+## 2026-10-02
+- ingest: outside feedback and the cases section → site-improvement-plan, open-items, website, it-operating-model (raw/2026-10-02-cases-section.md)
+- create: case-questions (what Mathias answers and the client approves before a client case is written)
+- lint: 0 problems

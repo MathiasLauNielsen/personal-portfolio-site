@@ -8,3 +8,4 @@ export function getCopy(locale: Locale) {
 
 export * from './site'
 export type { Copy } from './en'
+export type { BarChart, CaseBlock, CaseStudy, ProofItem } from './types'

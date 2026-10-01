@@ -21,6 +21,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           <ul className="mt-4 flex flex-col gap-2.5 text-sm">
             <li><Link href={r.data} className="hover:text-accent-light">{copy.nav.data}</Link></li>
             <li><Link href={r.ai} className="hover:text-accent-light">{copy.nav.ai}</Link></li>
+            <li><Link href={r.cases} className="hover:text-accent-light">{copy.nav.cases}</Link></li>
             <li><Link href={r.about} className="hover:text-accent-light">{copy.nav.about}</Link></li>
           </ul>
         </div>
