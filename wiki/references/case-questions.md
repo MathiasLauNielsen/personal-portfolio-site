@@ -34,6 +34,29 @@ All three are on the cases page as one sentence and a chart. To become full case
 
 The nightly job is the easiest to anonymise, since it is engineering with no business detail, so it is the suggested first one.
 
+## Asking the client
+
+A message Mathias can send to his contact at the client, in Danish. Fill in the brackets.
+
+```text
+Hej [navn]
+
+Jeg er ved at lave cases til mit website og vil gerne bruge noget af det arbejde, jeg har lavet hos jer. Inden jeg skriver noget, vil jeg høre, hvad I er ok med.
+
+Konkret vil jeg gerne beskrive [én linje, fx: det natlige job, der gik fra 46 mio. til 683.000 rækker].
+
+Tre spørgsmål:
+1. Må I nævnes ved navn, eller skal det være anonymt, fx "en dansk softwarevirksomhed"?
+2. Må jeg bruge tal? Det kan være procenter eller mængder i stedet for kroner, hvis I foretrækker det.
+3. Må jeg vise et skærmbillede eller en tegning af opsætningen, hvis intet forretningskritisk fremgår?
+
+I får teksten til gennemsyn, før den går online, og I kan til enhver tid bede mig tage den ned.
+
+Og hvis du har lyst: to sætninger fra dig om, hvad arbejdet betød for jer, vil jeg meget gerne citere.
+
+Mvh. Mathias
+```
+
 ## Other cases worth writing
 
 - **A production data platform restructured so coding agents can work in it** (Ase): the second AI coding case, and the one about a real team rather than his own company.

@@ -26,3 +26,6 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: outside feedback and the cases section → site-improvement-plan, open-items, website, it-operating-model (raw/2026-10-02-cases-section.md)
 - create: case-questions (what Mathias answers and the client approves before a client case is written)
 - lint: 0 problems
+- ingest: LinkedIn profile as a stranger sees it → linkedin-profile (new), services, open-items (raw/2026-10-02-linkedin-audit.md)
+- update: case-questions → message for asking a client what may be published
+- lint: 0 problems

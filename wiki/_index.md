@@ -28,9 +28,10 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 |---|---|---|---|
 | [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-02 |
 | [Company facts](references/company.md) | Legal name, CVR, published contact details and positioning of MLN Data Consulting | high | 2026-09-30 |
+| [LinkedIn profile](references/linkedin-profile.md) | What the profile shows today, the text and banner to put on it, the links to use, and the first posts | medium | 2026-10-02 |
 | [Runbook for database changes](references/runbook-database-changes.md) | How schema changes and admin changes are made in Supabase, and how to verify them | high | 2026-09-30 |
 | [Runbook for DNS changes](references/runbook-dns-changes.md) | How to change DNS for mlnanalytics.com without breaking email, learned from the failed switch on 2026-09-30 | high | 2026-09-30 |
-| [Services and accounts](references/services.md) | Every external service the company uses, what it does, how it is reached from here, and what is unknown | medium | 2026-09-30 |
+| [Services and accounts](references/services.md) | Every external service the company uses, what it does, how it is reached from here, and what is unknown | medium | 2026-10-02 |
 
 ## Raw sources
 
@@ -51,3 +52,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [University removed as a selling point](raw/2026-09-30-university-framing.md) | decision | 2026-09-30 |
 | [Visit statistics built into the site and its admin area](raw/2026-09-30-visit-statistics.md) | observation | 2026-09-30 |
 | [Outside feedback on the site, and the cases section built from it](raw/2026-10-02-cases-section.md) | decision | 2026-10-02 |
+| [What a stranger sees on Mathias's LinkedIn profile](raw/2026-10-02-linkedin-audit.md) | observation | 2026-10-02 |

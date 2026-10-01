@@ -3,8 +3,8 @@ title: Services and accounts
 type: reference
 summary: Every external service the company uses, what it does, how it is reached from here, and what is unknown
 confidence: medium
-sources: [raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-seo-audit.md]
-updated: 2026-09-30
+sources: [raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-linkedin-audit.md]
+updated: 2026-10-02
 ---
 
 # Services and accounts
@@ -19,6 +19,7 @@ As of 2026-09-30. No credentials are stored in this wiki; the "Access from here"
 | Supabase | Database and login for the site's admin (project `personal-portfolio-site`, eu-central-1) | `supabase` CLI, linked | Unknown | [Database](../topics/database.md) |
 | GitHub | Code, pull requests (`MathiasLauNielsen/personal-portfolio-site`, public) | `gh` CLI | Unknown | [Website](../topics/website.md) |
 | Resend | Emailing new enquiries to Mathias | Not set up | Not set up | [Lead handling](../topics/lead-handling.md) |
+| LinkedIn | Mathias's personal profile, where referrals and brokers check him (https://www.linkedin.com/in/mathlau); no company page | None: Mathias edits and posts, Claude writes | Unknown | [LinkedIn profile](linkedin-profile.md) |
 | Render | Old target of `www` (`mlnanalytics.onrender.com`) | None | Unknown whether it still exists | [Domain and email](../topics/domain-and-email.md) |
 
 Also seen: a second Supabase project, `planning-site` (eu-west-1), inactive and not linked to this repo.

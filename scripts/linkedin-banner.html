@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- LinkedIn profile banner (1584x396). The left third stays empty: the profile photo covers it.
+     Render: chrome --headless=new --hide-scrollbars --virtual-time-budget=8000 --window-size=1584,396
+             --screenshot=public/brand/linkedin-banner.png scripts/linkedin-banner.html -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Hanken+Grotesk:wght@500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  body { width: 1584px; height: 396px; background: #FAF9F6; color: #10131A; position: relative; overflow: hidden; }
+  .glow { position: absolute; right: -180px; top: -260px; width: 620px; height: 620px; border-radius: 50%; background: #EEF1FF; filter: blur(60px); }
+  .wrap { position: absolute; left: 560px; right: 80px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font: 500 17px 'JetBrains Mono', monospace; letter-spacing: 0.16em; text-transform: uppercase; color: #2B50FF; }
+  h1 { margin: 18px 0 0; font: 600 62px/1.04 'Bricolage Grotesque', sans-serif; letter-spacing: -0.035em; }
+  h1 span { display: block; color: #2B50FF; }
+  .foot { margin-top: 26px; display: flex; align-items: center; gap: 18px; font: 500 21px 'Hanken Grotesk', sans-serif; color: #5B6472; }
+  .foot img { height: 26px; }
+  .foot i { width: 1px; height: 22px; background: #E6E3DC; }
+</style></head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="eyebrow">Freelance data and AI engineer · Copenhagen</div>
+    <h1>Data platforms that hold up.<span>AI coding that actually ships.</span></h1>
+    <div class="foot"><img src="../public/brand/logo-mark.png" alt=""><i></i>mlnanalytics.com</div>
+  </div>
+</body></html>
