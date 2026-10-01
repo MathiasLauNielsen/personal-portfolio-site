@@ -3,7 +3,7 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md]
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md]
 updated: 2026-10-02
 ---
 
@@ -30,10 +30,10 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 15 | Calendar booking | Decide whether to offer booking after the form; needs a booking account | Mathias |
 | 16 | Privacy policy promises deletion after 2 years | Automate: a scheduled job that deletes enquiries and visit rows (`site_besoeg`) older than 2 years, see [Database](database.md) | Claude |
 | 17 | Site accent colour vs logo | Decide whether the site's bright cobalt accent should become the logo navy `#00398D`, see [Company facts](../references/company.md) | Mathias |
-| 18 | Permission to publish results and descriptions | Ask Copyright Agent and Ase whether the work described on the About page is fine to publish as written, and whether results in money may be published (named, anonymised or as percentages). Until then no money figures go on the site, see [Company facts](../references/company.md) | Mathias |
+| 18 | Permission to publish results and descriptions | A message to send is in [the case questions](../references/case-questions.md). Ask Copyright Agent and Ase whether the work described on the About page is fine to publish as written, and whether results in money may be published (named, anonymised or as percentages). Until then no money figures go on the site, see [Company facts](../references/company.md) | Mathias |
 | 19 | Machine learning and forecasting on the data platform page | Confirmed by Mathias on 2026-09-30 as a strength inside the data platform offer; the six model types are now named. Remaining: a written case for one of them, see [Offers](../concepts/offers.md) | Mathias |
 | 20 | Google Search Console and Bing Webmaster Tools | Verify mlnanalytics.com in Search Console (DNS TXT record at Namecheap, see [Runbook for DNS changes](../references/runbook-dns-changes.md)), submit the sitemap, then import the site into Bing Webmaster Tools. Gives the baseline for every later title change | Mathias creates the accounts; Claude adds the DNS record and checks |
-| 21 | LinkedIn profile | Put https://mlnanalytics.com in the profile and tell the same story as the About page: data since 2020, responsible for the whole data platform at two companies. Claude can draft the headline and About text | Mathias |
+| 21 | LinkedIn profile | As of 2026-10-02 the profile presents an Ase employee: no company, no website, a 2019 photo, no post since 2021. The text to paste, the banner, the links and the first post are ready in [LinkedIn profile](../references/linkedin-profile.md); Mathias follows the ten steps there. Also from him: a PDF export of the profile (titles and dates), and whether Ase is current and as employer or client | Mathias |
 | 22 | Google Business Profile | Create one as a service-area business with hidden address (he works on-site in Copenhagen); the cheapest way to appear for searches on the name | Mathias |
 | 23 | Broker and directory profiles | Register with the Danish brokers and directories that rank today: Right People Group, 7N, emagine, Worksome, findITconsultants.com, giig.dk, freelancit.dk. Link each to the site | Mathias |
 | 24 | Keyword volumes | Only Google Keyword Planner (needs a Google Ads account) gives Danish search volumes; decide whether it is worth an account | Mathias |
