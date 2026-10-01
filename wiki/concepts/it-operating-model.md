@@ -3,8 +3,8 @@ title: IT operating model
 type: concept
 summary: How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias
 confidence: high
-sources: [raw/2026-09-30-decisions.md, raw/2026-09-30-pr-ownership.md]
-updated: 2026-09-30
+sources: [raw/2026-09-30-decisions.md, raw/2026-09-30-pr-ownership.md, raw/2026-10-02-cases-section.md]
+updated: 2026-10-02
 ---
 
 # IT operating model
@@ -31,7 +31,9 @@ Claude Code runs with an automatic safety check. It blocks, among other things, 
 
 ## Open question: public repository
 
-The repository is public, so this wiki must stay free of secrets, personal data, client matters and finances ([schema](../schema.md)). Making the repository private would let the wiki hold more of the company's knowledge; Vercel deploys private repositories as well. Mathias to decide; tracked in [Open items](../topics/open-items.md).
+The repository is public, so this wiki must stay free of secrets, personal data, client matters and finances ([schema](../schema.md)). Making the repository private would let the wiki hold more of the company's knowledge; Vercel deploys private repositories as well. Since 2026-10-02 the site publishes this operating model as a case ("My company's IT is run by a coding agent") and tells readers to check the repository, so it stays public for as long as that case is published. Tracked in [Open items](../topics/open-items.md).
+
+The case quotes this article's division of work. When the division changes here, change the case in `content/en.ts` and `content/da.ts` too.
 
 ## Related
 

@@ -3,8 +3,8 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md]
-updated: 2026-09-30
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md]
+updated: 2026-10-02
 ---
 
 # Site improvement plan
@@ -35,6 +35,21 @@ Status as of 2026-09-30, evening: 1–7, 9 and 10 done (PR "Site quick wins"); 8
 Tracked in [Open items](../topics/open-items.md): lead emails and DKIM (the only item with strong evidence), a portrait photo, approval of anonymised case cards for the three figures, two or three buyer testimonials, proof for the AI coding offer (possibly this public repository as a worked example), confirmed durations and deliverables, an honest availability line, a named first call with a promised output, and dated career history.
 
 Done on 2026-09-30 (PR "Positioning: scope instead of a seniority title"): the career history. The About page now tells the story from 2020 to today and says who was an employer and who is a client; the home page and the data platform page state the scope of what he has been responsible for. Exact years per role are still missing. What this opened is in [Open items](../topics/open-items.md): client permission for money figures, references who can confirm the scope, and a written case for the AI coding offer.
+
+## Cases: show the work (2026-10-02)
+
+Outside feedback on 2026-10-02 said the same as the research, more bluntly: the technology list is what every provider offers, the site reads as a CV, and the cases have to be shown, not told ([source](../raw/2026-10-02-cases-section.md)). The positioning stays; the evidence was missing.
+
+Shipped the same day (PR "Cases: the work shown, not described"):
+
+- A Cases section (`/cases`, `/da/cases`) in the navigation.
+- A before/after chart for each of the three data platform results, on the cases page and the data platform page.
+- A written case about this repository, "My company's IT is run by a coding agent", as the proof the AI coding offer lacked. It is linked from the home page, the AI coding page and the About page.
+- The About page starts with the work and puts the career story below it; the technology lists on the offer pages are one line of small text.
+
+Still needed, all with Mathias, see [Open items](../topics/open-items.md): full write-ups of the client results (answers to [the case questions](../references/case-questions.md) and the client's agreement), a second AI coding case from a real team, a photo, buyer testimonials, and first-hand articles.
+
+More pages are not expected to bring enquiries from search within 6–12 months ([search audit](../raw/2026-09-30-seo-audit.md)); the cases are for the visitor who already has the link. No paid ads for now.
 
 ## Larger decisions
 

@@ -7,9 +7,9 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
-| [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-09-30 |
+| [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-10-02 |
 | [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-09-30 |
-| [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-09-30 |
+| [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-10-02 |
 
 ## Topics
 
@@ -19,13 +19,14 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Domain and email](topics/domain-and-email.md) | mlnanalytics.com at Namecheap, email on Google Workspace, the DNS records in place, and the 2026-09-30 outage | high | 2026-09-30 |
 | [Hosting](topics/hosting.md) | The Vercel project, how deploys happen, environment variables by name, and analytics | high | 2026-09-30 |
 | [Lead handling](topics/lead-handling.md) | What happens when someone sends an enquiry, where it is stored and how Mathias finds out | high | 2026-09-30 |
-| [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-09-30 |
-| [Website](topics/website.md) | What the site is for, what is live, and where its parts are described | high | 2026-09-30 |
+| [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-10-02 |
+| [Website](topics/website.md) | What the site is for, what is live, and where its parts are described | high | 2026-10-02 |
 
 ## References
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
+| [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-02 |
 | [Company facts](references/company.md) | Legal name, CVR, published contact details and positioning of MLN Data Consulting | high | 2026-09-30 |
 | [Runbook for database changes](references/runbook-database-changes.md) | How schema changes and admin changes are made in Supabase, and how to verify them | high | 2026-09-30 |
 | [Runbook for DNS changes](references/runbook-dns-changes.md) | How to change DNS for mlnanalytics.com without breaking email, learned from the failed switch on 2026-09-30 | high | 2026-09-30 |
@@ -49,3 +50,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Research report on solo consultancy sites and improvements for this site](raw/2026-09-30-site-research.md) | document | 2026-09-30 |
 | [University removed as a selling point](raw/2026-09-30-university-framing.md) | decision | 2026-09-30 |
 | [Visit statistics built into the site and its admin area](raw/2026-09-30-visit-statistics.md) | observation | 2026-09-30 |
+| [Outside feedback on the site, and the cases section built from it](raw/2026-10-02-cases-section.md) | decision | 2026-10-02 |

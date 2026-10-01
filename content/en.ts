@@ -4,10 +4,219 @@
 // one of two things: data platform expertise or AI coding expertise. Client names only
 // appear as supporting experience. Every number is from real work; none are invented.
 
+import type { CaseStudy, ProofItem } from './types'
+
+// The three measured results. Each chart redraws the numbers already stated in the label, nothing more.
+const proofItems: ProofItem[] = [
+  {
+    value: '72% from 25%',
+    label: 'A ranking model found 72% of the valuable cases using a quarter of the processing budget. The old selection found 25%.',
+    note: 'Tested on two months of historical data',
+    chart: {
+      caption: 'Valuable cases found with a quarter of the budget',
+      max: 100,
+      rows: [
+        { label: 'Old selection', display: '25%', value: 25 },
+        { label: 'Ranking model', display: '72%', value: 72, highlight: true },
+      ],
+    },
+  },
+  {
+    value: '−98.5%',
+    label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
+    note: 'Measured in production',
+    chart: {
+      caption: 'Rows written per night',
+      max: 46_000_000,
+      rows: [
+        { label: 'Before', display: '46 million', value: 46_000_000 },
+        { label: 'Now, only what changed', display: '683,000', value: 683_000, highlight: true },
+      ],
+    },
+  },
+  {
+    value: '2–4.5×',
+    label: 'Duplicate workload traced to a single fault that had gone unnoticed because nothing looked broken.',
+    note: 'Measured in production',
+    chart: {
+      caption: 'Work done compared with work needed',
+      max: 4.5,
+      rows: [
+        { label: 'Needed', display: '1×', value: 1, highlight: true },
+        { label: 'Actually done', display: '2–4.5×', value: 2, upTo: 4.5 },
+      ],
+    },
+  },
+]
+
+// Written cases. Every statement in the agent case can be checked in the public repository (site.repo):
+// the pull requests, CLAUDE.md and the wiki. Times are Copenhagen time.
+const studies: CaseStudy[] = [
+  {
+    key: 'agent',
+    offer: 'ai',
+    topic: 'setup',
+    meta: {
+      title: 'Case: a company’s IT run by a coding agent',
+      description:
+        'How a coding agent runs a company’s website, database and hosting: the rules, who decides what, what went wrong, and a public repository to check it in.',
+    },
+    hero: {
+      eyebrow: 'Case · AI coding',
+      title: 'My company’s IT is run by a coding agent.',
+      lead: 'This website, its database, its hosting and the company’s documentation are run by a coding agent working inside rules I wrote. The repository is public, so what this page says can be checked there.',
+      repoCta: 'Open the repository',
+      contactCta: 'Ask about AI coding setup',
+    },
+    card: {
+      body: 'The site you are reading, its database, hosting and documentation are run by a coding agent inside rules I wrote. The repository is public, so it can be checked.',
+      points: [
+        '11 pull requests to production on launch day',
+        'What the agent may do alone, and what needs me',
+        'What went wrong, and the rule it led to',
+      ],
+    },
+    figures: [
+      { value: '11', label: 'pull requests merged to production on launch day, 30 September 2026. Each had a passing preview build first.' },
+      { value: '13', label: 'wiki articles written the same day, alongside the code: what exists, what was decided and why.' },
+      { value: '28 min', label: 'when the domain did not resolve that day, after a DNS move failed. Described below, with the rule it led to.' },
+    ],
+    blocks: [
+      {
+        kind: 'items',
+        title: 'What the agent is given',
+        lead: 'Nothing here depends on a special model. It depends on four things in the repository.',
+        items: [
+          {
+            title: 'Project instructions',
+            body: 'One file the agent reads at the start of every session: how the code is organised, where the copy lives, the fixed names of the offers and how I write. It includes the rule that no fact, number or title may be invented.',
+          },
+          {
+            title: 'A company wiki',
+            body: 'What exists, how it is set up, what was decided and why, and what is still open. Sources are saved first and never edited; the articles are compiled from them. The agent reads the wiki before acting and updates it in the same piece of work.',
+          },
+          {
+            title: 'Connections',
+            body: 'Command-line access to the code host, the hosting provider and the database, linked to this project only. The permissions that govern my client work are kept apart and stay untouched.',
+          },
+          {
+            title: 'Checks that can fail',
+            body: 'Every pull request gets a production build and a preview deployment. A script checks the wiki and fails the pull request on a broken link, a missing source or a stale index.',
+          },
+        ],
+      },
+      {
+        kind: 'split',
+        title: 'Who decides what',
+        lead: 'The line is written down in the repository, and I am the only one who moves it.',
+        columns: [
+          {
+            title: 'The agent, on its own',
+            items: [
+              'Code, copy and design changes to the site',
+              'Database migrations',
+              'Domain, environment and deploy commands at the hosting provider',
+              'The whole pull request: branch, checks, merge, and verifying production afterwards',
+              'Keeping the wiki current',
+            ],
+          },
+          {
+            title: 'Needs me',
+            items: [
+              'Accounts the agent cannot reach: domain registrar, email, payment',
+              'Secrets. I add them myself; the agent knows their names, never their values',
+              'Anything destructive, such as wiping data or deleting a service, every time',
+              'Decisions about money, clients and what the company sells',
+              'Any new fact about me or my clients on the site',
+            ],
+          },
+        ],
+        notes: [
+          'An automatic safety check blocks the agent from reading credentials and from editing its own permissions, even when asked to in chat.',
+          'I do not review before the merge here. It is my own company and the risk is mine. In a team that line belongs somewhere else, and deciding where is part of the setup.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'How a change reaches production',
+        lead: 'The same six steps every time, whether the change is one sentence or a new part of the site.',
+        steps: [
+          { title: 'I ask', body: 'In plain language, the way I would ask a colleague.' },
+          { title: 'It reads', body: 'The project instructions and the wiki pages for the area it is about to touch.' },
+          { title: 'It builds', body: 'On a branch, then opens a pull request that says what changed and why.' },
+          { title: 'Checks run', body: 'Production build, preview deployment and the wiki check. The agent merges only when they pass.' },
+          { title: 'It merges', body: 'Production deploys in about a minute.' },
+          { title: 'It verifies', body: 'It checks the live site, then records what changed in the wiki.' },
+        ],
+      },
+      {
+        kind: 'timeline',
+        title: 'Launch day, 30 September 2026',
+        lead: 'Every pull request merged that day, in Copenhagen time. Each line links to the change itself.',
+        entries: [
+          { time: '15:52', pr: 4, text: 'The redesigned site goes live in English and Danish, with the admin area limited to an allow-list' },
+          { time: '16:18', pr: 5, text: 'Database rebuilt from its migration files, and the workflow documented' },
+          { time: '16:43', pr: 6, text: 'Company wiki set up; www forwards to the bare domain' },
+          { time: '16:50', pr: 7, text: 'Wiki updated once the www redirect was confirmed live' },
+          { time: '17:11', pr: 8, text: 'Research on solo consultancy sites turned into an improvement plan' },
+          { time: '17:18', pr: 9, text: 'Incident note: why the site looked down from one network only' },
+          { time: '17:47', pr: 10, text: 'Logo, results on the offer pages, one link preview per page' },
+          { time: '19:00', pr: 11, text: 'Positioning rewritten: scope of responsibility instead of a seniority title' },
+          { time: '19:32', pr: 12, text: 'Machine learning named as a strength; search visibility pass' },
+          { time: '20:10', pr: 13, text: 'Visit statistics without cookies, in the admin area' },
+          { time: '20:32', pr: 14, text: 'About page: the degree as a fact, not the frame of the story' },
+        ],
+      },
+      {
+        kind: 'text',
+        title: 'What went wrong',
+        paragraphs: [
+          'On launch day we moved the domain’s name servers to the hosting provider. The provider never created a zone for the domain, so from 15:59 to 16:27 nothing resolved for anyone without a cached answer. That included incoming email, which was delayed, not lost. We switched back.',
+          'The agent had logged what each name server answered while it happened. The same day that log became a runbook, with one step that would have caught the problem: ask the new provider’s name servers directly before switching, and stop if the answer is empty or refused.',
+          'Later that afternoon the site looked down from my own network while it was fine everywhere else. A resolver had cached an empty answer during the repair. That became a second entry: check from outside before changing anything.',
+          'Things go wrong with or without an agent. What this setup adds is that the lesson is written down the same day and read before the next change.',
+        ],
+      },
+      {
+        kind: 'excerpts',
+        title: 'Four lines from the repository',
+        lead: 'Copied as written.',
+        items: [
+          {
+            source: 'CLAUDE.md',
+            text: 'No hype and no invented facts, clients, numbers or job titles; leave things out rather than guess. Every figure comes from real work and says whether it was measured in production or tested on historical data.',
+            note: 'The rule for everything written on this site.',
+          },
+          {
+            source: 'wiki/raw/2026-09-30-brand-and-quick-wins.md',
+            text: 'Held back: an AI coding FAQ about safety and payoff, because it would state new claims about Mathias\'s methods in his voice.',
+            note: 'What that rule did on launch day: the agent left a planned item out instead of writing claims for me.',
+          },
+          {
+            source: 'CLAUDE.md',
+            text: 'Stop before `main` only when Mathias has to do something specific first, and say what.',
+            note: 'How far the agent goes alone, and when it has to stop.',
+          },
+          {
+            source: 'wiki/references/runbook-dns-changes.md',
+            text: 'Query the new provider\'s nameserver directly and compare with the old one, record by record. A "refused" answer or an empty answer means stop.',
+            note: 'The step added after the DNS failure.',
+          },
+        ],
+      },
+    ],
+    closing: {
+      title: 'The same parts, in your codebase',
+      body: 'This is what I set up for a development team: instructions the agent reads every time, a written line between what it may do alone and what needs a person, checks that can fail a pull request, and a place where decisions and incidents are recorded. Where the line sits depends on your systems and your risk.',
+    },
+  },
+]
+
 export const en = {
   nav: {
     data: 'Data platform',
     ai: 'AI coding',
+    cases: 'Cases',
     about: 'About',
     contact: 'Contact',
     cta: 'Get in touch',
@@ -107,23 +316,8 @@ export const en = {
       eyebrow: 'Results',
       title: 'What that looks like in numbers.',
       lead: 'From recent client work on a platform handling more than 60 million records.',
-      items: [
-        {
-          value: '72% from 25%',
-          label: 'A ranking model found 72% of the valuable cases using a quarter of the processing budget. The old selection found 25%.',
-          note: 'Tested on two months of historical data',
-        },
-        {
-          value: '−98.5%',
-          label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
-          note: 'Measured in production',
-        },
-        {
-          value: '2–4.5×',
-          label: 'Duplicate workload traced to a single fault that had gone unnoticed because nothing looked broken.',
-          note: 'Measured in production',
-        },
-      ],
+      more: 'See the cases',
+      items: proofItems,
     },
     why: {
       eyebrow: 'Why me',
@@ -253,6 +447,17 @@ export const en = {
       'Alongside the platform work I have gone deep on AI-assisted development. I do most of my own engineering with coding agents and have built the conventions and guardrails that make that reliable. At both Ase and Copyright Agent I have used AI to design and improve reporting. Setting this up for others has become the second half of what I do.',
       'Before data, I managed a team of 12–18 people in retail with responsibility for budget and sales targets, so I know what it is like to run something on numbers you need to trust.',
     ],
+    work: {
+      eyebrow: 'Work',
+      title: 'What I can show.',
+      results: {
+        eyebrow: 'Data platform',
+        title: 'Three results from one data platform',
+        body: 'A ranking model, a nightly job and a hidden fault, each shown as before and after.',
+        cta: 'See the results',
+      },
+    },
+    storyTitle: 'Background',
     factsTitle: 'In short',
     facts: [
       { label: 'Based in', value: 'Copenhagen. Remote or on-site.' },
@@ -262,6 +467,26 @@ export const en = {
       { label: 'Prefers', value: 'Long engagements, part-time or full-time' },
       { label: 'Does not work with', value: 'Weapons, explosives, fossil fuel extraction' },
     ],
+  },
+
+  cases: {
+    meta: {
+      title: 'Cases: data platform results and AI coding',
+      description:
+        'Data platform results shown as before and after, and a full case of a company whose IT is run by a coding agent in a public repository.',
+    },
+    hero: {
+      eyebrow: 'Cases',
+      title: 'What the work looks like.',
+      lead: 'Results from a client’s data platform, shown as before and after, and one case you can inspect down to the commit: my own company.',
+    },
+    ai: {
+      eyebrow: 'AI coding',
+      title: 'A case you can check yourself.',
+    },
+    read: 'Read the case',
+    all: 'All cases',
+    studies,
   },
 
   contact: {

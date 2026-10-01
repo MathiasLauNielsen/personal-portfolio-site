@@ -3,8 +3,8 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, ../CLAUDE.md]
-updated: 2026-09-30
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, ../CLAUDE.md]
+updated: 2026-10-02
 ---
 
 # Website
@@ -15,6 +15,7 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 
 - The redesign is live in production since PR #4 (13:52 UTC): two offers, ways to buy, FAQ, an enquiry form on every page.
 - Served at https://mlnanalytics.com since 2026-09-30, about 14:40 UTC, see [Domain and email](domain-and-email.md).
+- Since 2026-10-02 the site has a Cases section: the three data platform results with a before/after chart each, and one written case about this repository as the proof for the AI coding offer. What is still missing for more cases is in [Questions for writing a client case](../references/case-questions.md).
 - Traffic is expected to be low for a while, which is why there is no rate limiting beyond field limits and a spam trap.
 
 ## Where things are described

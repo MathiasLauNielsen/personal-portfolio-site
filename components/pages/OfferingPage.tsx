@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { getCopy, routes, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
 import ProofFigures from '@/components/ProofFigures'
+import CaseCard from '@/components/CaseCard'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 
@@ -69,8 +70,22 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
         </div>
       </section>
 
-      {/* Proof: the data platform results, labelled as on the home page */}
-      {offer === 'data' && <ProofFigures locale={locale} withHeading />}
+      {/* Proof: the data platform results as before and after, or the written case for AI coding */}
+      {offer === 'data' ? (
+        <ProofFigures locale={locale} withHeading />
+      ) : (
+        <section className="border-b border-paper-line bg-paper-card py-20 sm:py-24">
+          <div className="container-page">
+            <Reveal>
+              <p className="eyebrow text-muted">{copy.cases.ai.eyebrow}</p>
+              <h2 className="display mt-4 text-3xl sm:text-4xl">{copy.cases.ai.title}</h2>
+            </Reveal>
+            <Reveal className="mt-10">
+              <CaseCard locale={locale} study="agent" tone="paper" />
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* How we can work */}
       <section className="py-20 sm:py-24">
@@ -100,22 +115,19 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
             })}
           </div>
 
-          <Reveal className="mt-16 grid gap-8 border-t border-paper-line pt-10 lg:grid-cols-[1fr_1.6fr]">
-            <h2 className="eyebrow text-muted">{t.stackTitle}</h2>
-            <ul className="flex flex-wrap gap-2">
-              {t.stack.map((item) => (
-                <li key={item} className="rounded-lg border border-paper-line bg-paper-card px-3.5 py-2 font-mono text-xs">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
-          <Reveal className="mt-10">
+          <Reveal className="mt-16">
             <Link href={otherHref} className="link-underline inline-flex items-center gap-2 font-semibold">
               <span className="text-muted">{t.otherOffer.label}:</span> {t.otherOffer.text}
               <ArrowRight size={16} />
             </Link>
+          </Reveal>
+
+          {/* The tools are a footnote: buyers search for them, but they are not what sets the work apart. */}
+          <Reveal className="mt-10 border-t border-paper-line pt-6">
+            <p className="text-sm leading-relaxed text-muted">
+              <span className="eyebrow mr-3 !text-[10px]">{t.stackTitle}</span>
+              {t.stack.join(' · ')}
+            </p>
           </Reveal>
         </div>
       </section>

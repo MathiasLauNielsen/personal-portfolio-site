@@ -28,6 +28,7 @@ export default function Header({ locale }: { locale: Locale }) {
   const links = [
     { href: r.data, label: t.data },
     { href: r.ai, label: t.ai },
+    { href: r.cases, label: t.cases },
     { href: r.about, label: t.about },
   ]
 
@@ -51,7 +52,7 @@ export default function Header({ locale }: { locale: Locale }) {
               href={l.href}
               className={clsx(
                 'text-sm transition-colors hover:text-accent',
-                pathname === l.href ? 'font-semibold text-ink' : 'text-muted'
+                pathname === l.href || pathname.startsWith(l.href + '/') ? 'font-semibold text-ink' : 'text-muted'
               )}
             >
               {l.label}

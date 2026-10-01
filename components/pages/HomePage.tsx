@@ -5,6 +5,7 @@ import HeroVisual from '@/components/HeroVisual'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 import ProofFigures from '@/components/ProofFigures'
+import CaseCard from '@/components/CaseCard'
 
 // Order follows the buyer's questions: what is it, can I trust it, how do I buy it, what stops me, how do I start.
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -99,6 +100,11 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </Reveal>
             ))}
           </div>
+
+          {/* The AI coding offer has no client figures yet; its proof is the written case. */}
+          <Reveal className="mt-5">
+            <CaseCard locale={locale} study="agent" />
+          </Reveal>
         </div>
       </section>
 
