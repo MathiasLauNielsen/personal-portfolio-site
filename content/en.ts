@@ -217,7 +217,6 @@ export const en = {
     data: 'Data platform',
     ai: 'AI coding',
     cases: 'Cases',
-    blog: 'Blog',
     about: 'About',
     contact: 'Contact',
     cta: 'Get in touch',
@@ -535,32 +534,10 @@ export const en = {
     },
   },
 
-  blog: {
-    meta: {
-      title: 'Blog: theory, practice and what it means for the business',
-      description:
-        'Short pieces that take one idea from the theory behind data platforms, forecasting and machine learning, show it in practice, and say what it means for the business.',
-    },
-    hero: {
-      eyebrow: 'Blog',
-      title: 'From theory to practice to the business.',
-      lead: 'One idea per piece. Where it comes from, what it looks like in real data work, and what it changes for the people who decide.',
-    },
-    empty: 'No posts yet.',
-    readMore: 'Read',
-    back: 'All posts',
-    author: {
-      role: 'Freelance data and AI engineer',
-      body: 'I build and fix data platforms and set up AI coding agents for development teams. Technical responsibility for the whole data platform at two companies.',
-      cta: 'Get in touch',
-    },
-  },
-
   footer: {
     tagline: 'Data platform and AI coding expertise.',
     pages: 'Pages',
     contact: 'Contact',
-    blog: 'Blog',
     privacy: 'Privacy policy',
     rights: 'All rights reserved.',
   },

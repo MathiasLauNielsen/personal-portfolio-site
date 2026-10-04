@@ -65,7 +65,7 @@
     @apply underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-accent hover:text-accent;
   }
 
-  /* Kept for the blog, privacy and admin pages */
+  /* Kept for the privacy and admin pages */
   .btn-primary {
     @apply btn-ink;
   }

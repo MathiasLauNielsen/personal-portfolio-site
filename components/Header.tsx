@@ -29,7 +29,6 @@ export default function Header({ locale }: { locale: Locale }) {
     { href: r.data, label: t.data },
     { href: r.ai, label: t.ai },
     { href: r.cases, label: t.cases },
-    { href: r.blog, label: t.blog },
     { href: r.about, label: t.about },
   ]
 
