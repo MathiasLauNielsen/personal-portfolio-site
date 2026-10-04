@@ -36,3 +36,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: blog posts visual first, figure frame and registry, 14 figures for the three drafts → website, open-items (raw/2026-10-04-blog-figures.md)
 - ingest: figure lines written into the three posts after Mathias overruled the blocked write; open item 29 done → website, open-items (raw/2026-10-04-blog-figures-written.md)
 - lint: 0 problems
+- ingest: blog removed at Mathias's request, then restored the same evening; three quick posts withdrawn; one researched article drafted → website, open-items (raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md)
+- lint: 0 problems
