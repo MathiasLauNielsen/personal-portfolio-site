@@ -27,16 +27,23 @@ const threeKinds: FigureDef = {
   basis: 'illustration',
   title: 'Three kinds of calculation, three prices for keeping a report current',
   caption:
-    'Each strip is the data behind a report, and one row has just changed. The squares show how much has to be read again to update the report. Sums only need the new row. Matching needs a lookup in the other table. Anything about the latest, biggest or top ten needs the whole group, because a correction can remove the current winner.',
+    'Each strip is a table behind a report, and one row has just changed. The squares show how much has to be read again to update the report. A sum needs only the new row. Matching sales against customers needs the new row and its matches in the other table. The biggest deal per region needs every deal in that region, because a correction can remove the current winner.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-6">
       {[
-        { name: 'Cheap: sums, counts, filters', how: 'Read the changed row only', states: strip([9], []) },
-        { name: 'Middle: matching two tables', how: 'Read the changed row, look up its matches', states: strip([9], [2, 15, 20]) },
+        { name: 'Cheap: sums, counts, filters', how: 'Read the changed row only', strips: [{ label: 'Sales', states: strip([9], []) }] },
+        {
+          name: 'Middle: matching two tables',
+          how: 'Read the changed row and its matches in the other table',
+          strips: [
+            { label: 'Sales', states: strip([9], []) },
+            { label: 'Customers', states: strip([], [2, 15, 20]) },
+          ],
+        },
         {
           name: 'Expensive: latest, biggest, top ten, median',
-          how: 'Keep and read the whole group, in case the winner is withdrawn',
-          states: strip([9], Array.from({ length: 24 }, (_, i) => i)),
+          how: 'Read every row in the group, in case the winner is withdrawn',
+          strips: [{ label: 'Deals in one region', states: strip([9], Array.from({ length: 24 }, (_, i) => i)) }],
         },
       ].map((k) => (
         <div key={k.name}>
@@ -44,9 +51,12 @@ const threeKinds: FigureDef = {
             <span className="font-semibold text-ink">{k.name}</span>
             <span className="text-xs text-muted">{k.how}</span>
           </div>
-          <div className="mt-2">
-            <Blocks states={k.states} />
-          </div>
+          {k.strips.map((s) => (
+            <div key={s.label} className="mt-2 grid grid-cols-[6.5rem_1fr] items-center gap-3">
+              <span className="font-mono text-[10px] text-muted">{s.label}</span>
+              <Blocks states={s.states} />
+            </div>
+          ))}
         </div>
       ))}
       <Legend
@@ -64,7 +74,7 @@ const correctionTwoRows: FigureDef = {
   basis: 'illustration',
   title: 'A correction is two more rows, if the system can count backwards',
   caption:
-    'A sale booked in March that belonged in April becomes "minus one in March, plus one in April". A system that can hold a negative row takes the correction through the same cheap path as new sales. A system that can only add rows has to rebuild the whole report, or stay wrong about March.',
+    'A sale booked in March that belonged in April becomes "minus one in March, plus one in April". A system that can hold a negative row takes the correction through the same cheap path as new sales. A system that can only add rows has to recompute everything the correction touches, or stay wrong about March.',
   Draw: () => (
     <div className="grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
       <div className="flex flex-col gap-2">
@@ -91,7 +101,7 @@ const correctionTwoRows: FigureDef = {
           Both rows go through the same cheap update as any new sale. Seconds.
         </Card>
         <Card tone="muted" title="Can only add rows">
-          Either rebuild the whole report from scratch tonight, or keep reporting March wrong.
+          Either recompute every total that March feeds into, usually most of the report, or keep reporting March wrong.
         </Card>
       </div>
     </div>
