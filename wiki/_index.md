@@ -53,5 +53,6 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Visit statistics built into the site and its admin area](raw/2026-09-30-visit-statistics.md) | observation | 2026-09-30 |
 | [Outside feedback on the site, and the cases section built from it](raw/2026-10-02-cases-section.md) | decision | 2026-10-02 |
 | [What a stranger sees on Mathias's LinkedIn profile](raw/2026-10-02-linkedin-audit.md) | observation | 2026-10-02 |
+| [Figure lines written into the three blog posts](raw/2026-10-04-blog-figures-written.md) | observation | 2026-10-04 |
 | [Blog posts must be visual first, with a figure for every point](raw/2026-10-04-blog-figures.md) | decision | 2026-10-04 |
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
