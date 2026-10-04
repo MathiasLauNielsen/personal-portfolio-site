@@ -4,8 +4,8 @@ import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { Eye, EyeOff, Save, Trash2, Upload } from 'lucide-react'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import PostBody, { postBodyClass } from '@/components/blog/PostBody'
+import { figures } from '@/components/blog/figures'
 import type { BlogPost } from '@/types'
 
 const KATEGORIER = [
@@ -219,26 +219,30 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
               </div>
             </div>
             {tab === 'skriv' ? (
-              <textarea
-                value={indhold}
-                onChange={(e) => setIndhold(e.target.value)}
-                rows={20}
-                placeholder="# Overskrift&#10;&#10;Skriv dit blogindlæg her i Markdown…"
-                className="w-full rounded-lg border border-slate-300 px-3.5 py-3 text-sm text-slate-900 placeholder-slate-400 font-mono leading-relaxed focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 resize-y"
-              />
+              <div>
+                <textarea
+                  value={indhold}
+                  onChange={(e) => setIndhold(e.target.value)}
+                  rows={20}
+                  placeholder="# Overskrift&#10;&#10;Skriv dit blogindlæg her i Markdown…"
+                  className="w-full rounded-lg border border-slate-300 px-3.5 py-3 text-sm text-slate-900 placeholder-slate-400 font-mono leading-relaxed focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 resize-y"
+                />
+                <details className="mt-2 text-xs text-slate-500">
+                  <summary className="cursor-pointer">
+                    Figurer: skriv <code>![kort resumé](figure:nøgle)</code> på en linje for sig
+                  </summary>
+                  <ul className="mt-2 grid gap-1 sm:grid-cols-2">
+                    {Object.entries(figures).map(([key, f]) => (
+                      <li key={key}>
+                        <code className="text-slate-700">{key}</code> · {f.title}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </div>
             ) : (
-              <div
-                className="min-h-[400px] rounded-lg border border-slate-200 bg-white px-6 py-5 prose prose-slate max-w-none
-                  prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-10 prose-h3:mt-8
-                  prose-a:text-accent prose-a:underline-offset-4 prose-blockquote:border-accent prose-blockquote:not-italic
-                  prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
-                  prose-pre:rounded-xl prose-pre:bg-ink prose-pre:text-paper"
-              >
-                {indhold ? (
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{indhold}</ReactMarkdown>
-                ) : (
-                  <p className="text-slate-400 italic">Ingen indhold endnu…</p>
-                )}
+              <div className={`min-h-[400px] rounded-lg border border-slate-200 bg-paper px-6 py-5 ${postBodyClass}`}>
+                {indhold ? <PostBody markdown={indhold} preview /> : <p className="italic text-slate-400">Ingen indhold endnu…</p>}
               </div>
             )}
           </div>

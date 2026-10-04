@@ -212,6 +212,7 @@ export const da: Copy = {
     data: 'Dataplatform',
     ai: 'AI-kodning',
     cases: 'Cases',
+    blog: 'Blog',
     about: 'Om mig',
     contact: 'Kontakt',
     cta: 'Kontakt mig',
