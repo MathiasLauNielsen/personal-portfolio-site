@@ -3,7 +3,7 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, raw/2026-10-04-blog-removed.md]
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md]
 updated: 2026-10-04
 ---
 
@@ -40,6 +40,6 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 25 | Which tools may be named | The AI coding page names Claude Code; decide whether GitHub Copilot, Cursor and dbt may be named too, since buyers search for tool names | Mathias |
 | 26 | Visitor-key salt | Optionally `vercel env add BESOEG_SALT production` with a random value, then redeploy; until then the key is salted with the secret key, see [Hosting](hosting.md) | Mathias |
 | 27 | Visuals for cases | For each client case, either an anonymised screenshot or an OK for Claude to redraw it as a diagram | Mathias |
-| 28 | ~~Blog posts waiting to be published~~ | Obsolete: the blog was removed on 2026-10-04 at Mathias's request ([source](../raw/2026-10-04-blog-removed.md)) | Done |
-| 29 | ~~Add the figure lines to the three draft posts~~ | Done 2026-10-04, then obsolete: the blog was removed the same day ([source](../raw/2026-10-04-blog-removed.md)) | Done |
-| 30 | Drop the `blog_posts` table? | The site stopped reading it on 2026-10-04 when the blog was removed. It still holds the three posts. Dropping it is a new migration and irreversible, so it waits for Mathias's go-ahead; keeping it costs nothing ([source](../raw/2026-10-04-blog-removed.md)) | Mathias |
+| 28 | ~~Blog posts waiting to be published~~ | Withdrawn 2026-10-04: the three quick posts seemed random and wrong to Mathias; they stay unpublished in the database ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Done |
+| 29 | ~~Add the figure lines to the three draft posts~~ | Done 2026-10-04, then moot: the posts were withdrawn the same day ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Done |
+| 30 | Read and publish the article on exploration under a budget | "What it costs to find out: exploration under a budget" is a draft in `/admin/blog` since 2026-10-04, researched and sourced, with figures. Mathias reads it, edits if needed, and publishes with the toggle, or asks Claude to. Next articles: his choice of concept, one at a time ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Mathias |

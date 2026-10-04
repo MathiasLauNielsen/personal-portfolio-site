@@ -4,10 +4,11 @@ import { getCopy, type Locale } from '@/content'
 
 export const runtime = 'edge'
 
-const pages = ['home', 'data', 'ai', 'cases', 'about', 'contact'] as const
+const pages = ['home', 'data', 'ai', 'cases', 'about', 'contact', 'blog'] as const
 type Page = (typeof pages)[number]
 
-// Link preview image per page and language: /api/og?locale=da&page=ai, or per written case: /api/og?locale=en&case=agent.
+// Link preview image per page and language: /api/og?locale=da&page=ai, per written case: /api/og?locale=en&case=agent,
+// or per blog post: /api/og?locale=en&page=blog&title=...
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams
   const locale: Locale = params.get('locale') === 'da' ? 'da' : 'en'
@@ -26,5 +27,6 @@ export async function GET(request: Request) {
     return new ImageResponse(<OgCard eyebrow={h.eyebrow.toUpperCase()} line1={h.title} line2={h.title2} logo={logo} />, ogSize)
   }
   const h = copy[page].hero
-  return new ImageResponse(<OgCard eyebrow={h.eyebrow.toUpperCase()} line1={h.title} logo={logo} />, ogSize)
+  const title = page === 'blog' ? params.get('title')?.slice(0, 120) || h.title : h.title
+  return new ImageResponse(<OgCard eyebrow={h.eyebrow.toUpperCase()} line1={title} logo={logo} />, ogSize)
 }
