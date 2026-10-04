@@ -56,6 +56,8 @@ export interface BlogPost {
   indhold: string
   kategori?: string
   tags?: string[]
+  // 'en' posts live at /blog, 'da' posts at /da/blog.
+  sprog: 'da' | 'en'
   publiceret: boolean
   publiceret_at?: string
   oprettet_at?: string

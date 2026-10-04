@@ -3,8 +3,8 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md]
-updated: 2026-10-02
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md]
+updated: 2026-10-04
 ---
 
 # Site improvement plan
@@ -55,7 +55,7 @@ More pages are not expected to bring enquiries from search within 6–12 months 
 
 - **Prices:** recommended middle ground is "from €X" on the two fixed-scope products with the review fee credited toward follow-on work. Public anchors are in the report; his own rates are not written here ([schema](../schema.md)). Separate pricing research was done on 2026-09-30 and is kept outside the repository; it advises against crediting the fee for a review sold on independence.
 - **Calendar booking** as an option after the form, not instead of it.
-- **Blog** refocused on the two offers, English first, starting with first-hand write-ups.
+- **Blog** refocused on the two offers, English first, starting with first-hand write-ups. Done on 2026-10-04: the blog is English first with the site's design, and three posts in the shape theory → practice → business are drafted ([source](../raw/2026-10-04-blog-theory-to-business.md)). Mathias publishes them after reading.
 - **Self-check checklist** as a secondary call to action, later.
 - **One-page CV** for brokers.
 - **Names:** mlnanalytics.com, MLN Data Consulting and Mathias Lau Nielsen are three identities; a conscious choice at some point.

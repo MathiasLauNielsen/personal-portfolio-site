@@ -27,7 +27,7 @@ export default async function AdminBlog() {
 
   const { data: posts } = await supabase
     .from('blog_posts')
-    .select('id, titel, slug, kategori, publiceret, publiceret_at, oprettet_at')
+    .select('id, titel, slug, kategori, sprog, publiceret, publiceret_at, oprettet_at')
     .order('oprettet_at', { ascending: false })
 
   return (
@@ -89,7 +89,7 @@ export default async function AdminBlog() {
                     <tr key={post.id} className="hover:bg-slate-50 transition-colors">
                       <td className="px-5 py-4">
                         <span className="font-medium text-slate-900">{post.titel}</span>
-                        <div className="text-xs text-slate-400 mt-0.5">/blog/{post.slug}</div>
+                        <div className="text-xs text-slate-400 mt-0.5">{post.sprog === 'da' ? '/da/blog/' : '/blog/'}{post.slug}</div>
                       </td>
                       <td className="px-5 py-4 hidden sm:table-cell">
                         {post.kategori ? (
