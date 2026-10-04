@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import { getCopy, routes, site, type Locale } from '@/content'
 import { formatPostDate, getPublishedPost } from '@/lib/blog'
 import ContactSection from '@/components/ContactSection'
+import PostBody, { postBodyClass } from '@/components/blog/PostBody'
 
 // One post, rendered from Markdown. The author block at the end leads to the enquiry form.
 export default async function BlogPostPage({ locale, slug }: { locale: Locale; slug: string }) {
@@ -37,14 +36,8 @@ export default async function BlogPostPage({ locale, slug }: { locale: Locale; s
       </section>
 
       <article className="py-16 sm:py-20">
-        <div
-          className="container-page prose prose-lg max-w-none prose-headings:font-display prose-headings:font-semibold prose-headings:tracking-tight
-            prose-h2:mt-14 prose-h2:text-3xl prose-h3:mt-10 prose-h3:text-xl prose-p:max-w-3xl prose-p:leading-relaxed prose-li:max-w-3xl
-            prose-a:text-accent prose-a:underline-offset-4 prose-strong:text-ink prose-blockquote:border-accent prose-blockquote:not-italic
-            prose-code:rounded prose-code:bg-paper-card prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
-            prose-pre:rounded-2xl prose-pre:bg-ink prose-hr:border-paper-line"
-        >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.indhold}</ReactMarkdown>
+        <div className={`container-page prose-lg ${postBodyClass}`}>
+          <PostBody markdown={post.indhold} />
         </div>
 
         <div className="container-page mt-16">
