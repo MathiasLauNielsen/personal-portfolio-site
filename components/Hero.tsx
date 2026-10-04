@@ -1,6 +1,6 @@
 import PageHero from './PageHero'
 
-// Used by the blog and privacy pages.
+// Used by the privacy page.
 interface HeroProps {
   title: string
   subtitle: string

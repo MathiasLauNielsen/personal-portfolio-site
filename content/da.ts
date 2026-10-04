@@ -529,6 +529,27 @@ export const da: Copy = {
     },
   },
 
+  blog: {
+    meta: {
+      title: 'Blog: teori, praksis og hvad det betyder for forretningen',
+      description:
+        'Korte indlæg, der tager én idé fra teorien bag dataplatforme, prognoser og machine learning, viser den i praksis og siger, hvad den betyder for forretningen.',
+    },
+    hero: {
+      eyebrow: 'Blog',
+      title: 'Fra teori til praksis til forretningen.',
+      lead: 'Én idé pr. indlæg. Hvor den kommer fra, hvordan den ser ud i rigtigt dataarbejde, og hvad den ændrer for dem, der beslutter.',
+    },
+    empty: 'Ingen indlæg endnu.',
+    readMore: 'Læs',
+    back: 'Alle indlæg',
+    author: {
+      role: 'Freelance data- og AI-ingeniør',
+      body: 'Jeg bygger og retter dataplatforme og sætter AI-kodeagenter op for udviklingsteams. Teknisk ansvar for hele dataplatformen i to virksomheder.',
+      cta: 'Kontakt mig',
+    },
+  },
+
   footer: {
     tagline: 'Ekspertise i dataplatforme og AI-kodning.',
     pages: 'Sider',

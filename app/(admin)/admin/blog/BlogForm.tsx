@@ -36,6 +36,7 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
   const [ingress, setIngress] = useState(post?.ingress ?? '')
   const [indhold, setIndhold] = useState(post?.indhold ?? '')
   const [kategori, setKategori] = useState(post?.kategori ?? '')
+  const [sprog, setSprog] = useState<'da' | 'en'>(post?.sprog ?? 'en')
   const [tags, setTags] = useState(post?.tags?.join(', ') ?? '')
   const [publiceret, setPubliceret] = useState(post?.publiceret ?? false)
   const [tab, setTab] = useState<'skriv' | 'preview'>('skriv')
@@ -79,6 +80,7 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
       ingress: ingress.trim() || null,
       indhold: indhold.trim(),
       kategori: kategori || null,
+      sprog,
       tags: tags
         .split(',')
         .map((t) => t.trim())
@@ -282,6 +284,19 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
           <div className="rounded-xl border border-slate-200 bg-white p-5">
             <h3 className="text-sm font-semibold text-slate-900 mb-4">Metadata</h3>
             <div className="flex flex-col gap-4">
+              <div>
+                <label className="block text-xs font-medium text-slate-600 mb-1.5">
+                  Sprog <span className="text-slate-400 font-normal">(engelsk vises på /blog, dansk på /da/blog)</span>
+                </label>
+                <select
+                  value={sprog}
+                  onChange={(e) => setSprog(e.target.value as 'da' | 'en')}
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 bg-white"
+                >
+                  <option value="en">English</option>
+                  <option value="da">Dansk</option>
+                </select>
+              </div>
               <div>
                 <label className="block text-xs font-medium text-slate-600 mb-1.5">
                   Kategori

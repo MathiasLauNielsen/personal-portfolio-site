@@ -3,8 +3,8 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md]
-updated: 2026-10-02
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md, raw/2026-10-04-blog-theory-to-business.md]
+updated: 2026-10-04
 ---
 
 # Open items
@@ -40,4 +40,4 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 25 | Which tools may be named | The AI coding page names Claude Code; decide whether GitHub Copilot, Cursor and dbt may be named too, since buyers search for tool names | Mathias |
 | 26 | Visitor-key salt | Optionally `vercel env add BESOEG_SALT production` with a random value, then redeploy; until then the key is salted with the secret key, see [Hosting](hosting.md) | Mathias |
 | 27 | Visuals for cases | For each client case, either an anonymised screenshot or an OK for Claude to redraw it as a diagram | Mathias |
-| 28 | First-hand articles | The blog is empty and Danish only. Decide whether to write short first-hand pieces in English (an opinion, a lesson, a method); Mathias gives the points in bullets, Claude drafts. This is where "use your person" from the 2026-10-02 feedback lands | Mathias, then Claude |
+| 28 | Blog posts waiting to be published | Three English posts (theory → practice → business) are drafts in `/admin/blog` since 2026-10-04. Mathias reads them, edits if needed, and publishes with the toggle, or asks Claude to. Next posts: his bullets, Claude drafts, same shape ([source](../raw/2026-10-04-blog-theory-to-business.md)) | Mathias |

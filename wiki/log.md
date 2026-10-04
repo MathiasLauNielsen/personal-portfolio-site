@@ -29,3 +29,7 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: LinkedIn profile as a stranger sees it → linkedin-profile (new), services, open-items (raw/2026-10-02-linkedin-audit.md)
 - update: case-questions → message for asking a client what may be published
 - lint: 0 problems
+
+## 2026-10-04
+- ingest: blog rebuilt English first (migration 006, /blog and /da/blog, admin language field) and three posts drafted → website, database, site-improvement-plan, open-items (raw/2026-10-04-blog-theory-to-business.md)
+- lint: 0 problems
