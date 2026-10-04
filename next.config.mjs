@@ -15,6 +15,11 @@ const nextConfig = {
       { source: '/services', destination: '/', permanent: true },
       { source: '/en', destination: '/', permanent: true },
       { source: '/en/:path*', destination: '/', permanent: true },
+      // The blog was removed on 2026-10-04; one post had been live for a few hours.
+      { source: '/blog', destination: '/', permanent: true },
+      { source: '/blog/:path*', destination: '/', permanent: true },
+      { source: '/da/blog', destination: '/da', permanent: true },
+      { source: '/da/blog/:path*', destination: '/da', permanent: true },
     ]
   },
 }

@@ -3,13 +3,12 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { Database, Mail, FileText, LogOut, LayoutDashboard, BarChart3 } from 'lucide-react'
+import { Database, Mail, LogOut, LayoutDashboard, BarChart3 } from 'lucide-react'
 import clsx from 'clsx'
 
 const navItems = [
   { label: 'Henvendelser', href: '/admin/henvendelser', icon: Mail },
   { label: 'Statistik', href: '/admin/statistik', icon: BarChart3 },
-  { label: 'Blog', href: '/admin/blog', icon: FileText },
 ]
 
 export default function AdminNav() {
