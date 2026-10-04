@@ -217,6 +217,7 @@ export const en = {
     data: 'Data platform',
     ai: 'AI coding',
     cases: 'Cases',
+    blog: 'Blog',
     about: 'About',
     contact: 'Contact',
     cta: 'Get in touch',
