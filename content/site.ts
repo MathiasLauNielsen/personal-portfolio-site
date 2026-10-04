@@ -17,10 +17,10 @@ export const site = {
 export type Locale = 'da' | 'en'
 
 // English is the default language at the root; Danish lives under /da.
-// The privacy policy exists in Danish only.
+// The privacy policy exists in Danish only. Blog posts are written per language (blog_posts.sprog).
 export const routes = {
-  en: { home: '/', data: '/data-platform', ai: '/ai-coding', cases: '/cases', about: '/about', contact: '/contact', privacy: '/privatlivspolitik' },
-  da: { home: '/da', data: '/da/dataplatform', ai: '/da/ai-kodning', cases: '/da/cases', about: '/da/om-mig', contact: '/da/kontakt', privacy: '/privatlivspolitik' },
+  en: { home: '/', data: '/data-platform', ai: '/ai-coding', cases: '/cases', about: '/about', contact: '/contact', blog: '/blog', privacy: '/privatlivspolitik' },
+  da: { home: '/da', data: '/da/dataplatform', ai: '/da/ai-kodning', cases: '/da/cases', about: '/da/om-mig', contact: '/da/kontakt', blog: '/da/blog', privacy: '/privatlivspolitik' },
 } as const
 
 export type RouteKey = keyof (typeof routes)['en']
@@ -53,9 +53,11 @@ export function localeOfPath(pathname: string): Locale {
 export function switchLocalePath(pathname: string): { locale: Locale; href: string } {
   const from = localeOfPath(pathname)
   const to: Locale = from === 'da' ? 'en' : 'da'
-  const key = (['home', 'data', 'ai', 'cases', 'about', 'contact'] as RouteKey[]).find((k) => routes[from][k] === pathname)
+  const key = (['home', 'data', 'ai', 'cases', 'about', 'contact', 'blog'] as RouteKey[]).find((k) => routes[from][k] === pathname)
   if (key) return { locale: to, href: routes[to][key] }
   const study = caseKeys.find((k) => casePath(from, k) === pathname)
   if (study) return { locale: to, href: casePath(to, study) }
+  // A blog post has no counterpart in the other language; go to that language's list.
+  if (pathname.startsWith(routes[from].blog + '/')) return { locale: to, href: routes[to].blog }
   return { locale: to, href: routes[to].home }
 }

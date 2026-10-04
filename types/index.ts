@@ -47,3 +47,19 @@ export interface HeroProps {
   }
   centered?: boolean
 }
+
+export interface BlogPost {
+  id?: string
+  titel: string
+  slug: string
+  ingress?: string
+  indhold: string
+  kategori?: string
+  tags?: string[]
+  // 'en' posts live at /blog, 'da' posts at /da/blog.
+  sprog: 'da' | 'en'
+  publiceret: boolean
+  publiceret_at?: string
+  oprettet_at?: string
+  opdateret_at?: string
+}

@@ -3,7 +3,7 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md, raw/2026-10-04-blog-removed.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md]
 updated: 2026-10-04
 ---
 
@@ -17,7 +17,8 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 - Served at https://mlnanalytics.com since 2026-09-30, about 14:40 UTC, see [Domain and email](domain-and-email.md).
 - Since 2026-10-02 the site has a Cases section: the three data platform results with a before/after chart each, and one written case about this repository as the proof for the AI coding offer. What is still missing for more cases is in [Questions for writing a client case](../references/case-questions.md).
 - Traffic is expected to be low for a while, which is why there is no rate limiting beyond field limits and a spam trap.
-- There is no blog. One was built on 2026-10-04 (English first, posts in the shape theory → practice → business, with figures) and removed the same day at Mathias's request; `/blog` and `/da/blog` redirect to the home pages. The posts remain in the database table, unread by the site ([built](../raw/2026-10-04-blog-theory-to-business.md), [figures](../raw/2026-10-04-blog-figures.md), [removed](../raw/2026-10-04-blog-removed.md)).
+- Since 2026-10-04 the blog is English first: `/blog` (English) and `/da/blog` (Danish), one language per post, managed in `/admin/blog`. House style for posts: one idea, in the shape theory → practice → business, written so a non-technical reader can act on it. Three English posts are drafted and wait for Mathias to publish them, see [Open items](open-items.md) ([source](../raw/2026-10-04-blog-theory-to-business.md)).
+- Posts are visual first (decided 2026-10-04): every post carries a lead figure and a figure per point that can be drawn, so a non-technical reader gets the argument from the figures alone. Figures are code in the repository with a title that states the takeaway and a basis line (measured, tested or illustration); the rules are in `CLAUDE.md`. Fourteen figures exist for the three posts and all three refer to them since 2026-10-04 ([source](../raw/2026-10-04-blog-figures.md), [write](../raw/2026-10-04-blog-figures-written.md)). The nightly report post is the first published post (2026-10-04).
 
 ## Where things are described
 
