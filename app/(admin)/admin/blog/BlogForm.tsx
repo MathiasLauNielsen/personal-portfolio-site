@@ -28,6 +28,11 @@ function generateSlug(titel: string) {
     .replace(/-+/g, '-')
 }
 
+// Makes the public blog show the change at once; if it fails, the cache still runs out within a minute.
+async function refreshPublicBlog() {
+  await fetch('/api/blog-opdateret', { method: 'POST' }).catch(() => {})
+}
+
 export default function BlogForm({ post }: { post?: BlogPost }) {
   const isEdit = !!post?.id
   const router = useRouter()
@@ -110,6 +115,7 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
       return
     }
 
+    await refreshPublicBlog()
     router.push('/admin/blog')
     router.refresh()
   }
@@ -118,6 +124,7 @@ export default function BlogForm({ post }: { post?: BlogPost }) {
     if (!confirm('Er du sikker på, at du vil slette dette indlæg? Dette kan ikke fortrydes.')) return
     setDeleting(true)
     await supabase.from('blog_posts').delete().eq('id', post!.id!)
+    await refreshPublicBlog()
     router.push('/admin/blog')
     router.refresh()
   }
