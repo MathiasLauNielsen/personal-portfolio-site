@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Linkedin } from 'lucide-react'
-import { getCopy, routes, site, type Locale } from '@/content'
+import { casePath, getCopy, site, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
-import CaseCard from '@/components/CaseCard'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 
@@ -10,7 +9,6 @@ import ContactSection from '@/components/ContactSection'
 export default function AboutPage({ locale }: { locale: Locale }) {
   const copy = getCopy(locale)
   const t = copy.about
-  const r = routes[locale]
 
   return (
     <>
@@ -23,27 +21,25 @@ export default function AboutPage({ locale }: { locale: Locale }) {
             <p className="eyebrow text-muted">{t.work.eyebrow}</p>
             <h2 className="display mt-4 text-3xl sm:text-4xl">{t.work.title}</h2>
           </Reveal>
-          <div className="mt-10 flex flex-col gap-5">
-            <Reveal>
-              <Link
-                href={r.cases}
-                className="group flex flex-col gap-6 rounded-2xl border border-paper-line bg-paper p-8 transition-colors hover:border-ink sm:p-10 lg:flex-row lg:items-center lg:justify-between"
-              >
-                <div>
-                  <p className="eyebrow text-accent">{t.work.results.eyebrow}</p>
-                  <h3 className="display mt-4 text-3xl sm:text-4xl">{t.work.results.title}</h3>
-                  <p className="mt-5 text-lg leading-relaxed text-muted">{t.work.results.body}</p>
-                </div>
-                <p className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold underline decoration-ink/25 underline-offset-4 group-hover:text-accent group-hover:decoration-accent">
-                  {t.work.results.cta}
-                  <ArrowRight size={14} />
-                </p>
-              </Link>
-            </Reveal>
-            <Reveal delay={80}>
-              <CaseCard locale={locale} study="agent" tone="paper" />
-            </Reveal>
-          </div>
+          <ul className="mt-10 grid gap-5 lg:grid-cols-3">
+            {copy.cases.studies.map((study, i) => (
+              <Reveal key={study.key} delay={i * 80}>
+                <li className="h-full">
+                  <Link
+                    href={casePath(locale, study.key)}
+                    className="group flex h-full flex-col rounded-2xl border border-paper-line bg-paper p-7 transition-colors hover:border-ink"
+                  >
+                    <p className="eyebrow text-accent">{study.hero.eyebrow}</p>
+                    <h3 className="mt-4 flex-1 text-xl font-semibold leading-snug">{study.hero.title}</h3>
+                    <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold underline decoration-ink/25 underline-offset-4 group-hover:text-accent group-hover:decoration-accent">
+                      {copy.cases.read}
+                      <ArrowRight size={14} />
+                    </p>
+                  </Link>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -84,25 +80,6 @@ export default function AboutPage({ locale }: { locale: Locale }) {
                 <Linkedin size={16} aria-hidden /> LinkedIn
               </a>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-t border-paper-line bg-paper-card py-20 sm:py-24">
-        <div className="container-page">
-          <Reveal>
-            <figure className="mx-auto max-w-4xl">
-              <blockquote lang="en" className="display text-2xl !leading-snug !tracking-[-0.02em] sm:text-3xl">
-                “{copy.home.testimonial.quote}”
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-4">
-                <span className="h-px w-10 bg-accent" aria-hidden />
-                <span>
-                  <span className="font-semibold">{copy.home.testimonial.name}</span>
-                  <span className="text-muted"> · {copy.home.testimonial.role}</span>
-                </span>
-              </figcaption>
-            </figure>
           </Reveal>
         </div>
       </section>

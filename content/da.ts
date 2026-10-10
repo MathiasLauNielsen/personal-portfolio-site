@@ -8,6 +8,7 @@ const proofItems: ProofItem[] = [
     value: '72 % fra 25 %',
     label: 'En rangeringsmodel fandt 72 % af de værdifulde sager med en fjerdedel af behandlingsbudgettet. Den gamle udvælgelse fandt 25 %.',
     note: 'Testet på to måneders historiske data',
+    study: 'ranking',
     chart: {
       caption: 'Værdifulde sager fundet med en fjerdedel af budgettet',
       max: 100,
@@ -21,6 +22,7 @@ const proofItems: ProofItem[] = [
     value: '−98,5 %',
     label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der er ændret.',
     note: 'Målt i drift',
+    study: 'hidden-work',
     chart: {
       caption: 'Rækker skrevet pr. nat',
       max: 46_000_000,
@@ -32,25 +34,206 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '2–4,5×',
-    label: 'Dobbeltarbejde sporet til én fejl, som ingen havde opdaget, fordi intet så ud til at være i stykker.',
+    label: 'Platformen lavede 2–4,5 gange det planlagte arbejde. Et langsomt opslag fik den til at lave jobs om, der allerede var kørt, og hver kørsel meldte succes.',
     note: 'Målt i drift',
+    study: 'hidden-work',
     chart: {
-      caption: 'Udført arbejde i forhold til nødvendigt arbejde',
+      caption: 'Udført arbejde i forhold til planlagt arbejde',
       max: 4.5,
       rows: [
-        { label: 'Nødvendigt', display: '1×', value: 1, highlight: true },
+        { label: 'Planlagt', display: '1×', value: 1, highlight: true },
         { label: 'Faktisk udført', display: '2–4,5×', value: 2, upTo: 4.5 },
       ],
     },
   },
 ]
 
+// De to dataplatform-cases er kundearbejde, anonymiseret: intet kundenavn, ingen beløb og intet om forretningen
+// ud over det, ingeniørarbejdet kræver. Alle tal kommer fra kundens egne data.
 // The excerpts are quoted from the repository, which is written in English, so they stay in English.
 const studies: CaseStudy[] = [
+  {
+    key: 'hidden-work',
+    offer: 'data',
+    topic: 'review',
+    published: '2026-10-11',
+    meta: {
+      title: 'Case: dataplatform med 4,5 gange det planlagte arbejde',
+      description:
+        'Et langsomt opslag fik en dataplatform til at lave færdige jobs om, og et natligt job omskrev 46 mio. rækker for at ændre 683.000. Fundet og rettet.',
+    },
+    hero: {
+      eyebrow: 'Case · Dataplatform',
+      title: 'Platformen lavede op til 4,5 gange det planlagte arbejde. Hver kørsel meldte succes.',
+      lead: 'En kundes dataplatform med over 60 mio. poster behandlede langt mere, end planerne bad om, og et natligt job omskrev det meste af en stor tabel for at ændre en lille del af den. Intet var fejlet, så ingen havde kigget. Sådan blev det fundet, hvad der blev ændret, og hvad der stadig er åbent.',
+      contactCta: 'Spørg til en platformgennemgang',
+    },
+    card: {
+      body: 'En kundes platform behandlede op til 4,5 gange det, planerne bad om, og et natligt job omskrev 46 mio. rækker for at ændre 683.000. Intet var fejlet, så ingen havde kigget.',
+      points: [
+        '2–4,5 gange det planlagte arbejde, sporet til ét langsomt opslag',
+        '46 mio. rækker omskrevet hver nat for at ændre 683.000',
+        'Rettet i drift samme uge',
+      ],
+    },
+    figures: [
+      { value: '2–4,5×', label: 'det arbejde, planerne bad om, målt i drift over de første to uger af september 2026.' },
+      { value: '8 min', label: 'for det langsomste enkelte opslag, hvor hele jobbet havde 10 minutter, før det blev delt ud igen.' },
+      { value: '−98,5 %', label: 'rækker skrevet af et natligt job: 46 mio. omskrevet hver nat for at ændre 683.000.' },
+    ],
+    blocks: [
+      {
+        kind: 'text',
+        title: 'Hvad der var galt',
+        paragraphs: [
+          'Flere gange om dagen, pr. kunde, udvælger platformen en portion poster og sender den gennem et betalt behandlingstrin. Planerne gav tilsammen omkring 250.000 poster om dagen. I de første to uger af september 2026 behandlede den omkring 540.000 om dagen, og for enkelte kunder op til 4,5 gange deres grænse.',
+          'Intet så ud til at være i stykker. Jobbene blev færdige, data var korrekte, og ingen alarm gik. De eneste tegn var regningen for behandlingen og en sammenligning, ingen havde lavet: det, planerne bad om, over for det, der faktisk blev gjort.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'Sådan blev det fundet',
+        lead: 'På én dag, ud fra platformens egne logs og indstillinger. Uden nyt værktøj.',
+        steps: [
+          { title: 'Sammenlign', body: 'Det, planerne bad om, over for den behandling, der faktisk blev logget, pr. kunde og pr. dag.' },
+          { title: 'Følg ét job', body: 'Jobbene tog mellem 100 og 835 sekunder. Køen gav hvert job 600 sekunder, før det blev delt ud igen.' },
+          { title: 'Find den langsomme del', body: 'Opslaget, der udvælger næste portion, læste hele tabellen med 64 mio. rækker hver gang, fordi tabellen ikke havde et indeks til det filter, opslaget brugte. Det tog op til 503 sekunder alene.' },
+          { title: 'Forklar mangedoblingen', body: 'Et job, der kørte over grænsen, blev delt ud igen, og det nye forsøg tog en ny portion, fordi den første allerede var reserveret. Hvert langsomt job blev lavet to gange eller mere, og hvert forsøg meldte succes.' },
+          { title: 'Tjek resten', body: 'En manuel kørsel på tværs af alle kunder tog 20 til 26 minutter og blev delt ud igen, til den havde kørt 74 gange på tre dage og sendt omkring 3 mio. poster.' },
+        ],
+      },
+      {
+        kind: 'items',
+        title: 'Hvad der blev ændret',
+        lead: 'Tre ændringer, i drift 16. og 18. september 2026. Ingen af dem ændrede, hvad platformen leverer.',
+        items: [
+          {
+            title: 'Et indeks til opslaget',
+            body: 'Et delvist indeks, der passer til opslagets filter, og forespørgslen omskrevet, så den kan bruge det. Opslaget læser ikke længere hele tabellen.',
+          },
+          {
+            title: 'En sortering, der ikke gjorde noget',
+            body: 'Hver portion blev sorteret efter værdier, der var frosset måneder tidligere. Den eneste reelle effekt var at lægge poster, der aldrig var behandlet før, bagerst, og den tvang databasen til at sortere alle kandidater, før portionen blev taget. Den blev fjernet. Testet på historiske data var den ikke bedre end tilfældig udvælgelse.',
+          },
+          {
+            title: 'Et natligt job, der omskrev alt',
+            body: 'Fundet i samme undersøgelse: et natligt job markerede poster som ledige igen uden at tjekke, om de allerede var det. Det omskrev 46,2 mio. rækker hver nat for at ændre 683.000, og tabellen havde fået 10,7 mia. opdateringer. Én ekstra betingelse rettede det; slutresultatet og ændringsloggen blev de samme.',
+          },
+        ],
+      },
+      {
+        kind: 'results',
+        title: 'Før og efter',
+        lead: 'Begge tal er målt i drift.',
+      },
+      {
+        kind: 'text',
+        title: 'Hvad der skete bagefter',
+        paragraphs: [
+          'Da årsagen var kendt, blev den ekstra mængde en beslutning i stedet for et uheld. Kunden valgte bevidst at blive ved med at behandle mere, end planerne siger, for at dække flere poster, og satte et loft for det.',
+          'Stadig åbent: hvor lang tid opslaget tager nu, er ikke målt efter ændringen. Næste skridt er en tjeneste, der planlægger hver dags arbejde ét sted og slet ikke kan dele et job ud igen. Den er under opbygning.',
+          'Den lære, jeg tager med til hver platform: korrekt output siger intet om omkostningen. Sammenlign det, der blev bedt om, med det, der blev gjort, job for job, før alt andet.',
+        ],
+      },
+    ],
+    closing: {
+      title: 'Samme tjek på jeres platform',
+      body: 'Det er det, en Gennemgang af dataplatform leder efter: arbejde, ingen har bedt om, jobs der omskriver langt mere, end de ændrer, og omkostninger, der vokser, uden at nogen opdager det. I får en skriftlig, prioriteret liste over, hvad der bør rettes først.',
+    },
+  },
+  {
+    key: 'ranking',
+    offer: 'data',
+    topic: 'hours',
+    published: '2026-10-11',
+    meta: {
+      title: 'Case: machine learning-rangering på en fjerdedel af budgettet',
+      description:
+        'En rangeringsmodel fandt 72 % af de værdifulde sager med en fjerdedel af behandlingsbudgettet. Den gamle rækkefølge fandt 25 %, ikke bedre end tilfældigt.',
+    },
+    hero: {
+      eyebrow: 'Case · Machine learning',
+      title: '72 % af de værdifulde sager med en fjerdedel af budgettet.',
+      lead: 'En kunde betaler for hver post, den sender gennem et eksternt behandlingstrin, og kun en lille del fører til noget af værdi. Hvilke poster der sendes, er det store greb, og den gamle rækkefølge viste sig ikke at være bedre end tilfældigheder. Her er modellen, der blev bygget til at afløse den, hvordan den blev testet, og hvorfor den ikke bestemmer noget endnu.',
+      contactCta: 'Spørg til machine learning-arbejde',
+    },
+    card: {
+      body: 'Hvilke poster det betaler sig at behandle: den gamle rækkefølge var ikke bedre end tilfældigheder. En rangeringsmodel testet på to måneders historiske data fandt 72 % af de værdifulde sager med en fjerdedel af budgettet.',
+      points: [
+        '72 % af de værdifulde sager med 25 % af budgettet, op fra 25 %',
+        'Testet på historiske data, med forbeholdene skrevet ned',
+        'Hvorfor faste forpligtelser gør gevinsten mindre',
+      ],
+    },
+    figures: [
+      { value: '72 %', label: 'af de senere værdifulde sager, hvis kun den bedste fjerdedel af posterne var blevet behandlet. Den gamle rækkefølge fangede 25 %.' },
+      { value: '88 %', label: 'med halvdelen af budgettet, hvor den gamle rækkefølge fangede 51 %.' },
+      { value: '0,1 %', label: 'af de automatiske resultater nåede det trin, hvor de kan tjene penge, i en målt uge. At vælge rigtigt er det store greb.' },
+    ],
+    blocks: [
+      {
+        kind: 'text',
+        title: 'Problemet',
+        paragraphs: [
+          'Kunden sender poster gennem et betalt, eksternt behandlingstrin. Det meste af det, der kommer tilbage, bliver frasorteret eller afvist: i en målt uge nåede omkring 0,1 % af de automatiske resultater frem til det punkt, hvor de kan tjene penge. Med et fast budget er det mere værd at vælge, hvilke poster der sendes, end at gøre hvert trin billigere.',
+          'Posterne blev udvalgt i en rækkefølge, der byggede på værdier, som ikke var opdateret i måneder. Testet mod det, der faktisk skete bagefter, var den rækkefølge ikke bedre end tilfældigheder: den bedste fjerdedel ville have fanget 24,6 % af de værdifulde sager, og tilfældig udvælgelse fangede 25,6 %.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'Sådan blev det testet',
+        lead: 'På historiske data, så hver version kunne sammenlignes på de samme poster, før noget blev ændret i drift.',
+        steps: [
+          { title: 'Frys tiden', body: 'Brug kun det, der var kendt før 1. juli 2026.' },
+          { title: 'Rangér', body: 'Giv hver post, der blev behandlet i juli og august, en score ud fra den viden, bedste først.' },
+          { title: 'Skær', body: 'Hvis kun de bedste 10 %, 25 %, 50 % eller 75 % var blevet behandlet, hvor mange af de senere værdifulde sager var så blevet fanget?' },
+          { title: 'Sammenlign', body: 'Den gamle rækkefølge, tilfældig udvælgelse og hver model, på de samme poster.' },
+        ],
+      },
+      {
+        kind: 'items',
+        title: 'Hvad der blev prøvet',
+        lead: 'Hver version på samme test: andelen af værdifulde sager fanget med en fjerdedel af budgettet.',
+        items: [
+          { title: 'Den gamle rækkefølge: 25 %', body: 'Værdier frosset måneder tidligere. Ikke bedre end tilfældig udvælgelse.' },
+          { title: 'Kundens gennemsnit: 37 %', body: 'Hver post scoret efter, hvor godt kundens poster klarer sig i gennemsnit.' },
+          { title: 'Postens egen rate: 54 %', body: 'Hvor ofte netop denne post har ført til noget før, trukket mod kundens gennemsnit, når den har lidt historik. Endnu ikke tunet.' },
+          { title: 'Den endelige blanding: 72 %', body: 'To rater kombineret: det sjældne værdifulde udfald med lang hukommelse og alle udfald med en kortere, vægtet efter hvor ofte kundens resultater bliver værdifulde. 88 % med halvdelen af budgettet.' },
+          { title: 'Hjalp ikke: tid siden sidste behandling', body: 'Det lignede et stærkt signal, men den gamle rækkefølge havde bestemt, hvornår poster blev behandlet, så det målte mest den gamle rækkefølge.' },
+        ],
+      },
+      {
+        kind: 'results',
+        title: 'Før og efter',
+        lead: 'Testet på historiske data, ikke målt i drift.',
+      },
+      {
+        kind: 'text',
+        title: 'Hvad det ikke viser endnu',
+        paragraphs: [
+          'Det er en test på historiske data, og den endelige blanding blev tunet mod den samme test. Data rummer også kun de poster, den gamle rækkefølge valgte at behandle, og nogle udfald var stadig på vej ind, da det blev målt. Et tjek på en senere, separat periode er i gang.',
+          'Scorerne er beregnet hver dag siden 17. september 2026, men de bestemmer endnu ikke, hvad der bliver behandlet. Det kræver en ny tjeneste, der planlægger hver dags arbejde, og den er under opbygning. Indtil den kører, er der intet tal fra drift, og det vil denne side sige.',
+        ],
+      },
+      {
+        kind: 'text',
+        title: 'Hagen: det meste af budgettet var allerede lovet væk',
+        paragraphs: [
+          'En simulering over tre uger med det daværende budget viste det. Faste forpligtelser over for enkelte kunder tog omkring 95 % af behandlingen, så modellen bestemte kun resten. Dér skrumpede gevinsten til omkring 16 % flere forventede værdifulde sager pr. post, ikke de næsten tre gange, testen antyder.',
+          'Det gjorde et modelspørgsmål til et forretningsspørgsmål: hvor meget af budgettet er bundet i forpligtelser, og hvor meget går derhen, hvor det tjener mest. Budgettet er siden hævet, hvilket giver modellen mere plads. En model er kun så meget værd som den andel af beslutningerne, den får lov at træffe.',
+        ],
+      },
+    ],
+    closing: {
+      title: 'Modeller, der gør sig fortjent til pladsen',
+      body: 'Sådan arbejder jeg med machine learning på en dataplatform: først en baseline, så en test mod det, der faktisk skete, forbeholdene skrevet ned og et klart svar på, hvor meget af beslutningen modellen reelt kommer til at træffe. Som regel som del af et længere forløb i jeres team.',
+    },
+  },
   {
     key: 'agent',
     offer: 'ai',
     topic: 'setup',
+    published: '2026-10-02',
     meta: {
       title: 'Case: et firmas IT drevet af en kodeagent',
       description:
@@ -209,6 +392,7 @@ const studies: CaseStudy[] = [
 
 export const da: Copy = {
   nav: {
+    home: 'Forside',
     data: 'Dataplatform',
     ai: 'AI-kodning',
     cases: 'Cases',
@@ -259,7 +443,7 @@ export const da: Copy = {
         {
           key: 'ai',
           name: 'Ekspertise i AI-kodning',
-          body: 'AI-kodeagenter sat ordentligt op i jeres kodebase, med de konventioner, rammer og forbindelser, der gør en demo til dagligt output, og et team, der ved, hvordan de bruges.',
+          body: 'Til teams, der har AI-kodeværktøjer og ikke meget at vise for det. Forskellen ligger i opsætningen: agenter, der følger jeres konventioner, holder sig inden for grænser, I bestemmer, og bruges på samme måde af hele teamet.',
           points: ['Opsætning af agenter i jeres repositories', 'Rammer, rettigheder og review-flow', 'Hands-on træning af jeres udviklere'],
           cta: 'Arbejde med AI-kodning',
         },
@@ -286,7 +470,7 @@ export const da: Copy = {
         },
         {
           name: 'Opsætning af AI-kodning',
-          body: 'Kodeagenter sat op i ét team eller én kodebase: konventioner, rammer, forbindelser til jeres systemer og hands-on træning, så jeres udviklere bliver ved med at bruge det.',
+          body: 'Ét team eller én kodebase: instruktioner, agenten læser hver gang, en nedskrevet grænse mellem det, den må gøre selv, og det, der kræver et menneske, forbindelser til jeres systemer og træning på jeres egen backlog.',
           meta: '6–10 arbejdsdage over 3–4 uger',
           cta: 'Bed om et tilbud',
           topic: 'setup',
@@ -310,38 +494,23 @@ export const da: Copy = {
     },
     proof: {
       eyebrow: 'Resultater',
-      title: 'Sådan ser det ud i tal.',
       lead: 'Fra nyligt kundearbejde på en platform med over 60 mio. poster.',
       more: 'Se cases',
       items: proofItems,
     },
     why: {
       eyebrow: 'Hvorfor mig',
-      title: 'Begge halvdele af opgaven.',
+      title: 'Sådan arbejder jeg.',
       items: [
-        { title: 'Jeg har haft ansvaret for hele platformen', body: 'Teknisk ansvar for dataplatformen i to virksomheder: arkitektur, pipelines, data warehouse og rapportering. Ikke kun et hjørne af den.' },
         { title: 'Jeg bygger det selv', body: 'Med hænderne i koden, ikke et slide-deck. Jeg har bygget alle lag: pipelines, data warehouse, machine learning-modeller, rapporter og forecasts.' },
-        { title: 'Jeg måler før og efter', body: 'Først en baseline, så effekten af arbejdet kan vises og ikke bare påstås.' },
+        { title: 'Jeg måler før og efter', body: 'Først en baseline, så effekten af arbejdet kan vises og ikke bare påstås. Casene viser, hvordan det ser ud.' },
         { title: 'Jeg kan forklare det', body: 'For udviklere på deres sprog og for ledelsen på deres. Forecasts, jeg har bygget, er indgået i virksomhedsbudgetter, og jeg har selv været leder.' },
-        { title: 'AI-kodning er min egen arbejdsform', body: 'Jeg laver det meste af mit eget ingeniørarbejde med kodeagenter, og jeg har omlagt en dataplatform i drift, så agenter kan arbejde i den.' },
         { title: 'Jeg bygger til overdragelse', body: 'Konventionelt, dokumenteret og ejet af jeres team, når jeg går.' },
       ],
     },
     experience: {
       label: 'Erfaring fra',
       items: ['Ase', 'Copyright Agent', 'Viteco'],
-    },
-    testimonial: {
-      quote:
-        'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times.',
-      name: 'Hannah Louise L.',
-      role: 'Tidligere kollega · anbefaling på LinkedIn',
-    },
-    cta: {
-      title: 'Fortæl mig, hvad I skal have bygget eller rettet.',
-      body: 'Et par linjer er nok. Er jeg den rette, siger jeg, hvordan jeg ville gribe det an. Hvis ikke, siger jeg det.',
-      primary: 'Kontakt mig',
-      secondary: 'Send en mail',
     },
   },
 
@@ -382,7 +551,6 @@ export const da: Copy = {
     ],
     stackTitle: 'Teknologi',
     stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Datamodellering', 'Orkestrering', 'Machine learning', 'Forecasting', 'BI og rapportering'],
-    note: '',
     otherOffer: { label: 'Også', text: 'Ekspertise i AI-kodning' },
   },
 
@@ -420,7 +588,7 @@ export const da: Copy = {
     ],
     stackTitle: 'Teknologi',
     stack: ['Claude Code', 'AI-kodeagenter', 'MCP-integrationer', 'Projektkonventioner', 'Git- og pull request-flows', 'Python', 'TypeScript', 'SQL'],
-    note: 'Jeg har omlagt en dataplatform i drift, så kodeagenter kan arbejde i den, og jeg laver det meste af mit eget ingeniørarbejde på den måde. Dette website er bygget med den opsætning, der er beskrevet her.',
+    note: 'Jeg har omlagt en dataplatform i drift, så kodeagenter kan arbejde i den, og jeg laver det meste af mit eget ingeniørarbejde på den måde.',
     otherOffer: { label: 'Også', text: 'Ekspertise i dataplatforme' },
   },
 
@@ -446,12 +614,6 @@ export const da: Copy = {
     work: {
       eyebrow: 'Arbejde',
       title: 'Det, jeg kan vise.',
-      results: {
-        eyebrow: 'Dataplatform',
-        title: 'Tre resultater fra én dataplatform',
-        body: 'En rangeringsmodel, et natligt job og en skjult fejl, hver vist som før og efter.',
-        cta: 'Se resultaterne',
-      },
     },
     storyTitle: 'Baggrund',
     factsTitle: 'Kort fortalt',
@@ -467,14 +629,18 @@ export const da: Copy = {
 
   cases: {
     meta: {
-      title: 'Cases: dataplatform og AI-kodning',
+      title: 'Cases: dataplatform, machine learning og AI-kodning',
       description:
-        'Resultater fra en dataplatform vist som før og efter, og en fuld case om et firma, hvis IT drives af en kodeagent i et offentligt repository.',
+        'En dataplatform med 4,5 gange det planlagte arbejde, en rangeringsmodel der gør mere med en fjerdedel af budgettet, og et firma, hvis IT drives af en kodeagent.',
     },
     hero: {
       eyebrow: 'Cases',
       title: 'Sådan ser arbejdet ud.',
-      lead: 'Resultater fra en kundes dataplatform, vist som før og efter, og én case, I kan efterprøve helt ned til den enkelte commit: mit eget firma.',
+      lead: 'To cases fra en kundes dataplatform, anonymiseret, med tallene vist som før og efter. Og én, I kan efterprøve helt ned til den enkelte commit: mit eget firma.',
+    },
+    data: {
+      eyebrow: 'Dataplatform',
+      title: 'To resultater, skrevet ud.',
     },
     ai: {
       eyebrow: 'AI-kodning',

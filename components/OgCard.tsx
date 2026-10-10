@@ -2,6 +2,8 @@
 export const ogSize = { width: 1200, height: 630 }
 
 export function OgCard({ eyebrow, line1, line2, logo }: { eyebrow: string; line1: string; line2?: string; logo?: ArrayBuffer }) {
+  const length = line1.length + (line2?.length ?? 0)
+  const fontSize = length > 70 ? 60 : length > 48 ? 72 : 84
   return (
     <div
       style={{
@@ -17,7 +19,7 @@ export function OgCard({ eyebrow, line1, line2, logo }: { eyebrow: string; line1
       }}
     >
       <div style={{ display: 'flex', fontSize: 26, letterSpacing: 4, color: '#2B50FF' }}>{eyebrow}</div>
-      <div style={{ display: 'flex', flexDirection: 'column', fontSize: 84, fontWeight: 700, lineHeight: 1.05, letterSpacing: -3 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', fontSize, fontWeight: 700, lineHeight: 1.05, letterSpacing: -3 }}>
         <div style={{ display: 'flex' }}>{line1}</div>
         {line2 && <div style={{ display: 'flex', color: '#2B50FF' }}>{line2}</div>}
       </div>

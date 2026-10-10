@@ -2,15 +2,16 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getCopy, routes, type Locale } from '@/content'
 import PageHero from '@/components/PageHero'
-import ProofFigures from '@/components/ProofFigures'
-import CaseCard from '@/components/CaseCard'
+import CaseSection from '@/components/CaseSection'
 import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from '@/components/StructuredData'
 
 // One layout for both offers: data platform and AI coding.
 export default function OfferingPage({ locale, offer }: { locale: Locale; offer: 'data' | 'ai' }) {
   const copy = getCopy(locale)
   const t = copy[offer]
+  const note = 'note' in t ? t.note : undefined
   const r = routes[locale]
   const otherHref = offer === 'data' ? r.ai : r.data
   const buy = copy.home.buy
@@ -62,30 +63,16 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
               </Reveal>
             ))}
           </div>
-          {t.note && (
+          {note && (
             <Reveal className="mt-12">
-              <p className="rounded-2xl border border-ink-line bg-ink-soft p-6 text-lg leading-relaxed sm:p-8">{t.note}</p>
+              <p className="rounded-2xl border border-ink-line bg-ink-soft p-6 text-lg leading-relaxed sm:p-8">{note}</p>
             </Reveal>
           )}
         </div>
       </section>
 
-      {/* Proof: the data platform results as before and after, or the written case for AI coding */}
-      {offer === 'data' ? (
-        <ProofFigures locale={locale} withHeading />
-      ) : (
-        <section className="border-b border-paper-line bg-paper-card py-20 sm:py-24">
-          <div className="container-page">
-            <Reveal>
-              <p className="eyebrow text-muted">{copy.cases.ai.eyebrow}</p>
-              <h2 className="display mt-4 text-3xl sm:text-4xl">{copy.cases.ai.title}</h2>
-            </Reveal>
-            <Reveal className="mt-10">
-              <CaseCard locale={locale} study="agent" tone="paper" />
-            </Reveal>
-          </div>
-        </section>
-      )}
+      {/* Proof: the written cases for this offer */}
+      <CaseSection locale={locale} offer={offer} tinted />
 
       {/* How we can work */}
       <section className="py-20 sm:py-24">
@@ -133,6 +120,9 @@ export default function OfferingPage({ locale, offer }: { locale: Locale; offer:
       </section>
 
       <ContactSection locale={locale} topic={offer} />
+
+      <JsonLd data={serviceJsonLd(locale, offer)} />
+      <JsonLd data={breadcrumbJsonLd(locale, [{ name: copy.nav[offer], path: r[offer] }])} />
     </>
   )
 }

@@ -3,8 +3,8 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md]
-updated: 2026-10-04
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-11-site-pass-and-client-cases.md]
+updated: 2026-10-11
 ---
 
 # Site improvement plan
@@ -50,6 +50,23 @@ Shipped the same day (PR "Cases: the work shown, not described"):
 Still needed, all with Mathias, see [Open items](../topics/open-items.md): full write-ups of the client results (answers to [the case questions](../references/case-questions.md) and the client's agreement), a second AI coding case from a real team, a photo, buyer testimonials, and first-hand articles.
 
 More pages are not expected to bring enquiries from search within 6–12 months ([search audit](../raw/2026-09-30-seo-audit.md)); the cases are for the visitor who already has the link. No paid ads for now.
+
+## Site pass and client cases (2026-10-11)
+
+Mathias asked for a pass that cuts repetition, makes every section sell, treats search as a major factor, and publishes the cases Claude is confident in ([source](../raw/2026-10-11-site-pass-and-client-cases.md)).
+
+- **Shipped:**
+  - two anonymised client cases;
+  - the 2–4.5× label corrected (a chain of causes, not a single fault);
+  - each home page figure linked to its case;
+  - the duplicated chart sections and repeated "why me" points removed;
+  - the testimonial removed;
+  - Article, Service and breadcrumb markup.
+- **Still needed:**
+  - client permission to name the client or publish money;
+  - a second AI coding case from a real team;
+  - testimonials with permission;
+  - a photo.
 
 ## Larger decisions
 

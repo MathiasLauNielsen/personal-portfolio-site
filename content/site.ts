@@ -27,6 +27,8 @@ export type RouteKey = keyof (typeof routes)['en']
 
 // One entry per written case. Its copy lives under cases.studies in en.ts and da.ts, with the same key.
 export const caseSlugs = {
+  'hidden-work': { en: 'data-platform-hidden-workload', da: 'skjult-arbejde-i-dataplatformen' },
+  ranking: { en: 'ranking-model-quarter-of-the-budget', da: 'rangeringsmodel-med-en-fjerdedel-af-budgettet' },
   agent: { en: 'company-it-run-by-a-coding-agent', da: 'firmaets-it-drevet-af-en-kodeagent' },
 } as const
 

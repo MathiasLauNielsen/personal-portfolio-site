@@ -10,10 +10,13 @@ export type BarChart = {
   rows: { label: string; display: string; value: number; upTo?: number; highlight?: boolean }[]
 }
 
-export type ProofItem = { value: string; label: string; note: string; chart: BarChart }
+// `study` is the written case the result belongs to; the home page figure links there and the case redraws the chart.
+export type ProofItem = { value: string; label: string; note: string; chart: BarChart; study: CaseKey }
 
 export type CaseBlock =
   | { kind: 'text'; title: string; paragraphs: string[] }
+  // The proof items whose `study` is this case, each with its before/after chart.
+  | { kind: 'results'; title: string; lead: string }
   | { kind: 'items'; title: string; lead: string; items: { title: string; body: string }[] }
   | { kind: 'split'; title: string; lead: string; columns: { title: string; items: string[] }[]; notes: string[] }
   | { kind: 'steps'; title: string; lead: string; steps: { title: string; body: string }[] }
@@ -27,6 +30,8 @@ export type CaseStudy = {
   offer: 'data' | 'ai'
   // Enquiry topic preselected in the form at the end of the case.
   topic: string
+  // First published, as an ISO date (structured data).
+  published: string
   meta: { title: string; description: string }
   hero: { eyebrow: string; title: string; lead: string; repoCta?: string; contactCta: string }
   // Shown wherever the case is linked from: the cases page, the offer page, the home page.
