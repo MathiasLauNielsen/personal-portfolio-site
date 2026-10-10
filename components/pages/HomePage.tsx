@@ -6,7 +6,7 @@ import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 import ProofFigures from '@/components/ProofFigures'
 import CaseCard from '@/components/CaseCard'
-import { JsonLd } from '@/components/StructuredData'
+import Faq from '@/components/Faq'
 
 // Order follows the buyer's questions: what is it, can I trust it, how do I buy it, what stops me, how do I start.
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -175,38 +175,11 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-t border-paper-line bg-paper-card py-20 sm:py-24">
-        <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-          <Reveal>
-            <h2 className="display text-4xl sm:text-5xl">{t.faq.title}</h2>
-          </Reveal>
-          <dl className="flex flex-col">
-            {t.faq.items.map((item, i) => (
-              <Reveal key={item.q} delay={i * 40}>
-                <div className="border-t border-paper-line py-5">
-                  <dt className="text-lg font-semibold">{item.q}</dt>
-                  <dd className="mt-2 leading-relaxed text-muted">{item.a}</dd>
-                </div>
-              </Reveal>
-            ))}
-          </dl>
-        </div>
-      </section>
+      {/* FAQ: the buying questions; questions about the work itself are on the offer pages */}
+      <Faq title={t.faq.title} items={t.faq.items} tinted />
 
       <ContactSection locale={locale} />
 
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: t.faq.items.map((item) => ({
-            '@type': 'Question',
-            name: item.q,
-            acceptedAnswer: { '@type': 'Answer', text: item.a },
-          })),
-        }}
-      />
     </>
   )
 }

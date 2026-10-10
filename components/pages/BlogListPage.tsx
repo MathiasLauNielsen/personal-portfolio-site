@@ -18,7 +18,13 @@ export default async function BlogListPage({ locale }: { locale: Locale }) {
       <section className="py-20 sm:py-24">
         <div className="container-page">
           {posts.length === 0 ? (
-            <p className="text-lg text-muted">{t.empty}</p>
+            <div className="flex flex-col gap-4">
+              <p className="text-lg text-muted">{t.empty}</p>
+              <Link href={routes[locale].cases} className="link-underline inline-flex items-center gap-2 self-start font-semibold">
+                {t.emptyCta}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           ) : (
             <div className="flex flex-col">
               {posts.map((post, i) => (

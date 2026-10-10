@@ -1,4 +1,5 @@
 import type { Copy } from './en'
+import { site } from './site'
 import type { CaseStudy, ProofItem } from './types'
 
 // Danish copy. Must match the shape of en.ts.
@@ -551,6 +552,29 @@ export const da: Copy = {
     ],
     stackTitle: 'Teknologi',
     stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Datamodellering', 'Orkestrering', 'Machine learning', 'Forecasting', 'BI og rapportering'],
+    product: {
+      eyebrow: 'Gennemgang af dataplatform',
+      title: 'Hvad gennemgangen dækker, og hvad I får.',
+      lead: 'Et kig på jeres platform med fast omfang, til når I skal vide, hvor I står, før I beslutter, hvad I vil bruge på den.',
+      steps: [
+        { title: 'Tal med folkene', body: 'Korte samtaler med dem, der bygger platformen, og dem, der er afhængige af den: hvad de stoler på, og hvad de arbejder uden om.' },
+        { title: 'Følg omkostningen', body: 'Hvor pengene faktisk går hen: de forespørgsler, jobs og den lagring, der laver det meste af arbejdet, og om nogen har bedt om det arbejde.' },
+        { title: 'Find det, der går i stykker', body: 'Hvad der afhænger af én person eller ét script, hvad der fejler, uden at nogen opdager det, og hvilke tal der er uenige mellem rapporter.' },
+        { title: 'Skriv det ned', body: 'En skriftlig rapport i prioriteret rækkefølge: hvad der bør rettes først og hvorfor, og hvad der kan vente.' },
+        { title: 'Gå den igennem', body: 'En session med jeres team og ledelse, så rapporten bliver til beslutninger.' },
+      ],
+      getTitle: 'I får',
+      get: ['En skriftlig, prioriteret rapport', 'En gennemgang med jeres team og ledelse', 'En liste, jeres eget team kan handle på, med eller uden mig'],
+    },
+    faq: {
+      title: 'Spørgsmål om arbejde med dataplatforme',
+      items: [
+        { q: 'Hvilke platforme arbejder du med?', a: 'Jeg har haft ansvaret for platforme på BigQuery og Google Cloud og på SQL Server på vej mod Microsoft Fabric, med PostgreSQL som driftsdatabase. Er jeres bygget på noget andet, så spørg: det meste af arbejdet er det samme.' },
+        { q: 'Erstatter du vores datateam?', a: 'Nej. Jeg arbejder inde i det, på deltid eller fuld tid, og bygger, så jeres team ejer resultatet, når jeg går. Hos én kunde var jeg også mentor for data- og analyseteamet, også i de tekniske prioriteringer.' },
+        { q: 'Bygger du det, eller rådgiver du kun?', a: 'Jeg bygger det. Jeg skriver selv pipelines, modeller og rapporter. Gennemgangen er undtagelsen: dér får I listen over, hvad der skal rettes, og hvem der retter det, bestemmer I.' },
+        { q: 'Vi vil gerne have machine learning. Hvor starter vi?', a: 'Som regel med data nedenunder. En model er kun så god som den platform, der fodrer den, og den skal måles mod det, den afløser. Casen om rangeringsmodellen viser, hvordan det ser ud.' },
+      ],
+    },
     otherOffer: { label: 'Også', text: 'Ekspertise i AI-kodning' },
   },
 
@@ -588,7 +612,37 @@ export const da: Copy = {
     ],
     stackTitle: 'Teknologi',
     stack: ['Claude Code', 'AI-kodeagenter', 'MCP-integrationer', 'Projektkonventioner', 'Git- og pull request-flows', 'Python', 'TypeScript', 'SQL'],
-    note: 'Jeg har omlagt en dataplatform i drift, så kodeagenter kan arbejde i den, og jeg laver det meste af mit eget ingeniørarbejde på den måde.',
+    product: {
+      eyebrow: 'Opsætning af AI-kodning',
+      title: 'Hvad opsætningen efterlader.',
+      lead: 'En fungerende arbejdsform i jeres eget repository, ikke et slide-deck. De samme dele, dette firma kører på, tilpasset jeres systemer og jeres risiko.',
+      steps: [
+        { title: 'Se, hvordan I arbejder', body: 'Jeres kodebase, jeres review-flow, de systemer, en agent skal bruge, og hvor teamet allerede bruger AI.' },
+        { title: 'Sæt repositoryet op', body: 'Instruktioner, agenten læser hver gang: hvordan koden er organiseret, jeres konventioner og de regler, der ikke må brydes.' },
+        { title: 'Træk grænsen', body: 'Skriftligt: hvad agenten må gøre selv, hvad der kræver et menneske, og de tjek, der kan afvise en pull request.' },
+        { title: 'Forbind jeres systemer', body: 'Sikker adgang til det, rigtigt arbejde afhænger af: databaser, sagsstyring, dokumentation, deployment.' },
+        { title: 'Træn på jeres backlog', body: 'Hands-on sessioner på rigtige opgaver, indtil jeres udviklere arbejder sådan uden mig.' },
+      ],
+      getTitle: 'Tilbage i jeres repository',
+      get: [
+        'Instruktioner, agenten læser i hver session',
+        'En nedskrevet grænse mellem det, den må selv, og det, der kræver et menneske',
+        'Tjek, der kan afvise en pull request',
+        'Forbindelser til jeres systemer',
+        'Et sted, hvor beslutninger og hændelser bliver noteret',
+        'Udviklere trænet på jeres egen backlog',
+      ],
+    },
+    faq: {
+      title: 'Spørgsmål om AI-kodning',
+      items: [
+        { q: 'Er det sikkert at lade en agent ændre vores kode?', a: 'Lige så sikkert som den grænse, I trækker. Agenten arbejder inden for skrevne regler, et menneske bestemmer, hvad den må selv, og tjek kører, før noget bliver merget. I mit eget firma blokerer et automatisk sikkerhedstjek den desuden fra at læse adgangskoder. Casen viser hele opsætningen.' },
+        { q: 'Kan agenten se vores hemmeligheder?', a: 'Det behøver den ikke. I den opsætning, jeg bruger, kender agenten navnene på hemmelighederne, aldrig værdierne, og det er mennesker, der lægger dem ind.' },
+        { q: 'Hvordan ved vi, om det betaler sig?', a: 'Aftal, hvad der skal måles, før vi starter, og mål det før og efter. Jeg lover ikke en procentsats; jeres egne tal vil vise det.' },
+        { q: 'Hvilke værktøjer bruger du?', a: 'Jeg laver det meste af mit eget ingeniørarbejde med Claude Code. Det, der får det til at virke, instruktionerne, rettighederne og tjekkene, er ikke bundet til ét værktøj.' },
+        { q: 'Virker det på en gammel eller rodet kodebase?', a: 'Det kan det, men koden skal måske omlægges først. Jeg har omlagt en dataplatform i drift til Python-pakker, så kodeagenter kan arbejde i den.' },
+      ],
+    },
     otherOffer: { label: 'Også', text: 'Ekspertise i dataplatforme' },
   },
 
@@ -622,6 +676,7 @@ export const da: Copy = {
       { label: 'Sprog', value: 'Dansk og engelsk' },
       { label: 'Dækker', value: 'Data engineering, machine learning, rapportering og AI-kodning' },
       { label: 'Uddannelse', value: 'BSc i datalogi, Københavns Universitet' },
+      { label: 'Firma', value: `${site.company}, CVR ${site.cvr}` },
       { label: 'Foretrækker', value: 'Længere forløb, deltid eller fuld tid' },
       { label: 'Arbejder ikke med', value: 'Våben, sprængstoffer, udvinding af fossile brændsler' },
     ],
@@ -638,6 +693,7 @@ export const da: Copy = {
       title: 'Sådan ser arbejdet ud.',
       lead: 'To cases fra en kundes dataplatform, anonymiseret, med tallene vist som før og efter. Og én, I kan efterprøve helt ned til den enkelte commit: mit eget firma.',
     },
+    note: 'Kundecases nævner hverken kunde eller beløb. Hvert tal siger, om det er målt i drift eller testet på historiske data.',
     data: {
       eyebrow: 'Dataplatform',
       title: 'To resultater, skrevet ud.',
@@ -660,6 +716,10 @@ export const da: Copy = {
       eyebrow: 'Kontakt',
       title: 'Fortæl mig, hvad I har brug for.',
       lead: 'Tre linjer er nok. Jeg svarer inden for én arbejdsdag.',
+    },
+    prompts: {
+      title: 'Det hjælper i første besked',
+      items: ['Hvad I kører i dag, groft sagt', 'Hvad der går galt, eller hvad I vil have bygget', 'Hvornår I gerne vil i gang'],
     },
     direct: 'Eller kontakt mig direkte',
     expectTitle: 'Hvad sker der så',
@@ -708,6 +768,7 @@ export const da: Copy = {
       lead: 'Én idé pr. indlæg. Hvor den kommer fra, hvordan den ser ud i rigtigt dataarbejde, og hvad den ændrer for dem, der beslutter.',
     },
     empty: 'Ingen indlæg endnu.',
+    emptyCta: 'Indtil da viser casene arbejdet',
     readMore: 'Læs',
     back: 'Alle indlæg',
     author: {

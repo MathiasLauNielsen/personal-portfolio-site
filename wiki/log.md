@@ -42,3 +42,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 ## 2026-10-11
 - ingest: site pass, two anonymised client cases, 2–4.5× label corrected, testimonial removed → website, site-improvement-plan, case-questions, open-items (raw/2026-10-11-site-pass-and-client-cases.md)
 - lint: 0 problems
+- ingest: every page evaluated and filled out with content unique to its job (product steps, offer FAQs, contact prompts) → website, offers, site-improvement-plan, open-items (raw/2026-10-11-pages-filled-out.md)
+- lint: 0 problems

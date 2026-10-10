@@ -9,7 +9,9 @@ export default function CasesPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHero {...t.hero} />
+      <PageHero {...t.hero}>
+        <p className="max-w-2xl border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted">{t.note}</p>
+      </PageHero>
       <CaseSection locale={locale} offer="data" tinted />
       <CaseSection locale={locale} offer="ai" />
       <ContactSection locale={locale} />
