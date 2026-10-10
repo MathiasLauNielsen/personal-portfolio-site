@@ -8,7 +8,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
 | [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-10-02 |
-| [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-09-30 |
+| [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-10-11 |
 | [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-10-11 |
 
 ## Topics
@@ -58,4 +58,5 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [The blog is removed from the site](raw/2026-10-04-blog-removed.md) | decision | 2026-10-04 |
 | [The blog is restored, the three quick posts are withdrawn, and one researched article replaces them](raw/2026-10-04-blog-restored-one-article.md) | decision | 2026-10-04 |
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
+| [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |

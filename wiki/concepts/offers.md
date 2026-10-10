@@ -3,8 +3,8 @@ title: Offers
 type: concept
 summary: The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated
 confidence: medium
-sources: [../content/en.ts, raw/2026-09-30-decisions.md, raw/2026-09-30-positioning.md, raw/2026-09-30-ml-models.md]
-updated: 2026-09-30
+sources: [../content/en.ts, raw/2026-09-30-decisions.md, raw/2026-09-30-positioning.md, raw/2026-09-30-ml-models.md, raw/2026-10-11-pages-filled-out.md]
+updated: 2026-10-11
 ---
 
 # Offers
@@ -33,6 +33,8 @@ Shown on the site as working days and calendar time. These are Claude's estimate
 | AI coding setup | 6–10 days | 3–4 weeks | Discovery 1 day, codebase setup 2–3, connections 1–3, training 1, follow-up after two weeks of use 1–2. |
 
 The AI coding setup estimate assumes a follow-up after two weeks of use, which the product text on the site does not mention yet.
+
+Since 2026-10-11 each offer page shows its product as steps that follow this basis, without day counts per step, plus a list of what the buyer gets ([source](../raw/2026-10-11-pages-filled-out.md)). The follow-up stays off the site until Mathias decides it is part of the product (open item 32).
 
 ## Related
 

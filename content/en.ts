@@ -4,6 +4,7 @@
 // one of two things: data platform expertise or AI coding expertise. Client names only
 // appear as supporting experience. Every number is from real work; none are invented.
 
+import { site } from './site'
 import type { CaseStudy, ProofItem } from './types'
 
 // The three measured results. Each chart redraws the numbers already stated in the label, nothing more.
@@ -556,6 +557,29 @@ export const en = {
     ],
     stackTitle: 'Technology',
     stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Data modelling', 'Orchestration', 'Machine learning', 'Forecasting', 'BI and reporting'],
+    product: {
+      eyebrow: 'Data platform review',
+      title: 'What the review covers, and what you get.',
+      lead: 'A fixed-scope look at your platform, for when you need to know where you stand before you decide what to spend on it.',
+      steps: [
+        { title: 'Talk to the people', body: 'Short conversations with the people who build the platform and the people who depend on it: what they trust, and what they work around.' },
+        { title: 'Follow the cost', body: 'Where the money actually goes: the queries, jobs and storage that do most of the work, and whether anyone asked for that work.' },
+        { title: 'Find what breaks', body: 'What depends on one person or one script, what fails without anyone noticing, and which numbers disagree between reports.' },
+        { title: 'Write it down', body: 'A written report in order of priority: what to fix first and why, and what can wait.' },
+        { title: 'Walk through it', body: 'A session with your team and management, so the report turns into decisions.' },
+      ],
+      getTitle: 'You get',
+      get: ['A written, prioritised report', 'A walkthrough with your team and management', 'A list your own team can act on, with or without me'],
+    },
+    faq: {
+      title: 'Questions about data platform work',
+      items: [
+        { q: 'Which platforms do you work with?', a: 'I have been responsible for platforms on BigQuery and Google Cloud, and on SQL Server moving to Microsoft Fabric, with PostgreSQL as the operational database. If yours is built on something else, ask: most of the work is the same.' },
+        { q: 'Do you replace our data team?', a: 'No. I work inside it, part-time or full-time, and build so your team owns the result when I leave. At one client I also mentored the data and analytics team, including its technical priorities.' },
+        { q: 'Do you build it, or only advise?', a: 'I build it. I write the pipelines, models and reports myself. The review is the exception: there you get the list of what to fix, and who fixes it is up to you.' },
+        { q: 'We want machine learning. Where do we start?', a: 'Usually with the data underneath. A model is only as good as the platform that feeds it, and it should be measured against what it replaces. The ranking model case shows what that looks like.' },
+      ],
+    },
     otherOffer: { label: 'Also', text: 'AI coding expertise' },
   },
 
@@ -593,7 +617,37 @@ export const en = {
     ],
     stackTitle: 'Technology',
     stack: ['Claude Code', 'AI coding agents', 'MCP integrations', 'Project conventions', 'Git and pull request workflows', 'Python', 'TypeScript', 'SQL'],
-    note: 'I have restructured a production data platform so coding agents can work in it, and I do most of my own engineering this way.',
+    product: {
+      eyebrow: 'AI coding setup',
+      title: 'What the setup leaves behind.',
+      lead: 'A working way of doing things in your own repository, not a slide deck. The same parts this company runs on, fitted to your systems and your risk.',
+      steps: [
+        { title: 'Look at how you work', body: 'Your codebase, your review flow, the systems an agent would need, and where your team already uses AI.' },
+        { title: 'Set up the repository', body: 'Instructions the agent reads every time: how the code is organised, your conventions, and the rules that must not be broken.' },
+        { title: 'Draw the line', body: 'In writing: what the agent may do on its own, what needs a person, and the checks that can fail a pull request.' },
+        { title: 'Connect your systems', body: 'Secure access to what real work depends on: databases, issue trackers, documentation, deployment.' },
+        { title: 'Train on your backlog', body: 'Hands-on sessions on real tasks, until your developers work this way without me.' },
+      ],
+      getTitle: 'Left in your repository',
+      get: [
+        'Instructions the agent reads every session',
+        'A written line between what it may do alone and what needs a person',
+        'Checks that can fail a pull request',
+        'Connections to your systems',
+        'A place where decisions and incidents are recorded',
+        'Developers trained on your own backlog',
+      ],
+    },
+    faq: {
+      title: 'Questions about AI coding',
+      items: [
+        { q: 'Is it safe to let an agent change our code?', a: 'As safe as the line you draw. The agent works inside written rules, a person decides what it may do alone, and checks run before anything is merged. In my own company an automatic safety check also blocks it from reading credentials. The case shows the whole setup.' },
+        { q: 'Will the agent see our secrets?', a: 'It does not need to. In the setup I use, the agent knows the names of secrets, never their values, and people add them.' },
+        { q: 'How do we know it pays off?', a: 'Agree on what to measure before the start, and measure it before and after. I do not promise a percentage; your own numbers will show it.' },
+        { q: 'Which tools do you use?', a: 'I do most of my own engineering with Claude Code. What makes it work, the instructions, the permissions and the checks, is not tied to one tool.' },
+        { q: 'Does it work on an old or messy codebase?', a: 'It can, but the code may need restructuring first. I have restructured a production data platform into Python packages so coding agents can work in it.' },
+      ],
+    },
     otherOffer: { label: 'Also', text: 'Data platform expertise' },
   },
 
@@ -627,6 +681,7 @@ export const en = {
       { label: 'Languages', value: 'English and Danish' },
       { label: 'Covers', value: 'Data engineering, machine learning, reporting and AI coding' },
       { label: 'Education', value: 'BSc Computer Science, University of Copenhagen' },
+      { label: 'Company', value: `${site.company}, CVR ${site.cvr}` },
       { label: 'Prefers', value: 'Long engagements, part-time or full-time' },
       { label: 'Does not work with', value: 'Weapons, explosives, fossil fuel extraction' },
     ],
@@ -643,6 +698,7 @@ export const en = {
       title: 'What the work looks like.',
       lead: 'Two cases from a client’s data platform, anonymised, with the numbers shown as before and after. And one you can check down to the commit: my own company.',
     },
+    note: 'Client cases name no client and no money. Every number says whether it was measured in production or tested on past data.',
     data: {
       eyebrow: 'Data platform',
       title: 'Two results, written out.',
@@ -665,6 +721,10 @@ export const en = {
       eyebrow: 'Contact',
       title: 'Tell me what you need.',
       lead: 'Three lines is enough. I reply within one working day.',
+    },
+    prompts: {
+      title: 'What helps in the first message',
+      items: ['What you run today, roughly', 'What is going wrong, or what you want built', 'When you would like to start'],
     },
     direct: 'Or reach me directly',
     expectTitle: 'What happens next',
@@ -713,6 +773,7 @@ export const en = {
       lead: 'One idea per piece. Where it comes from, what it looks like in real data work, and what it changes for the people who decide.',
     },
     empty: 'No posts yet.',
+    emptyCta: 'Meanwhile, the cases show the work',
     readMore: 'Read',
     back: 'All posts',
     author: {

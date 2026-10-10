@@ -24,6 +24,16 @@ export default function ContactPage({ locale }: { locale: Locale }) {
 
           <aside className="flex flex-col gap-10">
             <div>
+              <h2 className="eyebrow text-muted">{t.prompts.title}</h2>
+              <ul className="mt-5 flex flex-col">
+                {t.prompts.items.map((item) => (
+                  <li key={item} className="border-t border-paper-line py-4 leading-relaxed">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
               <h2 className="eyebrow text-muted">{t.expectTitle}</h2>
               <ol className="mt-5 flex flex-col">
                 {t.expect.map((step, i) => (
