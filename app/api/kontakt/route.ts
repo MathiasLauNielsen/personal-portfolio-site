@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import type { KontaktHenvendelse } from '@/types'
+import { dailyVisitorKey } from '@/lib/besoeg-noegle'
 
 export async function POST(request: Request) {
   try {
@@ -56,6 +57,8 @@ export async function POST(request: Request) {
       virksomhed: virksomhed?.trim() || null,
       telefon: telefon?.trim() || null,
       laest: false,
+      // The same daily key as the visit log, so the admin can see which pages were viewed before the enquiry.
+      besoegende: await dailyVisitorKey(request),
     })
 
     if (error) {

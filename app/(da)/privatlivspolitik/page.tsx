@@ -23,7 +23,7 @@ export default function Privatlivspolitik() {
         </Link>
 
         <h1 className="text-3xl font-bold text-ink mb-2">Privatlivspolitik</h1>
-        <p className="text-sm text-muted mb-10">Sidst opdateret: 30. september 2026</p>
+        <p className="text-sm text-muted mb-10">Sidst opdateret: 11. oktober 2026</p>
 
         <div className="prose prose-neutral max-w-none prose-headings:font-bold prose-headings:text-ink prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-p:text-ink prose-p:leading-relaxed prose-li:text-ink">
 
@@ -36,16 +36,16 @@ export default function Privatlivspolitik() {
           <h2>2. Hvilke data indsamler vi?</h2>
           <ul>
             <li>
-              <strong>Kontaktformular:</strong> Navn, e-mail, virksomhed (valgfrit) og besked. Oplysningerne bruges udelukkende til at besvare din henvendelse.
+              <strong>Kontaktformular:</strong> Navn, e-mail, virksomhed (valgfrit) og besked. Oplysningerne bruges udelukkende til at besvare din henvendelse. Henvendelsen gemmes sammen med dagens anonyme besøgsnøgle (se nedenfor), så jeg kan se, hvilke sider der blev set samme dag, før du skrev.
             </li>
             <li>
-              <strong>Besøgsstatistik:</strong> Hjemmesiden registrerer selv hver sidevisning med tidspunkt, side, sprog, henvisende hjemmeside, eventuelle kampagneparametre i adressen, land og enhedstype, samt om der er sendt en henvendelse. Din IP-adresse gemmes ikke; i stedet gemmes en anonym nøgle, der er beregnet ud fra IP-adresse, browser og en hemmelig værdi, og som skifter hver dag, så du kan tælles én gang pr. dag, men ikke genkendes på tværs af dage. Derudover bruges Vercel Web Analytics (samlede tal for sidevisninger) og Vercel Speed Insights (sidens indlæsningstid). Der gemmes ikke cookies eller andre identifikatorer på din enhed.
+              <strong>Besøgsstatistik:</strong> Hjemmesiden registrerer selv hver sidevisning med tidspunkt, side, sprog, hvor længe siden var synlig, henvisende hjemmeside, eventuelle kampagneparametre eller et mærkat (via) i adressen, land og by ud fra IP-adressen, og enhedstype, samt om der er sendt en henvendelse. Et mærkat findes kun i links, jeg selv har delt, fx med en mægler eller i et opslag. Din IP-adresse gemmes ikke; i stedet gemmes en anonym nøgle, der er beregnet ud fra IP-adresse, browser og en hemmelig værdi, og som skifter hver dag, så du kan tælles én gang pr. dag, men ikke genkendes på tværs af dage. Derudover bruges Vercel Web Analytics (samlede tal for sidevisninger) og Vercel Speed Insights (sidens indlæsningstid). Der gemmes ikke cookies eller andre identifikatorer på din enhed.
             </li>
           </ul>
 
           <h2>3. Formål og retsgrundlag</h2>
           <p>
-            Kontaktoplysninger behandles for at besvare din henvendelse og eventuelt indgå aftale med dig (GDPR art. 6(1)(b)) og ud fra min legitime interesse i at følge op på henvendelser (art. 6(1)(f)). Besøgsstatistik behandles ud fra min legitime interesse i at vide, hvilke sider der bliver brugt (art. 6(1)(f)).
+            Kontaktoplysninger behandles for at besvare din henvendelse og eventuelt indgå aftale med dig (GDPR art. 6(1)(b)) og ud fra min legitime interesse i at følge op på henvendelser (art. 6(1)(f)). Besøgsstatistik behandles ud fra min legitime interesse i at vide, hvilke sider der bliver brugt, og hvilke links og kilder der fører til en henvendelse (art. 6(1)(f)).
           </p>
 
           <h2>4. Cookies</h2>

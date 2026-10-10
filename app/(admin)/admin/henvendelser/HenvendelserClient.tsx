@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { Mail, MailOpen, Building2, Phone, ChevronDown, ChevronUp } from 'lucide-react'
 import type { KontaktHenvendelse } from '@/types'
+import { formatSeconds, type Besoeg } from '@/lib/besoeg-admin'
 
 function formatDate(iso?: string) {
   if (!iso) return ''
@@ -19,8 +20,11 @@ function formatDate(iso?: string) {
 
 export default function HenvendelserClient({
   henvendelser: initial,
+  besoeg,
 }: {
   henvendelser: KontaktHenvendelse[]
+  // The visit the enquiry was sent from, keyed by enquiry id.
+  besoeg: Record<string, Besoeg>
 }) {
   const [henvendelser, setHenvendelser] = useState(initial)
   const [expanded, setExpanded] = useState<string | null>(null)
@@ -109,6 +113,22 @@ export default function HenvendelserClient({
               <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
                 {h.besked}
               </div>
+              {h.id && besoeg[h.id] && (
+                <div className="mt-4 text-xs leading-relaxed text-slate-500">
+                  <p className="font-medium text-slate-600">
+                    Besøget før henvendelsen · {besoeg[h.id].kilde} · {[besoeg[h.id].bynavn, besoeg[h.id].land].filter(Boolean).join(', ') || 'ukendt sted'} · {besoeg[h.id].enhed ?? 'ukendt enhed'}
+                  </p>
+                  <p className="mt-1">
+                    {besoeg[h.id].sider.map((s, i) => (
+                      <span key={i}>
+                        {i > 0 && <span className="text-slate-300"> → </span>}
+                        <span className="text-slate-700">{s.sti}</span>
+                        {s.sekunder !== null && <span className="text-slate-400"> ({formatSeconds(s.sekunder)})</span>}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              )}
               <div className="mt-4 flex items-center justify-between">
                 <a
                   href={`mailto:${h.email}`}

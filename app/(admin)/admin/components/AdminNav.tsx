@@ -1,8 +1,10 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
+import { markOwnDeviceUnlessDeclined } from '@/lib/besoeg'
 import { Database, Mail, FileText, LogOut, LayoutDashboard, BarChart3 } from 'lucide-react'
 import clsx from 'clsx'
 
@@ -15,6 +17,9 @@ const navItems = [
 export default function AdminNav() {
   const pathname = usePathname()
   const router = useRouter()
+
+  // Every browser the admin is opened in counts as Mathias's own, so his visits to the site are hidden in the statistics.
+  useEffect(() => markOwnDeviceUnlessDeclined(), [])
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()

@@ -3,8 +3,8 @@ title: LinkedIn profile
 type: reference
 summary: What the profile shows today, the text and banner to put on it, the links to use, and the first posts
 confidence: medium
-sources: [raw/2026-10-02-linkedin-audit.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, ../content/en.ts]
-updated: 2026-10-02
+sources: [raw/2026-10-02-linkedin-audit.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, ../content/en.ts, raw/2026-10-11-visit-categories.md]
+updated: 2026-10-11
 ---
 
 # LinkedIn profile
@@ -103,7 +103,7 @@ The three results in the About text are not repeated under a client's name: the 
 
 ## Links to use
 
-Links from LinkedIn carry a tag, so `/admin/statistik` can tell profile visits from post visits, see [Hosting](../topics/hosting.md).
+Links from LinkedIn carry a tag, so `/admin/statistik` can tell profile visits from post visits, see [Hosting](../topics/hosting.md). For a link sent to one broker or company, the shorter `?via=<label>` from the admin's link builder does the same.
 
 | Where | Link |
 |---|---|

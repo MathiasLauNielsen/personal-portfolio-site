@@ -7,6 +7,8 @@ export interface KontaktHenvendelse {
   besked: string
   laest?: boolean
   oprettet_at?: string
+  // Daily visitor key from the visit log (see lib/besoeg-noegle.ts).
+  besoegende?: string | null
 }
 
 export interface Service {
