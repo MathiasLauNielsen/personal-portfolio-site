@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, UserRound } from 'lucide-react'
-import { getCopy, routes, site, type CaseBlock, type CaseKey, type Locale } from '@/content'
+import { casePath, getCopy, routes, site, type CaseBlock, type CaseKey, type Locale } from '@/content'
 import Reveal from '@/components/Reveal'
+import BarCompare from '@/components/BarCompare'
 import ContactSection from '@/components/ContactSection'
+import { JsonLd, breadcrumbJsonLd, caseJsonLd } from '@/components/StructuredData'
 
 const external = { target: '_blank', rel: 'noopener noreferrer' }
 
@@ -16,7 +18,7 @@ function Heading({ title, lead, dark = false }: { title: string; lead?: string; 
 }
 
 // One part of a case. Steps sit on dark and ignore `tinted`.
-function Block({ block, tinted }: { block: CaseBlock; tinted: boolean }) {
+function Block({ block, tinted, locale, study }: { block: CaseBlock; tinted: boolean; locale: Locale; study: CaseKey }) {
   const light = `py-20 sm:py-24 ${tinted ? 'border-y border-paper-line bg-paper-card' : ''}`
 
   switch (block.kind) {
@@ -35,6 +37,32 @@ function Block({ block, tinted }: { block: CaseBlock; tinted: boolean }) {
           </div>
         </section>
       )
+
+    // The proof items that belong to this case, each with the chart that redraws its stated numbers.
+    case 'results': {
+      const results = getCopy(locale).home.proof.items.filter((item) => item.study === study)
+      return (
+        <section className={light}>
+          <div className="container-page">
+            <Heading title={block.title} lead={block.lead} />
+            <div className={`mt-12 grid gap-5 ${results.length > 1 ? 'lg:grid-cols-2' : 'max-w-2xl'}`}>
+              {results.map((item, i) => (
+                <Reveal key={item.value} delay={i * 80}>
+                  <div className={`flex h-full flex-col rounded-2xl border border-paper-line p-7 ${tinted ? 'bg-paper' : 'bg-paper-card'}`}>
+                    <p className="display text-4xl text-accent">{item.value}</p>
+                    <div className="mt-7">
+                      <BarCompare chart={item.chart} />
+                    </div>
+                    <p className="mt-7 flex-1 text-sm leading-relaxed">{item.label}</p>
+                    <p className="eyebrow mt-5 !text-[10px] text-muted">{item.note}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
 
     case 'items':
       return (
@@ -224,7 +252,7 @@ export default function CaseStudyPage({ locale, study }: { locale: Locale; study
       </section>
 
       {item.blocks.map((block, i) => (
-        <Block key={block.title} block={block} tinted={tints[i]} />
+        <Block key={block.title} block={block} tinted={tints[i]} locale={locale} study={study} />
       ))}
 
       {/* What it means for the reader, then the form */}
@@ -249,6 +277,9 @@ export default function CaseStudyPage({ locale, study }: { locale: Locale; study
       </section>
 
       <ContactSection locale={locale} topic={item.topic} />
+
+      <JsonLd data={caseJsonLd(locale, study) ?? {}} />
+      <JsonLd data={breadcrumbJsonLd(locale, [{ name: getCopy(locale).nav.cases, path: r.cases }, { name: item.hero.title, path: casePath(locale, study) }])} />
     </>
   )
 }

@@ -3,8 +3,8 @@ title: Questions for writing a client case
 type: reference
 summary: What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site
 confidence: medium
-sources: [raw/2026-10-02-cases-section.md, raw/2026-09-30-positioning.md]
-updated: 2026-10-02
+sources: [raw/2026-10-02-cases-section.md, raw/2026-09-30-positioning.md, raw/2026-10-11-site-pass-and-client-cases.md]
+updated: 2026-10-11
 ---
 
 # Questions for writing a client case
@@ -24,15 +24,15 @@ A written case is one entry in `cases.studies` (see `CLAUDE.md`). Claude writes 
 
 ## The three results already on the site
 
-All three are on the cases page as one sentence and a chart. To become full cases:
+Since 2026-10-11 all three are written out as anonymised cases, from the client's own records ([source](../raw/2026-10-11-site-pass-and-client-cases.md)). The extra work and the nightly job are one case; the ranking model is the other. Each case can still be improved:
 
-| Result | Extra questions |
+| Result | What would make it stronger |
 |---|---|
-| 72% from 25% (ranking model) | What may be said about what the model ranks? It was left out on purpose on 2026-09-30. Has the model gone into production since the test on historical data, and is there a measured figure? |
-| −98.5% (nightly job) | How long did the job take before and after? What did that mean for cost, as a percentage if money may not be published? |
-| 2–4.5× (duplicate workload) | How was the fault found when nothing looked broken? The site does not say it was fixed: was it, and what is the figure now? |
+| 72% from 25% (ranking model) | A production figure once the model decides what is processed, and the result of the check on a later period. Update the case's status paragraphs when either exists |
+| −98.5% (nightly job) | How long the job took before and after, and a row count after the fix |
+| 2–4.5× (extra work) | How long the lookup takes since the index; the case says this was not measured |
 
-The nightly job is the easiest to anonymise, since it is engineering with no business detail, so it is the suggested first one.
+Naming the client, or saying what the model ranks, needs the client's agreement.
 
 ## Asking the client
 

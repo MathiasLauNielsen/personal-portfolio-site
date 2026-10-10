@@ -12,6 +12,7 @@ const proofItems: ProofItem[] = [
     value: '72% from 25%',
     label: 'A ranking model found 72% of the valuable cases using a quarter of the processing budget. The old selection found 25%.',
     note: 'Tested on two months of historical data',
+    study: 'ranking',
     chart: {
       caption: 'Valuable cases found with a quarter of the budget',
       max: 100,
@@ -25,6 +26,7 @@ const proofItems: ProofItem[] = [
     value: '−98.5%',
     label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
     note: 'Measured in production',
+    study: 'hidden-work',
     chart: {
       caption: 'Rows written per night',
       max: 46_000_000,
@@ -36,26 +38,207 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '2–4.5×',
-    label: 'Duplicate workload traced to a single fault that had gone unnoticed because nothing looked broken.',
+    label: 'The platform did 2–4.5× the work it was scheduled for. A slow lookup made it redo jobs that had already run, and every run reported success.',
     note: 'Measured in production',
+    study: 'hidden-work',
     chart: {
-      caption: 'Work done compared with work needed',
+      caption: 'Work done compared with work scheduled',
       max: 4.5,
       rows: [
-        { label: 'Needed', display: '1×', value: 1, highlight: true },
+        { label: 'Scheduled', display: '1×', value: 1, highlight: true },
         { label: 'Actually done', display: '2–4.5×', value: 2, upTo: 4.5 },
       ],
     },
   },
 ]
 
-// Written cases. Every statement in the agent case can be checked in the public repository (site.repo):
+// Written cases. The two data platform cases are client work, anonymised: no client name, no money and
+// nothing about the business beyond what the engineering needs. Every number comes from the client's own records.
+// Every statement in the agent case can be checked in the public repository (site.repo):
 // the pull requests, CLAUDE.md and the wiki. Times are Copenhagen time.
 const studies: CaseStudy[] = [
+  {
+    key: 'hidden-work',
+    offer: 'data',
+    topic: 'review',
+    published: '2026-10-11',
+    meta: {
+      title: 'Case: a data platform doing 4.5× its scheduled work',
+      description:
+        'A slow lookup made a data platform redo finished jobs, and a nightly job rewrote 46 million rows to change 683,000. How both were found and fixed.',
+    },
+    hero: {
+      eyebrow: 'Case · Data platform',
+      title: 'The platform did up to 4.5× the work it was scheduled for. Every run reported success.',
+      lead: 'A client’s data platform, with more than 60 million records, processed far more than its schedules asked for, and a nightly job rewrote most of a large table to change a small part of it. Nothing had failed, so nobody had looked. How it was found, what changed, and what is still open.',
+      contactCta: 'Ask about a platform review',
+    },
+    card: {
+      body: 'A client’s platform processed up to 4.5× what its schedules asked for, and a nightly job rewrote 46 million rows to change 683,000. Nothing had failed, so nobody had looked.',
+      points: [
+        '2–4.5× the scheduled work, traced to one slow lookup',
+        '46 million rows rewritten every night to change 683,000',
+        'Fixed in production the same week',
+      ],
+    },
+    figures: [
+      { value: '2–4.5×', label: 'the work the schedules asked for, measured in production over the first two weeks of September 2026.' },
+      { value: '8 min', label: 'for the slowest single lookup, where the whole job was allowed 10 minutes before it was handed out again.' },
+      { value: '−98.5%', label: 'rows written by a nightly job: 46 million rewritten every night to change 683,000.' },
+    ],
+    blocks: [
+      {
+        kind: 'text',
+        title: 'What was wrong',
+        paragraphs: [
+          'Several times a day, per customer, the platform picks a batch of records and sends it through a paid processing step. The schedules added up to about 250,000 records a day. In the first two weeks of September 2026 it processed about 540,000 a day, and for single customers up to 4.5 times their limit.',
+          'Nothing looked broken. Jobs finished, the data was correct and no alert fired. The only signs were the processing bill and a comparison nobody had made: what the schedules asked for against what was actually done.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'How it was found',
+        lead: 'In one day, from the platform’s own logs and settings. No new tooling.',
+        steps: [
+          { title: 'Compare', body: 'What the schedules requested against the processing actually logged, per customer and per day.' },
+          { title: 'Follow one job', body: 'Jobs took between 100 and 835 seconds. The queue gave each one 600 seconds before handing it out again.' },
+          { title: 'Find the slow part', body: 'The lookup that picks the next batch read the whole 64-million-row table every time, because the table had no index for the filter it used. It took up to 503 seconds on its own.' },
+          { title: 'Explain the multiplying', body: 'A job that ran past the limit was handed out again, and the new attempt picked a fresh batch, because the first one was already reserved. Every slow job was done twice or more, and each attempt reported success.' },
+          { title: 'Check the rest', body: 'A manual run across all customers took 20 to 26 minutes and was handed out again until it had run 74 times on three days, sending about 3 million records.' },
+        ],
+      },
+      {
+        kind: 'items',
+        title: 'What was changed',
+        lead: 'Three changes, in production on 16 and 18 September 2026. None of them changed what the platform produces.',
+        items: [
+          {
+            title: 'An index for the lookup',
+            body: 'A partial index that matches the lookup’s filter, and the query rewritten so it can use it. The lookup no longer reads the whole table.',
+          },
+          {
+            title: 'A sort order that did nothing',
+            body: 'Each batch was sorted by values frozen months earlier. The only real effect was to put records never processed before at the back, and it forced the database to sort every candidate before taking the batch. It was removed. Tested on past data, it had been no better than picking at random.',
+          },
+          {
+            title: 'A nightly job that rewrote everything',
+            body: 'Found in the same investigation: a nightly job marked records as available again without checking whether they already were. It rewrote 46.2 million rows each night to change 683,000, and the table had taken 10.7 billion updates. One extra condition fixed it; the end state and the change log stayed the same.',
+          },
+        ],
+      },
+      {
+        kind: 'results',
+        title: 'Before and after',
+        lead: 'Both numbers were measured in production.',
+      },
+      {
+        kind: 'text',
+        title: 'What happened next',
+        paragraphs: [
+          'With the cause known, the extra volume became a decision instead of an accident. The client chose to keep processing above the schedules on purpose, to cover more records, and set a working ceiling for it.',
+          'Still open: how long the lookup takes now has not been measured since the change. The next step is a service that plans each day’s work in one place and has no retry path at all. It is being built.',
+          'The lesson I take to every platform: correct output says nothing about cost. Compare what was asked for with what was done, job by job, before anything else.',
+        ],
+      },
+    ],
+    closing: {
+      title: 'The same check, on your platform',
+      body: 'This is what a Data platform review looks for: work nobody asked for, jobs that rewrite far more than they change, and costs that grow without anyone noticing. You get a written, prioritised list of what to fix first.',
+    },
+  },
+  {
+    key: 'ranking',
+    offer: 'data',
+    topic: 'hours',
+    published: '2026-10-11',
+    meta: {
+      title: 'Case: machine learning ranking on a quarter of the budget',
+      description:
+        'A ranking model found 72% of the valuable cases with a quarter of the processing budget. The old order found 25%, no better than random.',
+    },
+    hero: {
+      eyebrow: 'Case · Machine learning',
+      title: '72% of the valuable cases, with a quarter of the budget.',
+      lead: 'A client pays for every record it sends through an external processing step, and only a small share leads to anything of value. Which records to send is the main lever, and the old order turned out to be no better than chance. The model built to replace it, how it was tested, and why it does not decide anything yet.',
+      contactCta: 'Ask about machine learning work',
+    },
+    card: {
+      body: 'Which records to pay to process: the old order was no better than chance. A ranking model tested on two months of past data found 72% of the valuable cases with a quarter of the budget.',
+      points: [
+        '72% of the valuable cases at 25% of the budget, up from 25%',
+        'Tested on past data, with the caveats written down',
+        'Why fixed commitments shrink the gain',
+      ],
+    },
+    figures: [
+      { value: '72%', label: 'of the later valuable cases, had only the top quarter of records been processed. The old order caught 25%.' },
+      { value: '88%', label: 'at half the budget, where the old order caught 51%.' },
+      { value: '0.1%', label: 'of automated results reached the stage where they can earn money, in one measured week. Choosing well is the lever.' },
+    ],
+    blocks: [
+      {
+        kind: 'text',
+        title: 'The problem',
+        paragraphs: [
+          'The client sends records through a paid external processing step. Most of what comes back is filtered out or rejected: in one measured week, about 0.1% of the automated results reached the point where they can earn money. With a fixed budget, choosing which records to send is worth more than making each step cheaper.',
+          'The records were picked in an order based on values that had not been updated for months. Tested against what actually happened later, that order was no better than chance: processing the top quarter would have caught 24.6% of the valuable cases, and picking at random caught 25.6%.',
+        ],
+      },
+      {
+        kind: 'steps',
+        title: 'How it was tested',
+        lead: 'On past data, so every version could be compared on the same records before anything changed in production.',
+        steps: [
+          { title: 'Freeze time', body: 'Use only what was known before 1 July 2026.' },
+          { title: 'Rank', body: 'Score every record processed in July and August with that knowledge, best first.' },
+          { title: 'Cut', body: 'If only the top 10%, 25%, 50% or 75% had been processed, how many of the later valuable cases would have been caught?' },
+          { title: 'Compare', body: 'The old order, picking at random, and each model, on the same records.' },
+        ],
+      },
+      {
+        kind: 'items',
+        title: 'What was tried',
+        lead: 'Each version on the same test: the share of valuable cases caught with a quarter of the budget.',
+        items: [
+          { title: 'The old order: 25%', body: 'Values frozen months earlier. No better than picking at random.' },
+          { title: 'The customer’s average: 37%', body: 'Every record scored by how well its customer’s records do on average.' },
+          { title: 'Each record’s own rate: 54%', body: 'How often this record has led to something before, pulled toward its customer’s average when it has little history. Not yet tuned.' },
+          { title: 'The final blend: 72%', body: 'Two rates combined: the rare valuable outcome with a long memory and all outcomes with a shorter one, weighted by how often the customer’s results become valuable. 88% at half the budget.' },
+          { title: 'Did not help: time since last processed', body: 'It looked like a strong signal, but the old order had decided when records were processed, so it mostly measured the old order.' },
+        ],
+      },
+      {
+        kind: 'results',
+        title: 'Before and after',
+        lead: 'Tested on past data, not measured in production.',
+      },
+      {
+        kind: 'text',
+        title: 'What it does not show yet',
+        paragraphs: [
+          'This is a test on past data, and the final blend was tuned against this same test. The data also holds only the records the old order chose to process, and some outcomes were still coming in when it was measured. A check on a later, separate period is under way.',
+          'The scores have been computed every day since 17 September 2026, but they do not decide what is processed yet. That needs a new service that plans each day’s work, and it is being built. Until it runs there is no production figure, and this page will say so.',
+        ],
+      },
+      {
+        kind: 'text',
+        title: 'The catch: most of the budget was already spoken for',
+        paragraphs: [
+          'A three-week simulation at the budget of the time showed it. Fixed commitments to individual customers took about 95% of the processing, so the model only decided the rest. There the gain shrank to about 16% more expected valuable cases per record, not the nearly threefold the test suggests.',
+          'That turned a modelling question into a business one: how much of the budget is tied to commitments, and how much goes where it earns the most. The budget has since been raised, which leaves the model more room. A model is worth only as much as the share of decisions it is allowed to make.',
+        ],
+      },
+    ],
+    closing: {
+      title: 'Models that earn their place',
+      body: 'This is how I work with machine learning on a data platform: a baseline first, a test against what actually happened, the caveats written down, and a plain answer to how much of the decision the model will really make. Usually as part of a longer engagement, inside your team.',
+    },
+  },
   {
     key: 'agent',
     offer: 'ai',
     topic: 'setup',
+    published: '2026-10-02',
     meta: {
       title: 'Case: a company’s IT run by a coding agent',
       description:
@@ -214,6 +397,7 @@ const studies: CaseStudy[] = [
 
 export const en = {
   nav: {
+    home: 'Home',
     data: 'Data platform',
     ai: 'AI coding',
     cases: 'Cases',
@@ -264,7 +448,7 @@ export const en = {
         {
           key: 'ai',
           name: 'AI coding expertise',
-          body: 'AI coding agents set up properly in your codebase, with the conventions, guardrails and connections that turn a demo into daily output, and a team that knows how to use them.',
+          body: 'For teams that have AI coding tools and little to show for them. The difference is the setup: agents that follow your conventions, stay inside limits you decide, and are used the same way by the whole team.',
           points: ['Agent setup in your repositories', 'Guardrails, permissions and review flow', 'Hands-on training for your developers'],
           cta: 'AI coding work',
         },
@@ -291,7 +475,7 @@ export const en = {
         },
         {
           name: 'AI coding setup',
-          body: 'Coding agents set up in one team or codebase: conventions, guardrails, connections to your systems, and hands-on training so your developers keep using it.',
+          body: 'One team or codebase: instructions the agent reads every time, a written line between what it may do alone and what needs a person, connections to your systems, and training on your own backlog.',
           meta: '6–10 days of work, over 3–4 weeks',
           cta: 'Ask for a quote',
           topic: 'setup',
@@ -315,38 +499,23 @@ export const en = {
     },
     proof: {
       eyebrow: 'Results',
-      title: 'What that looks like in numbers.',
       lead: 'From recent client work on a platform handling more than 60 million records.',
       more: 'See the cases',
       items: proofItems,
     },
     why: {
       eyebrow: 'Why me',
-      title: 'Both halves of the job.',
+      title: 'How I work.',
       items: [
-        { title: 'I’ve owned the whole platform', body: 'Technical responsibility for the data platform at two companies: architecture, pipelines, warehouse and reporting. Not one corner of it.' },
         { title: 'I build it myself', body: 'Hands-on, not a slide deck. I have built every layer: pipelines, warehouse, machine learning models, reports and forecasts.' },
-        { title: 'I measure before and after', body: 'A baseline first, so the effect of the work can be shown rather than claimed.' },
+        { title: 'I measure before and after', body: 'A baseline first, so the effect of the work can be shown rather than claimed. The cases show what that looks like.' },
         { title: 'I can explain it', body: 'To developers in their terms and to management in theirs. Forecasts I built have gone into company budgets, and I have been a manager myself.' },
-        { title: 'AI coding is how I work', body: 'I do most of my own engineering with coding agents, and I have restructured a production data platform so agents can work in it.' },
         { title: 'I build to hand over', body: 'Conventional, documented, and owned by your team when I leave.' },
       ],
     },
     experience: {
       label: 'Experience from',
       items: ['Ase', 'Copyright Agent', 'Viteco'],
-    },
-    testimonial: {
-      quote:
-        'Mathias must be one of the most intelligent Data Engineers I’ve ever had the pleasure to work with. He has a remarkable talent for drilling down the most complex data projects into understandable and actionable insights and maintains a focus on problem-solving at all times.',
-      name: 'Hannah Louise L.',
-      role: 'Former colleague · LinkedIn recommendation',
-    },
-    cta: {
-      title: 'Tell me what you need built or fixed.',
-      body: 'A few lines is enough. If I’m the right person, I’ll say how I’d approach it. If not, I’ll say that.',
-      primary: 'Get in touch',
-      secondary: 'Email me',
     },
   },
 
@@ -387,7 +556,6 @@ export const en = {
     ],
     stackTitle: 'Technology',
     stack: ['SQL', 'Python', 'BigQuery', 'Google Cloud', 'Microsoft Fabric', 'Azure', 'SQL Server', 'PostgreSQL', 'Data modelling', 'Orchestration', 'Machine learning', 'Forecasting', 'BI and reporting'],
-    note: '',
     otherOffer: { label: 'Also', text: 'AI coding expertise' },
   },
 
@@ -425,7 +593,7 @@ export const en = {
     ],
     stackTitle: 'Technology',
     stack: ['Claude Code', 'AI coding agents', 'MCP integrations', 'Project conventions', 'Git and pull request workflows', 'Python', 'TypeScript', 'SQL'],
-    note: 'I have restructured a production data platform so coding agents can work in it, and I do most of my own engineering this way. This website was built with the setup described here.',
+    note: 'I have restructured a production data platform so coding agents can work in it, and I do most of my own engineering this way.',
     otherOffer: { label: 'Also', text: 'Data platform expertise' },
   },
 
@@ -451,12 +619,6 @@ export const en = {
     work: {
       eyebrow: 'Work',
       title: 'What I can show.',
-      results: {
-        eyebrow: 'Data platform',
-        title: 'Three results from one data platform',
-        body: 'A ranking model, a nightly job and a hidden fault, each shown as before and after.',
-        cta: 'See the results',
-      },
     },
     storyTitle: 'Background',
     factsTitle: 'In short',
@@ -472,14 +634,18 @@ export const en = {
 
   cases: {
     meta: {
-      title: 'Cases: data platform results and AI coding',
+      title: 'Cases: data platform, machine learning and AI coding',
       description:
-        'Data platform results shown as before and after, and a full case of a company whose IT is run by a coding agent in a public repository.',
+        'A data platform doing 4.5× the scheduled work, a ranking model that does more on a quarter of the budget, and a company whose IT is run by a coding agent.',
     },
     hero: {
       eyebrow: 'Cases',
       title: 'What the work looks like.',
-      lead: 'Results from a client’s data platform, shown as before and after, and one case you can inspect down to the commit: my own company.',
+      lead: 'Two cases from a client’s data platform, anonymised, with the numbers shown as before and after. And one you can check down to the commit: my own company.',
+    },
+    data: {
+      eyebrow: 'Data platform',
+      title: 'Two results, written out.',
     },
     ai: {
       eyebrow: 'AI coding',
@@ -539,7 +705,7 @@ export const en = {
     meta: {
       title: 'Blog: theory, practice and what it means for the business',
       description:
-        'Short pieces that take one idea from the theory behind data platforms, forecasting and machine learning, show it in practice, and say what it means for the business.',
+        'Short pieces that take one idea behind data platforms, forecasting or machine learning, show it in practice, and say what it means for the business.',
     },
     hero: {
       eyebrow: 'Blog',

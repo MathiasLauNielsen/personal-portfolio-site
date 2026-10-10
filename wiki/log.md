@@ -38,3 +38,7 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: blog removed at Mathias's request, then restored the same evening; three quick posts withdrawn; one researched article drafted → website, open-items (raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md)
 - lint: 0 problems
+
+## 2026-10-11
+- ingest: site pass, two anonymised client cases, 2–4.5× label corrected, testimonial removed → website, site-improvement-plan, case-questions, open-items (raw/2026-10-11-site-pass-and-client-cases.md)
+- lint: 0 problems

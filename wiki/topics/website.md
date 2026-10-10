@@ -3,8 +3,8 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md]
-updated: 2026-10-04
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md, raw/2026-10-11-site-pass-and-client-cases.md]
+updated: 2026-10-11
 ---
 
 # Website
@@ -15,7 +15,12 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 
 - The redesign is live in production since PR #4 (13:52 UTC): two offers, ways to buy, FAQ, an enquiry form on every page.
 - Served at https://mlnanalytics.com since 2026-09-30, about 14:40 UTC, see [Domain and email](domain-and-email.md).
-- Since 2026-10-02 the site has a Cases section: the three data platform results with a before/after chart each, and one written case about this repository as the proof for the AI coding offer. What is still missing for more cases is in [Questions for writing a client case](../references/case-questions.md).
+- Since 2026-10-02 the site has a Cases section, and since 2026-10-11 it has three written cases ([source](../raw/2026-10-11-site-pass-and-client-cases.md)):
+  - two anonymised client cases from a data platform: the extra work and the nightly rewrite in one, and the ranking model;
+  - one case about this repository, as the proof for the AI coding offer.
+
+  Each figure on the home page links to its case, and the charts are on the case pages. What is still missing for more cases is in [Questions for writing a client case](../references/case-questions.md).
+- No testimonials since 2026-10-11. A quote goes on the site only with the person's explicit permission.
 - Traffic is expected to be low for a while, which is why there is no rate limiting beyond field limits and a spam trap.
 - The blog (since 2026-10-04): `/blog` (English) and `/da/blog` (Danish), one language per post, managed in `/admin/blog`. Articles are about concepts from Mathias's fields, technical and business oriented, never about his own work; one researched article at a time, with figures that carry the argument (rules in `CLAUDE.md`). The blog was removed and restored the same evening after three quick posts seemed "random and wrong"; those three are withdrawn and stay unpublished. One researched article, "What it costs to find out: exploration under a budget", is a draft waiting for Mathias to read it, see [Open items](open-items.md) ([built](../raw/2026-10-04-blog-theory-to-business.md), [figures](../raw/2026-10-04-blog-figures.md), [removed](../raw/2026-10-04-blog-removed.md), [restored](../raw/2026-10-04-blog-restored-one-article.md)).
 

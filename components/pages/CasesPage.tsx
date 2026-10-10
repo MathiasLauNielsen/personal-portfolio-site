@@ -1,36 +1,17 @@
-import { getCopy, type Locale } from '@/content'
+import { type Locale, getCopy } from '@/content'
 import PageHero from '@/components/PageHero'
-import ProofFigures from '@/components/ProofFigures'
-import CaseCard from '@/components/CaseCard'
-import Reveal from '@/components/Reveal'
+import CaseSection from '@/components/CaseSection'
 import ContactSection from '@/components/ContactSection'
 
-// The work, shown: the data platform results as before and after, then the written cases.
+// Every written case, grouped by offer. The charts are on the case pages themselves.
 export default function CasesPage({ locale }: { locale: Locale }) {
   const t = getCopy(locale).cases
 
   return (
     <>
       <PageHero {...t.hero} />
-
-      <ProofFigures locale={locale} withHeading linkToCases={false} />
-
-      <section className="py-20 sm:py-24">
-        <div className="container-page">
-          <Reveal>
-            <p className="eyebrow text-muted">{t.ai.eyebrow}</p>
-            <h2 className="display mt-4 text-3xl sm:text-4xl">{t.ai.title}</h2>
-          </Reveal>
-          <div className="mt-10 flex flex-col gap-5">
-            {t.studies.filter((study) => study.offer === 'ai').map((study) => (
-              <Reveal key={study.key}>
-                <CaseCard locale={locale} study={study.key} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <CaseSection locale={locale} offer="data" tinted />
+      <CaseSection locale={locale} offer="ai" />
       <ContactSection locale={locale} />
     </>
   )

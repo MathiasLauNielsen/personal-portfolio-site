@@ -3,8 +3,8 @@ title: Open items
 type: topic
 summary: Everything unfinished for the company's IT and website, ordered by importance, with who acts next
 confidence: high
-sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md]
-updated: 2026-10-04
+sources: [raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-positioning.md, raw/2026-09-30-seo-audit.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-02-cases-section.md, raw/2026-10-02-linkedin-audit.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md, raw/2026-10-11-site-pass-and-client-cases.md]
+updated: 2026-10-11
 ---
 
 # Open items
@@ -22,8 +22,8 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 7 | Portrait photo | Send or commit one photo (head and shoulders, plain background, at least 1200 px wide). Claude crops it and places it on the About page (marked spot in `components/pages/AboutPage.tsx`) and on the case pages | Mathias, then Claude |
 | 8 | Career details | The About page tells the story from 2020 (done 2026-09-30). Still missing: exact years and titles per role, from a LinkedIn PDF export; and LinkedIn itself should tell the same story | Mathias |
 | 9 | Management dashboard prototype | Port the local branch `prototype/management-app` into `/admin` | Claude, when asked |
-| 10 | Full cases for the three figures | The figures have a before/after chart each on `/cases` since 2026-10-02. A full write-up per figure needs Mathias's answers to [the case questions](../references/case-questions.md) and the client's agreement (item 18). Start with the nightly job | Mathias answers, then Claude writes |
-| 11 | Buyer testimonials and references | Ask a client contact at Copyright Agent and a manager at Ase for a short quote that confirms the scope (responsible for the whole platform) and a result, with permission to publish, or to be a reference a buyer can call | Mathias |
+| 10 | Stronger client cases | All three figures are written out as two anonymised cases since 2026-10-11 ([source](../raw/2026-10-11-site-pass-and-client-cases.md)). Next: production figures as they come in (listed in [the case questions](../references/case-questions.md)), and the client's name once item 18 allows it | Claude updates when figures exist; Mathias for permission |
+| 11 | Buyer testimonials and references | The LinkedIn recommendation was removed on 2026-10-11 because she had not been asked; a quote goes on the site only with explicit permission. Ask a client contact at Copyright Agent and a manager at Ase for a short quote that confirms the scope (responsible for the whole platform) and a result, with permission to publish, or to be a reference a buyer can call | Mathias |
 | 12 | Proof for the AI coding offer | This repository is published as a written case since 2026-10-02 (`/cases/company-it-run-by-a-coding-agent`); Mathias should read it once, as it speaks in his voice and describes the DNS failure on launch day. Still missing: a written case of restructuring a production data platform so coding agents can work in it, see [the case questions](../references/case-questions.md) | Mathias reads and answers, then Claude writes |
 | 13 | Prices on the fixed-scope products | Decide on "from €X" and whether the review fee is credited toward follow-on work | Mathias |
 | 14 | First call | Name the free first call and the output it promises | Mathias |
@@ -43,3 +43,4 @@ Ordered by importance. Remove an item when done and note it in the relevant arti
 | 28 | ~~Blog posts waiting to be published~~ | Withdrawn 2026-10-04: the three quick posts seemed random and wrong to Mathias; they stay unpublished in the database ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Done |
 | 29 | ~~Add the figure lines to the three draft posts~~ | Done 2026-10-04, then moot: the posts were withdrawn the same day ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Done |
 | 30 | Read and publish the article on exploration under a budget | "What it costs to find out: exploration under a budget" is a draft in `/admin/blog` since 2026-10-04, researched and sourced, with figures. Mathias reads it, edits if needed, and publishes with the toggle, or asks Claude to. Next articles: his choice of concept, one at a time ([source](../raw/2026-10-04-blog-restored-one-article.md)) | Mathias |
+| 31 | A fourth result: the hourly warehouse job | Recorded in the client's records as going from timing out at 6 hours to 2 minutes 41 seconds with identical output. Check it there, then add it to an existing case or write a new one | Claude |

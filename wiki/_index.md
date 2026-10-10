@@ -9,7 +9,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 |---|---|---|---|
 | [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-10-02 |
 | [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-09-30 |
-| [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-10-04 |
+| [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-10-11 |
 
 ## Topics
 
@@ -19,14 +19,14 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Domain and email](topics/domain-and-email.md) | mlnanalytics.com at Namecheap, email on Google Workspace, the DNS records in place, and the 2026-09-30 outage | high | 2026-09-30 |
 | [Hosting](topics/hosting.md) | The Vercel project, how deploys happen, environment variables by name, and analytics | high | 2026-09-30 |
 | [Lead handling](topics/lead-handling.md) | What happens when someone sends an enquiry, where it is stored and how Mathias finds out | high | 2026-09-30 |
-| [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-10-04 |
-| [Website](topics/website.md) | What the site is for, what is live, and where its parts are described | high | 2026-10-04 |
+| [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-10-11 |
+| [Website](topics/website.md) | What the site is for, what is live, and where its parts are described | high | 2026-10-11 |
 
 ## References
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
-| [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-02 |
+| [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-11 |
 | [Company facts](references/company.md) | Legal name, CVR, published contact details and positioning of MLN Data Consulting | high | 2026-09-30 |
 | [LinkedIn profile](references/linkedin-profile.md) | What the profile shows today, the text and banner to put on it, the links to use, and the first posts | medium | 2026-10-02 |
 | [Runbook for database changes](references/runbook-database-changes.md) | How schema changes and admin changes are made in Supabase, and how to verify them | high | 2026-09-30 |
@@ -58,3 +58,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [The blog is removed from the site](raw/2026-10-04-blog-removed.md) | decision | 2026-10-04 |
 | [The blog is restored, the three quick posts are withdrawn, and one researched article replaces them](raw/2026-10-04-blog-restored-one-article.md) | decision | 2026-10-04 |
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
+| [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |

@@ -6,6 +6,7 @@ import Reveal from '@/components/Reveal'
 import ContactSection from '@/components/ContactSection'
 import ProofFigures from '@/components/ProofFigures'
 import CaseCard from '@/components/CaseCard'
+import { JsonLd } from '@/components/StructuredData'
 
 // Order follows the buyer's questions: what is it, can I trust it, how do I buy it, what stops me, how do I start.
 export default function HomePage({ locale }: { locale: Locale }) {
@@ -154,7 +155,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* Why me + testimonial */}
+      {/* Why me */}
       <section className="py-20 sm:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <Reveal>
@@ -171,23 +172,6 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </Reveal>
             ))}
           </div>
-        </div>
-
-        <div className="container-page mt-20">
-          <Reveal>
-            <figure className="rounded-2xl border border-paper-line bg-paper-card p-8 sm:p-12">
-              <blockquote lang="en" className="display text-2xl !leading-snug !tracking-[-0.02em] sm:text-3xl">
-                “{t.testimonial.quote}”
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-4">
-                <span className="h-px w-10 bg-accent" aria-hidden />
-                <span>
-                  <span className="font-semibold">{t.testimonial.name}</span>
-                  <span className="text-muted"> · {t.testimonial.role}</span>
-                </span>
-              </figcaption>
-            </figure>
-          </Reveal>
         </div>
       </section>
 
@@ -212,18 +196,15 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
       <ContactSection locale={locale} />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: t.faq.items.map((item) => ({
-              '@type': 'Question',
-              name: item.q,
-              acceptedAnswer: { '@type': 'Answer', text: item.a },
-            })),
-          }),
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: t.faq.items.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
         }}
       />
     </>
