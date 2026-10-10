@@ -15,10 +15,10 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
-| [Database](topics/database.md) | The Supabase project behind the site, its tables and access rules, and how it was rebuilt on 2026-09-30 | high | 2026-10-04 |
+| [Database](topics/database.md) | The Supabase project behind the site, its tables and access rules, and how it was rebuilt on 2026-09-30 | high | 2026-10-11 |
 | [Domain and email](topics/domain-and-email.md) | mlnanalytics.com at Namecheap, email on Google Workspace, the DNS records in place, and the 2026-09-30 outage | high | 2026-09-30 |
-| [Hosting](topics/hosting.md) | The Vercel project, how deploys happen, environment variables by name, and analytics | high | 2026-09-30 |
-| [Lead handling](topics/lead-handling.md) | What happens when someone sends an enquiry, where it is stored and how Mathias finds out | high | 2026-09-30 |
+| [Hosting](topics/hosting.md) | The Vercel project, how deploys happen, environment variables by name, and analytics | high | 2026-10-11 |
+| [Lead handling](topics/lead-handling.md) | What happens when someone sends an enquiry, where it is stored and how Mathias finds out | high | 2026-10-11 |
 | [Open items](topics/open-items.md) | Everything unfinished for the company's IT and website, ordered by importance, with who acts next | high | 2026-10-11 |
 | [Website](topics/website.md) | What the site is for, what is live, and where its parts are described | high | 2026-10-11 |
 
@@ -28,7 +28,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 |---|---|---|---|
 | [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-11 |
 | [Company facts](references/company.md) | Legal name, CVR, published contact details and positioning of MLN Data Consulting | high | 2026-09-30 |
-| [LinkedIn profile](references/linkedin-profile.md) | What the profile shows today, the text and banner to put on it, the links to use, and the first posts | medium | 2026-10-02 |
+| [LinkedIn profile](references/linkedin-profile.md) | What the profile shows today, the text and banner to put on it, the links to use, and the first posts | medium | 2026-10-11 |
 | [Runbook for database changes](references/runbook-database-changes.md) | How schema changes and admin changes are made in Supabase, and how to verify them | high | 2026-09-30 |
 | [Runbook for DNS changes](references/runbook-dns-changes.md) | How to change DNS for mlnanalytics.com without breaking email, learned from the failed switch on 2026-09-30 | high | 2026-09-30 |
 | [Services and accounts](references/services.md) | Every external service the company uses, what it does, how it is reached from here, and what is unknown | medium | 2026-10-02 |
@@ -60,3 +60,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |
+| [Visit statistics sorted into categories; own visits hidden; time, city, link labels and the visit behind an enquiry](raw/2026-10-11-visit-categories.md) | decision | 2026-10-11 |

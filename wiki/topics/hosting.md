@@ -3,8 +3,8 @@ title: Hosting
 type: topic
 summary: The Vercel project, how deploys happen, environment variables by name, and analytics
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-visit-statistics.md]
-updated: 2026-09-30
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-11-visit-categories.md]
+updated: 2026-10-11
 ---
 
 # Hosting
@@ -35,6 +35,10 @@ Secrets are added by Mathias with `vercel env add NAME production`, never pasted
 
 ## Visit statistics
 
-- **Own statistics (primary, since 2026-09-30):** every page view and every sent enquiry is logged by the site itself into the `site_besoeg` table, without cookies and without storing IP addresses (a daily hash instead). Mathias reads them at https://mlnanalytics.com/admin/statistik after logging in: views, visitors, enquiries, sources (referrer or UTM), pages, countries, devices, languages, for 7 to 365 days. Bots and non-production hostnames are not counted. Links shared on LinkedIn or elsewhere can carry `?utm_source=linkedin&utm_medium=post&utm_campaign=...` to be told apart.
+- **Own statistics (primary, since 2026-09-30):** every page view and every sent enquiry is logged by the site itself into the `site_besoeg` table, without cookies and without storing IP addresses (a daily hash instead). Mathias reads them at https://mlnanalytics.com/admin/statistik after logging in, for 7 to 365 days. Known bots and non-production hostnames are not stored.
+  - **Categories, since 2026-10-11** ([source](../raw/2026-10-11-visit-categories.md)): visits are grouped as real, under 3 seconds, or his own. Only real visits are shown unless the others are switched on.
+  - **His own visits:** every browser he opens the admin in is marked as his. Older or unmarked visits get a "Det er mig" button.
+  - **What a visit shows:** source, city, device, pages in order with visible time, and whether it led to an enquiry. Enquiries show the visit they came from.
+  - **Links:** a link he sends can carry `?via=<label>`, made with the link builder at the bottom of the page. UTM parameters (`?utm_source=linkedin&utm_medium=post&utm_campaign=...`) still work too.
 - **Vercel Web Analytics and Speed Insights** stay on every page as a cross-check, at vercel.com → project → Analytics. The team is on the Hobby plan: 50,000 events a month, one month of history, and custom events such as the form's `enquiry_sent` are dropped. That is why the statistics were built in.
 - Neither sets cookies, so there is no consent banner; the privacy policy describes both.

@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import AdminNav from '../components/AdminNav'
 import HenvendelserClient from './HenvendelserClient'
 import type { KontaktHenvendelse } from '@/types'
+import { besoegColumns, groupVisits, type Besoeg, type BesoegRow } from '@/lib/besoeg-admin'
 
 export const revalidate = 0
 
@@ -22,6 +23,18 @@ export default async function AdminHenvendelser() {
 
   const ulæste = henvendelser?.filter((h) => !h.laest).length ?? 0
 
+  // The visit behind each enquiry: same daily visitor key, same day (enquiries from 2026-10-11 on).
+  const keys = Array.from(new Set((henvendelser ?? []).map((h) => h.besoegende).filter((k): k is string => !!k)))
+  const { data: rows } = keys.length
+    ? await supabase.from('site_besoeg').select(besoegColumns).in('besoegende', keys).order('tidspunkt', { ascending: true })
+    : { data: [] }
+  const visits = groupVisits((rows ?? []) as unknown as BesoegRow[])
+  const besoeg: Record<string, Besoeg> = {}
+  for (const h of henvendelser ?? []) {
+    const visit = h.besoegende && h.oprettet_at ? visits.find((v) => v.besoegende === h.besoegende && v.dag === h.oprettet_at.slice(0, 10)) : undefined
+    if (visit && h.id) besoeg[h.id] = visit
+  }
+
   return (
     <div className="flex min-h-screen bg-slate-50">
       <AdminNav />
@@ -39,7 +52,7 @@ export default async function AdminHenvendelser() {
             </p>
           </div>
 
-          <HenvendelserClient henvendelser={(henvendelser as KontaktHenvendelse[]) ?? []} />
+          <HenvendelserClient henvendelser={(henvendelser as KontaktHenvendelse[]) ?? []} besoeg={besoeg} />
         </div>
       </div>
     </div>

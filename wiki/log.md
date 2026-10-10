@@ -44,3 +44,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: every page evaluated and filled out with content unique to its job (product steps, offer FAQs, contact prompts) → website, offers, site-improvement-plan, open-items (raw/2026-10-11-pages-filled-out.md)
 - lint: 0 problems
+- ingest: visit statistics sorted into categories, own visits hidden by default, visible time, city, link labels, enquiry linked to its visit (migration 007) → hosting, database, lead-handling, linkedin-profile (raw/2026-10-11-visit-categories.md)
+- lint: 0 problems
