@@ -2,6 +2,9 @@ import type { MetadataRoute } from 'next'
 import { caseKeys, casePath, routes, site } from '@/content'
 import { getPublishedPosts } from '@/lib/blog'
 
+// Rebuilt hourly and whenever the admin saves a post (/api/blog-opdateret), so new posts are listed.
+export const revalidate = 3600
+
 // No lastModified: it would be the build time, not the real change date, and Google ignores inaccurate dates
 // (it also ignores priority and changeFrequency).
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

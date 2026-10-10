@@ -4,7 +4,8 @@ import type { Locale } from '@/content'
 import type { BlogPost } from '@/types'
 
 // Public reads of published posts. No cookies are involved, so the results can be cached and the
-// pages stay static-ish: a new post shows within a minute. Admin pages read through the session client.
+// pages stay static-ish. The admin editor clears the 'blog' tag on every save (/api/blog-opdateret), so a change
+// shows at once; the 60 seconds are only a fallback. Admin pages read through the session client.
 function publicClient() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!, {
     auth: { persistSession: false },
@@ -24,7 +25,7 @@ export const getPublishedPosts = unstable_cache(
     return data ?? []
   },
   ['blog-list'],
-  { revalidate: 60 }
+  { revalidate: 60, tags: ['blog'] }
 )
 
 export const getPublishedPost = unstable_cache(
@@ -39,7 +40,7 @@ export const getPublishedPost = unstable_cache(
     return data
   },
   ['blog-post'],
-  { revalidate: 60 }
+  { revalidate: 60, tags: ['blog'] }
 )
 
 export async function hasPublishedPosts(locale: Locale): Promise<boolean> {
