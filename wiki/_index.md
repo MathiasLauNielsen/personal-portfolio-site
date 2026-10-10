@@ -58,6 +58,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [The blog is removed from the site](raw/2026-10-04-blog-removed.md) | decision | 2026-10-04 |
 | [The blog is restored, the three quick posts are withdrawn, and one researched article replaces them](raw/2026-10-04-blog-restored-one-article.md) | decision | 2026-10-04 |
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
+| [Four blog posts published; the list lagged behind, fixed](raw/2026-10-11-blog-published.md) | observation | 2026-10-11 |
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |
 | [Visit statistics sorted into categories; own visits hidden; time, city, link labels and the visit behind an enquiry](raw/2026-10-11-visit-categories.md) | decision | 2026-10-11 |
