@@ -3,7 +3,7 @@ title: Questions for writing a client case
 type: reference
 summary: What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site
 confidence: medium
-sources: [raw/2026-10-02-cases-section.md, raw/2026-09-30-positioning.md, raw/2026-10-11-site-pass-and-client-cases.md]
+sources: [raw/2026-10-02-cases-section.md, raw/2026-09-30-positioning.md, raw/2026-10-11-site-pass-and-client-cases.md, raw/2026-10-11-case-hidden-work-corrected.md]
 updated: 2026-10-11
 ---
 
@@ -29,8 +29,10 @@ Since 2026-10-11 all three are written out as anonymised cases, from the client'
 | Result | What would make it stronger |
 |---|---|
 | 72% from 25% (ranking model) | A production figure once the model decides what is processed, and the result of the check on a later period. Update the case's status paragraphs when either exists |
-| −98.5% (nightly job) | How long the job took before and after, and a row count after the fix |
-| 2–4.5× (extra work) | How long the lookup takes since the index; the case says this was not measured |
+| −98.5% (nightly job) | How long the job took before and after, and a row count after the fix (the label says it was measured before the fix) |
+| 2–4.5× (extra work) | How long the lookup takes since the change, and how often jobs still run past the time limit; the case says neither was measured. Whether the client knew the volume ran at about 2× before the investigation decides how the case is framed |
+
+The data platform case was corrected sentence by sentence against the client's records on 2026-10-11 ([source](../raw/2026-10-11-case-hidden-work-corrected.md)). The questions left for Mathias are listed there.
 
 Naming the client, or saying what the model ranks, needs the client's agreement.
 
