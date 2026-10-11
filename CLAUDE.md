@@ -44,6 +44,8 @@ npm run wiki     # rebuild wiki/_index.md and lint the wiki (wiki:check = no wri
 
 Claude owns the PR lifecycle in this repo; Mathias does not review before merging. When a task is done: branch, commit, open a PR, wait for the checks (Vercel preview, wiki check), merge to `main` with a merge commit and delete the branch, then verify the production deploy. Stop before `main` only when Mathias has to do something specific first, and say what.
 
+A PR that changes copy, a case, a page's structure or the form gets a buyer read-through first (`wiki/references/buyer-review.md`): a few lines in the PR description on what each of the two buyers can now verify and what still stops the enquiry. Findings are never fixed by inventing a fact; they become open items.
+
 ## Company wiki
 
 `wiki/` is the company's knowledge base, kept by Claude in the llm-wiki pattern: what exists, how it is set up, what was decided and why, and what is open. This file covers the code; the wiki covers everything around it (domain and email, database, hosting, services, offers, runbooks). Rules and formats: `wiki/schema.md`.

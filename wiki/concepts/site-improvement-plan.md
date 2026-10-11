@@ -3,7 +3,7 @@ title: Site improvement plan
 type: concept
 summary: What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item
 confidence: medium
-sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-11-site-pass-and-client-cases.md, raw/2026-10-11-pages-filled-out.md, raw/2026-10-11-blog-review.md]
+sources: [raw/2026-09-30-site-research.md, raw/2026-09-30-brand-and-quick-wins.md, raw/2026-09-30-positioning.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-11-site-pass-and-client-cases.md, raw/2026-10-11-pages-filled-out.md, raw/2026-10-11-buyer-review.md, raw/2026-10-11-blog-review.md]
 updated: 2026-10-11
 ---
 
@@ -67,6 +67,13 @@ Mathias asked for a pass that cuts repetition, makes every section sell, treats 
   - a second AI coding case from a real team;
   - testimonials with permission;
   - a photo.
+
+## Buyer review (2026-10-11)
+
+An adversarial pass and a read as each of the two buyers ([source](../raw/2026-10-11-buyer-review.md)); the method is now a checklist to run after every content change, see [Reviewing the site as a buyer](../references/buyer-review.md). The finding: the structure and the honesty hold up, but a stranger can verify nothing, every figure comes from one platform, and the reply promise rests on a database table nobody is emailed about.
+
+- **Shipped the same day:** the "Experience from" line says what each company is; the hero mock-up mirrors the real agent flow; the checklist.
+- **With Mathias, in order of expected enquiries:** lead emails on (item 1); a quote or reference from each company (11, 18); a photo and a matching LinkedIn profile (7, 21); one sentence on his relation to the platform in the data platform case (33); a price floor or a decision against one (13); a measured figure from the second company (19); the production restructuring as the lead of the AI coding page, with a case (12), and a duration for "Rollout" or its removal (34); an English privacy policy (35). All in [Open items](../topics/open-items.md).
 
 ## Larger decisions
 

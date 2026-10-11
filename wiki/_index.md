@@ -26,6 +26,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
+| [Reviewing the site as a buyer](references/buyer-review.md) | The checklist Claude runs on the site after any content change: an adversarial pass, then a read as each of the two buyers, with what to record and how to measure the effect | medium | 2026-10-11 |
 | [Questions for writing a client case](references/case-questions.md) | What Mathias has to answer and what the client has to approve before a client result becomes a written case on the site | medium | 2026-10-11 |
 | [Company facts](references/company.md) | Legal name, CVR, published contact details and positioning of MLN Data Consulting | high | 2026-09-30 |
 | [LinkedIn profile](references/linkedin-profile.md) | What the profile shows today, the text and banner to put on it, the links to use, and the first posts | medium | 2026-10-11 |
@@ -61,6 +62,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Four blog posts published; the list lagged behind, fixed](raw/2026-10-11-blog-published.md) | observation | 2026-10-11 |
 | [The four blog posts reviewed, corrected and cut to three; posts are written buyer first](raw/2026-10-11-blog-review.md) | decision | 2026-10-11 |
 | [Blog posts are purely theoretical, never about Mathias's own contract work](raw/2026-10-11-blog-theory-only.md) | decision | 2026-10-11 |
+| [Adversarial review of the site, then read as the two buyers it is for](raw/2026-10-11-buyer-review.md) | document | 2026-10-11 |
 | [Data platform case corrected against the client's records](raw/2026-10-11-case-hidden-work-corrected.md) | decision | 2026-10-11 |
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |

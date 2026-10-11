@@ -60,7 +60,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <div className="container-page flex flex-wrap items-center gap-x-8 gap-y-2 py-4 text-sm">
               <span className="eyebrow text-muted">{t.experience.label}</span>
               {t.experience.items.map((item) => (
-                <span key={item} className="font-medium">{item}</span>
+                <span key={item.name} className="font-medium">
+                  {item.name} <span className="font-normal text-muted">· {item.what}</span>
+                </span>
               ))}
             </div>
           </div>
