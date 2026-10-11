@@ -31,7 +31,7 @@ const learningCost: FigureDef = {
   basis: 'illustration',
   title: 'The unavoidable cost of learning grows slowly, if the learning goes where the uncertainty is',
   caption:
-    'Any strategy that finds the best option has to spend some choices on the others. Spread that learning evenly and the waste grows in step with the number of decisions. Spend it on the options you are still unsure about and running ten times longer adds roughly a fixed amount, not ten times more. That floor was proved in 1985. It holds when the same kind of decision repeats often and results come back quickly.',
+    'Any strategy that finds the best option has to spend some choices on the others. Spread that learning evenly and the waste grows in step with the number of decisions. Spend it on the options you are still unsure about and running ten times longer adds roughly a fixed amount, not ten times more. That floor was proved in 1985, and good strategies come close to it when the same kind of decision repeats often and results come back quickly.',
   Draw: () => {
     const xs = [50, 140, 230, 320]
     const ticks = ['100', '1,000', '10,000', '100,000']

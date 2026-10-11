@@ -86,7 +86,7 @@ const calibrationSharpness: FigureDef = {
   basis: 'illustration',
   title: 'A range should hold as often as it claims, and be as narrow as it can while doing so',
   caption:
-    'Each strip is ten past months. The grey band is the range the forecaster gave at the time, each claimed to hold nine times in ten; the dot is what happened, hollow when it fell outside. A range that always holds was wider than it needed to be. One that often misses claimed more than it knew. Only a record of past forecasts and outcomes shows which kind you have.',
+    'Each strip is ten past months. The grey band is the range the forecaster gave at the time, each claimed to hold nine times in ten; the dot is what happened, hollow when it fell outside. Here the range that always held was wider than it needed to be: one half as wide held 9 of 10. The one that often missed claimed more than it knew. Only a record of past forecasts and outcomes shows which kind you have.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-5">
       {[

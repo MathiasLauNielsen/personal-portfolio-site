@@ -23,7 +23,7 @@ const rewrittenVsChanged: FigureDef = {
   basis: 'measured',
   title: 'A nightly job rewrote 46 million rows a night to change 683,000 of them',
   caption:
-    'Both numbers were measured in production before the fix. The grey bar is the rows the job wrote every night; the blue bar is the rows whose value actually changed, about one in 68. After the fix the job writes only the blue part; that follows from the change and has not been counted since.',
+    'Both numbers were measured in production before the fix. The grey bar is the rows the job wrote every night; the blue bar is the rows whose value actually changed. After the fix the job writes only the blue part; that follows from the change and has not been counted since.',
   Draw: () => (
     <Bars
       max={46_200_000}
@@ -43,7 +43,7 @@ const threeKinds: FigureDef = {
   basis: 'illustration',
   title: 'Three kinds of calculation, three prices for keeping a result current',
   caption:
-    'Each strip is a table behind a report, and one row has just changed. The squares show what has to be looked up, or kept, to update the report. A sum needs only the changed row. Matching sales against customers needs the changed row and its matches in the other table, so both tables are kept. The biggest deal per region needs every deal in that region kept in order, because a correction can remove the current winner.',
+    'Each strip is a table behind a report, and one row has just changed. The squares show what has to be looked up, or kept, to update the report. A sum needs only the changed row. Matching sales against customers needs the changed row and its matches in the other table, so both tables are kept. The biggest deal per region needs more than the current winner kept, because a correction can remove it.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-6">
       {[
@@ -58,7 +58,7 @@ const threeKinds: FigureDef = {
         },
         {
           name: 'Expensive: latest, biggest, top ten',
-          how: 'Keep every row in the group, in case the winner is withdrawn',
+          how: 'Keep more than the winner: the group, or a reserve of runners-up',
           strips: [{ label: 'Deals in one region', states: strip([9], Array.from({ length: 24 }, (_, i) => i)) }],
         },
       ].map((k) => (
