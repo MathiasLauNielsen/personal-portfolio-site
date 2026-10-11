@@ -428,10 +428,11 @@ export const en = {
         platformLabel: 'Data platform',
         flow: ['Sources', 'Pipelines', 'Warehouse', 'Reports'],
         aiLabel: 'AI coding',
+        // Mirrors the steps in the agent case ("How a change reaches production"), so the scene is one the site backs.
         terminal: [
-          { kind: 'cmd', text: 'agent "add incremental load for orders"' },
-          { kind: 'ok', text: 'read team conventions' },
-          { kind: 'ok', text: 'wrote pipeline and tests' },
+          { kind: 'cmd', text: 'agent "add the new case to the site"' },
+          { kind: 'ok', text: 'read project instructions and wiki' },
+          { kind: 'ok', text: 'built it on a branch, checks passed' },
           { kind: 'ok', text: 'opened pull request for review' },
         ],
       },
@@ -514,9 +515,14 @@ export const en = {
         { title: 'I build to hand over', body: 'Conventional, documented, and owned by your team when I leave.' },
       ],
     },
+    // What each company is, in the words the About page uses, so a reader who cannot place the names still gets the scope.
     experience: {
       label: 'Experience from',
-      items: ['Ase', 'Copyright Agent', 'Viteco'],
+      items: [
+        { name: 'Ase', what: 'membership organisation' },
+        { name: 'Copyright Agent', what: 'software company' },
+        { name: 'Viteco', what: 'consultancy' },
+      ],
     },
   },
 
