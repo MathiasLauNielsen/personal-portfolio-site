@@ -7,7 +7,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 
 | Article | Summary | Confidence | Updated |
 |---|---|---|---|
-| [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-10-02 |
+| [IT operating model](concepts/it-operating-model.md) | How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias | high | 2026-10-11 |
 | [Offers](concepts/offers.md) | The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated | medium | 2026-10-11 |
 | [Site improvement plan](concepts/site-improvement-plan.md) | What the research on solo consultancy sites says the site should change to win enquiries, in priority order, and the status of each item | medium | 2026-10-11 |
 
@@ -67,3 +67,4 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |
 | [Visit statistics sorted into categories; own visits hidden; time, city, link labels and the visit behind an enquiry](raw/2026-10-11-visit-categories.md) | decision | 2026-10-11 |
+| [Work-item folders adopted for tracked work](raw/2026-10-11-work-items.md) | decision | 2026-10-11 |

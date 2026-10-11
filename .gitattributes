@@ -1,0 +1,2 @@
+# Work-item logs are append-only, so concurrent entries merge by keeping both sides (WI/README.md).
+WI/**/log.md merge=union

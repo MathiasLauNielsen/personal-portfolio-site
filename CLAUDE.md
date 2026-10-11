@@ -12,6 +12,7 @@ The website for Mathias Lau Nielsen / MLN Data Consulting (CVR 45700577), a free
 npm run dev      # http://localhost:3000
 npm run build    # production build, also type-checks
 npm run wiki     # rebuild wiki/_index.md and lint the wiki (wiki:check = no writes)
+npm run wi -- <command>   # work-item folders: start, path, log, run, index, check (WI/README.md)
 ```
 
 `.env.local` needs `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (`vercel env pull`). `gh`, `vercel` and `supabase` CLIs are linked to this project. There are no tests.
@@ -42,9 +43,13 @@ npm run wiki     # rebuild wiki/_index.md and lint the wiki (wiki:check = no wri
 
 ## Pull requests
 
-Claude owns the PR lifecycle in this repo; Mathias does not review before merging. When a task is done: branch, commit, open a PR, wait for the checks (Vercel preview, wiki check), merge to `main` with a merge commit and delete the branch, then verify the production deploy. Stop before `main` only when Mathias has to do something specific first, and say what.
+Claude owns the PR lifecycle in this repo; Mathias does not review before merging. When a task is done: branch, commit, open a PR, wait for the checks (Vercel preview, wiki check, WI check), merge to `main` with a merge commit and delete the branch, then verify the production deploy. Stop before `main` only when Mathias has to do something specific first, and say what.
 
 A PR that changes copy, a case, a page's structure or the form gets a buyer read-through first (`wiki/references/buyer-review.md`): a few lines in the PR description on what each of the two buyers can now verify and what still stops the enquiry. Findings are never fixed by inventing a fact; they become open items.
+
+## Work items
+
+Every task expected to end in a commit, a PR or a change in an external system has a GitHub issue and a folder `WI/<id>-<slug>/` (rules and commands: `WI/README.md`). Before the first edit: find the issue or propose one (create it only after Mathias confirms), run `npm run wi -- start <id>`, copy the request word for word into **Input**, and work on the branch it prints (`<type>/<id>-<slug>`). Log each meaningful step with `npm run wi -- log`, run builds and checks whose output matters through `npm run wi -- run`, record Mathias's decisions under **Definitions**, and end commit messages with `Work item: #<id>` before the trailers. At session end, one short issue comment and the matching log entry, both before the last commit. The folders and issue comments are public: the wiki's public-repository rules apply to them too.
 
 ## Company wiki
 

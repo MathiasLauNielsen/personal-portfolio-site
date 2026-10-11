@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "wiki": "node scripts/wiki.mjs",
-    "wiki:check": "node scripts/wiki.mjs --check"
+    "wiki:check": "node scripts/wiki.mjs --check",
+    "wi": "node scripts/wi.mjs",
+    "wi:check": "node scripts/wi.mjs check"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.1",

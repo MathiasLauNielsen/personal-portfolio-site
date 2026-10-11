@@ -3,8 +3,8 @@ title: IT operating model
 type: concept
 summary: How Claude acts as the company's IT department from this repo, what it may do on its own, and what needs Mathias
 confidence: high
-sources: [raw/2026-09-30-decisions.md, raw/2026-09-30-pr-ownership.md, raw/2026-10-02-cases-section.md]
-updated: 2026-10-02
+sources: [raw/2026-09-30-decisions.md, raw/2026-09-30-pr-ownership.md, raw/2026-10-02-cases-section.md, raw/2026-10-11-work-items.md]
+updated: 2026-10-11
 ---
 
 # IT operating model
@@ -17,6 +17,7 @@ Mathias runs a one-person company and wants this repository to manage and automa
 - Runs database migrations and Vercel domain, environment and deploy commands.
 - Owns the pull request lifecycle: branch, PR, checks, merge to `main`, then verify production. Mathias does not review before merging (decided 2026-09-30). A PR stops short of `main` only when Mathias has to do something specific first.
 - Checks the result of every change against the live system and records it here.
+- Tracks each piece of work as a GitHub issue with a work-item folder in `WI/`: the request word for word, Mathias's decisions, notes and a session log, so work can be picked up without repeating context (adopted 2026-10-11, [source](../raw/2026-10-11-work-items.md); rules in `WI/README.md`). Knowledge that outlives the issue moves here when it closes.
 
 ## What needs Mathias
 
