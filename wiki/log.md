@@ -57,3 +57,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: blog posts purely theoretical, no client or contract work; examples and client-number figures removed → website (raw/2026-10-11-blog-theory-only.md)
 - lint: 0 problems
+- ingest: work-item folders (WI) adopted for tracked work → it-operating-model (raw/2026-10-11-work-items.md)
+- lint: 0 problems

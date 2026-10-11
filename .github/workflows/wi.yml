@@ -1,0 +1,20 @@
+name: WI
+
+on:
+  pull_request:
+    paths: ['WI/**', 'scripts/wi.mjs', '.gitignore']
+  push:
+    branches: [main]
+    paths: ['WI/**', 'scripts/wi.mjs', '.gitignore']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Fails on misnamed folders or files, missing README.md or log.md, malformed log headings,
+      # duplicate ids, or run output or the index committed to git (rules: WI/README.md).
+      - run: node scripts/wi.mjs check

@@ -46,3 +46,7 @@ supabase/.branches
 research_notes/
 reports/
 .env*
+
+# work-item output and generated index (WI/README.md)
+/WI/*/runs/
+/WI/index.md
