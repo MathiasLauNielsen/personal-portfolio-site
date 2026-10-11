@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react'
 
 // Every blog figure sits in this frame. The title is the takeaway in one sentence, so a reader who only
-// looks at the figures gets the argument. The basis line says where the drawing comes from.
-export type FigureBasis = 'measured' | 'tested' | 'published' | 'illustration'
+// looks at the figures gets the argument. The basis line says where the drawing comes from. Posts are purely
+// theoretical, so a figure is either an illustration or a redrawing of published data, never numbers from client work.
+export type FigureBasis = 'published' | 'illustration'
 
 const basisLabel: Record<FigureBasis, string> = {
-  measured: 'Measured in production',
-  tested: 'Tested on past data',
   published: 'Published data, source in the caption',
   illustration: 'Illustration, not data',
 }

@@ -19,22 +19,6 @@ const writtenVsChanged: FigureDef = {
   ),
 }
 
-const rewrittenVsChanged: FigureDef = {
-  basis: 'measured',
-  title: 'A nightly job rewrote 46 million rows a night to change 683,000 of them',
-  caption:
-    'Both numbers were measured in production before the fix. The grey bar is the rows the job wrote every night; the blue bar is the rows whose value actually changed. After the fix the job writes only the blue part; that follows from the change and has not been counted since.',
-  Draw: () => (
-    <Bars
-      max={46_200_000}
-      rows={[
-        { label: 'Rows written every night', value: 46_200_000, display: '46.2 million' },
-        { label: 'Rows whose value changed', value: 683_000, display: '683,000', highlight: true },
-      ]}
-    />
-  ),
-}
-
 function strip(changed: number[], read: number[]): BlockState[] {
   return Array.from({ length: 24 }, (_, i) => (changed.includes(i) ? 'changed' : read.includes(i) ? 'read' : 'idle'))
 }
@@ -166,7 +150,6 @@ const oneTest: FigureDef = {
 
 export const nightlyFigures = {
   'nightly-written-vs-changed': writtenVsChanged,
-  'nightly-rewritten-vs-changed': rewrittenVsChanged,
   'nightly-three-kinds': threeKinds,
   'nightly-correction-two-rows': correctionTwoRows,
   'nightly-one-test': oneTest,

@@ -60,6 +60,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [The blog rebuilt in English, and three posts drafted in the shape theory → practice → business](raw/2026-10-04-blog-theory-to-business.md) | decision | 2026-10-04 |
 | [Four blog posts published; the list lagged behind, fixed](raw/2026-10-11-blog-published.md) | observation | 2026-10-11 |
 | [The four blog posts reviewed, corrected and cut to three; posts are written buyer first](raw/2026-10-11-blog-review.md) | decision | 2026-10-11 |
+| [Blog posts are purely theoretical, never about Mathias's own contract work](raw/2026-10-11-blog-theory-only.md) | decision | 2026-10-11 |
 | [Data platform case corrected against the client's records](raw/2026-10-11-case-hidden-work-corrected.md) | decision | 2026-10-11 |
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |
