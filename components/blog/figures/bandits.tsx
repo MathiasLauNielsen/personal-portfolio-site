@@ -1,7 +1,8 @@
 import type { FigureDef } from './types'
 import { Bars, Card, Legend, RankList, svgMuted, svgText } from './primitives'
 
-// Figures for "You only learn from the choices you make".
+// Figures for "What it costs to find out: exploration under a budget" (first drawn for an earlier, shorter post
+// on the same topic, which was merged into it).
 
 const unchosenUnknown: FigureDef = {
   basis: 'illustration',
@@ -30,7 +31,7 @@ const learningCost: FigureDef = {
   basis: 'illustration',
   title: 'The unavoidable cost of learning grows slowly, if the learning goes where the uncertainty is',
   caption:
-    'Any strategy that finds the best option has to spend some choices on the others. Spread the learning evenly and that waste grows with the number of decisions. Spend it on the options you are unsure about and running ten times longer adds a fixed amount, not ten times more. That minimum was proved in 1985 and two strategies reach it.',
+    'Any strategy that finds the best option has to spend some choices on the others. Spread that learning evenly and the waste grows in step with the number of decisions. Spend it on the options you are still unsure about and running ten times longer adds roughly a fixed amount, not ten times more. That floor was proved in 1985, and good strategies come close to it when the same kind of decision repeats often and results come back quickly.',
   Draw: () => {
     const xs = [50, 140, 230, 320]
     const ticks = ['100', '1,000', '10,000', '100,000']
@@ -78,7 +79,7 @@ const whereUncertain: FigureDef = {
   basis: 'illustration',
   title: 'Spend the learning where the uncertainty is',
   caption:
-    'Three options with what is known about each: a best guess and how far off it could be. Option A looks best. Option C has a worse guess but a wide range, and the top of that range beats A. Optimism picks C: either it turns out good, or the pull removes the uncertainty. Option B is almost certainly bad and is almost never tried.',
+    'Three options with what is known about each: a best guess and how far off it could be. Option A looks best. Option C has a worse guess but a wide range, and the top of that range beats A. Optimism picks C: either it turns out good, or trying it shrinks the uncertainty. Option B is almost certainly bad and is almost never tried.',
   Draw: () => {
     const sx = (v: number) => 80 + (v / 60) * 260
     const rows = [
@@ -124,12 +125,12 @@ const rankingResult: FigureDef = {
   basis: 'tested',
   title: '72% of the valuable cases from a quarter of the budget, up from 25%',
   caption:
-    'Both bars use the same quarter of the processing budget. The old selection found 25% of the valuable cases; a model that ranks items by expected value found 72%. Tested on two months of past data. The ranking only stays this good if a share of the budget keeps going to items it is unsure about.',
+    'Both bars use the same quarter of the processing budget. The old order found 25% of the valuable cases, no better than picking at random; a model that ranks items by expected value found 72%. Tested on two months of past data, not run in production.',
   Draw: () => (
     <Bars
       max={100}
       rows={[
-        { label: 'Old selection', value: 25, display: '25%' },
+        { label: 'Old order', value: 25, display: '25%' },
         { label: 'Ranking model, same budget', value: 72, display: '72%', highlight: true },
       ]}
     />
@@ -140,7 +141,7 @@ const randomSlice: FigureDef = {
   basis: 'illustration',
   title: 'A small random slice this year is what makes a new rule testable next year',
   caption:
-    'Left: the old system only ever processed its top three, so a proposed new rule that would pick ranks 2, 5 and 7 can only be checked on one of its three picks. Right: the old system also processed a small random slice regardless of rank, so outcomes exist at every rank and the new rule can be scored on last year’s data without running it live.',
+    'Left: the old system only ever processed its top three, so a proposed new rule that would pick ranks 2, 5 and 7 can only be checked on one of its three picks. Right: the old system also processed a small random slice regardless of rank, so outcomes exist at every rank. Where the new rule’s picks fall in that slice, they can be scored, reweighted for how rarely each was picked. With a small slice only a few picks coincide each day, so the estimate needs enough history.',
   Draw: () => (
     <div className="grid gap-5 sm:grid-cols-2">
       <div>
@@ -177,7 +178,7 @@ const randomSlice: FigureDef = {
             { rank: 8, chosen: false },
           ]}
         />
-        <Card tone="accent">New rule checkable on 3 of its 3 picks. Scored, reweighted, decided.</Card>
+        <Card tone="accent">The new rule’s picks that fell in the random slice have outcomes. Reweighted, they give an honest estimate, with an error bar.</Card>
       </div>
       <div className="sm:col-span-2">
         <Legend items={[{ swatch: 'outline outline-2 outline-dashed outline-accent', label: 'What the proposed new rule would pick' }]} />

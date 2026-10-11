@@ -25,15 +25,15 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '−98.5%',
-    label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
+    label: 'A nightly job rewrote 46 million rows to change 683,000. Now it writes only the rows that change.',
     note: 'Measured in production before the fix',
     study: 'hidden-work',
     chart: {
-      caption: 'Rows written per night',
+      caption: 'Rows per night, before the fix',
       max: 46_000_000,
       rows: [
-        { label: 'Before', display: '46 million', value: 46_000_000 },
-        { label: 'Now, only what changed', display: '683,000', value: 683_000, highlight: true },
+        { label: 'Written', display: '46 million', value: 46_000_000 },
+        { label: 'Actually changed', display: '683,000', value: 683_000, highlight: true },
       ],
     },
   },

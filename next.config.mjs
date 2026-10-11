@@ -15,6 +15,8 @@ const nextConfig = {
       { source: '/services', destination: '/', permanent: true },
       { source: '/en', destination: '/', permanent: true },
       { source: '/en/:path*', destination: '/', permanent: true },
+      // A short post on exploration, merged into the long one on 2026-10-11.
+      { source: '/blog/you-only-learn-from-the-choices-you-make', destination: '/blog/what-it-costs-to-find-out', permanent: true },
     ]
   },
 }

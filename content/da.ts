@@ -21,15 +21,15 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '−98,5 %',
-    label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der er ændret.',
+    label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu skriver det kun de rækker, der ændres.',
     note: 'Målt i drift før rettelsen',
     study: 'hidden-work',
     chart: {
-      caption: 'Rækker skrevet pr. nat',
+      caption: 'Rækker pr. nat, før rettelsen',
       max: 46_000_000,
       rows: [
-        { label: 'Før', display: '46 mio.', value: 46_000_000 },
-        { label: 'Nu, kun det ændrede', display: '683.000', value: 683_000, highlight: true },
+        { label: 'Skrevet', display: '46 mio.', value: 46_000_000 },
+        { label: 'Faktisk ændret', display: '683.000', value: 683_000, highlight: true },
       ],
     },
   },
