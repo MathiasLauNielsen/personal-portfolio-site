@@ -59,3 +59,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: work-item folders (WI) adopted for tracked work → it-operating-model (raw/2026-10-11-work-items.md)
 - lint: 0 problems
+- ingest: nightly deletion after 2 years (migration 008, pg_cron) → database, open-items (raw/2026-10-11-retention-job.md)
+- lint: 0 problems

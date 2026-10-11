@@ -3,7 +3,7 @@ title: Database
 type: topic
 summary: The Supabase project behind the site, its tables and access rules, and how it was rebuilt on 2026-09-30
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-decisions.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-04-blog-theory-to-business.md, ../supabase/migrations/004_admin_allow_list.sql, ../supabase/migrations/005_site_besoeg.sql, ../supabase/migrations/006_blog_sprog.sql, ../supabase/migrations/007_besoeg_kategorier.sql, raw/2026-10-11-visit-categories.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-decisions.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-04-blog-theory-to-business.md, ../supabase/migrations/004_admin_allow_list.sql, ../supabase/migrations/005_site_besoeg.sql, ../supabase/migrations/006_blog_sprog.sql, ../supabase/migrations/007_besoeg_kategorier.sql, raw/2026-10-11-visit-categories.md, ../supabase/migrations/008_slet_efter_2_aar.sql, raw/2026-10-11-retention-job.md]
 updated: 2026-10-11
 ---
 
@@ -22,6 +22,12 @@ Supabase project `personal-portfolio-site` in eu-central-1 (Frankfurt), linked t
 
 Column names are Danish. "Admins" means `is_admin()`: the signed-in user's id is in `admins`. Public sign-ups are off in Supabase Auth, and even an account that gets created cannot read anything unless it is added to `admins`.
 
+## Deletion after 2 years
+
+The privacy policy promises that enquiries and visit statistics are deleted after 2 years. A `pg_cron` job inside the database, `slet-data-efter-2-aar`, runs every night at 03:15 UTC and deletes rows older than 2 years from `kontakt_henvendelser` (by `oprettet_at`) and `site_besoeg` (by `tidspunkt`). Nothing qualifies before late September 2028. Each run is recorded in `cron.job_run_details`; to check it: `supabase db query --linked "select status, return_message, start_time from cron.job_run_details order by start_time desc limit 5"` ([source](../raw/2026-10-11-retention-job.md)).
+
+Changing the retention period means changing the privacy policy too, and the other way round.
+
 ## How changes are made
 
 Through migration files, see [Runbook for database changes](../references/runbook-database-changes.md).
@@ -31,6 +37,7 @@ Through migration files, see [Runbook for database changes](../references/runboo
 - 2026-04-13: tables created by hand in the SQL editor; one test enquiry.
 - 2026-10-04: migration 006 adds `blog_posts.sprog` so the blog can be English first, see [Website](website.md).
 - 2026-09-30, late: migration 005 adds `site_besoeg`, see [Hosting](hosting.md) for how it is filled and read.
+- 2026-10-11: migration 008 adds the nightly deletion after 2 years ([source](../raw/2026-10-11-retention-job.md)).
 - 2026-10-11: migration 007 makes visits sortable and more precise ([source](../raw/2026-10-11-visit-categories.md)).
   - New `site_besoeg` columns: `eget`, `visning_id`, `sekunder`, `bynavn` and `via`.
   - A new policy lets admins update `site_besoeg`, so visits can be marked as own.
