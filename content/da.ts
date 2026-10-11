@@ -22,7 +22,7 @@ const proofItems: ProofItem[] = [
   {
     value: '−98,5 %',
     label: 'Et natligt job omskrev 46 mio. rækker for at ændre 683.000. Nu rører det kun det, der er ændret.',
-    note: 'Målt i drift',
+    note: 'Målt i drift før rettelsen',
     study: 'hidden-work',
     chart: {
       caption: 'Rækker skrevet pr. nat',
@@ -35,7 +35,7 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '2–4,5×',
-    label: 'Platformen lavede 2–4,5 gange det planlagte arbejde. Et langsomt opslag fik den til at lave jobs om, der allerede var kørt, og hver kørsel meldte succes.',
+    label: 'Platformen lavede omkring 2 gange det planlagte arbejde og 4,5 gange for én kunde. Langsom udvælgelse fik køen til at dele jobs ud igen, og hvert nyt forsøg tog en ny portion.',
     note: 'Målt i drift',
     study: 'hidden-work',
     chart: {
@@ -59,26 +59,26 @@ const studies: CaseStudy[] = [
     topic: 'review',
     published: '2026-10-11',
     meta: {
-      title: 'Case: dataplatform med 4,5 gange det planlagte arbejde',
+      title: 'Case: dataplatform med op til 4,5 gange det planlagte arbejde',
       description:
-        'Et langsomt opslag fik en dataplatform til at lave færdige jobs om, og et natligt job omskrev 46 mio. rækker for at ændre 683.000. Fundet og rettet.',
+        'Langsom udvælgelse og genforsøg, ikke planerne, styrede hvor meget en dataplatform behandlede, og et natligt job omskrev 46 mio. rækker for at ændre 683.000.',
     },
     hero: {
       eyebrow: 'Case · Dataplatform',
-      title: 'Platformen lavede op til 4,5 gange det planlagte arbejde. Hver kørsel meldte succes.',
-      lead: 'En kundes dataplatform med over 60 mio. poster behandlede langt mere, end planerne bad om, og et natligt job omskrev det meste af en stor tabel for at ændre en lille del af den. Intet var fejlet, så ingen havde kigget. Sådan blev det fundet, hvad der blev ændret, og hvad der stadig er åbent.',
+      title: 'Platformen lavede op til 4,5 gange det planlagte arbejde. Planerne styrede ikke mængden.',
+      lead: 'En kundes dataplatform med over 60 mio. poster behandlede langt mere, end planerne bad om, og et natligt job omskrev det meste af en stor tabel for at ændre en lille del af den. Sådan blev det fundet, hvad der blev ændret, og hvad der stadig er åbent.',
       contactCta: 'Spørg til en platformgennemgang',
     },
     card: {
-      body: 'En kundes platform behandlede op til 4,5 gange det, planerne bad om, og et natligt job omskrev 46 mio. rækker for at ændre 683.000. Intet var fejlet, så ingen havde kigget.',
+      body: 'En kundes platform behandlede op til 4,5 gange det, planerne bad om, fordi langsom udvælgelse og genforsøg styrede mængden, og et natligt job omskrev 46 mio. rækker for at ændre 683.000.',
       points: [
-        '2–4,5 gange det planlagte arbejde, sporet til ét langsomt opslag',
+        'Omkring 2 gange det planlagte arbejde samlet, 4,5 gange for én kunde',
         '46 mio. rækker omskrevet hver nat for at ændre 683.000',
-        'Rettet i drift samme uge',
+        'Udvælgelsen og det natlige job rettet samme uge',
       ],
     },
     figures: [
-      { value: '2–4,5×', label: 'det arbejde, planerne bad om, målt i drift over de første to uger af september 2026.' },
+      { value: '2–4,5×', label: 'det arbejde, planerne bad om: omkring 2 gange samlet og 4,5 gange for én kunde, målt i drift i de første to uger af september 2026.' },
       { value: '8 min', label: 'for det langsomste enkelte opslag, hvor hele jobbet havde 10 minutter, før det blev delt ud igen.' },
       { value: '−98,5 %', label: 'rækker skrevet af et natligt job: 46 mio. omskrevet hver nat for at ændre 683.000.' },
     ],
@@ -87,26 +87,26 @@ const studies: CaseStudy[] = [
         kind: 'text',
         title: 'Hvad der var galt',
         paragraphs: [
-          'Flere gange om dagen, pr. kunde, udvælger platformen en portion poster og sender den gennem et betalt behandlingstrin. Planerne gav tilsammen omkring 250.000 poster om dagen. I de første to uger af september 2026 behandlede den omkring 540.000 om dagen, og for enkelte kunder op til 4,5 gange deres grænse.',
-          'Intet så ud til at være i stykker. Jobbene blev færdige, data var korrekte, og ingen alarm gik. De eneste tegn var regningen for behandlingen og en sammenligning, ingen havde lavet: det, planerne bad om, over for det, der faktisk blev gjort.',
+          'Efter en plan pr. kunde, for det meste én gang om dagen, udvælger platformen en portion poster og sender den gennem et betalt behandlingstrin. Planerne gav tilsammen omkring 250.000 poster om dagen. I de første to uger af september 2026 behandlede den omkring 540.000 om dagen, og for én kunde 4,5 gange dens grænse.',
+          'Planerne styrede ikke mængden. Det gjorde den tid, hver udvælgelse tog, og det, køen gjorde, når et job kørte over sin tidsgrænse. Det ses, når man sammenligner det, planerne beder om, med det, der faktisk blev behandlet, pr. kunde og pr. dag.',
         ],
       },
       {
         kind: 'steps',
         title: 'Sådan blev det fundet',
-        lead: 'På én dag, ud fra platformens egne logs og indstillinger. Uden nyt værktøj.',
+        lead: 'På én dag, 16. september 2026, ud fra platformens egne logs, indstillinger og behandlingsdata.',
         steps: [
           { title: 'Sammenlign', body: 'Det, planerne bad om, over for den behandling, der faktisk blev logget, pr. kunde og pr. dag.' },
           { title: 'Følg ét job', body: 'Jobbene tog mellem 100 og 835 sekunder. Køen gav hvert job 600 sekunder, før det blev delt ud igen.' },
-          { title: 'Find den langsomme del', body: 'Opslaget, der udvælger næste portion, læste hele tabellen med 64 mio. rækker hver gang, fordi tabellen ikke havde et indeks til det filter, opslaget brugte. Det tog op til 503 sekunder alene.' },
-          { title: 'Forklar mangedoblingen', body: 'Et job, der kørte over grænsen, blev delt ud igen, og det nye forsøg tog en ny portion, fordi den første allerede var reserveret. Hvert langsomt job blev lavet to gange eller mere, og hvert forsøg meldte succes.' },
-          { title: 'Tjek resten', body: 'En manuel kørsel på tværs af alle kunder tog 20 til 26 minutter og blev delt ud igen, til den havde kørt 74 gange på tre dage og sendt omkring 3 mio. poster.' },
+          { title: 'Find den langsomme del', body: 'Opslaget, der udvælger næste portion, sorterede alle kundens kandidatposter, før portionen blev taget, og tabellen med 64 mio. rækker havde ikke et indeks til opslagets filter, så det læste hele tabellen. Det tog op til 503 sekunder alene.' },
+          { title: 'Forklar mangedoblingen', body: 'Et job, der kørte over grænsen, blev delt ud igen, og det samme gjaldt et job, der blev afvist eller gik ned, op til fem forsøg. Hvert nyt forsøg tog en ny portion, fordi den tidligere allerede var reserveret, så ét planlagt job kunne behandle to portioner eller flere.' },
+          { title: 'Tjek resten', body: 'En manuel kørsel på tværs af 147 kunder tog 20 til 26 minutter og blev delt ud igen og igen: på tre dage kørte den 74 gange og sendte omkring 3 mio. poster.' },
         ],
       },
       {
         kind: 'items',
         title: 'Hvad der blev ændret',
-        lead: 'Tre ændringer, i drift 16. og 18. september 2026. Ingen af dem ændrede, hvad platformen leverer.',
+        lead: 'Tre ændringer, flettet ind 16. og 18. september 2026 og sat i drift. Selve genforsøgene blev beholdt; se nedenfor.',
         items: [
           {
             title: 'Et indeks til opslaget',
@@ -114,7 +114,7 @@ const studies: CaseStudy[] = [
           },
           {
             title: 'En sortering, der ikke gjorde noget',
-            body: 'Hver portion blev sorteret efter værdier, der var frosset måneder tidligere. Den eneste reelle effekt var at lægge poster, der aldrig var behandlet før, bagerst, og den tvang databasen til at sortere alle kandidater, før portionen blev taget. Den blev fjernet. Testet på historiske data var den ikke bedre end tilfældig udvælgelse.',
+            body: 'Hver portion blev sorteret efter værdier, der var frosset måneder tidligere. Den eneste reelle effekt var at lægge poster, der aldrig var behandlet før, bagerst, og den tvang databasen til at sortere alle kandidater, før portionen blev taget. Den blev fjernet, så de poster ikke længere kommer sidst. Testet på historiske data var den ikke bedre end tilfældig udvælgelse.',
           },
           {
             title: 'Et natligt job, der omskrev alt',
@@ -125,21 +125,21 @@ const studies: CaseStudy[] = [
       {
         kind: 'results',
         title: 'Før og efter',
-        lead: 'Begge tal er målt i drift.',
+        lead: 'Begge målt i drift før ændringerne. Det natlige jobs tal efter rettelsen følger af selve ændringen; det er ikke talt siden.',
       },
       {
         kind: 'text',
         title: 'Hvad der skete bagefter',
         paragraphs: [
-          'Da årsagen var kendt, blev den ekstra mængde en beslutning i stedet for et uheld. Kunden valgte bevidst at blive ved med at behandle mere, end planerne siger, for at dække flere poster, og satte et loft for det.',
-          'Stadig åbent: hvor lang tid opslaget tager nu, er ikke målt efter ændringen. Næste skridt er en tjeneste, der planlægger hver dags arbejde ét sted og slet ikke kan dele et job ud igen. Den er under opbygning.',
+          'Kunden beholdt bevidst genforsøgene: at køre udvælgelsen igen var også måden, den behandlede mere end planerne på, for at dække flere poster. I stedet satte den et loft for den daglige mængde.',
+          'Stadig åbent: hvor lang tid opslaget tager nu, og hvor ofte jobs stadig kører over grænsen, er ikke målt efter ændringen. Næste skridt er en tjeneste, der planlægger hver dags arbejde ét sted og slet ikke kan dele et job ud igen. Den er under opbygning.',
           'Den lære, jeg tager med til hver platform: korrekt output siger intet om omkostningen. Sammenlign det, der blev bedt om, med det, der blev gjort, job for job, før alt andet.',
         ],
       },
     ],
     closing: {
       title: 'Samme tjek på jeres platform',
-      body: 'Det er det, en Gennemgang af dataplatform leder efter: arbejde, ingen har bedt om, jobs der omskriver langt mere, end de ændrer, og omkostninger, der vokser, uden at nogen opdager det. I får en skriftlig, prioriteret liste over, hvad der bør rettes først.',
+      body: 'Det er det, en Gennemgang af dataplatform leder efter: arbejde, planerne ikke regner med, jobs der omskriver langt mere, end de ændrer, og omkostninger, der vokser, uden at nogen opdager det. I får en skriftlig, prioriteret liste over, hvad der bør rettes først.',
     },
   },
   {
@@ -686,7 +686,7 @@ export const da: Copy = {
     meta: {
       title: 'Cases: dataplatform, machine learning og AI-kodning',
       description:
-        'En dataplatform med 4,5 gange det planlagte arbejde, en rangeringsmodel der gør mere med en fjerdedel af budgettet, og et firma, hvis IT drives af en kodeagent.',
+        'En dataplatform med op til 4,5 gange det planlagte arbejde, en rangeringsmodel der gør mere med en fjerdedel af budgettet, og et firma, hvis IT drives af en kodeagent.',
     },
     hero: {
       eyebrow: 'Cases',

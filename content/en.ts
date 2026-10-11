@@ -26,7 +26,7 @@ const proofItems: ProofItem[] = [
   {
     value: '−98.5%',
     label: 'A nightly job rewrote 46 million rows to change 683,000. Now it touches only what changed.',
-    note: 'Measured in production',
+    note: 'Measured in production before the fix',
     study: 'hidden-work',
     chart: {
       caption: 'Rows written per night',
@@ -39,7 +39,7 @@ const proofItems: ProofItem[] = [
   },
   {
     value: '2–4.5×',
-    label: 'The platform did 2–4.5× the work it was scheduled for. A slow lookup made it redo jobs that had already run, and every run reported success.',
+    label: 'The platform did about 2× its scheduled work, and 4.5× for one customer. Slow batch selection made the queue hand jobs out again, and each new attempt took a fresh batch.',
     note: 'Measured in production',
     study: 'hidden-work',
     chart: {
@@ -64,26 +64,26 @@ const studies: CaseStudy[] = [
     topic: 'review',
     published: '2026-10-11',
     meta: {
-      title: 'Case: a data platform doing 4.5× its scheduled work',
+      title: 'Case: a data platform doing up to 4.5× its scheduled work',
       description:
-        'A slow lookup made a data platform redo finished jobs, and a nightly job rewrote 46 million rows to change 683,000. How both were found and fixed.',
+        'Slow selection and retries, not the schedules, set how much a data platform processed, and a nightly job rewrote 46 million rows to change 683,000.',
     },
     hero: {
       eyebrow: 'Case · Data platform',
-      title: 'The platform did up to 4.5× the work it was scheduled for. Every run reported success.',
-      lead: 'A client’s data platform, with more than 60 million records, processed far more than its schedules asked for, and a nightly job rewrote most of a large table to change a small part of it. Nothing had failed, so nobody had looked. How it was found, what changed, and what is still open.',
+      title: 'The platform did up to 4.5× the work it was scheduled for. The schedules did not decide the volume.',
+      lead: 'A client’s data platform, with more than 60 million records, processed far more than its schedules asked for, and a nightly job rewrote most of a large table to change a small part of it. How it was found, what changed, and what is still open.',
       contactCta: 'Ask about a platform review',
     },
     card: {
-      body: 'A client’s platform processed up to 4.5× what its schedules asked for, and a nightly job rewrote 46 million rows to change 683,000. Nothing had failed, so nobody had looked.',
+      body: 'A client’s platform processed up to 4.5× what its schedules asked for, because slow selection and retries set the volume, and a nightly job rewrote 46 million rows to change 683,000.',
       points: [
-        '2–4.5× the scheduled work, traced to one slow lookup',
+        'About 2× the scheduled work overall, 4.5× for one customer',
         '46 million rows rewritten every night to change 683,000',
-        'Fixed in production the same week',
+        'Selection and the nightly job fixed the same week',
       ],
     },
     figures: [
-      { value: '2–4.5×', label: 'the work the schedules asked for, measured in production over the first two weeks of September 2026.' },
+      { value: '2–4.5×', label: 'the work the schedules asked for: about 2× overall and 4.5× for one customer, measured in production in the first two weeks of September 2026.' },
       { value: '8 min', label: 'for the slowest single lookup, where the whole job was allowed 10 minutes before it was handed out again.' },
       { value: '−98.5%', label: 'rows written by a nightly job: 46 million rewritten every night to change 683,000.' },
     ],
@@ -92,26 +92,26 @@ const studies: CaseStudy[] = [
         kind: 'text',
         title: 'What was wrong',
         paragraphs: [
-          'Several times a day, per customer, the platform picks a batch of records and sends it through a paid processing step. The schedules added up to about 250,000 records a day. In the first two weeks of September 2026 it processed about 540,000 a day, and for single customers up to 4.5 times their limit.',
-          'Nothing looked broken. Jobs finished, the data was correct and no alert fired. The only signs were the processing bill and a comparison nobody had made: what the schedules asked for against what was actually done.',
+          'On a schedule per customer, mostly once a day, the platform picks a batch of records and sends it through a paid processing step. The schedules added up to about 250,000 records a day. In the first two weeks of September 2026 it processed about 540,000 a day, and for one customer 4.5 times its limit.',
+          'The schedules did not decide the volume. How long each selection took, and what the queue did when a job ran past its time limit, decided it. That shows when what the schedules ask for is compared with what was actually processed, per customer and per day.',
         ],
       },
       {
         kind: 'steps',
         title: 'How it was found',
-        lead: 'In one day, from the platform’s own logs and settings. No new tooling.',
+        lead: 'In one day, 16 September 2026, from the platform’s own logs, settings and processing records.',
         steps: [
           { title: 'Compare', body: 'What the schedules requested against the processing actually logged, per customer and per day.' },
           { title: 'Follow one job', body: 'Jobs took between 100 and 835 seconds. The queue gave each one 600 seconds before handing it out again.' },
-          { title: 'Find the slow part', body: 'The lookup that picks the next batch read the whole 64-million-row table every time, because the table had no index for the filter it used. It took up to 503 seconds on its own.' },
-          { title: 'Explain the multiplying', body: 'A job that ran past the limit was handed out again, and the new attempt picked a fresh batch, because the first one was already reserved. Every slow job was done twice or more, and each attempt reported success.' },
-          { title: 'Check the rest', body: 'A manual run across all customers took 20 to 26 minutes and was handed out again until it had run 74 times on three days, sending about 3 million records.' },
+          { title: 'Find the slow part', body: 'The lookup that picks the next batch sorted every one of the customer’s candidate records before taking the batch, and the 64-million-row table had no index for its filter, so it read the whole table. It took up to 503 seconds on its own.' },
+          { title: 'Explain the multiplying', body: 'A job that ran past the limit was handed out again, and so was a job that was turned away or crashed, up to five attempts. Each new attempt picked a fresh batch, because the earlier one was already reserved, so one scheduled job could process two batches or more.' },
+          { title: 'Check the rest', body: 'A manual run across 147 customers took 20 to 26 minutes and was handed out again and again: on three days it ran 74 times and sent about 3 million records.' },
         ],
       },
       {
         kind: 'items',
         title: 'What was changed',
-        lead: 'Three changes, in production on 16 and 18 September 2026. None of them changed what the platform produces.',
+        lead: 'Three changes, merged on 16 and 18 September 2026 and put in production. The retry path itself was kept; see below.',
         items: [
           {
             title: 'An index for the lookup',
@@ -119,7 +119,7 @@ const studies: CaseStudy[] = [
           },
           {
             title: 'A sort order that did nothing',
-            body: 'Each batch was sorted by values frozen months earlier. The only real effect was to put records never processed before at the back, and it forced the database to sort every candidate before taking the batch. It was removed. Tested on past data, it had been no better than picking at random.',
+            body: 'Each batch was sorted by values frozen months earlier. The only real effect was to put records never processed before at the back, and it forced the database to sort every candidate before taking the batch. It was removed, so those records are no longer last. Tested on past data, it had been no better than picking at random.',
           },
           {
             title: 'A nightly job that rewrote everything',
@@ -130,21 +130,21 @@ const studies: CaseStudy[] = [
       {
         kind: 'results',
         title: 'Before and after',
-        lead: 'Both numbers were measured in production.',
+        lead: 'Both measured in production before the changes. The nightly job’s count after the fix follows from the change itself; it has not been counted since.',
       },
       {
         kind: 'text',
         title: 'What happened next',
         paragraphs: [
-          'With the cause known, the extra volume became a decision instead of an accident. The client chose to keep processing above the schedules on purpose, to cover more records, and set a working ceiling for it.',
-          'Still open: how long the lookup takes now has not been measured since the change. The next step is a service that plans each day’s work in one place and has no retry path at all. It is being built.',
+          'The client kept the retry path on purpose: running selection again was also how it processed more than the schedules asked for, to cover more records. It set a working ceiling for the daily volume instead.',
+          'Still open: how long the lookup takes now, and how often jobs still run past the limit, have not been measured since the change. The next step is a service that plans each day’s work in one place and has no retry path at all. It is being built.',
           'The lesson I take to every platform: correct output says nothing about cost. Compare what was asked for with what was done, job by job, before anything else.',
         ],
       },
     ],
     closing: {
       title: 'The same check, on your platform',
-      body: 'This is what a Data platform review looks for: work nobody asked for, jobs that rewrite far more than they change, and costs that grow without anyone noticing. You get a written, prioritised list of what to fix first.',
+      body: 'This is what a Data platform review looks for: work the schedules do not account for, jobs that rewrite far more than they change, and costs that grow without anyone noticing. You get a written, prioritised list of what to fix first.',
     },
   },
   {
@@ -691,7 +691,7 @@ export const en = {
     meta: {
       title: 'Cases: data platform, machine learning and AI coding',
       description:
-        'A data platform doing 4.5× the scheduled work, a ranking model that does more on a quarter of the budget, and a company whose IT is run by a coding agent.',
+        'A data platform doing up to 4.5× the scheduled work, a ranking model that does more on a quarter of the budget, and a company whose IT is run by a coding agent.',
     },
     hero: {
       eyebrow: 'Cases',

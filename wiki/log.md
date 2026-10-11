@@ -48,3 +48,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: four blog posts published; list lagged up to two minutes and the sitemap never listed them, both fixed → website, open-items (raw/2026-10-11-blog-published.md)
 - lint: 0 problems
+- ingest: data platform case corrected sentence by sentence against the client records (no "every run reported success", the retry path kept on purpose, 2× overall and 4.5× for one customer, −98.5% measured before the fix) → case-questions (raw/2026-10-11-case-hidden-work-corrected.md)
+- lint: 0 problems
