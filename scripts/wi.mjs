@@ -122,6 +122,8 @@ function start(args) {
   if (existing.length) return console.log(`WI/${folderFor(id).name} (exists)`)
 
   const found = issue(id)
+  // Issues and pull requests share one number sequence, and gh issue view accepts both.
+  if (found?.url.includes('/pull/')) fail(`#${id} is a pull request, not an issue: a work item starts from an issue`)
   const title = o.title ?? found?.title ?? fail(`issue #${id} not found through gh: create the issue first, or pass --title`)
   const type = o.type ?? 'feat'
   if (!KEBAB.test(type)) fail(`invalid --type "${type}": a lowercase word such as feat, fix, docs or chore`)
