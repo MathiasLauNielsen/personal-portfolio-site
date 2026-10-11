@@ -3,7 +3,7 @@ title: Website
 type: topic
 summary: What the site is for, what is live, and where its parts are described
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md, raw/2026-10-11-site-pass-and-client-cases.md, raw/2026-10-11-pages-filled-out.md, raw/2026-10-11-blog-published.md]
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-decisions.md, raw/2026-09-30-seo-audit.md, raw/2026-10-02-cases-section.md, raw/2026-10-04-blog-theory-to-business.md, raw/2026-10-04-blog-figures.md, raw/2026-10-04-blog-figures-written.md, ../CLAUDE.md, raw/2026-10-04-blog-removed.md, raw/2026-10-04-blog-restored-one-article.md, raw/2026-10-11-site-pass-and-client-cases.md, raw/2026-10-11-pages-filled-out.md, raw/2026-10-11-blog-published.md, raw/2026-10-11-blog-review.md]
 updated: 2026-10-11
 ---
 
@@ -25,6 +25,7 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 - Traffic is expected to be low for a while, which is why there is no rate limiting beyond field limits and a spam trap.
 - The blog (since 2026-10-04): `/blog` (English) and `/da/blog` (Danish), one language per post, managed in `/admin/blog`. Articles are about concepts from Mathias's fields, technical and business oriented, never about his own work; one researched article at a time, with figures that carry the argument (rules in `CLAUDE.md`). The blog was removed and restored the same evening after three quick posts seemed "random and wrong"; those three are withdrawn and stay unpublished. One researched article, "What it costs to find out: exploration under a budget", is a draft waiting for Mathias to read it, see [Open items](open-items.md) ([built](../raw/2026-10-04-blog-theory-to-business.md), [figures](../raw/2026-10-04-blog-figures.md), [removed](../raw/2026-10-04-blog-removed.md), [restored](../raw/2026-10-04-blog-restored-one-article.md)).
 - Since 2026-10-11 the blog has four published English posts, published by Mathias ([source](../raw/2026-10-11-blog-published.md)). The admin editor clears the blog cache on every save, so a change shows at once, and the sitemap lists new posts.
+- Since a review on 2026-10-11 the blog has three posts, written buyer first: the reader is a data or IT leader who might hire Mathias, the top of each post stands on its own for a non-technical reader, and the theory follows below. No point is made in two posts; the two posts on exploration were merged and the short one's address redirects to the long one ([source](../raw/2026-10-11-blog-review.md)).
 
 ## Where things are described
 

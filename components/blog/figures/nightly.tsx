@@ -1,19 +1,35 @@
 import type { FigureDef } from './types'
 import { Arrow, Bars, Blocks, Card, Legend, type BlockState } from './primitives'
 
-// Figures for "Why the nightly report costs more than it should".
+// Figures for "Why nightly jobs cost more than they should".
+
+const writtenVsChanged: FigureDef = {
+  basis: 'illustration',
+  title: 'A nightly job should cost what changed, not what exists',
+  caption:
+    'A job that rewrites a whole table every night pays for every row, although only a small share changed since yesterday. The result is the same either way, so nothing looks wrong. The gap between the two bars is work done for nothing.',
+  Draw: () => (
+    <Bars
+      max={1_000_000}
+      rows={[
+        { label: 'Rows written every night', value: 1_000_000, display: '1,000,000' },
+        { label: 'Rows that changed since yesterday', value: 10_000, display: '10,000', highlight: true },
+      ]}
+    />
+  ),
+}
 
 const rewrittenVsChanged: FigureDef = {
   basis: 'measured',
-  title: 'The job rewrote 46 million rows a night to change 683,000 of them',
+  title: 'A nightly job rewrote 46 million rows a night to change 683,000 of them',
   caption:
-    'The grey bar is what was paid for every night; the blue bar is the work that was actually needed, about one row in 67. The report was correct every morning, so nobody looked. The job now touches only the rows that changed.',
+    'Both numbers were measured in production before the fix. The grey bar is the rows the job wrote every night; the blue bar is the rows whose value actually changed. After the fix the job writes only the blue part; that follows from the change and has not been counted since.',
   Draw: () => (
     <Bars
-      max={46_000_000}
+      max={46_200_000}
       rows={[
-        { label: 'Rows rewritten every night', value: 46_000_000, display: '46 million' },
-        { label: 'Rows that had actually changed', value: 683_000, display: '683,000', highlight: true },
+        { label: 'Rows written every night', value: 46_200_000, display: '46.2 million' },
+        { label: 'Rows whose value changed', value: 683_000, display: '683,000', highlight: true },
       ]}
     />
   ),
@@ -25,24 +41,24 @@ function strip(changed: number[], read: number[]): BlockState[] {
 
 const threeKinds: FigureDef = {
   basis: 'illustration',
-  title: 'Three kinds of calculation, three prices for keeping a report current',
+  title: 'Three kinds of calculation, three prices for keeping a result current',
   caption:
-    'Each strip is a table behind a report, and one row has just changed. The squares show how much has to be read again to update the report. A sum needs only the new row. Matching sales against customers needs the new row and its matches in the other table. The biggest deal per region needs every deal in that region, because a correction can remove the current winner.',
+    'Each strip is a table behind a report, and one row has just changed. The squares show what has to be looked up, or kept, to update the report. A sum needs only the changed row. Matching sales against customers needs the changed row and its matches in the other table, so both tables are kept. The biggest deal per region needs more than the current winner kept, because a correction can remove it.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-6">
       {[
-        { name: 'Cheap: sums, counts, filters', how: 'Read the changed row only', strips: [{ label: 'Sales', states: strip([9], []) }] },
+        { name: 'Cheap: sums, counts, filters', how: 'The changed row is enough', strips: [{ label: 'Sales', states: strip([9], []) }] },
         {
           name: 'Middle: matching two tables',
-          how: 'Read the changed row and its matches in the other table',
+          how: 'Look up its matches in the other table',
           strips: [
             { label: 'Sales', states: strip([9], []) },
             { label: 'Customers', states: strip([], [2, 15, 20]) },
           ],
         },
         {
-          name: 'Expensive: latest, biggest, top ten, median',
-          how: 'Read every row in the group, in case the winner is withdrawn',
+          name: 'Expensive: latest, biggest, top ten',
+          how: 'Keep more than the winner: the group, or a reserve of runners-up',
           strips: [{ label: 'Deals in one region', states: strip([9], Array.from({ length: 24 }, (_, i) => i)) }],
         },
       ].map((k) => (
@@ -62,7 +78,7 @@ const threeKinds: FigureDef = {
       <Legend
         items={[
           { swatch: 'bg-accent', label: 'The row that changed' },
-          { swatch: 'bg-accent-light', label: 'Has to be read again' },
+          { swatch: 'bg-accent-light', label: 'Looked up or kept' },
           { swatch: 'bg-paper-line', label: 'Untouched' },
         ]}
       />
@@ -72,9 +88,9 @@ const threeKinds: FigureDef = {
 
 const correctionTwoRows: FigureDef = {
   basis: 'illustration',
-  title: 'A correction is two more rows, if the system can count backwards',
+  title: 'A correction is two more rows, if the system can record a removal',
   caption:
-    'A sale booked in March that belonged in April becomes "minus one in March, plus one in April". A system that can hold a negative row takes the correction through the same cheap path as new sales. A system that can only add rows has to recompute everything the correction touches, or stay wrong about March.',
+    'A sale booked in March that belonged in April becomes "minus one in March, plus one in April". A system that can record the minus takes the correction through the same cheap path as new sales, for sums and counts. A pipeline that only knows "new row" has to recompute every total the correction touches, or stay wrong about March.',
   Draw: () => (
     <div className="grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
       <div className="flex flex-col gap-2">
@@ -97,11 +113,11 @@ const correctionTwoRows: FigureDef = {
         <Arrow down />
       </div>
       <div className="flex flex-col gap-2">
-        <Card tone="accent" title="Can hold a negative row">
-          Both rows go through the same cheap update as any new sale. Seconds.
+        <Card tone="accent" title="Can record a removal">
+          For sums and counts, both rows go through the same cheap update as any new sale.
         </Card>
-        <Card tone="muted" title="Can only add rows">
-          Either recompute every total that March feeds into, usually most of the report, or keep reporting March wrong.
+        <Card tone="muted" title="Only knows new rows">
+          Either recompute every total that March feeds into, or keep reporting March wrong.
         </Card>
       </div>
     </div>
@@ -110,17 +126,17 @@ const correctionTwoRows: FigureDef = {
 
 const oneTest: FigureDef = {
   basis: 'illustration',
-  title: 'The one test that matters: the fast version must match a rebuild from scratch, row for row',
+  title: 'The test that matters most: the fast version must match a rebuild from scratch, row for row',
   caption:
-    'For a while, both versions run every night on the same data. Every row where they differ is a bug in the fast version. When the difference has been zero for long enough, the slow rebuild is switched off. If this comparison was never run, nobody knows whether the fast report is right.',
+    'For a while, both versions run on the same data. Every row where they differ is a bug in the fast version. When the difference has stayed at zero through corrections and re-runs, the slow rebuild can be switched off. If this comparison was never run, nobody knows whether the fast version is right.',
   Draw: () => (
     <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
       <div className="flex flex-col gap-2">
-        <Card tone="accent" title="Fast: touch only what changed">
-          Minutes. The version you want to keep.
+        <Card tone="accent" title="Fast: update from the changes">
+          The version you want to keep.
         </Card>
         <Card tone="muted" title="Slow: rebuild everything">
-          Hours. The version you trust.
+          The version you trust.
         </Card>
       </div>
       <div className="hidden sm:block">
@@ -149,6 +165,7 @@ const oneTest: FigureDef = {
 }
 
 export const nightlyFigures = {
+  'nightly-written-vs-changed': writtenVsChanged,
   'nightly-rewritten-vs-changed': rewrittenVsChanged,
   'nightly-three-kinds': threeKinds,
   'nightly-correction-two-rows': correctionTwoRows,
