@@ -29,7 +29,7 @@ The site exists to win enquiries from companies that don't know Mathias yet. Eve
 ## Where things are described
 
 - Code, architecture and copy rules: `CLAUDE.md` in the repo root.
-- What is sold: [Offers](../concepts/offers.md). What to improve: [Site improvement plan](../concepts/site-improvement-plan.md).
+- What is sold: [Offers](../concepts/offers.md). What to improve: [Site improvement plan](../concepts/site-improvement-plan.md). How to review it after a change: [Reviewing the site as a buyer](../references/buyer-review.md).
 - Enquiries: [Lead handling](lead-handling.md).
 - Data: [Database](database.md). Hosting and deploys: [Hosting](hosting.md).
 

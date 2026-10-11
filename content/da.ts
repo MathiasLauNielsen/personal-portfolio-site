@@ -424,9 +424,9 @@ export const da: Copy = {
         flow: ['Kilder', 'Pipelines', 'Warehouse', 'Rapporter'],
         aiLabel: 'AI-kodning',
         terminal: [
-          { kind: 'cmd', text: 'agent "tilføj inkrementel load for ordrer"' },
-          { kind: 'ok', text: 'læste teamets konventioner' },
-          { kind: 'ok', text: 'skrev pipeline og tests' },
+          { kind: 'cmd', text: 'agent "tilføj den nye case til sitet"' },
+          { kind: 'ok', text: 'læste projektinstruktioner og wiki' },
+          { kind: 'ok', text: 'byggede den på en branch, checks bestået' },
           { kind: 'ok', text: 'åbnede pull request til review' },
         ],
       },
@@ -511,7 +511,11 @@ export const da: Copy = {
     },
     experience: {
       label: 'Erfaring fra',
-      items: ['Ase', 'Copyright Agent', 'Viteco'],
+      items: [
+        { name: 'Ase', what: 'medlemsorganisation' },
+        { name: 'Copyright Agent', what: 'softwarevirksomhed' },
+        { name: 'Viteco', what: 'konsulenthus' },
+      ],
     },
   },
 

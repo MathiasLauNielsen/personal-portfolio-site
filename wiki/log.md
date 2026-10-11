@@ -50,3 +50,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: data platform case corrected sentence by sentence against the client records (no "every run reported success", the retry path kept on purpose, 2× overall and 4.5× for one customer, −98.5% measured before the fix) → case-questions (raw/2026-10-11-case-hidden-work-corrected.md)
 - lint: 0 problems
+- ingest: adversarial review of the site and a read as the two buyers → buyer-review (new), site-improvement-plan, website, open-items 1, 12, 13, 19 and new 33–35 (raw/2026-10-11-buyer-review.md)
+- lint: 0 problems
