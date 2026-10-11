@@ -52,3 +52,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: four blog posts reviewed in three rounds; corrected, two merged, buyer-first shape → website (raw/2026-10-11-blog-review.md)
 - lint: 0 problems
+- update: website and site-improvement-plan no longer describe the blog as drafts waiting to be read (raw/2026-10-11-blog-review.md)
+- lint: 0 problems

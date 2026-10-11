@@ -63,6 +63,43 @@ const forecastPoints: FigureDef = {
   },
 }
 
+// The best point is the quantile at (cost of too low) ÷ (cost of too low + cost of too high).
+const priceTheMiss: FigureDef = {
+  basis: 'illustration',
+  title: 'The cost of a miss decides which point of the range to use',
+  caption:
+    'Three uses of the same forecast. The line is the range of outcomes, from low to high; the dot is the number to use. When a forecast that is too high costs nine times as much as one that is too low, as in hiring, use the figure the outcome beats nine times in ten. When the two misses cost the same, use the midpoint. When too low is the expensive miss, as when running out of stock loses sales, use a figure the outcome beats only one time in ten.',
+  Draw: () => (
+    <div className="flex max-w-lg flex-col gap-5">
+      {[
+        { use: 'Hiring plan', costs: 'Too high costs 9× too low', at: 10, point: 'Beaten 9 times in 10' },
+        { use: 'Equal costs', costs: 'Both misses cost the same', at: 50, point: 'Midpoint: beaten half the time' },
+        { use: 'Stock order', costs: 'Too low costs 9× too high', at: 90, point: 'Beaten 1 time in 10' },
+      ].map((r) => (
+        <div key={r.use}>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 text-sm">
+            <span className="font-semibold text-ink">{r.use}</span>
+            <span className="text-xs text-muted">{r.costs}</span>
+          </div>
+          <div className="relative mt-2 h-2 rounded-full bg-paper-line">
+            <span
+              className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-paper-card bg-accent"
+              style={{ left: `${r.at}%` }}
+            />
+          </div>
+          <p className="mt-1.5 text-xs text-ink" style={{ paddingLeft: `${Math.min(r.at, 60)}%` }}>
+            {r.point}
+          </p>
+        </div>
+      ))}
+      <div className="flex justify-between text-xs text-muted">
+        <span>Low outcomes</span>
+        <span>High outcomes</span>
+      </div>
+    </div>
+  ),
+}
+
 const outcomes = [4, -8, 12, -3, 9, -14, 7, 2, -20, 10]
 
 function BandRow({ half }: { half: number }) {
@@ -257,6 +294,7 @@ const partsAddUp: FigureDef = {
 
 export const forecastFigures = {
   'forecast-three-points': forecastPoints,
+  'forecast-price-the-miss': priceTheMiss,
   'forecast-calibration-sharpness': calibrationSharpness,
   'forecast-averaging': averaging,
   'forecast-band-widens': bandWidens,
