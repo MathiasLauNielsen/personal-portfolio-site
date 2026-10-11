@@ -65,6 +65,7 @@ Rules: [schema.md](schema.md). History: [log.md](log.md).
 | [Adversarial review of the site, then read as the two buyers it is for](raw/2026-10-11-buyer-review.md) | document | 2026-10-11 |
 | [Data platform case corrected against the client's records](raw/2026-10-11-case-hidden-work-corrected.md) | decision | 2026-10-11 |
 | [Every page evaluated and filled out with content unique to its job](raw/2026-10-11-pages-filled-out.md) | decision | 2026-10-11 |
+| [Nightly deletion of enquiries and visit rows older than 2 years](raw/2026-10-11-retention-job.md) | observation | 2026-10-11 |
 | [Site pass, two client cases published anonymised, testimonial removed](raw/2026-10-11-site-pass-and-client-cases.md) | decision | 2026-10-11 |
 | [Visit statistics sorted into categories; own visits hidden; time, city, link labels and the visit behind an enquiry](raw/2026-10-11-visit-categories.md) | decision | 2026-10-11 |
 | [Work-item folders adopted for tracked work](raw/2026-10-11-work-items.md) | decision | 2026-10-11 |
