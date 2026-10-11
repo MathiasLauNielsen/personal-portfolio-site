@@ -53,3 +53,7 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - ingest: four blog posts reviewed in three rounds; corrected, two merged, buyer-first shape → website (raw/2026-10-11-blog-review.md)
 - ingest: adversarial review of the site and a read as the two buyers → buyer-review (new), site-improvement-plan, website, open-items 1, 12, 13, 19 and new 33–35 (raw/2026-10-11-buyer-review.md)
 - lint: 0 problems
+- update: website and site-improvement-plan no longer describe the blog as drafts waiting to be read (raw/2026-10-11-blog-review.md)
+- lint: 0 problems
+- ingest: blog posts purely theoretical, no client or contract work; examples and client-number figures removed → website (raw/2026-10-11-blog-theory-only.md)
+- lint: 0 problems

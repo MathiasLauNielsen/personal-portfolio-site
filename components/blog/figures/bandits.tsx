@@ -1,5 +1,5 @@
 import type { FigureDef } from './types'
-import { Bars, Card, Legend, RankList, svgMuted, svgText } from './primitives'
+import { Card, Legend, RankList, svgMuted, svgText } from './primitives'
 
 // Figures for "What it costs to find out: exploration under a budget" (first drawn for an earlier, shorter post
 // on the same topic, which was merged into it).
@@ -121,22 +121,6 @@ const whereUncertain: FigureDef = {
   },
 }
 
-const rankingResult: FigureDef = {
-  basis: 'tested',
-  title: '72% of the valuable cases from a quarter of the budget, up from 25%',
-  caption:
-    'Both bars use the same quarter of the processing budget. The old order found 25% of the valuable cases, no better than picking at random; a model that ranks items by expected value found 72%. Tested on two months of past data, not run in production.',
-  Draw: () => (
-    <Bars
-      max={100}
-      rows={[
-        { label: 'Old order', value: 25, display: '25%' },
-        { label: 'Ranking model, same budget', value: 72, display: '72%', highlight: true },
-      ]}
-    />
-  ),
-}
-
 const randomSlice: FigureDef = {
   basis: 'illustration',
   title: 'A small random slice this year is what makes a new rule testable next year',
@@ -191,6 +175,5 @@ export const banditFigures = {
   'bandits-unchosen-unknown': unchosenUnknown,
   'bandits-learning-cost': learningCost,
   'bandits-where-uncertain': whereUncertain,
-  'bandits-ranking-result': rankingResult,
   'bandits-random-slice': randomSlice,
 }
