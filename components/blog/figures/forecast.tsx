@@ -1,9 +1,10 @@
 import type { FigureDef } from './types'
 import { Card, Legend, svgMuted, svgText } from './primitives'
 
-// Figures for "A forecast is a promise. Here is how to read one."
+// Figures for "Which number is your forecast?".
 
-// A right-skewed bump: most outcomes near the mode, a long tail of good quarters.
+// A right-skewed bump (a gamma shape): a long tail of good quarters pulls the average above the midpoint.
+// Marked points: 10th percentile x≈80, median x≈167, mean x=185.
 function density(x: number) {
   const t = (x - 20) / 55
   return t <= 0 ? 0 : t * t * Math.exp(-t)
@@ -11,9 +12,9 @@ function density(x: number) {
 
 const forecastPoints: FigureDef = {
   basis: 'illustration',
-  title: 'One forecast, three honest numbers',
+  title: 'One forecast, three different numbers',
   caption:
-    'Next quarter is a range of possible outcomes, not one number. The safe figure is the one you will beat nine times in ten; the most likely outcome is the peak; the average sits above it when the good surprises are bigger than the bad ones. A budget, a hiring plan and a sales target should be three points of this one curve, not three forecasts.',
+    'Next quarter is a range of possible outcomes, not one number. Point 1 is the figure you will beat nine times in ten. Point 2, the midpoint, you beat half the time. Point 3, the average, sits above the midpoint when the good surprises are bigger than the bad ones. A hiring plan, a budget and a sales plan can each need a different point of this one curve.',
   Draw: () => {
     const xs = Array.from({ length: 65 }, (_, i) => 20 + i * 5)
     const peak = Math.max(...xs.map(density))
@@ -21,8 +22,8 @@ const forecastPoints: FigureDef = {
     const line = xs.map((x, i) => `${i === 0 ? 'M' : 'L'}${x},${y(x).toFixed(1)}`).join(' ')
     const area = `${line} L340,140 L20,140 Z`
     const marks = [
-      { n: 1, x: 80, label: 'Safe figure: beaten nine times in ten' },
-      { n: 2, x: 130, label: 'Most likely outcome' },
+      { n: 1, x: 80, label: 'The figure you beat nine times in ten' },
+      { n: 2, x: 167, label: 'Midpoint: beaten half the time' },
       { n: 3, x: 185, label: 'Average outcome' },
     ]
     return (
@@ -73,7 +74,7 @@ function BandRow({ half }: { half: number }) {
         return (
           <g key={i}>
             <rect x={x - 8} y={35 - half} width="16" height={half * 2} rx="3" className="fill-paper-line" />
-            <circle cx={x} cy={35 + o} r="4.5" className={inside ? 'fill-ink stroke-paper-card' : 'fill-accent stroke-paper-card'} strokeWidth="2" />
+            <circle cx={x} cy={35 + o} r="4.5" className={inside ? 'fill-ink stroke-paper-card' : 'fill-paper-card stroke-accent'} strokeWidth="2" />
           </g>
         )
       })}
@@ -83,15 +84,15 @@ function BandRow({ half }: { half: number }) {
 
 const calibrationSharpness: FigureDef = {
   basis: 'illustration',
-  title: 'Wide and right says nothing. Narrow and wrong is worse. The goal is narrow and right.',
+  title: 'A range should hold as often as it claims, and be as narrow as it can while doing so',
   caption:
-    'Each strip is ten past months. The grey band is the range the forecaster gave at the time; the dot is what happened. A band that always holds is useless if it is too wide to act on. A tight band that often misses is sharp and wrong. Both qualities can only be judged from a record of past forecasts.',
+    'Each strip is ten past months. The grey band is the range the forecaster gave at the time, each claimed to hold nine times in ten; the dot is what happened, hollow when it fell outside. A range that always holds was wider than it needed to be. One that often misses claimed more than it knew. Only a record of past forecasts and outcomes shows which kind you have.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-5">
       {[
-        { name: 'Always wide', half: 28, verdict: 'Held 10 of 10 months, and could not be acted on' },
-        { name: 'Always narrow', half: 6, verdict: 'Held 3 of 10 months' },
-        { name: 'Narrow and calibrated', half: 15, verdict: 'Held 9 of 10 months: this is the goal' },
+        { name: 'Always wide', half: 28, verdict: 'Held 10 of 10: too cautious to act on' },
+        { name: 'Always narrow', half: 6, verdict: 'Held 3 of 10: claimed more than it knew' },
+        { name: 'As narrow as the record allows', half: 15, verdict: 'Held 9 of 10, as claimed: the goal' },
       ].map((r) => (
         <div key={r.name}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 text-sm">
@@ -103,9 +104,9 @@ const calibrationSharpness: FigureDef = {
       ))}
       <Legend
         items={[
-          { swatch: 'bg-paper-line', label: 'Range given at the time' },
+          { swatch: 'bg-paper-line', label: 'Range given at the time (claimed: 9 in 10)' },
           { swatch: 'bg-ink rounded-full', label: 'Outcome inside the range' },
-          { swatch: 'bg-accent rounded-full', label: 'Outcome outside the range' },
+          { swatch: 'border-2 border-accent bg-paper-card rounded-full', label: 'Outcome outside the range' },
         ]}
       />
     </div>
@@ -114,9 +115,9 @@ const calibrationSharpness: FigureDef = {
 
 const averaging: FigureDef = {
   basis: 'illustration',
-  title: 'The average of two forecasts is usually closer than either of them',
+  title: 'Averaging two forecasts is never further off than the two are on average, and often closer than both',
   caption:
-    'Two teams disagree. Their forecasts make different mistakes, and in an average the mistakes partly cancel. Decades of studies across every field that forecasts find the plain average hard to beat, so the argument about who is right is often the least valuable part of the meeting.',
+    'Two teams disagree and miss in opposite directions, so in the average the mistakes partly cancel: 106 against an outcome of 103, closer than either team. When both miss the same way, the average is still no worse than the two are on average. Fifty years of studies find the plain average of good-faith forecasts hard to beat.',
   Draw: () => {
     const sx = (v: number) => 30 + ((v - 80) / 50) * 300
     return (
@@ -147,9 +148,10 @@ const actuals = [52, 58, 50, 56, 60, 53, 74, 70, 78, 72, 76, 71]
 
 function BandSeries({ centre, half }: { centre: number[]; half: number[] }) {
   const x = (i: number) => 20 + i * 29
-  const upper = centre.map((c, i) => `${i === 0 ? 'M' : 'L'}${x(i)},${c - half[i]}`).join(' ')
+  const y = (v: number) => 120 - v
+  const upper = centre.map((c, i) => `${i === 0 ? 'M' : 'L'}${x(i)},${y(c + half[i])}`).join(' ')
   const lower = centre
-    .map((c, i) => `L${x(i)},${c + half[i]}`)
+    .map((c, i) => `L${x(i)},${y(c - half[i])}`)
     .reverse()
     .join(' ')
   const misses = actuals.filter((a, i) => Math.abs(a - centre[i]) > half[i]).length
@@ -165,15 +167,15 @@ function BandSeries({ centre, half }: { centre: number[]; half: number[] }) {
           <circle
             key={i}
             cx={x(i)}
-            cy={a}
+            cy={y(a)}
             r="4.5"
-            className={Math.abs(a - centre[i]) > half[i] ? 'fill-accent stroke-paper-card' : 'fill-ink stroke-paper-card'}
+            className={Math.abs(a - centre[i]) > half[i] ? 'fill-paper-card stroke-accent' : 'fill-ink stroke-paper-card'}
             strokeWidth="2"
           />
         ))}
       </svg>
       <p className="text-xs text-muted">
-        {misses} of 12 outcomes fell outside the band
+        {misses} of 12 outcomes fell outside the range
       </p>
     </div>
   )
@@ -181,24 +183,24 @@ function BandSeries({ centre, half }: { centre: number[]; half: number[] }) {
 
 const bandWidens: FigureDef = {
   basis: 'illustration',
-  title: 'When the world shifts, an honest band gets wider',
+  title: 'When conditions change, a range that learns from its misses gets wider',
   caption:
-    'Twelve months of outcomes, with the range the forecast gave for each. Halfway through, conditions change. A method that watches its own misses widens and recentres, and keeps nine in ten. A band that looked the same through the change was not being honest about what it knew.',
+    'Twelve months of revenue, higher drawn higher, with the range the forecast gave for each. Halfway through, conditions change. The top forecast watches its own misses: its range widens, its centre follows the new level, and it still holds eleven months in twelve. The bottom one never changes and misses half. A range that looked the same through the change was not telling you how much less it knew.',
   Draw: () => (
     <div className="flex max-w-lg flex-col gap-5">
       <div>
-        <p className="text-sm font-semibold text-ink">Honest: the band learns from its misses</p>
+        <p className="text-sm font-semibold text-ink">Adapts: the range learns from its misses</p>
         <BandSeries centre={[55, 55, 55, 55, 55, 55, 60, 66, 71, 73, 73, 73]} half={[9, 9, 9, 9, 9, 9, 12, 16, 18, 18, 16, 14]} />
       </div>
       <div>
-        <p className="text-sm font-semibold text-ink">Not honest: the band never changes</p>
+        <p className="text-sm font-semibold text-ink">Never adapts: the range stays the same</p>
         <BandSeries centre={Array(12).fill(55)} half={Array(12).fill(9)} />
       </div>
       <Legend
         items={[
           { swatch: 'bg-accent/20', label: 'Range given at the time' },
           { swatch: 'bg-ink rounded-full', label: 'Outcome inside' },
-          { swatch: 'bg-accent rounded-full', label: 'Outcome outside' },
+          { swatch: 'border-2 border-accent bg-paper-card rounded-full', label: 'Outcome outside' },
         ]}
       />
     </div>
@@ -209,7 +211,7 @@ const partsAddUp: FigureDef = {
   basis: 'illustration',
   title: 'Regions forecast on their own rarely add up to the company forecast',
   caption:
-    'Three regions forecast separately sum to 105; the company forecast, made from the total figures, says 100. Scaling the regions down to fit throws away what the regions knew. Combining the levels by how accurate each has been makes them add up by construction, and improves every level.',
+    'Three regions forecast separately sum to 105; the company forecast, made from the total, says 100. Scaling every region down to fit gives each the same correction, whether or not it was the one that was off. Combining the levels by how reliable each has been makes them add up and, on average, makes the forecasts more accurate taken together.',
   Draw: () => (
     <div className="flex flex-col gap-5">
       <div>
@@ -243,10 +245,10 @@ const partsAddUp: FigureDef = {
       </div>
       <div className="grid gap-2 sm:grid-cols-2">
         <Card tone="muted" title="The usual fix: scale the regions">
-          Each region is cut by 5% so the sum is 100. The regions are no longer forecasts.
+          Each region is cut by about 5% so the sum is 100, including the regions that were right.
         </Card>
         <Card tone="accent" title="The better way: combine the levels">
-          Each level counts by its past accuracy. The result adds up, and each level has borrowed what the others knew.
+          Each level counts by how reliable it has been. The result adds up, and each level borrows what the others show.
         </Card>
       </div>
     </div>
