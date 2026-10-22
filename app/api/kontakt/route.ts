@@ -37,8 +37,10 @@ export async function POST(request: Request) {
       )
     }
 
+    // The secret key, because the table has no insert policy for the public key (migration 009): every enquiry
+    // passes the checks above.
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+    const supabaseKey = process.env.SUPABASE_SECRET_KEY
 
     if (!supabaseUrl || !supabaseKey) {
       console.error('Supabase environment variables are not set')
@@ -48,7 +50,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const supabase = createClient(supabaseUrl, supabaseKey)
+    const supabase = createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } })
 
     const { error } = await supabase.from('kontakt_henvendelser').insert({
       navn: navn.trim(),

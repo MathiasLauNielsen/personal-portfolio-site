@@ -3,8 +3,8 @@ title: Lead handling
 type: topic
 summary: What happens when someone sends an enquiry, where it is stored and how Mathias finds out
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, ../app/api/kontakt/route.ts, raw/2026-10-11-visit-categories.md]
-updated: 2026-10-11
+sources: [raw/2026-09-30-launch-checks.md, ../app/api/kontakt/route.ts, raw/2026-10-11-visit-categories.md, raw/2026-10-22-adversarial-review.md]
+updated: 2026-10-22
 ---
 
 # Lead handling
@@ -13,8 +13,8 @@ updated: 2026-10-11
 
 1. A visitor fills in the short form that closes every page (name, email, message, optional company, phone and topic).
 2. The site's enquiry endpoint checks the fields (required fields, email format, length limits) and drops anything that fills the hidden spam field.
-3. The enquiry is stored in `kontakt_henvendelser`, see [Database](database.md).
-4. If Resend is configured, the enquiry is emailed to Mathias with the sender as reply-to. **Not configured as of 2026-09-30:** leads only show up in `/admin/henvendelser`.
+3. The enquiry is stored in `kontakt_henvendelser` with the secret key; since 2026-10-22 the table takes no inserts from the public key, so nothing reaches it without these checks, see [Database](database.md).
+4. If Resend is configured, the enquiry is emailed to Mathias with the sender as reply-to. **Not configured as of 2026-10-22:** leads only show up in `/admin/henvendelser`.
 5. The page sends an `enquiry_sent` analytics event with the topic.
 
 Verified end to end on production on 2026-09-30 (enquiry stored, oversized message rejected).

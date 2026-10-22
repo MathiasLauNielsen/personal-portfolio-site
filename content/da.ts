@@ -133,7 +133,7 @@ const studies: CaseStudy[] = [
         paragraphs: [
           'Kunden beholdt bevidst genforsøgene: at køre udvælgelsen igen var også måden, den behandlede mere end planerne på, for at dække flere poster. I stedet satte den et loft for den daglige mængde.',
           'Stadig åbent: hvor lang tid opslaget tager nu, og hvor ofte jobs stadig kører over grænsen, er ikke målt efter ændringen. Næste skridt er en tjeneste, der planlægger hver dags arbejde ét sted og slet ikke kan dele et job ud igen. Den er under opbygning.',
-          'Den lære, jeg tager med til hver platform: korrekt output siger intet om omkostningen. Sammenlign det, der blev bedt om, med det, der blev gjort, job for job, før alt andet.',
+          'Den lære, jeg tager med til hver platform: sammenlign det, der blev bedt om, med det, der blev gjort, job for job, før alt andet.',
         ],
       },
     ],
@@ -415,7 +415,7 @@ export const da: Copy = {
       eyebrow: 'Freelance data- og AI-ingeniør · København',
       title: 'Dataplatforme, der holder.',
       title2: 'AI-kodning, der leverer.',
-      lead: 'Jeg hedder Mathias. I to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen, fra rådata til de rapporter, forretningen styrer efter. Virksomheder hyrer mig til at bygge eller rette deres, eller til at få reelt output ud af AI-assisteret udvikling. Ofte begge dele.',
+      lead: 'Jeg hedder Mathias. I to virksomheder har jeg haft det tekniske ansvar for hele dataplatformen, fra rådata til de rapporter, forretningen styrer efter. Virksomheder hyrer mig til at bygge eller rette deres, eller til at få reelt output ud af AI-assisteret udvikling.',
       ctaPrimary: 'Få svar inden for en dag',
       ctaSecondary: 'Se hvordan I hyrer mig',
       availability: 'Tager nye opgaver ind',
@@ -427,7 +427,7 @@ export const da: Copy = {
           { kind: 'cmd', text: 'agent "tilføj den nye case til sitet"' },
           { kind: 'ok', text: 'læste projektinstruktioner og wiki' },
           { kind: 'ok', text: 'byggede den på en branch, checks bestået' },
-          { kind: 'ok', text: 'åbnede pull request til review' },
+          { kind: 'ok', text: 'mergede, tjekkede derefter det live site' },
         ],
       },
     },
@@ -455,24 +455,24 @@ export const da: Copy = {
       title: 'Køb timer, eller køb et resultat.',
       hours: {
         name: 'Timer',
-        body: 'En senior ingeniør i jeres team, deltid eller fuld tid, så længe I har brug for det. Den mest almindelige måde, virksomheder arbejder med mig på.',
+        body: 'En senior ingeniør i jeres team, deltid eller fuld tid, så længe I har brug for det.',
         points: ['Timepris, aftalt på forhånd', 'Start småt og skalér op', 'Ingen binding: stop, når arbejdet er gjort'],
         cta: 'Spørg til min kalender',
         topic: 'hours',
       },
-      productsLabel: 'Fast omfang, fast pris',
+      productsLabel: 'Fast omfang, pris aftalt på forhånd',
       products: [
         {
           name: 'Gennemgang af dataplatform',
           body: 'Jeg gennemgår jeres platform og fortæller, hvad den koster, hvor den er skrøbelig, og hvad der bør rettes først. I får en skriftlig, prioriteret rapport og en gennemgang.',
-          meta: '5–8 arbejdsdage over 2–3 uger',
+          meta: 'Anslået 5–8 arbejdsdage over 2–3 uger',
           cta: 'Bed om et tilbud',
           topic: 'review',
         },
         {
           name: 'Opsætning af AI-kodning',
           body: 'Ét team eller én kodebase: instruktioner, agenten læser hver gang, en nedskrevet grænse mellem det, den må gøre selv, og det, der kræver et menneske, forbindelser til jeres systemer og træning på jeres egen backlog.',
-          meta: '6–10 arbejdsdage over 3–4 uger',
+          meta: 'Anslået 6–10 arbejdsdage over 3–4 uger',
           cta: 'Bed om et tilbud',
           topic: 'setup',
         },
@@ -593,7 +593,7 @@ export const da: Copy = {
       title: 'Fra “vi har prøvet Copilot” til AI, der leverer rigtigt arbejde.',
       lead: 'De fleste teams har værktøjerne og ikke meget at vise for det. Forskellen ligger i opsætningen, og det er den, jeg laver.',
     },
-    signsTitle: 'Hvornår virksomheder ringer',
+    signsTitle: 'Tegn på, at opsætningen mangler',
     signs: [
       'Udviklerne har AI-værktøjer, men outputtet har ikke rigtig ændret sig.',
       'Agenten skriver kode, der ignorerer, hvordan jeres kodebase fungerer.',
@@ -762,14 +762,14 @@ export const da: Copy = {
 
   blog: {
     meta: {
-      title: 'Blog: teori, praksis og hvad det betyder for forretningen',
+      title: 'Blog: dataidéer og hvad de betyder for forretningen',
       description:
-        'Korte indlæg, der tager én idé fra teorien bag dataplatforme, prognoser og machine learning, viser den i praksis og siger, hvad den betyder for forretningen.',
+        'Korte indlæg om én idé bag dataplatforme, prognoser eller machine learning: først hvad den betyder for forretningen, så teorien for den tekniske læser.',
     },
     hero: {
       eyebrow: 'Blog',
-      title: 'Fra teori til praksis til forretningen.',
-      lead: 'Én idé pr. indlæg. Hvor den kommer fra, hvordan den ser ud i rigtigt dataarbejde, og hvad den ændrer for dem, der beslutter.',
+      title: 'Én idé, og hvad den betyder for forretningen.',
+      lead: 'Én idé pr. indlæg. Først hvad den ændrer for dem, der beslutter, så teorien bag for den tekniske læser.',
     },
     empty: 'Ingen indlæg endnu.',
     emptyCta: 'Indtil da viser casene arbejdet',

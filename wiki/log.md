@@ -61,3 +61,5 @@ Append-only. One line per operation, newest date last. Format in [schema.md](sch
 - lint: 0 problems
 - ingest: nightly deletion after 2 years (migration 008, pg_cron) → database, open-items (raw/2026-10-11-retention-job.md)
 - lint: 0 problems
+- ingest: second adversarial review; unbacked copy removed, durations marked estimated, empty blog list noindex, enquiries only via the server (migration 009) → open-items, database, hosting, lead-handling, offers, website, buyer-review (raw/2026-10-22-adversarial-review.md)
+- lint: 0 problems

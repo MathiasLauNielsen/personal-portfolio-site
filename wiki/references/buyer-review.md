@@ -3,13 +3,13 @@ title: Reviewing the site as a buyer
 type: reference
 summary: The checklist Claude runs on the site after any content change: an adversarial pass, then a read as each of the two buyers, with what to record and how to measure the effect
 confidence: medium
-sources: [raw/2026-10-11-buyer-review.md, raw/2026-09-30-site-research.md, raw/2026-10-02-cases-section.md]
-updated: 2026-10-11
+sources: [raw/2026-10-11-buyer-review.md, raw/2026-09-30-site-research.md, raw/2026-10-02-cases-section.md, raw/2026-10-22-adversarial-review.md]
+updated: 2026-10-22
 ---
 
 # Reviewing the site as a buyer
 
-The site exists to win enquiries from companies that do not know Mathias ([Website](../topics/website.md)). Outside feedback and the research both said the same thing: the structure is right, the trust is missing ([Site improvement plan](../concepts/site-improvement-plan.md)). This checklist keeps that lens on every change. First run: 2026-10-11 ([source](../raw/2026-10-11-buyer-review.md)).
+The site exists to win enquiries from companies that do not know Mathias ([Website](../topics/website.md)). Outside feedback and the research both said the same thing: the structure is right, the trust is missing ([Site improvement plan](../concepts/site-improvement-plan.md)). This checklist keeps that lens on every change. First run: 2026-10-11 ([source](../raw/2026-10-11-buyer-review.md)); second run: 2026-10-22, which found the first run's top item still open ([source](../raw/2026-10-22-adversarial-review.md)).
 
 ## When to run it
 
