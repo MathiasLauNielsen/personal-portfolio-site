@@ -3,8 +3,8 @@ title: Offers
 type: concept
 summary: The two kinds of expertise sold, the two ways to buy, and how the product durations were estimated
 confidence: medium
-sources: [../content/en.ts, raw/2026-09-30-decisions.md, raw/2026-09-30-positioning.md, raw/2026-09-30-ml-models.md, raw/2026-10-11-pages-filled-out.md]
-updated: 2026-10-11
+sources: [../content/en.ts, raw/2026-09-30-decisions.md, raw/2026-09-30-positioning.md, raw/2026-09-30-ml-models.md, raw/2026-10-11-pages-filled-out.md, raw/2026-10-22-adversarial-review.md]
+updated: 2026-10-22
 ---
 
 # Offers
@@ -16,7 +16,7 @@ updated: 2026-10-11
 
 ## Ways to buy
 
-- **Hours:** an embedded senior engineer, part-time or full-time, at an hourly rate agreed up front. The most common way.
+- **Hours:** an embedded senior engineer, part-time or full-time, at an hourly rate agreed up front. The site no longer calls it "the most common way" (removed 2026-10-22: no source behind it).
 - **Fixed-scope products at a fixed price:**
   - **Data platform review:** a written, prioritised report on cost, fragility and what to fix first, plus a walkthrough.
   - **AI coding setup:** agents set up in one team or codebase, with training.
@@ -25,7 +25,7 @@ Prices and rates are never written here (the repo is public, see [schema](../sch
 
 ## Durations (estimates, 2026-09-30)
 
-Shown on the site as working days and calendar time. These are Claude's estimates, not measured; replace them after the first engagements.
+Shown on the site as working days and calendar time, marked "Estimated" since 2026-10-22 ([source](../raw/2026-10-22-adversarial-review.md)). These are Claude's estimates, not measured; replace them after the first engagements.
 
 | Product | Work | Calendar | Basis |
 |---|---|---|---|

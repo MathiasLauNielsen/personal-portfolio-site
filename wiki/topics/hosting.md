@@ -3,8 +3,8 @@ title: Hosting
 type: topic
 summary: The Vercel project, how deploys happen, environment variables by name, and analytics
 confidence: high
-sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-11-visit-categories.md]
-updated: 2026-10-11
+sources: [raw/2026-09-30-launch-checks.md, raw/2026-09-30-accounts-inventory.md, raw/2026-09-30-domain-live.md, raw/2026-09-30-visit-statistics.md, raw/2026-10-11-visit-categories.md, raw/2026-10-22-adversarial-review.md]
+updated: 2026-10-22
 ---
 
 # Hosting
@@ -25,7 +25,7 @@ Vercel project `personal-portfolio-site` in team scope `mathiaslaunielsen-2902s-
 |---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Database connection, see [Database](database.md) |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Yes | Database connection (public key) |
-| `SUPABASE_SECRET_KEY` | Yes | Inserting visit rows from `/api/besoeg` (bypasses row-level security; never sent to the browser) |
+| `SUPABASE_SECRET_KEY` | Yes | Inserting visit rows from `/api/besoeg` and enquiries from `/api/kontakt` (bypasses row-level security; never sent to the browser) |
 | `BESOEG_SALT` | No | Secret salt for the daily visitor key; falls back to the secret key |
 | `NEXT_PUBLIC_SITE_URL` | Production: `https://mlnanalytics.com` | Canonical URLs, sitemap, link previews; falls back to the vercel.app URL elsewhere |
 | `RESEND_API_KEY` | No | Lead emails, see [Lead handling](lead-handling.md) |

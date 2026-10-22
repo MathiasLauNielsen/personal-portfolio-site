@@ -138,7 +138,7 @@ const studies: CaseStudy[] = [
         paragraphs: [
           'The client kept the retry path on purpose: running selection again was also how it processed more than the schedules asked for, to cover more records. It set a working ceiling for the daily volume instead.',
           'Still open: how long the lookup takes now, and how often jobs still run past the limit, have not been measured since the change. The next step is a service that plans each day’s work in one place and has no retry path at all. It is being built.',
-          'The lesson I take to every platform: correct output says nothing about cost. Compare what was asked for with what was done, job by job, before anything else.',
+          'The lesson I take to every platform: compare what was asked for with what was done, job by job, before anything else.',
         ],
       },
     ],
@@ -420,7 +420,7 @@ export const en = {
       eyebrow: 'Freelance data and AI engineer · Copenhagen',
       title: 'Data platforms that hold up.',
       title2: 'AI coding that actually ships.',
-      lead: 'I’m Mathias. At two companies I’ve had technical responsibility for the whole data platform, from raw data to the reports the business runs on. Companies bring me in to build or fix theirs, or to get real output from AI-assisted development. Often both.',
+      lead: 'I’m Mathias. At two companies I’ve had technical responsibility for the whole data platform, from raw data to the reports the business runs on. Companies bring me in to build or fix theirs, or to get real output from AI-assisted development.',
       ctaPrimary: 'Get a reply within a day',
       ctaSecondary: 'See how to hire me',
       availability: 'Taking on new engagements',
@@ -433,7 +433,7 @@ export const en = {
           { kind: 'cmd', text: 'agent "add the new case to the site"' },
           { kind: 'ok', text: 'read project instructions and wiki' },
           { kind: 'ok', text: 'built it on a branch, checks passed' },
-          { kind: 'ok', text: 'opened pull request for review' },
+          { kind: 'ok', text: 'merged, then verified the live site' },
         ],
       },
     },
@@ -461,24 +461,24 @@ export const en = {
       title: 'Buy hours, or buy a result.',
       hours: {
         name: 'Hours',
-        body: 'A senior engineer in your team, part-time or full-time, for as long as you need. The most common way companies work with me.',
+        body: 'A senior engineer in your team, part-time or full-time, for as long as you need.',
         points: ['Hourly rate, agreed up front', 'Start small and scale up', 'No lock-in: stop when the work is done'],
         cta: 'Ask about availability',
         topic: 'hours',
       },
-      productsLabel: 'Fixed scope, fixed price',
+      productsLabel: 'Fixed scope, price agreed up front',
       products: [
         {
           name: 'Data platform review',
           body: 'I go through your platform and tell you what it costs, where it is fragile, and what to fix first. You get a written, prioritised report and a walkthrough.',
-          meta: '5–8 days of work, over 2–3 weeks',
+          meta: 'Estimated 5–8 days of work, over 2–3 weeks',
           cta: 'Ask for a quote',
           topic: 'review',
         },
         {
           name: 'AI coding setup',
           body: 'One team or codebase: instructions the agent reads every time, a written line between what it may do alone and what needs a person, connections to your systems, and training on your own backlog.',
-          meta: '6–10 days of work, over 3–4 weeks',
+          meta: 'Estimated 6–10 days of work, over 3–4 weeks',
           cta: 'Ask for a quote',
           topic: 'setup',
         },
@@ -600,7 +600,7 @@ export const en = {
       title: 'From “we tried Copilot” to AI that ships real work.',
       lead: 'Most teams have the tools and little to show for it. The difference is in the setup, and that is what I do.',
     },
-    signsTitle: 'When companies call me',
+    signsTitle: 'Signs the setup is missing',
     signs: [
       'Developers have AI tools, but output has not really changed.',
       'The agent writes code that ignores how your codebase works.',
@@ -769,14 +769,14 @@ export const en = {
 
   blog: {
     meta: {
-      title: 'Blog: theory, practice and what it means for the business',
+      title: 'Blog: data ideas and what they mean for the business',
       description:
-        'Short pieces that take one idea behind data platforms, forecasting or machine learning, show it in practice, and say what it means for the business.',
+        'Short pieces on one idea behind data platforms, forecasting or machine learning: what it means for the business first, then the theory for the technical reader.',
     },
     hero: {
       eyebrow: 'Blog',
-      title: 'From theory to practice to the business.',
-      lead: 'One idea per piece. Where it comes from, what it looks like in real data work, and what it changes for the people who decide.',
+      title: 'One idea, and what it means for the business.',
+      lead: 'One idea per piece. First what it changes for the people who decide, then the theory behind it for the technical reader.',
     },
     empty: 'No posts yet.',
     emptyCta: 'Meanwhile, the cases show the work',
